@@ -1,0 +1,15 @@
+在Android和iOS开发中，"bridge"（桥）通常指的是用于连接本地代码和跨平台代码（如JavaScript）之间的接口或机制。它允许在本地代码和跨平台代码之间进行相互调用和数据传递。
+
+在Android开发中，有以下几种常见的桥接机制：
+
+1. Android Native Bridge：Android原生桥接（也称为JNI）允许在Java代码和C/C++代码之间进行互操作。它允许通过JNI函数将数据从Java传递给本地代码，并从本地代码返回结果。这种桥接机制主要用于性能关键的任务和底层系统级开发。
+
+2. WebView Bridge：WebView桥接允许在Android应用程序中的WebView组件中执行JavaScript代码，并通过JavaScriptInterface与Android本地代码进行交互。它可以通过添加JavaScript对象到WebView的上下文中，从而在JavaScript代码和Android本地代码之间实现双向通信。
+
+在iOS开发中，也存在一些常用的桥接机制：
+
+1. Objective-C和Swift Bridge：Objective-C是iOS开发中的主要编程语言，而Swift是一种较新的编程语言。iOS开发中的桥接机制允许Objective-C和Swift代码之间的相互调用。开发人员可以使用Objective-C桥接头文件（Bridging Header）来使两种语言之间的代码互通。
+
+2. JavaScriptCore Bridge：在iOS应用程序中，可以使用JavaScriptCore框架将JavaScript代码嵌入到应用程序中，并实现JavaScript和Objective-C之间的双向通信。通过JavaScriptCore的API，开发人员可以调用Objective-C方法、访问Objective-C对象，并且也可以从JavaScript代码中调用注册的Objective-C方法。
+
+这些桥接机制在Android和iOS开发中都扮演着重要的角色，它们为开发人员提供了一种方便的方式来在本地代码和跨平台代码之间进行通信和数据传递。
