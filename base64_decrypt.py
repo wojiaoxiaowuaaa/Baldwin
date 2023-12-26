@@ -30,8 +30,7 @@ def base64_to_json(base64_str):
 
 
 # 输入你的Base64编码字符串
-input_base64 = """
-"""
+input_base64 = "eyJ1c2VyIjoiMTIzNDU2IiwicGFzc3dvcmQiOiJKV1QifQ=="
 
 # 调用函数进行解码并打印结果
 decoded_json = base64_to_json(input_base64)
