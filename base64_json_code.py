@@ -1,23 +1,32 @@
+
+# 输入你的Base64编码字符串
 import json
 import base64
 
 
-def json_to_base64(json_str):
+def encode_fields_to_base64(fields):
     try:
-        json_data = json.loads(json_str)
-        encoded_data = base64.b64encode(json.dumps(json_data).encode("utf-8")).decode(
-            "utf-8"
-        )
-        return encoded_data
+        # 将字典转为 JSON 字符串
+        json_str = json.dumps(fields)
+
+        # 对 JSON 字符串进行UTF-8编码 得到utf-8字节对象
+        json_data_encoded = json_str.encode('utf-8')
+
+        # 对 UTF-8 编码后的数据进行 Base64 编码
+        base64_encoded = base64.b64encode(json_data_encoded).decode('utf-8')
+
+        return base64_encoded
     except Exception as e:
-        return str(e)
+        print(f"Error: {e}")
+        return None
 
 
-# 输入你的JSON字符串
-input_json = """
-        {"name": "Alice", "age": 25, "city": "Beijing"}
-"""
+if __name__ == "__main__":
+    fields_to_encode = {'name': 'John Doe', 'age': 30, 'city': 'New York'}
 
-# 调用函数进行转换并打印结果
-base64_result = json_to_base64(input_json)
-print("Base64编码结果: ", base64_result)
+    encoded_result = encode_fields_to_base64(fields_to_encode)
+
+    if encoded_result:
+        print(encoded_result)
+    else:
+        print("Encoding failed.")
