@@ -4,10 +4,9 @@ print('开始执行前的全局count:', count)
 
 def func(count):
     def inner(x):
-        nonlocal count
+        nonlocal count  # 声明一个变量是非局部(non-local)的,使得在函数内部能够访问并修改上一层（但不是全局层）的变量。
         count += x
         print('闭包内的count ---', count)
-        # return count
 
     return inner
 
