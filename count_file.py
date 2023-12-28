@@ -13,8 +13,8 @@ def count_lines_and_size(json_file):
 
 
 # 示例用法
-json_file_path = "/Users/wl/Desktop/mock/xuqiu_json/kswitch线上.json"
-line_count, file_size = count_lines_and_size(json_file_path)
+file = os.path.abspath(__file__)
+line_count, file_size = count_lines_and_size(file)
 
 print(f"Line count: {line_count}")
 print(f"File size: {file_size} KB")

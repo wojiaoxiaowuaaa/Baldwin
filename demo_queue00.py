@@ -15,7 +15,7 @@ def consumer(q):
         item = q.get()
         print(f"Consumed: {item}")
         # 模拟一些耗时操作
-        threading.Event().wait(0.5)
+        threading.Event().wait(1)
 
 
 # 创建一个队列对象

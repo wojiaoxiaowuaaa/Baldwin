@@ -4,5 +4,5 @@
 my_iterator = iter(lambda: input("Enter a number or 'stop' to end: "), 'stop')
 
 # 使用 for 循环遍历迭代器
-for number in my_iterator:
-    print(number)
+for i in my_iterator:
+    print(i)
