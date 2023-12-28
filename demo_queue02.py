@@ -1,4 +1,4 @@
-import queue, threading, time
+import queue, threading
 
 q = queue.Queue()
 

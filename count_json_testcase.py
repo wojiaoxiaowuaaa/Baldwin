@@ -1,6 +1,6 @@
 import os
 import unittest
-from count_json import count_lines_and_size
+from count_file import count_lines_and_size
 
 
 class TestCountLinesAndSize(unittest.TestCase):
