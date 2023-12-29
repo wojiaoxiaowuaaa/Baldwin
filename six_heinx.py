@@ -1,6 +1,5 @@
 import concurrent.futures
 import multiprocessing
-import time
 
 
 def heavy_computation(index):
@@ -13,7 +12,7 @@ def heavy_computation(index):
 
 if __name__ == "__main__":
     # 获取可用的核心数量
-    num_cores = multiprocessing.cpu_count()
+    num_cores = multiprocessing.cpu_count()  # 12
 
     try:
         # 使用 ProcessPoolExecutor，充分利用多核心

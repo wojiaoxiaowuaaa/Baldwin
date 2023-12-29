@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 读取 Excel 文件
-file_path = '/Users/wl/Downloads/接口请求上报量汇总前1W.xlsx'
+file_path = '/Users/wl/Documents/接口请求上报量汇总前1W.xlsx'
 df = pd.read_excel(file_path)
 
 # 打印表头（列名）

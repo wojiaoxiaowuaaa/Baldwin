@@ -14,9 +14,7 @@ def rename_files(path):
 
 
 # 指定要修改文件名的文件夹路径
-folder_path = "/Users/wl/Documents/douyin_download"
-
-rename_files(folder_path)
+rename_files("/Users/wl/Documents/douyin_download")
 
 """
 def add_webp_extension(folder_path):
