@@ -9,10 +9,10 @@ def heavy_computation(index):
     print(f"Task {index} finished on process {multiprocessing.current_process().name}")
     return result
 
-
 if __name__ == "__main__":
     # 获取可用的核心数量
-    num_cores = multiprocessing.cpu_count()  # 12
+    num_cores = multiprocessing.cpu_count()
+    print(num_cores)
 
     try:
         # 使用 ProcessPoolExecutor，充分利用多核心

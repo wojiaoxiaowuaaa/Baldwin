@@ -1,9 +1,8 @@
 from pytube import YouTube
-from time_count import calculate_execution_time
-from config_reader import save_path
+from time_count import timer
 
 
-@calculate_execution_time
+@timer
 def download_youtube_video(url, save_path):
     try:
         yt = YouTube(url)
@@ -21,4 +20,4 @@ if __name__ == "__main__":
     youtube_url = """
         https://www.douyin.com/video/7285611499786079507
     """
-    download_youtube_video(youtube_url, save_path)
+    download_youtube_video(youtube_url, '.')
