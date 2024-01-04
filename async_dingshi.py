@@ -17,8 +17,10 @@ async def task_two():
 
 async def main():
     while True:
+        #  在这个脚本中，所有的异步任务task_one() 和 task_two() 都在单个线程中执行，由事件循环调度执行。
         await asyncio.gather(task_one(), task_two())
-        await asyncio.sleep(5)  # Run tasks every 5 seconds
+        await asyncio.sleep(3)  # Run tasks every 5 seconds
 
 
+# 脚本执行时，主进程是运行 Python 解释器的进程。在这个例子中，主进程会执行异步脚本并创建一个事件循环。
 asyncio.run(main())
