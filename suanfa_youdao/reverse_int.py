@@ -1,4 +1,4 @@
-# 反转一个int类型 方法一&方法二:
+# 反转一个int类型 方法一&方法二&方法三:
 
 # def reverse_int(x):
 #     s = [i for i in str(x)][::-1]  # 列表反向切片
