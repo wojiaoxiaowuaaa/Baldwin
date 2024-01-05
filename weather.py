@@ -16,4 +16,4 @@ def func(city):
 
 
 if __name__ == "__main__":
-    func("北京")
+    func("信阳")
