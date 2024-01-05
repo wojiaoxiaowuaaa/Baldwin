@@ -1,15 +1,5 @@
+import random
 import time
-
-
-def timer(func):
-    def wrapper(*args, **kwargs):
-        start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        print(f"{func.__name__} took {end_time - start_time:.2f} seconds to execute.")
-        return result
-
-    return wrapper
 
 
 def calculate_execution_time(func):
@@ -22,3 +12,16 @@ def calculate_execution_time(func):
         return result
 
     return wrapper_er
+
+
+@calculate_execution_time
+def func(l):
+    for i in range(len(l)):
+        for j in range(len(l) - 1 - i):
+            if l[j] > l[j + 1]:
+                l[j], l[j + 1] = l[j + 1], l[j]
+    return l
+
+
+l = random.sample(range(10000), 10000)
+func(l)
