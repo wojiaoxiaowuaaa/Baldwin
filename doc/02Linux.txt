@@ -1,0 +1,48 @@
+# 实时跟踪展示日志的最新内容
+tail  -f   demo.log
+
+# 解压当前目录下的所有zip文件,末尾的分号记得带上
+find .  -name  "*.zip"  -exec unzip -o {} \;
+
+# 大小写不敏感,在指定目录中寻找字符串
+grep -ri "example"
+
+# 打包指定的目录
+ tar  -zcvf  demo.tar.gz  Desktop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 通过brew安装的服务的状态
+brew services list
+# homebrew安装后启动MySQL命令
+mysql.server start
+#  然后根据提示输入新密码确认密码即可完成密码设置
+mysqladmin -uroot -p123456

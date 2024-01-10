@@ -1,0 +1,51 @@
+# 重启APP的命令
+adb shell am force-stop package_name && adb shell am start -n package_name/activity_name
+
+# 过滤日志
+adb logcat | grep  Upgrade
+
+# 打开APP指定的页面 schema (adb shell am start -a android.intent.action.VIEW用于启动Android系统中的一个Activity，通常用于打开设备上的某个应用或打开某个指定的Activity。其中，-a 参数指定启动Activity时的Intent Action动作为 VIEW，即视图操作。)
+adb shell am start -a android.intent.action.VIEW -d  "demo://demo"
+
+# 设备终端设置代理
+adb shell settings put global  http_proxy  172.23.236.22:8888
+
+# 断开代理：
+adb shell settings put global http_proxy :0
+
+# 启动指定的activity
+adb shell am start -n  scom.smile.demo/com.demo.DemoActivityv
+
+# 保存数据及缓存文件安装新安装包
+adb   install  -r   package_name
+
+# 查看手机里所有第三方包名
+adb   shell   pm   list    packages  -3
+
+#  多个设备下，指定设备执行命令:
+adb   -s   设备序列号(序列号可用 adb  devices 查询)
+
+# 清除无效设备:
+adb  disconnect
+
+#查询日志并过滤(忽略大小写&&匹配正则表达式):
+adb logcat | grep -iE "androidruntime|startu0|adoffline|adcachepreloader|AdCachePr"
+
+# 可以复制手机端文件到电脑(需要在非 adb  shell的环境 即电脑的终端下执行)
+adb pull /sdcard/Android/data/com.demo.name/files/.debug
+
+# 查看已安装程序列表
+adb    shell    pm  list    packages
+
+# 将插件安装到指定的包内:
+adb  push  novel-impl-release.apk   /sdcard/Android/data/com.ss.android.article.news/files/.patchs/
+
+# 重启adb:
+adb kill-server
+adb start-server(adb  devices无反应时这么试下)
+
+#  在指定包上检索目标 SDK 版本信息  pm：代表 "package manager"，用于管理 Android 设备上的应用程序包. dump：表示要获取应用程序信息的操作。
+adb shell pm dump com.test.packagename | grep targetSdk
+
+# 抓取日志(带时间) 并保存在本地文件件中
+adb  logcat  -v  time  >  ./log.txt
