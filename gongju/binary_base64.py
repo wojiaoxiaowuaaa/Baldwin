@@ -15,7 +15,7 @@ binary_data = b"Hello, World!"
 # 将二进制数据进行 Base64 编码
 base64_encoded = base64.b64encode(binary_data).decode("utf-8")
 
-# 创建包含 Base64 编码数据的 JSON 对象
+# 创建包含 Base64 编码数据的 dict 对象
 json_data = {"data": base64_encoded}
 
 # 将 转换为 JSON 字符串
@@ -60,5 +60,6 @@ print(decoded_binary_data)
 3. 在进行编码和解码时，要确保使用相同的字符编码，否则可能会出现乱码或错误的结果。
 4. UTF-8 是一种可变长度的字符编码，可以用于表示世界上大部分字符，包括拉丁字母、汉字、符号等。
 
-总之，`encode('utf-8')` 和 `decode('utf-8')` 方法在处理文本数据时非常有用，特别是在处理多语言和多字符集的场景中。它们帮助你在字节序列和 Unicode 字符串之间进行无缝转换。
+总之，`encode('utf-8')` 和 `decode('utf-8')` 方法在处理文本数据时非常有用，特别是在处理多语言和多字符集的场景中。
+它们帮助你在字节序列和 Unicode 字符串之间进行无缝转换。
 """

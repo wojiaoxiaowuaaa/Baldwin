@@ -2,6 +2,7 @@ import time
 
 
 def timer(func):
+    """用于函数执行耗时统计的装饰器 decorator"""
     def wrapper(*args, **kwargs):
         start_time = time.time()
         result = func(*args, **kwargs)

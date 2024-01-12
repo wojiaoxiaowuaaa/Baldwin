@@ -18,4 +18,4 @@ person = Person("小舞", 30, "New York")
 
 # 自动生成的特殊方法
 print(person)  # 调用 __repr__
-print(person == Person("John", 30, "New York"))  # 调用 __eq__
+print(person == Person("John", 31, "beijing"))  # 调用 __eq__

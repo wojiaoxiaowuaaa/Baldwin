@@ -1,4 +1,3 @@
-# 输入你的Base64编码字符串
 import json
 import base64
 
@@ -23,6 +22,4 @@ def encode_fields_to_base64(fields):
 if __name__ == "__main__":
     fields_to_encode = {'name': 'John Doe', 'age': 30, 'city': 'New York'}
     encoded_result = encode_fields_to_base64(fields_to_encode)
-    if encoded_result:
-        print(encoded_result)
-    print("Encoding failed.")
+    print(encoded_result)
