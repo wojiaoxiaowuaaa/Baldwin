@@ -64,9 +64,8 @@ https://www.better365.cn/
 8.配置你的Mac
 https://github.com/bestswifter/macbootstrap
 
-Mac配置iterm 
+Mac配置iterm:
 https://zhuanlan.zhihu.com/p/371952
-
 
 直播源
 https://github.com/Meroser/IPTV?tab=readme-ov-file
