@@ -1,5 +1,4 @@
 from pytube import YouTube
-from pytube.exceptions import VideoUnavailable, PytubeError
 
 url = """
 		https://www.youtube.com/watch?v=SomiNFCnC4c
