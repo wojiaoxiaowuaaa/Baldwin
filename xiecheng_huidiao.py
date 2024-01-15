@@ -1,22 +1,21 @@
-import asyncio
 import time
 
 
-async def greet(name):
-    print(f"Hello, {name}!")
-    await asyncio.sleep(1)
-    print(f"Goodbye, {name}!")
-
-
-async def main():
-    task1 = asyncio.create_task(greet("Alice"))
-    task2 = asyncio.create_task(greet("Bob"))
-
-    await task1
-    await task2
-
-
-asyncio.run(main())
+# async def greet(name):
+#     print(f"Hello, {name}!")
+#     await asyncio.sleep(1)
+#     print(f"Goodbye, {name}!")
+#
+#
+# async def main():
+#     task1 = asyncio.create_task(greet("Alice"))
+#     task2 = asyncio.create_task(greet("Bob"))
+#
+#     await task1
+#     await task2
+#
+#
+# asyncio.run(main())
 
 
 def do_operation(x, y, callback):
@@ -34,23 +33,4 @@ def callback_function(result):
 do_operation(10, 20, callback_function)
 
 
-def perform_async_operation(callback):
-    """
-    在这个示例中，perform_async_operation 函数模拟了一个异步操作，
-    实际上它只是通过 time.sleep 延时来模拟。回调函数
-    handle_async_result 被传递给异步操作函数，当异步操作完成时，
-    回调函数被调用来处理结果。这种方式可以用于实际的网络请求、
-    文件读写等异步操作，以便在操作完成后执行特定的逻辑。
-    """
-    print("Performing asynchronous operation...")
-    time.sleep(2)  # 模拟异步操作w
-    result = "Async operation result"
-    callback(result)
 
-
-def handle_async_result(result):
-    print("Handling async result:", result)
-
-
-perform_async_operation(handle_async_result)
-print("Waiting for async operation to complete...")
