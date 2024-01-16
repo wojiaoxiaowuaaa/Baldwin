@@ -7,6 +7,5 @@ load的功能是把json对象decode解码为Python对象.如果是文件类型�
 
 """
 UTF-8 是 Unicode 字符集的一种编码方式，它定义了如何将 Unicode 中的字符以字节序列的形式存储。
-
-Unicode 是字符集，UTF-8 是编码方式： Unicode 是一个字符集，定义了字符和其唯一代码点的对应关系。UTF-8 是 Unicode 字符集的一种具体的编码方式，定义了如何将 Unicode 中的字符存储为字节序列。
+Unicode 是字符集，UTF-8 是编码方式： Unicode 是一个字符集，定义了字符和其唯一代码点的对应关系。
 """

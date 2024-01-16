@@ -1,6 +1,6 @@
 import psutil
 import time
-from gongju.color_print import color_print
+from color_print import color_print
 
 
 def get_memory_usage():
@@ -24,3 +24,5 @@ if __name__ == "__main__":
             time.sleep(3)  # 间隔时间，可以根据需要调整
     except KeyboardInterrupt:
         print('over')
+
+
