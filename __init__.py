@@ -10,7 +10,7 @@ Unicode 是字符集，UTF-8 是编码方式： Unicode 是一个字符集，定
 基于指定的解释器创建虚拟环境(这里是基于pypy创建虚拟环境)
 virtualenv  -p  /Users/wl/Downloads/pypy3.10-v7.3.15-macos_x86_64/bin/pypy  venv_name
 激活虚拟环境
-/venv_name/bin/activate
+source /venv_name/bin/activate
 退出虚拟环境
 deactivate
 """
