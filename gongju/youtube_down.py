@@ -1,8 +1,7 @@
 from pytube import YouTube
-from time_count import calculate_execution_time
 
 
-@calculate_execution_time
+# @calculate_execution_time
 def download_youtube_video(url, output_path='.'):
     try:
         # 创建 YouTube 对象
@@ -22,7 +21,6 @@ def download_youtube_video(url, output_path='.'):
 if __name__ == "__main__":
     # 替换为你要下载的 YouTube 视频的 URL
     video_url = """
-        https://www.youtube.com/watch?v=055mU4f3E5A
     """
 
     # 替换为你想要保存视频的本地路径
