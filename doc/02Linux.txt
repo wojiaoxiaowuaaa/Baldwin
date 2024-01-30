@@ -12,11 +12,34 @@ grep -ri "example"
 
 
 
+# -i: 交互式模式开启；-t: 分配伪终端；-it 通常同时使用
+# -d: 后台运行容器
+# -p: 指定端口映射，3316:22 表示将宿主机器的 3316 端口映射到容器内部的 22 端口(ssh端口)
+# docker run -itd -p 3316:22 ubuntu:20.04
 
 
 
 
+brew services list  # 通过brew安装的服务的状态
+mysql.server start   # homebrew安装后启动MySQL命令
+mysqladmin -uroot -p123456   #  然后根据提示输入新密码确认密码即可完成密码设置
+brew install scrcpy  # 安装投屏工具
+scrcpy -s QOUCI7FQWKJNW4F6 -p 1901 & scrcpy -s c592c829 -p 1902 &  # 同时投屏多台设备
+scrcpy --window-borderless  # 无边框
+python3 -m pip install  demo  # 如果pip安装包后提示找不到可以用改方法来安装
+pip3  install -r /path/to/requirements.txt  # 从txt中安装-r是必须的
 
+
+# 指定PIP源来安装包
+cd  ~ &&  mkdir .pip   
+touch pip.conf
+vi   pip.conf
+[global]
+index-url=https://指定的pip源
+extra-index-url = https://添加多个源
+# 或者执行
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip config set global.extra-index-url https://pypi.org/simple
 
 
 
