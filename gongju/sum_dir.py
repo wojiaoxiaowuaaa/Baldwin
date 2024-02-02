@@ -1,5 +1,7 @@
 import os
+from config.setting import *
 
+print()
 # def get_folder_size(floder='.'):
 #     total_size = 0
 #

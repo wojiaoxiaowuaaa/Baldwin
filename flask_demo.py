@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-from werkzeug.datastructures import FileStorage
 
 app = Flask(__name__)
 
@@ -14,49 +13,49 @@ args - 解析查询字符串的内容，它是问号"?"之后的URL的⼀部分�
 
 
 @app.route('/', methods=['get', 'post'])
-def index():
-    # 获取请求的基础数据
-    # print(request.url)  # 请求的URL
-    # print(request.method)  # 本次请求的请求方式
-    # print(request.headers)  # 获取请求头信息  类字典对象
+def index(): pass
 
-    # print(request.headers['Host'])
-    # print(request.headers.get('Host'))  # 建议使用get方法, 键不存在不报错
 
-    # 请求传递数据 1> URL路径 -> 路由变量  2> 查询字符串 get  3> 请求体  post  4> 请求头 -> request.headers
+# 获取请求的基础数据
+# print(request.url)  # 请求的URL
+# print(request.method)  # 本次请求的请求方式
+# print(request.headers)  # 获取请求头信息  类字典对象
 
-    # 获取查询字符串 -> request.args  xx?name=zs&age=20  类字典对象
-    # print(request.args.get('name'))
-    # print(request.args.get('age'))
+# print(request.headers['Host'])
+# print(request.headers.get('Host'))  # 建议使用get方法, 键不存在不报错
 
-    # 请求体:   键值对(表单)   文本(json/xml)  文件(图片/音频)
+# 请求传递数据 1> URL路径 -> 路由变量  2> 查询字符串 get  3> 请求体  post  4> 请求头 -> request.headers
 
-    # 获取post键值对 -> request.form  类字典对象
-    # print(request.form.get('name'))
+# 获取查询字符串 -> request.args  xx?name=zs&age=20  类字典对象
+# print(request.args.get('name'))
+# print(request.args.get('age'))
 
-    # 获取post文本数据 -> request.data / request.json
-    # print(request.data)  # 返回bytes类型
-    # print(request.json.get('age'))  # request.json直接将json字符串转为字典
+# 请求体:   键值对(表单)   文本(json/xml)  文件(图片/音频)
 
-    # 获取post文件 -> request.files  类字典对象
-    # file = request.files.get("avatar")  # type: # FileStorage
-    # print(type(file))  # 返回 FileStorage文件对象
-    # 将文件保存到本地
-    # file.save('123.jpg')
+# 获取post键值对 -> request.form  类字典对象
+# print(request.form.get('name'))
 
-    # 获取文件的二进制数据
-    # img_bytes = file.read()
-    # print(img_bytes)
+# 获取post文本数据 -> request.data / request.json
+# print(request.data)  # 返回bytes类型
+# print(request.json.get('age'))  # request.json直接将json字符串转为字典
 
-    # data = request.get_json()
-    # name = data.get('name')
-    # age = data.get('age')
-    # print(f'Name: {name}, Age: {age}')
+# 获取post文件 -> request.files  类字典对象
+# file = request.files.get("avatar")  # type: # FileStorage
+# print(type(file))  # 返回 FileStorage文件对象
+# 将文件保存到本地
+# file.save('123.jpg')
 
-    # 获取原始的请求实数
-    # data = request.data
+# 获取文件的二进制数据
+# img_bytes = file.read()
+# print(img_bytes)
 
-    return 'index.html'
+# data = request.get_json()
+# name = data.get('name')
+# age = data.get('age')
+# print(f'Name: {name}, Age: {age}')
+
+# 获取原始的请求实数
+# data = request.data
 
 
 # @app.route("/upload", methods=["POST", "GET"])

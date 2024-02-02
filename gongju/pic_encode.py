@@ -15,3 +15,4 @@ def encode_image_to_base64(image_path):
 
 if __name__ == "__main__":
     encoded_image = encode_image_to_base64('../ceshi.png')  # 这里的encoded_image 可用于在JSON 数据中嵌入图像或通过网络 API 传输图像
+
