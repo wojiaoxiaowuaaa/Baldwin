@@ -28,7 +28,7 @@ print()
 #     print(f"The total size of the folder {floder} is: {formatted_size}")
 
 # 计算指定文件夹的大小
-floder = '/Users/wl/Documents/douyin'
+floder = '/Users/wl/Documents/兄弟连/'
 
 folder_size = sum([os.path.getsize(os.path.join(dirpath, filename)) for dirpath, dirnames, filenames in os.walk(floder) for filename in filenames])
 

@@ -46,13 +46,6 @@ name:
 License key: 
 0564b63d6b17896972
 
-http://read.nlc.cn/thematDataSearch/toGujiIndex国家图书馆
-http://lswx.tjl.tj.cn:8001天津图书馆
-http://218.2.105.121南京图书馆
-http://msq.ynlib.cn云南图书馆
-https://fzk.szlib.com/book/index苏州图书馆
-https://sztc.sysu.edu.cn中山大学图书馆
-
 Itrem2配置——知乎
 https://zhuanlan.zhihu.com/p/550022490
 

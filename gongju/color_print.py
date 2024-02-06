@@ -1,7 +1,23 @@
-def color_print():
+# print("# -------------------设置分块任务-------------------")
+
+"""
+Red: \033[1;31m
+Blue: \033[1;34m
+Yellow: \033[1;33m
+Magenta: \033[1;35m
+Cyan: \033[1;36m
+White: \033[1;37m
+"""
+
+
+def color_print_greep():
     print("\033[1;32m" + "*" * 30 + "\033[0m")
-    # print("# -------------------设置分块任务-------------------")
+
+
+def color_print_red():
+    print("\033[1;31m" + "*" * 30 + "\033[0m")
 
 
 if __name__ == '__main__':
-    color_print()
+    color_print_greep()
+    color_print_red()

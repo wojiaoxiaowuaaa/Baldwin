@@ -1,4 +1,3 @@
-# 递归求和
 def func(l, target):
     hashmap = {}
 
@@ -13,5 +12,5 @@ def func(l, target):
 
 
 l = [1, 3, 7, 11]
-target = 12
+target = 10
 print(func(l, target))

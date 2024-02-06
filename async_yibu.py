@@ -14,7 +14,7 @@ async def main():
     urls = ["https://www.baidu.com/?tn=02003390_42_hao_pg", "https://www.douban.com/", 'https://www.bing.com/']
     tasks = [fetch_data(url) for url in urls]
     results = await asyncio.gather(*tasks)
-    print(results)
+    print(results[1])
 
 
 asyncio.run(main())
