@@ -20,6 +20,3 @@ def on_frame(frame):
 client.add_listener(scrcpy.EVENT_FRAME, on_frame)
 # Then, you can start the client
 client.start()
-
-
-

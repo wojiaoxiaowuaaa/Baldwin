@@ -19,3 +19,4 @@ MD5_SALT = "wl2024#%*"
 
 # 路径
 pwd = '/Users/wl/Baldwin/zzz_test.py'
+desktop = '/Users/wl/Desktop'

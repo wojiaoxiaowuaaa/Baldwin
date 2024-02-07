@@ -16,14 +16,12 @@ def collect(tab, recorder, title):
         for i in tab.eles('.title project-namespace-path'):
             # 获取某页所有库名称，记录到记录器
             recorder.add_data((title, i.text, num))
-
         # 如果有下一页，点击翻页
         btn = tab('@rel=next', timeout=2)
         if btn:
             btn.click(by_js=True)
             tab.wait.load_start()
             num += 1
-
         # 否则，采集完毕
         else:
             break
@@ -42,7 +40,7 @@ def main():
     tab2 = page.get_tab(tab2)
 
     # 新建记录器对象
-    recorder = Recorder('data.csv')
+    recorder = Recorder('/Users/wl/Desktopdata.csv')
 
     # 多线程同时处理多个页面
     Thread(target=collect, args=(tab1, recorder, 'ai')).start()

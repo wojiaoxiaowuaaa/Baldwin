@@ -5,7 +5,7 @@ from time import time, sleep
 
 
 def download_task(filename):
-    print('启动下载进程，进程号[%d].' % getpid())
+    print('启动下载进程，进程号[%d]' % getpid())
     print('开始下载%s...' % filename)
     time_to_download = randint(5, 10)
     sleep(time_to_download)
