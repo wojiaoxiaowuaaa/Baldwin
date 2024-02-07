@@ -14,7 +14,7 @@ def func(city):
 
     res = json.dumps(res.json())  # 将Python字典转换为json字符串
 
-    with open("./doc/demo.json", "w") as f:
+    with open("../doc/demo.json", "w") as f:
         f.write(res)
 
 

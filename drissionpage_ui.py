@@ -3,8 +3,9 @@ from DrissionPage import ChromiumPage
 from DataRecorder import Recorder
 
 
+# https://g1879.gitee.io/drissionpagedocs/
 def collect(tab, recorder, title):
-    """用于采集的方法
+    """
     :param tab: ChromiumTab 对象
     :param recorder: Recorder 记录器对象
     :param title: 类别标题
@@ -40,7 +41,7 @@ def main():
     tab2 = page.get_tab(tab2)
 
     # 新建记录器对象
-    recorder = Recorder('/Users/wl/Desktopdata.csv')
+    recorder = Recorder('/Users/wl/Desktop/data.csv')
 
     # 多线程同时处理多个页面
     Thread(target=collect, args=(tab1, recorder, 'ai')).start()
