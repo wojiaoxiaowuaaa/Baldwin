@@ -1,9 +1,9 @@
 from suanfa.is_prime import is_prime
-from gongju.color_print import color_print
+from gongju.color_print import color_print_greep
 
 
 def file_write():
-    filenames = ('a.txt', 'b.txt', 'c.txt')
+    filenames = ('/Users/wl/Desktop/a.txt', '/Users/wl/Desktop/b.txt', '/Users/wl/Desktop/c.txt')
     l = []
     try:
         for file in filenames:
@@ -21,7 +21,8 @@ def file_write():
     finally:
         for f in l:
             f.close()
-    color_print()
+
+    color_print_greep()
 
 
 if __name__ == '__main__':

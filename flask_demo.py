@@ -8,7 +8,7 @@ request对象中保存了一次HTTP请求的一切信息。
 
 Request对象的重要属性如下所列：
 form - 它是⼀个字典对象，包含表单参数及其值的键和值对。
-args - 解析查询字符串的内容，它是问号"?"之后的URL的⼀部分。
+args - 解析查询字符串的内容，它是浏览器问号"?"之后的URL的⼀部分。
 """
 
 
@@ -72,4 +72,4 @@ def index(): pass
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run('0.0.0.0', port=8080, debug=True)
