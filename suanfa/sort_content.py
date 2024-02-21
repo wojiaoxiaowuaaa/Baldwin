@@ -1,3 +1,6 @@
+from config.setting import winter_fell, net
+
+
 def func(winter_fell):
     punctuations = ['（', '，', '。', '“', '、', ' ', '）', '”', '\n']
     for punctuation in punctuations:
@@ -16,12 +19,7 @@ def func(winter_fell):
     print(fin_hashmap)
 
 
-winter_fell = '''
-文本排序统计文本中的字符并降序排序:
-软件测试工程师（Software Testing Engineer）指理解产品的功能要求，并对其进行测试，检查软件有没有缺陷（Bug），
-测试软件是否具有稳定性（Robustness）、安全性、易操作性等性能，写出相应的测试规范和测试用例的专门工作人员。
-简而言之，软件测试工程师在一家软件企业中担当的是“质量管理”角色，及时发现软件问题并及时督促更正，确保产品的正常运作。
-按其级别和职位的不同，分为三类。
-'''
+with open(net, 'r') as f:
+    content = f.read()
 
-func(winter_fell)
+func(content)

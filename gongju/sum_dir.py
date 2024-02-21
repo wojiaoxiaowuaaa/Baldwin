@@ -1,7 +1,6 @@
 import os
-from config.setting import *
+from config.setting import desktop
 
-print()
 # def get_folder_size(floder='.'):
 #     total_size = 0
 #
@@ -28,7 +27,7 @@ print()
 #     print(f"The total size of the folder {floder} is: {formatted_size}")
 
 # 计算指定文件夹的大小
-floder = '/Users/wl/Documents/兄弟连/'
+floder = desktop
 
 folder_size = sum([os.path.getsize(os.path.join(dirpath, filename)) for dirpath, dirnames, filenames in os.walk(floder) for filename in filenames])
 
