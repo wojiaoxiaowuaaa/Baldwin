@@ -1,4 +1,5 @@
 import os
+import shutil
 import unittest
 from count_file import count_lines_and_size
 
@@ -11,11 +12,14 @@ class TestCountLinesAndSize(unittest.TestCase):
 
     def test_count_lines_and_size(self):
         line_count, file_size = count_lines_and_size(self.test_file)
-        self.assertEqual(line_count, 10)  # 我们写入了10行，所以期望行数为10
+        self.assertEqual(10, line_count)  # 我们写入了10行，所以期望行数为10
         self.assertTrue(file_size > 0)  # 文件大小应该大于0
 
     def tearDown(self):
-        os.remove(self.test_file)  # 测试结束后删除测试文件
+        try:
+            os.remove(self.test_file)  # 测试结束后删除测试文件
+        except Exception as e:
+            print(e)
 
 
 if __name__ == "__main__":

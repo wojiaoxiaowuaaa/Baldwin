@@ -3,7 +3,7 @@ from gongju.color_print import color_print_greep
 
 
 def file_write():
-    filenames = ('/Users/wl/Desktop/a.txt', '/Users/wl/Desktop/b.txt', '/Users/wl/Desktop/c.txt')
+    filenames = ('/Users/wl/Desktop/aaa.txt', '/Users/wl/Desktop/aaab.txt', '/Users/wl/Desktop/aaac.txt')
     l = []
     try:
         for file in filenames:
