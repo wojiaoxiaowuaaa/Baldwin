@@ -1,7 +1,6 @@
 import requests
 import os
 import uuid
-from config_reader import filename, output_dir
 
 
 def download_images_from_file(filename, output_dir):
@@ -22,4 +21,6 @@ def download_images_from_file(filename, output_dir):
                 print(f"无法下载图片：{url}")
 
 
+filename = ""
+output_dir = ""
 download_images_from_file(filename, output_dir)

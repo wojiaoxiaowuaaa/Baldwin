@@ -16,7 +16,7 @@ def timestamp_to_beijing_time(timestamp):
 
 
 # 输入待转换的时间戳
-input_time = 1704038400000
+input_time = 1708940095494
 print("输入时间戳--->日期为:", timestamp_to_beijing_time(input_time))
 
 

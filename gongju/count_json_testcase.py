@@ -1,7 +1,9 @@
 import os
-import shutil
+import sys
 import unittest
 from count_file import count_lines_and_size
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 
 class TestCountLinesAndSize(unittest.TestCase):

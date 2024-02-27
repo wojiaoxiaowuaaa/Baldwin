@@ -443,6 +443,20 @@ class RequestHandler(HTTPRequestHandler):
         self.end_headers()
         self.wfile.write(page.encode('utf-8'))
 
+    def handle_about(self):
+        page = '''
+        <html>
+        <body>
+        <p>This is the about page!</p>
+        </body>
+        </html>
+        '''
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(page)))
+        self.end_headers()
+        self.wfile.write(page.encode('utf-8'))
+
     # 处理 GET 请求
     def do_get(self):
         # 根据 path 对应到具体的处理方法
@@ -450,6 +464,8 @@ class RequestHandler(HTTPRequestHandler):
             self.handle_index()
         elif self.path.startswith('/favicon'):
             self.handle_favicon()
+        elif self.path == '/handle_about':
+            self.handle_about()
         else:
             self.send_error(404)
 
