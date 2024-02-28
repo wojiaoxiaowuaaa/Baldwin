@@ -1,10 +1,11 @@
 import os
 import shutil
+import subprocess
 
 
 def clean_up(dir):
     """删除当前脚本下的指定目录
-    :param dir: 当前脚本所在目录下要删除的目录
+    :param dir: 当前脚本所在目录下 要删除的目录
     涉及的关键方法调用:shutil.rmtree()"""
     cache_directory = os.path.join(os.path.dirname(__file__), dir)
     try:
@@ -18,4 +19,10 @@ def clean_up(dir):
         print(f"Error during clean up: {e}")
 
 
-clean_up('gongju/.pytest_cache')
+def func():
+    # 使用 subprocess 模块来运行系统命令如subprocess.run(['ls'])也可以使用os.system('ls')
+    subprocess.run(["rm", "-rf", 'gongju/.pytest_cache'], check=True)
+
+
+# clean_up('gongju/.pytest_cache')
+func()
