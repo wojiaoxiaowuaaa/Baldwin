@@ -19,10 +19,10 @@ def clean_up(dir):
         print(f"Error during clean up: {e}")
 
 
-def func():
+def rm_rf(pwd):
     # 使用 subprocess 模块来运行系统命令如subprocess.run(['ls'])也可以使用os.system('ls')
-    subprocess.run(["rm", "-rf", 'gongju/.pytest_cache'], check=True)
+    subprocess.run(["rm", "-rf", pwd], check=True)
 
 
 # clean_up('gongju/.pytest_cache')
-func()
+rm_rf('')
