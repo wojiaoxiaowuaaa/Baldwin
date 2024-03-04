@@ -1,3 +1,5 @@
+import os
+
 # 服务端口配置
 SERVER_PORT = 9999
 
@@ -18,8 +20,11 @@ EXPIRE_TIME = 600
 MD5_SALT = "wl2024#%*"
 
 # 路径
-pwd = '/Users/wl/Baldwin/zzz_test.py'
 desktop = '/Users/wl/Desktop'
+
+current_directory = os.path.abspath(os.path.dirname(__file__))  # 获取当前脚本所在目录的绝对路径
+parent_directory = os.path.abspath(os.path.join(current_directory, '..'))  # 获取上级目录的绝对路径
+net = parent_directory + '/doc/带宽.md'  # 拼接获取指定文件的绝对路径
 
 # 文本
 winter_fell = '''
@@ -29,6 +34,3 @@ winter_fell = '''
 简而言之，软件测试工程师在一家软件企业中担当的是“质量管理”角色，及时发现软件问题并及时督促更正，确保产品的正常运作。
 按其级别和职位的不同，分为三类。
 '''
-
-# 路径
-net = '../doc/带宽.md'
