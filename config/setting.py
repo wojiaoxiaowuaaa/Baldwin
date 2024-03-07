@@ -21,13 +21,15 @@ MD5_SALT = "wl2024#%*"
 
 # 路径
 desktop = '/Users/wl/Desktop'
+winter_fell = '/Users/wl/Desktop/27149'
+book = '/Users/wl/Downloads/脂砚斋重评石头记.pdf'
 
 current_directory = os.path.abspath(os.path.dirname(__file__))  # 获取当前脚本所在目录的绝对路径
 parent_directory = os.path.abspath(os.path.join(current_directory, '..'))  # 获取上级目录的绝对路径
 net = parent_directory + '/doc/带宽.md'  # 拼接获取指定文件的绝对路径
 
 # 文本
-winter_fell = '''
+files_text = '''
 文本排序统计文本中的字符并降序排序:
 软件测试工程师（Software Testing Engineer）指理解产品的功能要求，并对其进行测试，检查软件有没有缺陷（Bug），
 测试软件是否具有稳定性（Robustness）、安全性、易操作性等性能，写出相应的测试规范和测试用例的专门工作人员。

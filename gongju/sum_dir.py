@@ -1,12 +1,13 @@
 import os
+from loguru import logger
 from config.setting import desktop
 
 # def get_folder_size(floder='.'):
 #     total_size = 0
 #
-#     for dirpath, dirnames, filenames in os.walk(floder):
+#     for root, dir, filenames in os.walk(floder):
 #         for filename in filenames:
-#             file_path = os.path.join(dirpath, filename)
+#             file_path = os.path.join(root, filename)
 #             total_size += os.path.getsize(file_path)
 #
 #     return total_size
@@ -27,8 +28,6 @@ from config.setting import desktop
 #     print(f"The total size of the folder {floder} is: {formatted_size}")
 
 # 计算指定文件夹的大小
-floder = desktop
+folder_size = sum([os.path.getsize(os.path.join(root, filename)) for root, dir, filenames in os.walk(desktop) for filename in filenames])
 
-folder_size = sum([os.path.getsize(os.path.join(dirpath, filename)) for dirpath, dirnames, filenames in os.walk(floder) for filename in filenames])
-
-print(folder_size / 1024 / 1024 / 1024, 'GB')  # 默认单位是B-字节,这里除以三次1024换算到GB
+logger.info(folder_size / 1024 / 1024 / 1024)  # 默认单位是B-字节,这里除以三次1024换算到GB
