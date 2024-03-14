@@ -9,6 +9,10 @@ sys.path.append(path) 是将指定的路径 path 添加到 sys.path 列表中。
 sys.path 是一个列表，它指定了 Python 在导入模块时会搜索的目录。
 当你尝试导入一个模块时，Python 会按照 sys.path 中的目录顺序依次查找模块文件。
 
+import time
+start_time = time.time()
+print(time.time()-start_time)  # 脚本执行耗时 单位:秒
+
 """
 
 import os
@@ -18,3 +22,4 @@ import sys
 # sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # for i in sys.path: print(i)
+

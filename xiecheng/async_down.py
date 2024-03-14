@@ -2,8 +2,8 @@ import asyncio
 import aiohttp
 import os
 
-"""在计算机编程中，"异步" 是指一种编程模型，它允许程序在执行某些任务时不阻塞其他任务的执行。传统的同步编程模型是按照顺序逐步执行代码，
-如果遇到一个耗时的操作，整个程序会被阻塞，直到该操作完成。相比之下，异步编程通过使用异步任务、事件循环等机制，能够在执行耗时操作时让程序继续执行其他任务。
+"""在计算机编程中，"异步" 是指一种编程模型，它允许程序在执行某些任务时不阻塞其他任务的执行。传统的同步编程模型是按照顺序逐步执行代码，如果遇到一个耗时
+的操作，整个程序会被阻塞，直到该操作完成。相比之下，异步编程通过使用异步任务、事件循环等机制，能够在执行耗时操作时让程序继续执行其他任务。
 在 Python 中，使用 `asyncio` 库可以实现异步编程。以下是一些与异步相关的基本概念：
 1. **协程（Coroutine）：** 
 协程是异步编程中的一种结构，可以看作是比线程更轻量级的执行单元。协程通过使用 `async` 和 `await` 关键字定义，能够在异步程序中暂停和恢复执行。
@@ -38,11 +38,12 @@ async def download_and_save(url, session):
 async def main():
     urls = []
     # 读取文件中的 URL 添加到列表中
-    with open("/Users/wl/Desktop/Baldwin/doc/doc.txt", 'r') as f:
+    with open("/doc/doc.txt", 'r') as f:
         for i in f:
             urls.append(i.strip())
 
     async with aiohttp.ClientSession() as session:
+        # 当函数前面加上async关键字时，它表示该函数是异步的，可以在异步上下文中被调用。异步函数通常与await关键字一起使用，用于处理异步操作，如异步 I/O（如网络请求、文件读写等）。
         tasks = [download_and_save(url, session) for url in urls]
         await asyncio.gather(*tasks)
 

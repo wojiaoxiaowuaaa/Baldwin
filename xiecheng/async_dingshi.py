@@ -1,5 +1,5 @@
 import asyncio
-from gongju.color_print import color_print_greep, color_print_red
+from gongju.color_print import color_print_red
 
 """
 在需要执行定时任务的应用中，可以使用异步操作来管理定时任务的执行。这样，你可以在单个线程中安排多个定时任务而不需要创建多个线程。
