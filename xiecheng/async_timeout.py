@@ -4,7 +4,7 @@ import asyncio
 
 async def task():
     logger.info("before!")
-    await asyncio.sleep(2.99)  # 模拟耗时操作
+    await asyncio.sleep(3)  # 模拟耗时操作
     logger.info("after!")
 
 
