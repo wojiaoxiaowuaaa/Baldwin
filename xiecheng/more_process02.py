@@ -1,9 +1,7 @@
 import multiprocessing
 
 
-# 定义一个简单的函数，用于执行任务
 def task(n):
-    """计算并打印n的平方"""
     return n * n
 
 
