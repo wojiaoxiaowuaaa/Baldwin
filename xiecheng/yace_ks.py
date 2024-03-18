@@ -1,6 +1,6 @@
 import requests
-import multiprocessing
 import traceback
+import multiprocessing
 
 
 def callback(result):
