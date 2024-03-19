@@ -22,12 +22,12 @@ MD5_SALT = "wl2024#%*"
 # 路径
 desktop = '/Users/wl/Desktop'
 winter_fell = '/Users/wl/Desktop/27149'
-book = '/Users/wl/Downloads/脂砚斋重评石头记.pdf'
+book = '/Users/wl/Documents/脂砚斋重评石头记.pdf'
 
 current_directory = os.path.abspath(os.path.dirname(__file__))  # 获取当前脚本所在目录的绝对路径
 parent_directory = os.path.abspath(os.path.join(current_directory, '..'))  # 获取上级目录的绝对路径
 net = parent_directory + '/doc/带宽.md'  # 拼接获取指定文件的绝对路径
-
+mv_file = '/Users/wl/Documents/中国4K视觉之旅.mkv'
 # 文本
 files_text = '''
 文本排序统计文本中的字符并降序排序:
