@@ -71,5 +71,5 @@ def run(playwright: Playwright) -> None:
 
 
 # 调用
-with sync_playwright() as playwright:
-    run(playwright)
+with sync_playwright() as pw:
+    run(pw)
