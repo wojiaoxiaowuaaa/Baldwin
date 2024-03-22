@@ -10,3 +10,21 @@ def get_md5(username, str):
     return md5.hexdigest()  # 返回密文
 
 
+def video_md5(pwd):
+    """获取视频的md5值 节约内存型"""
+    md5_hash = hashlib.md5()
+    with open(pwd, 'rb') as f:
+        while chunk := f.read(4096):
+            md5_hash.update(chunk)
+    print(md5_hash.hexdigest())
+
+
+def md5_video(pwd):
+    """获取视频的md5 快速型(一次性加载全部数据到内存)
+    Python的内存管理是基于引用计数和垃圾回收的，一次性读取大文件可能会导致整个文件的内容都存储在内存中，占用大量的内存空间。如果文件过大，超出了系统的可用内存限制，就会导致内存溢出错误"""""
+    with open(pwd, 'rb') as f:
+        md5 = hashlib.md5(f.read()).hexdigest()
+    print(md5)
+
+# video_md5('/Users/wl/Documents/guangxi.mp4')
+# md5_video('/Users/wl/Documents/guangxi.mp4')

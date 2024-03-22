@@ -8,7 +8,7 @@ def monitor_cpu_memory(interval=3):
     while time.time() - start < 15:
         # 获取 CPU 使用率
         cpu_percent = psutil.cpu_percent(interval=interval)
-        print(f"CPU 使用率：{cpu_percent}%")
+        # print(f"CPU 使用率：{cpu_percent}%")
 
         # 获取内存使用情况
         memory_info = psutil.virtual_memory()
