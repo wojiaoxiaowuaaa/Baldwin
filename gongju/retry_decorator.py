@@ -4,7 +4,7 @@ from typing import Callable, Any
 from time import sleep
 
 
-def retry_(retries: int = 3, delay: float = 1) -> Callable:
+def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
     """
     Attempt to call a function, if it fails, try again with a specified delay.
 
@@ -40,7 +40,7 @@ def retry_(retries: int = 3, delay: float = 1) -> Callable:
     return decorator
 
 
-@retry_(retries=3, delay=3)
+@retry_decorator(retries=3, delay=3)
 def connect() -> None:
     time.sleep(3)
     from loguru import logger

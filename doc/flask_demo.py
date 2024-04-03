@@ -30,7 +30,7 @@ def index(): pass
 # print(request.args.get('name'))
 # print(request.args.get('age'))
 
-# 请求体:   键值对(表单)   文本(json/xml)  文件(图片/音频)
+# 请求体:   键值对(表单)   文本(json/xml)  文件(27149/音频)
 
 # 获取post键值对 -> request.form  类字典对象
 # print(request.form.get('name'))

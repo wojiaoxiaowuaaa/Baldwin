@@ -1,5 +1,5 @@
 from tenacity import retry, stop_after_attempt, wait_fixed
-from retry_decorator import retry_
+from retry_decorator import retry_decorator
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
@@ -9,7 +9,7 @@ def my_function():
     # raise Exception('error')
 
 
-@retry_(5, 5)
+@retry_decorator(5, 5)
 def test_func():
     print('test_func is called')
     assert 1 == 1
