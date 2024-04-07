@@ -31,13 +31,18 @@ class MysqlDb:
         data = self.cur.fetchall()
         return data
 
-    def execute_db(self, sql):
-        """更新/新增/删除"""
+    def execute_db(self, sql, data):
+        """更新/新增/删除
+        使用Demo(该写法可以避免SQL注入的风险):
+        sql = " INSERT INTO test_result (platform, device_id, tc, task_id, result) VALUES (%s, %s, %s, %s, %s) "
+        data = (platform, device_id, tc, task_id, result)
+        db.execute_db(sql, data)
+        """
         try:
             # 检查连接是否断开，如果断开就进行重连
             self.conn.ping(reconnect=True)
             # 使用 execute() 执行sql
-            self.cur.execute(sql)
+            self.cur.execute(sql, data)
             # 提交事务
             self.conn.commit()
         except Exception as e:

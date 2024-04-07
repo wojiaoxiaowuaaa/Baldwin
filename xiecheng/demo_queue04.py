@@ -13,6 +13,7 @@ def consumer():
         print(f"消费者消费:{n}")
         msg = '消费完成'
 
+
 # 生产者
 def produce(c):
     # 启动协程. c 是对 consumer 生成器对象的引用，而 c.send(n) 用于与生成器进行交互，发送数据并接收返回值。
@@ -27,6 +28,7 @@ def produce(c):
         print(f"收到消费者消息: {msg}")
     # c.close() 的作用是关闭生成器。当调用 c.close() 时，会向生成器发送一个特殊的信号，通常表示生成器的工作已经完成或不再需要继续
     c.close()
+
 
 # 调用生产者
 produce(consumer())
