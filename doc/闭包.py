@@ -20,5 +20,5 @@ def func(count):
 
 res = func(count)
 res(3)
-res(3)
+res(6)
 logger.info(f'执行结束后的全局count: {count}')
