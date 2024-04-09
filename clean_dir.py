@@ -5,7 +5,7 @@ import subprocess
 
 def clean_up(dir):
     """删除当前脚本下的指定目录
-    :param dir: 当前脚本所在目录下 要删除的目录
+    :param dir: 当前脚本所在目录下待删除的目录
     涉及的关键方法调用:shutil.rmtree()"""
     cache_directory = os.path.join(os.path.dirname(__file__), dir)
     try:
@@ -25,5 +25,4 @@ def rm_rf(pwd):
 
 
 if __name__ == '__main__':
-    # clean_up('gongju/.pytest_cache')
     rm_rf('')
