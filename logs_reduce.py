@@ -1,6 +1,7 @@
 import json
 import time
 import random
+import loguru
 start = time.time()
 
 
@@ -10,7 +11,7 @@ def logs_reduce():
     while time.time() - start < 10:
         time.sleep(1)
         d = {"key": random.choice("abcdefg"), "value": random.random()}
-        print(d)
+        # loguru.logger.info(d)
         with open("doc/logs.txt", "a+") as f:
             f.writelines([json.dumps(d) + "\n"])
 
