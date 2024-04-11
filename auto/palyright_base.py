@@ -1,14 +1,28 @@
 from playwright.sync_api import sync_playwright
+from time import sleep
 
-# sync_playwright 方法返回的是一个 PlaywrightContextManager 对象，可以理解是一个浏览器上下文管理器，我们将其赋值为变量 p。
+"""Playwrigth 会安装 Chromium, Firefox 等浏览器并配置一些驱动，我们不必关心中间配置的过程，Playwright 会为我们配置好。
+使用 sync_playwright 方法启动浏览器。 
+sync_playwright方法返回的是一个PlaywrightContextManager对象,可以理解是一个浏览器上下文管理器，我们将其赋值为变量p
+使用 browser.new_page() 方法创建新的浏览器页面。 
+使用 page.goto(url) 方法打开指定网页。 
+使用 page.title() 方法获取网页标题。 
+使用 browser.close() 方法关闭浏览器"""
+
 with sync_playwright() as p:
-    # Playwrigth 会安装 Chromium, Firefox 等浏览器并配置一些驱动，我们不必关心中间配置的过程，Playwright 会为我们配置好。
-    browser = p.chromium.launch(headless=False)
-    # launch 方法返回的是一个 Browser 对象，我们将其赋值为 browser 变量。然后调用 browser 的 new_page 方法，相当于新建了一个选项卡，
-    # 返回的是一个 Page 对象，将其赋值为 page，
+    # slow_mo(单位是毫秒）减慢执行速度。它的作用范围是全局的，从启动浏览器到操作元素每个动作都会有等待间隔，方便在出现问题的时候看到页面操作情况。
+    browser = p.chromium.launch(headless=False, slow_mo=100)
+    # launch 方法返回的是一个 Browser 对象，调用 browser的new_page方法相当于新建了一个选项卡
     page = browser.new_page()
-    # 调用 page 的一系列 API 来进行各种自动化操作了，比如调用 goto，就是加载某个页面.screenshot截图.
+    # 调用 page 的一系列 API 来进行各种自动化操作了.比如调用goto方法就是加载某个页面.screenshot截图.
     page.goto('http://www.baidu.com')
     page.screenshot(path=f'screenshot-.png')
-    print(page.title)
+
+    # 等待5秒
+    page.wait_for_timeout(5000)
+
+    page.goto('https://www.h3blog.com')
+    title = page.title()
+    print(title)
+
     browser.close()
