@@ -57,10 +57,10 @@ for i in my_iterator:
 ```
 
 ```python
-from locust import HttpUser, TaskSet, wait_time, between, task
+from yace import HttpUser, TaskSet, wait_time, between, task
 
 
-# locust -f locust_demo.py --headless -u 1000 -r 1000 -t 60 -H  https://www.baidu.com --html  report.html
+# yace -f locust_demo.py --headless -u 1000 -r 1000 -t 60 -H  https://www.baidu.com --html  report.html
 
 # -u或 --users：指定要模拟的并发用户数量。
 # -r或 --spawn-rate：指定每秒钟产生新用户的速率。

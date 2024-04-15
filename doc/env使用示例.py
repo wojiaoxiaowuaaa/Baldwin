@@ -12,7 +12,7 @@ json_demo = os.getenv('JSON_DEMO')
 
 # 使用这些变量
 # logger.info(f"环境变量: {os.environ}")
-logger.info(json_demo)
+# logger.info(json_demo)
 # logger.info(type(json_demo))  # <class 'str'>
 
 with open(json_demo) as f:

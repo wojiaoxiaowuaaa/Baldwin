@@ -11,7 +11,8 @@ Locust 的主要优势在于完全基于事件驱动，使用 gevent 提供的�
 以下是一个简单的 Locust 压测脚本示例：
 
 ```python
-from locust import HttpUser, task, between
+from yace import HttpUser, task, between
+
 
 class QuickstartUser(HttpUser):
     wait_time = between(1, 5)
@@ -29,13 +30,15 @@ class QuickstartUser(HttpUser):
 如果你需要进行分布式压测，可以使用以下示例：
 
 ```python
-from locust import HttpUser, TaskSet, between, task
+from yace import HttpUser, TaskSet, between, task
+
 
 class WebsiteTask(TaskSet):
-    
+
     @task
     def index(self):
         self.client.get('/index')
+
 
 class WebsiteUser(HttpUser):
     tasks = [WebsiteTask]
@@ -47,7 +50,7 @@ class WebsiteUser(HttpUser):
 在终端中，可以使用以下命令执行压测脚本：
 
 ```bash
-locust -f your_locust_file.py --headless -u 1000 -r 1000 -t 3600 --html=report.html
+yace -f your_locust_file.py --headless -u 1000 -r 1000 -t 3600 --html=report.html
 ```
 
 这个命令使用 Locust 进行压测，配置了一些参数，包括虚拟用户数量、每秒产生的虚拟用户数、压测时间和生成 HTML 报告。这将模拟 1000 个用户，每秒产生 1000 个用户，并持续压测 3600 秒，最终生成一个 HTML 报告。
@@ -64,8 +67,10 @@ Locust是一款非常流行的Python负载测试工具，可以模拟大量用�
 3. 吞吐量（Throughput）：吞吐量指的是系统在一定时间内处理的事务或请求的数量。通常以每秒钟处理的请求数（QPS）或每分钟处理的事务数（TPS）来衡量。吞吐量越高，表示系统处理能力越强。
 
 ### 测试脚本
+
 ```python
-from locust import HttpUser, task, between
+from yace import HttpUser, task, between
+
 
 class WebsiteUser(HttpUser):
     wait_time = between(5, 9)
@@ -80,7 +85,7 @@ class WebsiteUser(HttpUser):
             self.client.get(f"/item?id={item_id}", name="/item")
 
     def on_start(self):
-        self.client.post("/login", json={"username":"foo", "password":"bar"})
+        self.client.post("/login", json={"username": "foo", "password": "bar"})
 
 ```
 
