@@ -23,6 +23,8 @@ MD5_SALT = "wl2024#%*"
 desktop = '/Users/wl/Desktop'
 winter_fell = '/Users/wl/Desktop/27149'
 book = '/Users/wl/Documents/脂砚斋重评石头记.pdf'
+image_path = '/Users/wl/Downloads/image.webp'
+
 
 current_directory = os.path.abspath(os.path.dirname(__file__))  # 获取当前脚本所在目录的绝对路径
 parent_directory = os.path.abspath(os.path.join(current_directory, '..'))  # 获取上级目录的绝对路径

@@ -7,7 +7,8 @@ from gongju.time_count import calculate_execution_time
 
 在 Python 中，bytes 类型是一种用于表示二进制数据的类型。它类似于字符串，但与字符串不同的是，bytes 类型可以包含任意字节的数据.
 len() 函数用于获取一个对象的长度。当将一个 bytes 类型的对象传递给 len() 函数时，它会返回该 bytes 对象中字节的数量。
-需要注意的是，len() 函数对于 bytes 对象的计算是基于字节数的，而不是字符数。每个字节都被视为一个独立的单位。"""
+需要注意的是，len() 函数对于 bytes 对象的计算是基于字节数的，而不是字符数。每个字节都被视为一个独立的单位。
+二进制文件也可以被看作是一个可迭代对象（iterable），其包含了一系列的字节（bytes)."""
 
 
 def read_file_in_chunks(file_path, chunk_size=4096):
