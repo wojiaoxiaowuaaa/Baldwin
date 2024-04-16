@@ -1,4 +1,5 @@
-from locust import HttpUser, TaskSet, task
+from locust import HttpUser, TaskSet, task, between
+from loguru import logger
 import requests
 import time
 
@@ -63,30 +64,31 @@ json_data = {
     'pageSize': 10,
 }
 
+
 # response = requests.post('http://pre.dp.jd.com/jbdpEdc/api/templateInChargeList', cookies=cookies, headers=headers, json=json_data)
 
 
 class PreUser(HttpUser):
     host = 'http://pre.dp.jd.com'
 
-    between = [1, 2]
+    between(1, 2)
 
     def on_start(self):
-        print("开始测试！" + str(time.ctime()))
+        logger.info("开始测试！" + str(time.ctime()))
 
     def on_stop(self):
-        print("结束测试" + str(time.ctime()))
+        logger.info("结束测试" + str(time.ctime()))
 
     @task
     def get_all(self):
         res = self.client.post("/jbdpEdc/api/templateInChargeList", cookies=cookies, headers=headers, json=json_data)
-        print(res.json)
-        print('--->' * 10)
+        logger.info(res.json)
+        print('--->' * 100)
 
 
 """
 终端执行的headless模式:
-locust -f locust_demo.py --headless  -u 100  -r 10 -t 30s --html report.html
+locust -f locust_demo.py --headless  -u 5  -r 5 -t 5s --html report.html
 
 #配置文件启动demo,要执行的文件:
 locustfile = main.py
