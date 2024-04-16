@@ -11,7 +11,7 @@ Locust 的主要优势在于完全基于事件驱动，使用 gevent 提供的�
 以下是一个简单的 Locust 压测脚本示例：
 
 ```python
-from yace import HttpUser, task, between
+from locust import HttpUser, task, between
 
 
 class QuickstartUser(HttpUser):
@@ -30,7 +30,7 @@ class QuickstartUser(HttpUser):
 如果你需要进行分布式压测，可以使用以下示例：
 
 ```python
-from yace import HttpUser, TaskSet, between, task
+from locust import HttpUser, TaskSet, between, task
 
 
 class WebsiteTask(TaskSet):
@@ -50,7 +50,7 @@ class WebsiteUser(HttpUser):
 在终端中，可以使用以下命令执行压测脚本：
 
 ```bash
-yace -f your_locust_file.py --headless -u 1000 -r 1000 -t 3600 --html=report.html
+locust -f your_locust_file.py --headless -u 1000 -r 1000 -t 3600 --html=report.html
 ```
 
 这个命令使用 Locust 进行压测，配置了一些参数，包括虚拟用户数量、每秒产生的虚拟用户数、压测时间和生成 HTML 报告。这将模拟 1000 个用户，每秒产生 1000 个用户，并持续压测 3600 秒，最终生成一个 HTML 报告。
@@ -69,7 +69,7 @@ Locust是一款非常流行的Python负载测试工具，可以模拟大量用�
 ### 测试脚本
 
 ```python
-from yace import HttpUser, task, between
+from locust import HttpUser, task, between
 
 
 class WebsiteUser(HttpUser):
@@ -83,13 +83,9 @@ class WebsiteUser(HttpUser):
     def view_item(self):
         for item_id in range(10):
             self.client.get(f"/item?id={item_id}", name="/item")
-
-    def on_start(self):
-        self.client.post("/login", json={"username": "foo", "password": "bar"})
-
 ```
 
-在上面的测试脚本中，我们定义了一个名为`WebsiteUser`的类，继承自`HttpUser`。该类包含了三个任务方法：`index_page`、`view_item`和`on_start`。其中，`index_page`用于访问首页，`view_item`用于访问商品详情页，`on_start`用于登录。
+在上面的测试脚本中，我们定义了一个名为`WebsiteUser`的类，继承自`HttpUser`。该类包含了三个任务方法：`index_page`、`view_item`。其中，`index_page`用于访问首页，`view_item`用于访问商品详情页，
 
 我们还定义了一个`wait_time`方法，用于指定每个用户任务之间的等待时间。在这个例子中，我们使用了一个随机等待时间，范围在5到9秒之间。
 

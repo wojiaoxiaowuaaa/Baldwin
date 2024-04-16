@@ -2,7 +2,6 @@ from locust import HttpUser, TaskSet, task
 import requests
 import time
 
-
 cookies = {
     '__jdu': '1658391070137334238237',
     'pinId': 'lPhtT2OwOjs8udM_MW6XwbV9-x-f3wj7',
@@ -64,7 +63,6 @@ json_data = {
     'pageSize': 10,
 }
 
-
 # response = requests.post('http://pre.dp.jd.com/jbdpEdc/api/templateInChargeList', cookies=cookies, headers=headers, json=json_data)
 
 
@@ -84,12 +82,6 @@ class PreUser(HttpUser):
         res = self.client.post("/jbdpEdc/api/templateInChargeList", cookies=cookies, headers=headers, json=json_data)
         print(res.json)
         print('--->' * 10)
-
-
-# class PreUSer(HttpUser):
-#     tasks = [PreTask]
-#     between = [1, 2]
-#     host = 'http://pre.dp.jd.com'
 
 
 """
