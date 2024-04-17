@@ -17,14 +17,13 @@ def timestamp_to_beijing_time(timestamp):
 def beijing_time_to_timestamp(date_str, format_str="%Y-%m-%d %H:%M:%S"):
     try:
         date_time = datetime.strptime(date_str, format_str)
-        timestamp = int(date_time.timestamp() * 1000)  # *1000 return ms timestamp
+        timestamp = int(date_time.timestamp())  # *1000 return ms timestamp
         return timestamp
     except ValueError:
         return None
 
 
-# 输入待转换的时间戳
-print("输入时间戳-日期为:", timestamp_to_beijing_time(1708940095494))
+print("输入时间戳日期为:", timestamp_to_beijing_time(1708940095494), end="\n\n")
 
-# 输入待转换的日期  date_time_str = "2022-01-01 12:09:59"
-print("输入日期-时间戳为：", beijing_time_to_timestamp("2022-01-01 12:09:59")) if beijing_time_to_timestamp("2022-01-01 12:09:59") else print("无效的日期时间格式(代码末行输出)")
+
+print("输入日期时间戳为(默认单位:秒)：", beijing_time_to_timestamp("2022-01-01 12:09:59")) if beijing_time_to_timestamp("2022-01-01 12:09:59") else print("无效的日期时间格式(代码末行输出)")
