@@ -86,6 +86,12 @@ class BaiDu(HttpUser):
 
 ```python
 import datetime
+# 获取当前时间(可读格式),并将其转换为字符串形式.
 time = str(datetime.datetime.now())[:-7]
 print(time)
+
+import time
+ # 当前时刻的时间戳 单位:秒
+print(int(time.time())) 
+
 ```
