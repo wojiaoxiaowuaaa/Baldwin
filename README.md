@@ -57,7 +57,7 @@ for i in my_iterator:
 ```
 
 ```python
-from yace import HttpUser, TaskSet, wait_time, between, task
+from locust import HttpUser, TaskSet, wait_time, between, task
 
 
 # yace -f locust_demo.py --headless -u 1000 -r 1000 -t 60 -H  https://www.baidu.com --html  report.html
@@ -67,12 +67,25 @@ from yace import HttpUser, TaskSet, wait_time, between, task
 # -t或 --run-time：指定测试运行的持续时间。
 # -H或 --host：指定要测试的目标主机（即被测应用的基本 URL）。
 # -c或 --config：指定配置文件的路径，以定义更复杂的测试场景和用户行为。
+# --html report.html: 生成html报告
+
+class UserBehavior(TaskSet):
+    @task
+    def search(self):...
 
 
 class BaiDu(HttpUser):
     wait_time = between(1, 3)
+    
+    host = "https://www.baidu.com"
 
     @task
     def search(self):
         self.client.get("/?tn=54093922_30_hao_pg")
+```
+
+```python
+import datetime
+time = str(datetime.datetime.now())[:-7]
+print(time)
 ```
