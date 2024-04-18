@@ -10,6 +10,8 @@ locust中self.client调用get和post方法，跟requests请求一样哦。
 
 -r  Hatch rate (users spawned/second)：每秒启动的虚拟用户数
 
+-f 启动图形界面  locust -f demo.py
+
 Requests  请求的总量
 
 Average size 单个请求的大小，单位字节
