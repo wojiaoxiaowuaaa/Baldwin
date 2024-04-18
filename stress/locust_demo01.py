@@ -49,7 +49,7 @@ class WebsiteTask(TaskSet):
         print('====== 登录成功 ======')
 
     def on_start(self):
-        self.__login()  # 执行操作前先进行登录,并且值登录一次
+        self.__login()  # 执行操作前先进行登录,并且只登录一次
 
     def on_stop(self):
         print("---test over---")
@@ -76,4 +76,4 @@ class WebsiteUser(HttpUser):
 
 if __name__ == '__main__':
     import os
-    os.system("locust -f locust_demo01.py --headless -u 10 -r 1 -t 10s --html report.html")
+    os.system("locust -f locust_demo01.py --headless -u 10 -r 1 -t 10 --html report.html")

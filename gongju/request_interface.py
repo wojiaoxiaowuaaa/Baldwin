@@ -41,6 +41,6 @@ data = {"key1": "value1", "key2": "value2"}
 
 res = requests.post(url=url, headers=headers, data=urlencode(data))
 ```
-
-选择使用哪种方式取决于你要与服务器交互的方式。如果你需要发送JSON数据，使用`json=data`方式更为简便，而如果需要发送表单数据，使用`data=data`方式是常见的做法。
+选择使用哪种方式取决于你要与服务器交互的方式。如果你需要发送JSON数据，使用`json=data`方式更为简便，
+而如果需要发送表单数据，使用`data=data`方式是常见的做法。
 """

@@ -83,12 +83,12 @@ class PreUser(HttpUser):
     def get_all(self):
         res = self.client.post("/jbdpEdc/api/templateInChargeList", cookies=cookies, headers=headers, json=json_data)
         logger.info(res.json)
-        print('--->' * 100)
+        # print('--->' * 100)
 
 
 """
 终端执行的headless模式:
-locust -f locust_demo.py --headless  -u 5  -r 5 -t 5s --html report.html
+locust -f locust_demo.py --headless  -u 5  -r 5 -t 5 --html report.html
 
 #配置文件启动demo,要执行的文件:
 locustfile = main.py
@@ -96,7 +96,7 @@ locustfile = main.py
 host = 'http://pre.dp.jd.com'
 #虚拟用户数
 users = 100
-#虚拟用户数增长率，例1个/s
+#虚拟用户数增长率，例10个/s
 spawn-rate = 10
 # 持续运行的时间 together with –headless or –autostart. Defaults to run forever
 run-time = 60s
@@ -105,5 +105,5 @@ headless = true
 #当达到指定虚拟用户数时，重新进行统计
 reset-stats = false
 # 报告
-html = report.html
+--html = report.html
 """

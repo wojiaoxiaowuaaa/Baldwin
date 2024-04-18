@@ -1,12 +1,4 @@
 ```python
-# 在不传递参数的情况下，ctime() 函数会将当前时间（即当前系统时钟所显示的时间）转换为可读的字符串形式。
-from time import ctime
-
-print(ctime())
-```
-
-
-```python
 # 字符串处理Demo 去除空格指定符号等
 string0 = "  , Hello  ,  World!     , "
 
@@ -69,9 +61,9 @@ from locust import HttpUser, TaskSet, wait_time, between, task
 # -c或 --config：指定配置文件的路径，以定义更复杂的测试场景和用户行为。
 # --html report.html: 生成html报告
 
-class UserBehavior(TaskSet):
-    @task
-    def search(self):...
+# class UserBehavior(TaskSet):
+#     @task
+#     def search(self):...
 
 
 class BaiDu(HttpUser):
@@ -85,13 +77,17 @@ class BaiDu(HttpUser):
 ```
 
 ```python
-import datetime
+from datetime import datetime
 # 获取当前时间(可读格式),并将其转换为字符串形式.
-time = str(datetime.datetime.now())[:-7]
+time = str(datetime.now())[:-7]
 print(time)
 
 import time
  # 当前时刻的时间戳 单位:秒
 print(int(time.time())) 
+
+# 在不传递参数的情况下，ctime() 函数会将当前时间（即当前系统时钟所显示的时间）转换为可读的字符串形式。
+from time import ctime
+print(ctime())
 
 ```

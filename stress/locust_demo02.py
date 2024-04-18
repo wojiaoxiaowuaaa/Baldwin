@@ -39,4 +39,5 @@ class TestTask(HttpUser):
 if __name__ == "__main__":
     # 执行python3  locust_demo02.py
     import os
-    os.system("locust -f locust_demo02.py --headless -u 10 -r 1 -t 10s --html report.html")
+
+    os.system("locust -f locust_demo02.py --headless -u 10 -r 1 -t 10 --html report.html")
