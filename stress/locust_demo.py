@@ -106,4 +106,15 @@ headless = true
 reset-stats = false
 # 报告
 --html = report.html
+
+
+from locust import task, FastHttpUser
+
+class MyUser(FastHttpUser):
+    # 在Locust中，FastHttpUser类是用于替代HttpUser类的一种更高效的HTTP客户端实现。它使用geventhttpclient库代替requests库，以减少并发请求时的资源消耗，从而提高性能。
+    host = 'www.baidu.com'
+    @task
+    def index(self):
+        response = self.client.get('/')
+
 """
