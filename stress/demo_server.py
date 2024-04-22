@@ -5,10 +5,15 @@ from loguru import logger
 
 app = Sanic('my_app')
 
+hello_requests_count = 0  # 全局变量 用于统计接口的请求次数
+
 
 @app.get('/hello')
 def handle_hello(request):
     time = str(datetime.datetime.now())[:-7]
+    global hello_requests_count
+    hello_requests_count += 1
+    logger.info(f"接口的请求次数: {hello_requests_count}")
     return response.json({"hello time": time})
 
 

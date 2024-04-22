@@ -21,7 +21,7 @@ class QuickstartUser(HttpUser):
         res = self.client.get("/hello")
         # logger.info(f'hello response:{res.text}')
 
-    @task(3)
+    @task(2)
     def world(self):
         res = self.client.get("/world")
         # logger.info(f'world response:{res.text}')
