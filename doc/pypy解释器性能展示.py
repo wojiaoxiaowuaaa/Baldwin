@@ -1,6 +1,6 @@
 import time
 
-"""使用pypy版的Python解释器,下面的命令是该解释器的绝对路径
+"""使用pypy版的Python解释器,下面的命令是该解释器的绝对路径:
 /Users/wl/Documents/pypy3.10-v7.3.15-macos_x86_64/bin/pypy   /Users/wl/Desktop/Baldwin/doc/pypy解释器性能展示.py
 
 lrwxrwxrwx 1 wl staff 8   Jan 14 22:52  /Users/wl/Documents/pypy3.10-v7.3.15-macos_x86_64/bin/pypy -> pypy3.10

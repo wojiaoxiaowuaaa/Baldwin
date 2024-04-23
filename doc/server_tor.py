@@ -1,10 +1,9 @@
 # -*- coding:utf-8 -*-
-from typing import Optional, Awaitable
 from tornado.web import Application, RequestHandler
 from tornado.ioloop import IOLoop
 import tornado.ioloop
-import random
 from tornado import gen
+import random
 
 
 # 起一个本地服务

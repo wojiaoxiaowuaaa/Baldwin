@@ -7,3 +7,4 @@ path_value = os.getenv('PATH')
 sansa = path_value.split(':')
 
 for i in sansa: print(i)
+

@@ -1,7 +1,7 @@
 import json
+import loguru
 import time
 import random
-import loguru
 start = time.time()
 
 

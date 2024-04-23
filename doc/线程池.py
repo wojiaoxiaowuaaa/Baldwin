@@ -19,7 +19,7 @@ def task(task_id):
 
 def main():
     # 设置线程池大小为 CPU 核心数量
-    num_threads = 3
+    num_threads = 12
 
     # 创建线程池
     with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
