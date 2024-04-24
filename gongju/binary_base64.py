@@ -18,7 +18,7 @@ base64_encoded = base64.b64encode(binary_data).decode("utf-8")
 # 创建包含 Base64 编码数据的 dict 对象
 json_data = {"data": base64_encoded}
 
-# 将 转换为 JSON 字符串
+# 将 转换为 JSON 字符串  进行网络传输
 json_string = json.dumps(json_data)
 
 # 在接收端，将 JSON 字符串转换回对象
@@ -38,7 +38,6 @@ print(decoded_binary_data)
 在 Python 中，`encode('utf-8')` 和 `decode('utf-8')` 是用于字符串编码和解码的方法，用于在字节序列和 Unicode 字符串之间进行转换。这两个方法通常用于处理字符集和编码的转换，特别是在处理文本数据的时候。
 
 - **`encode('utf-8')`：** 这个方法用于将 Unicode 字符串编码为字节序列。它接受一个参数，即要使用的字符编码。在这里，`'utf-8'` 表示使用 UTF-8 编码。UTF-8 是一种常用的字符编码，用于表示 Unicode 字符。例如：
-
   ```python
   unicode_string = "Hello, 你好"
   byte_sequence = unicode_string.encode('utf-8')

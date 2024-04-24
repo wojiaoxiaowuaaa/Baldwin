@@ -1,7 +1,8 @@
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 
 def count_lines_and_size(json_file):
@@ -15,7 +16,7 @@ def count_lines_and_size(json_file):
     return line_count, file_size
 
 
-# 示例用法
+# file:待计算的文件路径
 file = os.path.abspath(__file__)
 line_count, file_size = count_lines_and_size(file)
 

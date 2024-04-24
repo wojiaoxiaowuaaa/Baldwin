@@ -22,3 +22,28 @@ def fib(n):
 
 fib(36)
 print("with cached Time Taken: ", time.time() - s)
+
+
+
+
+"""
+from cachetools import cached
+
+
+@cached(cache={})
+def func(n):
+    print('fun is running')
+    if n <= 1:
+        return 1
+    return n * func(n - 1)
+
+
+# 第一次调用，它会执行实际的逻辑并缓存结果
+res = func(5)
+print(res)
+
+# 第二次调用，它会直接从缓存中拿结果(未打印执行了低递归算法相关的print语句)
+res = func(5)
+print(res)
+
+"""

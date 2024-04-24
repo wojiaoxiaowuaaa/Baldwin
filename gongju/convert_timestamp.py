@@ -2,7 +2,7 @@ import datetime
 import time
 from datetime import datetime, timezone, timedelta
 
-print("当前时刻的时间戳-单位毫秒:", int(time.time() * 1000), end="\n\n")  # current_timestamp = int(time.time()) # 当前时刻的时间戳---单位秒
+print("当前时刻的时间戳-默认单位秒:", int(time.time()), end="\n\n")  # current_timestamp = int(time.time()) # 当前时刻的时间戳---单位秒
 
 
 def timestamp_to_beijing_time(timestamp):

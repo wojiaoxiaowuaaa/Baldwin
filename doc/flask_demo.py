@@ -1,4 +1,5 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, make_response
+from loguru import logger
 
 app = Flask(__name__)
 
@@ -12,9 +13,13 @@ args - 解析查询字符串的内容，它是浏览器问号"?"之后的URL的�
 """
 
 
-@app.route('/', methods=['get', 'post'])
-def index(): pass
-
+@app.route('/demo', methods=['GET', 'POST'])
+def demo():
+    """
+    curl -X POST -H "Content-Type: application/json" -d '{"name": "xiaowu", "age": 18}' http://172.23.224.120:8080/demo
+    """
+    logger.info(request.json.get('name'))
+    return make_response()
 
 # 获取请求的基础数据
 # print(request.url)  # 请求的URL
@@ -30,7 +35,7 @@ def index(): pass
 # print(request.args.get('name'))
 # print(request.args.get('age'))
 
-# 请求体:   键值对(表单)   文本(json/xml)  文件(27149/音频)
+# 请求体:键值对(表单)   文本(json/xml)  文件(27149/音频)
 
 # 获取post键值对 -> request.form  类字典对象
 # print(request.form.get('name'))
@@ -40,7 +45,7 @@ def index(): pass
 # print(request.json.get('age'))  # request.json直接将json字符串转为字典
 
 # 获取post文件 -> request.files  类字典对象
-# file = request.files.get("avatar")  # type: # FileStorage
+# file = request.files.get("avatar")  # type: FileStorage
 # print(type(file))  # 返回 FileStorage文件对象
 # 将文件保存到本地
 # file.save('123.jpg')
@@ -54,7 +59,7 @@ def index(): pass
 # age = data.get('age')
 # print(f'Name: {name}, Age: {age}')
 
-# 获取原始的请求实数
+# 获取原始请求实数
 # data = request.data
 
 
