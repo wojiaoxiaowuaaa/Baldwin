@@ -1,6 +1,7 @@
 import time
 from functools import wraps
 from typing import Callable, Any
+from loguru import logger
 from time import sleep
 
 
@@ -23,16 +24,16 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
             for i in range(1, retries + 1):  # 1 to retries + 1 since upper bound is exclusive
 
                 try:
-                    print(f'Running ({i}): {func.__name__}()...')
+                    logger.info(f'Running ({i}): {func.__name__}()...')
                     return func(*args, **kwargs)
                 except Exception as e:
                     # Break out of the loop if the max amount of retries is exceeded
                     if i == retries:
-                        print(f'Error: {repr(e)}.')
-                        print(f'"{func.__name__}()" failed after {retries} retries.')
+                        logger.info(f'Error: {repr(e)}.')
+                        logger.info(f'"{func.__name__}()" failed after {retries} retries.')
                         break
                     else:
-                        print(f'Error: {repr(e)} -> Retrying...')
+                        logger.info(f'Error: {repr(e)} -> Retrying...')
                         sleep(delay)  # Add a delay before running the next iteration
 
         return wrapper
@@ -42,10 +43,9 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
 
 @retry_decorator(retries=3, delay=3)
 def connect() -> None:
-    time.sleep(3)
-    from loguru import logger
-    logger.info('test connect function')
-    raise Exception('Could not connect to internet...')
+    time.sleep(1)
+    logger.info('test --- ')
+    raise Exception('Could not connect to internet')
 
 
 def main() -> None:

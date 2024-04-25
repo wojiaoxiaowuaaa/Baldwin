@@ -3,7 +3,7 @@ import os
 # 服务端口配置
 SERVER_PORT = 9999
 
-# MySQL配置
+# MySQL配置  测试用表:user
 MYSQL_HOST = "127.0.0.1"
 MYSQL_PORT = 3306
 MYSQL_USER = "root"

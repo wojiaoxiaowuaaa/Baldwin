@@ -1,5 +1,6 @@
 import psutil
 import time
+from color_print import color_print_green, color_print_red
 
 start = time.time()
 
@@ -20,6 +21,7 @@ def monitor_cpu_memory(interval=3):
         # print(f"可用内存：{available_memory:.2f} GB")
         print(f"内存使用率：{memory_percent}%")
         print(f"已使用内存：{used_memory:.2f} GB")
+        color_print_green()
         time.sleep(interval)
 
 

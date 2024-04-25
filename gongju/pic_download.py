@@ -4,6 +4,7 @@ import uuid
 
 
 def download_images_from_file(filename, output_dir):
+    """根据指定文件中的URL下载图片到指定目录"""
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 

@@ -1,7 +1,0 @@
-https://pics2.baidu.com/feed/1ad5ad6eddc451da2b7f2d232e42d06bd21632bd.jpeg@f_auto?token=17c9a47c5fb5ce8636ddb28569dc78f9
-url1 = 'https://gitee.com/static/images/logo.svg?t=158106664'
-url2 = 'https://www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png'
-url3 = 'https://gitee.com/static/images/logo.svg?t=158106664'
-url4 = 'https://www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png'
-url5 = 'https://gitee.com/static/images/logo.svg?t=158106664'
-url6 = 'https://www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png'

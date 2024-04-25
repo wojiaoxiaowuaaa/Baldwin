@@ -10,8 +10,7 @@ class RedisDb:
     ea11f1223a80   redis     "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   0.0.0.0:6379->6379/tcp   my-redis
     """
 
-    def __init__(self, host, port):
-        # 建立数据库连接
+    def __init__(self, host, port):  # 建立数据库连接
         self.r = redis.Redis(
             host=host,
             port=port,

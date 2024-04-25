@@ -10,6 +10,7 @@ from count_file import count_lines_and_size
 class TestCountLinesAndSize(unittest.TestCase):
     def setUp(self):
         self.test_file = "aaa.json"
+        # 生成的测试文件在项目的根目录下
         with open(self.test_file, "w") as f:
             f.write('{"name": "是小舞不是小武"}\n' * 10)
 

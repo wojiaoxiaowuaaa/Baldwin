@@ -22,7 +22,7 @@ async def main():
         while time.time() - start < 30:
             memory = asyncio.create_task(get_memory_usage())
             cpu = asyncio.create_task(get_cpu_usage())
-            # 这里的await的作用介绍见文末的文档
+            # await 关键字会等待异步任务执行完成，因此程序会暂停执行，直到这两个任务执行完毕并返回结果。
             print(await memory)
             print(await cpu)
             color_print_green()
