@@ -31,24 +31,23 @@ DEFAULT_ERROR_MESSAGE = """\
 """
 
 
-# 处理连接进行数据通信
+# 处理连接 进行数据通信
 class HTTPServer(object):
     def __init__(self, server_address, RequestHandlerClass):
         self.server_address = server_address
         self.RequestHandlerClass = RequestHandlerClass
         self.request_queue_size = 5
         self.__shutdown_request = False
-
         # 创建 TCP Socket
-        self.socket = socket.socket(socket.AF_INET,
-                                    socket.SOCK_STREAM)
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             # 绑定 socket 和端口
             self.server_bind()
             # 开始监听端口
             self.server_activate()
         except:
-            # 关闭 socket
+            #  关闭 socket
+            #  解释器会在执行 __init__() 方法时，根据函数名查找该方法的定义，并在运行时动态调用。因此，即使 server_close() 方法的定义在 __init__() 方法的后面，也不会影响在 __init__() 方法中对其的调用。
             self.server_close()
             raise
 
@@ -83,8 +82,7 @@ class HTTPServer(object):
             while True:
                 ready = selector.select(poll_interval)
                 if ready:
-                    # 有准备好的可读文件句柄，则与客户端的链接建立完毕
-                    # 可以进行下一步
+                    # 有准备好的可读文件句柄，则与客户端的链接建立完毕 可以进行下一步
                     self._handle_request_noblock()
 
     def _handle_request_noblock(self):
@@ -127,8 +125,7 @@ class HTTPServer(object):
 
     def handle_error(self, client_address):
         print('-' * 40, file=sys.stderr)
-        print('Exception occurred during processing of request from',
-              client_address, file=sys.stderr)
+        print('Exception occurred during processing of request from', client_address, file=sys.stderr)
         import traceback
         traceback.print_exc()
         print('-' * 40, file=sys.stderr)
@@ -472,5 +469,5 @@ class RequestHandler(HTTPRequestHandler):
 
 if __name__ == '__main__':
     server = HTTPServer(('', 8080), RequestHandler)
-    # 启动服务
+    # 启动服务 curl http://172.23.224.120:8080/handle_about
     server.serve_forever()
