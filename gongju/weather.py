@@ -12,10 +12,13 @@ def func(city):
 
     res = requests.post(url, headers=headers)
 
-    res = json.dumps(res.json())  # 将Python字典转换为json字符串
+    # print(res.text)  # 这里拿到的就是json字符串  如果使用res.json()则拿到的是Python字典
 
-    with open("../doc/demo.json", "w") as f:
-        f.write(res)
+    # res = json.dumps(res.json())  # 将Python字典转换为json字符串
+
+    with open("../config/demo.json", "w") as f:
+        # 这里必须写入字符串格式内容,尝试写入字典会报错 TypeError: write() argument must be str, not dict
+        f.write(res.text)
 
 
 if __name__ == "__main__":

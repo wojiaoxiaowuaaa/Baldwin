@@ -1,7 +1,10 @@
 import cProfile
+from time_count import calculate_execution_time
 
 
+@calculate_execution_time
 def sum_(n):
+    """装饰器统计出来的执行耗时与cProfile统计出来的一致"""
     count = 0
     for i in range(n):
         count += i

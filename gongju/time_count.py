@@ -19,7 +19,7 @@ def calculate_execution_time(func):
         result = func(*args, **kwargs)
         end_time = time.perf_counter()
         execution_time = end_time - start_time
-        print(f"函数 {func.__name__} 的执行时间为: {execution_time} 秒")
+        print(f"函数{func.__name__}的执行时间为:{execution_time}秒")
         return result
 
     return wrapper_er

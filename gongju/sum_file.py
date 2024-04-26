@@ -1,6 +1,6 @@
 import os
 from config.setting import mv_file, book
-from gongju.time_count import calculate_execution_time
+from time_count import calculate_execution_time
 
 """生成器方法通常在内存使用方面更优，因为它逐块读取文件，不会一次性加载整个文件到内存中。os.path.getsize() 方法会
 一次性加载整个文件到内存中，这可能会导致内存不足或性能下降，特别是对于大型文件而言。
@@ -32,9 +32,8 @@ def calculate_file_size(file_path):
 
 
 if __name__ == '__main__':
-    file_path = mv_file
-    if os.path.exists(file_path):
-        file_size = calculate_file_size(file_path)
-        print(f"The size of the file '{file_path}' is: {file_size} GB")
+    if os.path.exists(mv_file):
+        print(f"The size of the file '{mv_file}' is: {calculate_file_size(mv_file)} GB")
     else:
         print(' file does not exist')
+
