@@ -21,6 +21,8 @@ MD5_SALT = "wl2024#%*"
 
 # 路径
 desktop = '/Users/wl/Desktop'
+documents = '/Users/wl/Documents'
+douyin = '/Users/wl/Documents/douyin/'
 winter_fell = '/Users/wl/Desktop/27149'
 book = '/Users/wl/Documents/脂砚斋重评石头记.pdf'
 image_path = '/Users/wl/Downloads/image.webp'

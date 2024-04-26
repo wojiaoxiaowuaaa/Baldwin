@@ -1,19 +1,19 @@
 from tenacity import retry, stop_after_attempt, wait_fixed
 from retry_decorator import retry_decorator
+from color_print import color_print_green
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
+# 重试三次  时间间隔为1秒
 def my_function():
-    print('ing......')  # 重试三次  时间间隔为1秒
-    # assert 1 == 2
+    color_print_green()
     # raise Exception('error')
 
 
-@retry_decorator(5, 5)
+@retry_decorator(3, 1)
 def test_func():
-    print('test_func is called')
-    assert 1 == 1
-
+    color_print_green()
+    assert 1 == 2
 
 # my_function()
-test_func()
+# test_func()

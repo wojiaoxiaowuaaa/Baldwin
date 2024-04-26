@@ -22,7 +22,6 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs) -> Any:
             for i in range(1, retries + 1):  # 1 to retries + 1 since upper bound is exclusive
-
                 try:
                     logger.info(f'Running ({i}): {func.__name__}()...')
                     return func(*args, **kwargs)
@@ -33,7 +32,7 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
                         logger.info(f'"{func.__name__}()" failed after {retries} retries.')
                         break
                     else:
-                        logger.info(f'Error: {repr(e)} -> Retrying...')
+                        logger.info(f'Error: {repr(e)}')
                         sleep(delay)  # Add a delay before running the next iteration
 
         return wrapper
