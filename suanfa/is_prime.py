@@ -10,3 +10,6 @@ def is_prime(n):
         return True if n != 1 else False
     return False
 
+
+if __name__ == '__main__':
+    is_prime(10)

@@ -1,5 +1,4 @@
 from suanfa.is_prime import is_prime
-from gongju.color_print import color_print_greep
 
 
 def file_write():
@@ -21,8 +20,6 @@ def file_write():
     finally:
         for f in l:
             f.close()
-
-    color_print_greep()
 
 
 if __name__ == '__main__':
