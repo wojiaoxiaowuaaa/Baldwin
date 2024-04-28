@@ -1,16 +1,19 @@
 from time import ctime
 from loguru import logger
+import urllib3
 from locust import HttpUser, task, between, events
+
+urllib3.disable_warnings()
 
 
 @events.test_start.add_listener
 def on_test_start(**kwargs):
-    logger.info(f'--->测试最开始提示:{ctime()}')
+    logger.info(f'===测试最开始提示===:{ctime()}')
 
 
 @events.test_stop.add_listener
 def on_test_stop(**kwargs):
-    logger.info(f'--->测试结束了提示{ctime()}')
+    logger.info(f'===测试最结束提示==={ctime()}')
 
 
 class TestTask(HttpUser):
@@ -19,6 +22,7 @@ class TestTask(HttpUser):
     host = 'https://www.baidu.com'
 
     def on_start(self):
+        # 请求次数与与生成的测试用户数有关,执行命令中的-u参数,或者图形界面的number of users(第一行, 用户数---峰值并发.)
         logger.info(f'这是SETUP，每次实例化User前都会执行！{ctime()}')
 
     @task
@@ -38,6 +42,6 @@ class TestTask(HttpUser):
 
 if __name__ == "__main__":
     # 执行python3  locust_demo02.py
+    # os.system("locust -f locust_demo02.py --host=https://www.baidu.com")
     import os
-
     os.system("locust -f locust_demo02.py --headless -u 10 -r 1 -t 10 --html report.html")
