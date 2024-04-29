@@ -101,13 +101,13 @@ import psutil
 # range() 返回的是一个可迭代对象，但不是一个迭代器(没有__next__方法),这个有点和列表list一样.但range是惰性计算.
 
 # 对比列表与range对象的内存占用  
-def show_memory_info(s):
+def show_memory_info(s='this process'):
     """计算当前进程占用的内存大小"""
     pid = os.getpid()
     p = psutil.Process(pid)
     info = p.memory_full_info()
     memory = info.uss / 1024 / 1024
-    print('{} memory used: {} M'.format(s, memory))
+    print('{} pid {} memory used: {} M'.format(s, pid, memory))
 
 
 def test_iterable():
