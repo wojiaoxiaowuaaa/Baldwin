@@ -32,8 +32,12 @@ if __name__ == "__main__":
 
 """
 
+import os
+from loguru import logger
+
+
 def total_func(pwd):
-    # walk()是 Python 中用于遍历目录树的函数。它接受一个起始目录路径作为参数，并返回一个生成器，用于生成目录树中每个目录的信息.
+    # 对比上面的脚本可以发现多进程多任务在某些场景下能够节约时间
     for root, dirs, files in os.walk(pwd):
         logger.info(f"Directory: {root}")
         # print(f"Total files: {len(files)}")
@@ -42,7 +46,6 @@ def total_func(pwd):
         # color_print_green()
 
 
-landing = find_func('.py', '/Users/wl/Desktop')
-print(landing[0])
+total_func('/Users/wl/go')
 
 """
