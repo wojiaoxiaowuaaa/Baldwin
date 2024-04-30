@@ -12,7 +12,7 @@ async def async_walk(pwd):
 
 async def main():
     # async for 循环会等待异步生成器产生的值，而异步生成器会在需要时异步地生成值并将其返回给循环。
-    async for res in async_walk('/Users/wl/Desktop/'):
+    async for res in async_walk('/Users/wl/go'):
         print(res)
 
 

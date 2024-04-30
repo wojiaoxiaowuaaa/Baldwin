@@ -28,4 +28,4 @@ def total_func(pwd):
 # landing = find_func('.py', '/Users/wl/Desktop')
 # print(landing[0])
 
-total_func('/Users/wl/Desktop')
+total_func('/Users/wl/go')

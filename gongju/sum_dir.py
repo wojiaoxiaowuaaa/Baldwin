@@ -28,6 +28,6 @@ from config.setting import douyin
 #     print(f"The total size of the folder {floder} is: {formatted_size}")
 
 # 计算指定文件夹的大小
-folder_size = sum([os.path.getsize(os.path.join(root, filename)) for root, dir, filenames in os.walk(douyin) for filename in filenames])
+folder_size = sum([os.path.getsize(os.path.join(root, filename)) for root, dir, filenames in os.walk('/Users/wl/go') for filename in filenames])
 
 logger.info(folder_size/ 1024 / 1024 / 1024)  # 默认单位是B-字节,这里除以三次1024换算到GB
