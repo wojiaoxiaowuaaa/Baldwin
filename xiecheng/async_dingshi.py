@@ -1,5 +1,6 @@
 import asyncio
-from gongju.color_print import color_print_red
+from loguru import logger
+from color_pr import color_print_red
 
 """
 在需要执行定时任务的应用中，可以使用异步操作来管理定时任务的执行。这样，你可以在单个线程中安排多个定时任务而不需要创建多个线程。
@@ -9,12 +10,11 @@ from gongju.color_print import color_print_red
 
 
 async def task_one():
-    print("Task One executed.")
+    logger.info("Task One executed.")
 
 
 async def task_two():
-    print("Task Two executed.")
-    color_print_red()
+    logger.info("Task Two executed.")
 
 
 async def main():
