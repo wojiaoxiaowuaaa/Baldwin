@@ -19,9 +19,9 @@ def total_func(pwd):
     # walk()是 Python 中用于遍历目录树的函数。它接受一个起始目录路径作为参数，并返回一个生成器，用于生成目录树中每个目录的信息.
     for root, dirs, files in os.walk(pwd):
         print(f"Directory: {root}")
-        print(f"Total files: {len(files)}")
+        # print(f"Total files: {len(files)}")
         total_size = sum(os.path.getsize(os.path.join(root, name)) for name in files)
-        print(f"Total size: {total_size} bytes")
+        # print(f"Total size: {total_size} bytes")
         color_print_green()
 
 
