@@ -12,8 +12,10 @@ async def coro(name):
 
 
 def start_coro(name):
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(coro(name))
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(coro(name))
+    # 这是在 Python 3.7 版本中引入的高级方法，它简化了 asyncio 应用程序的启动和管理。  asyncio.run() 函数会自动创建一个新的事件循环对象，并在执行完传入的协程后自动关闭事件循环。(更优雅 上面的写法不推荐)
+    asyncio.run(coro(name))
 
 
 if __name__ == "__main__":

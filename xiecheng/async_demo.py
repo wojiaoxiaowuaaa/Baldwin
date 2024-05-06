@@ -1,8 +1,6 @@
 import threading
 import asyncio
 from loguru import logger
-import multiprocessing
-from os import getpid
 
 
 async def hello():
@@ -23,5 +21,3 @@ hello_1 ---> <_MainThread(MainThread, started 2332)>
 hello_2 ---> <_MainThread(MainThread, started 2332)>
 hello_2 ---> <_MainThread(MainThread, started 2332)>
 """
-
-

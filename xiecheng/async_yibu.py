@@ -20,6 +20,7 @@ async def main():
 asyncio.run(main())
 
 """
+import time
 import asyncio
 import aiohttp
 
@@ -34,7 +35,6 @@ async def fetch(url):
             return response
 
 if __name__ == '__main__':
-    import time
     start = time.time()
     loop = asyncio.get_event_loop()
     tasks = [fetch(host + url) for url in urls_todo]
