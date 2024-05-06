@@ -1,32 +1,4 @@
 import multiprocessing
-from multiprocessing import Process
-from os import getpid
-from random import randint
-from time import time, sleep
-from gongju.time_count import calculate_execution_time
-
-# def download_task(filename):
-#     print('启动下载进程，进程号[%d]' % getpid())
-#     print('开始下载%s...' % filename)
-#     time_to_download = randint(5, 10)
-#     sleep(time_to_download)
-#     print('%s下载完成! 耗费了%d秒' % (filename, time_to_download))
-#
-#
-# def main():
-#     start = time()
-#     p1 = Process(target=download_task, args=('群鸦的盛宴.pdf',))
-#     p1.start()
-#     p2 = Process(target=download_task, args=('权力的游戏.mp4',))
-#     p2.start()
-#     p1.join()
-#     p2.join()
-#     end = time()
-#     print('总共耗费了%.2f秒.' % (end - start))
-#
-#
-# if __name__ == '__main__':
-#     main()
 
 
 """
@@ -50,7 +22,7 @@ def square_and_sum(numbers, q):
 
 if __name__ == "__main__":
     # 定义列表
-    numbers = list(range(1, 100000001))
+    numbers = list(range(1, 10001))
     # 将数字划分为若干块，每个进程处理一块
     chunk_size = len(numbers) // 12
     # 将列表通过切片 拆分为若干个小列表 每个嵌套的子列表中包含若干个元素 len(chunks) == 13
@@ -59,7 +31,7 @@ if __name__ == "__main__":
     # 使用 multiprocessing.Manager().Queue() 创建进程共享的队列  manager = multiprocessing.Manager()
     q = multiprocessing.Manager().Queue()
 
-    # 使用 multiprocessing.Pool 创建进程池
+    # 创建一个具有多个进程的进程池 可以方便地并行执行多个任务。
     with multiprocessing.Pool(processes=12) as pool:
         # 在每个进程中执行 square_and_sum 函数
         pool.starmap(square_and_sum, [(chunk, q) for chunk in chunks])
