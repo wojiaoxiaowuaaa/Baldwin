@@ -3,8 +3,7 @@ from os import getpid
 from loguru import logger
 
 """
-在 Python 中，多进程编程通常使用 multiprocessing 模块来实现。在 multiprocessing 模块中，Process 类表示一个进程，
-它有 start() 和 join() 方法用于启动进程和等待进程结束。下面是关于这两个方法的介绍：
+Process 类表示一个进程，它有 start() 和 join() 方法用于启动进程&&等待进程结束。下面是关于这两个方法的介绍：
 
 start() 方法：
 start() 方法用于启动一个进程，使其开始执行进程函数中定义的任务。
@@ -49,4 +48,4 @@ if __name__ == "__main__":
     for process in worker_processes:
         process.join()
 
-    print("main process end")  # 如果写在Main函数外 会执行num_workers+1次
+    print("main process end")  # 如果写在Main函数外 会重复打印num_workers+1次
