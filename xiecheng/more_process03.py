@@ -3,12 +3,12 @@
 Queue:队列模块，不适合传大文件，通常传一些消息。
 多生产者进程和多消费者进程
 """
+import time
 from multiprocessing import Process, Queue
 
 
 # 生产者
 def producers(q, name, food):
-    # 开始生产10个包子
     for i in range(3):
         print(f'{name}生产了{food}{i}')
         res = f'{food}{i}'
@@ -27,7 +27,6 @@ def consumers(q, name):
         # 然后接收队列进行判断,如果receiv是'我生产完毕了'的话，消费者就停止再继续吃包子了
         if receive is None:
             break
-        # time.sleep(3)
         print(f'{name}吃掉了{receive}')
 
 
@@ -35,22 +34,15 @@ if __name__ == '__main__':
     # 创建队列对象
     q = Queue()
 
-    p1 = Process(target=producers, args=(q, '张三丰', '狗不理包子'))  # 此人生产者
-    # p2 = Process(target=producers, args=(q, '郭靖', '降龙十八掌包子'))  # 此人生产者
-    # p3 = Process(target=producers, args=(q, '黄蓉', '打狗棒包子'))  # 此人生产者
-
-    c1 = Process(target=consumers, args=(q, '小舞'))  # 此人消费者
-    # c2 = Process(target=consumers, args=(q, 'xiaobai'))  # 此人消费者
+    p1 = Process(target=producers, args=(q, '张三丰', '狗不理包子'))
+    c1 = Process(target=consumers, args=(q, 'jack'))
 
     p1.start()
-    # p2.start()
-    # p3.start()
     c1.start()
-    # c2.start()
 
-    p1.join()
-    # p2.join()
-    # p3.join()  # 用join方法保证生产者生产完毕
+    p1.join()  # 用join方法保证生产者生产完毕
+    # c1.join()  # 取消注释这行运行不会结束
+
     q.put(None)  # 注释掉这行代码不会结束   阻塞  put none的作用是结束进程
     # q.put(None)  # 几个消费者进程put几次
 
@@ -69,7 +61,4 @@ q.put(None)
 
 问题03：
 问什么q.put(None)要写在这个地方？
-
-问题04：
-不注释第27行代码，执行结果为什么会吃掉6个包子呢？
 '''

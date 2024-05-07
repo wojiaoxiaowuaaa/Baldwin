@@ -5,11 +5,10 @@ def task(n):
     return n * n
 
 
-# 定义要执行的任务列表
-tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-# 创建一个进程池
 if __name__ == '__main__':
+    # 定义要执行的任务列表
+    tasks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
     # 使用multiprocessing.cpu_count()获取CPU核心数来设置进程池的大小
     with multiprocessing.Pool(multiprocessing.cpu_count()) as pool:
         # 执行map操作，将任务分配给进程池中的进程
@@ -21,4 +20,5 @@ if __name__ == '__main__':
 
         # 打印结果
         for r in results:
-            print(r)
+            print(r, end='\t')
+

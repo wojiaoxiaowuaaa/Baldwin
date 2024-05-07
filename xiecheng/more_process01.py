@@ -1,16 +1,17 @@
 import multiprocessing
+from os import getpid
 import time
 
 
 # 定义一个工作函数
 def worker(x):
-    print(f'Processing  {x}  in process:  {multiprocessing.current_process().pid}')
+    print(f'Processing  {x}  in process:  {getpid()}')  # multiprocessing.current_process().pid
     time.sleep(3)  # 模拟耗时操作
     return x * x
 
 
 if __name__ == '__main__':
-    # 创建进程池，指定进程数量为3
+    # 创建进程池，指定进程数量为3(3个不同的pid每个重复2次,设置进程数量为6则会有6个不同的pid)
     with multiprocessing.Pool(processes=3) as pool:
         # # 使用map方法提交任务
         # results_map = pool.map(worker, range(6))
