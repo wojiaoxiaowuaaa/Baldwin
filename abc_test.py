@@ -1,24 +1,33 @@
-import multiprocessing
-import time
+import asyncio
 
 
-# 定义一个简单的进程函数
-def worker(x):
-    print("Worker started")
-    time.sleep(x)  # 模拟任务执行时间
-    print("Worker finished")
+async def read_file_async(filename):
+    """异步读取文件的操作"""
+    await asyncio.sleep(1)  # 模拟异步操作
+
+    try:
+        with open(filename, "r") as f:
+            data = f.read()
+    except Exception as e:
+        return None, e
+
+    return data, None
 
 
-if __name__ == "__main__":
+# 回调函数用于处理异步操作的结果
+def on_file_read_complete(error, data):
+    if error:
+        print(f"发生错误：{error}")
+    else:
+        print(f"文件内容：{data}")
 
-    # 创建一个进程对象
-    process = multiprocessing.Process(target=worker, args=(1,))
 
-    # 启动进程
-    process.start()
+# 使用异步函数进行文件读取操作
+async def main():
+    filename = "/Users/wl/z-interface.txt"
+    data, error = await read_file_async(filename)
+    on_file_read_complete(error, data)
 
-    # 等待进程执行完成
-    process.join()
 
-    print("Main program finished")
-
+# 执行异步函数
+asyncio.run(main())

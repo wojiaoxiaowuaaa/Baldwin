@@ -22,9 +22,7 @@ def callback(result):
 
 def run_test(i, req_data, q):
     print(f"第{i}次执行")
-    headers = {
-        "Cookie": req_data.get("cookies")
-    }
+    headers = {"Cookie": req_data.get("cookies")}
     try:
         if req_data.get('req_method') in "GET":
             ret = requests.request(req_data.get('req_method'), req_data.get('request_path'),
@@ -55,6 +53,7 @@ if __name__ == "__main__":
     # 登录拉活
     test_data = {
         "times": 5,
+        "concurrency_times": 5,
         "request_path": "https://test.com/activity/login",
         "req_method": "POST",
         "cookies": "",

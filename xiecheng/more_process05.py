@@ -25,7 +25,7 @@ def consumer(queue):
 
 if __name__ == "__main__":
     # 主进程是整个脚本的执行起点,主要负责创建并控制其他两个子进程。
-    print(os.getpid(), "Main process starts")
+    print(os.getpid(), "Main process start")
     # 创建共享队列
     shared_queue = multiprocessing.Manager().Queue()
 
