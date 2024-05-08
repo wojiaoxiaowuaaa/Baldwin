@@ -1,12 +1,11 @@
 from multiprocessing import Process, Queue
 
-"""下面的代码会创建两个进程。
-主进程：由主程序执行，负责创建工作进程、向队列中放入数据、等待工作进程结束等。
-工作进程：由 multiprocessing.Process 创建，通过 target=worker 参数指定执行的函数是 worker 函数。
-该进程在一个循环中不断从队列中获取数据，并进行处理，直到获取到特殊的终止信号为止。"""
-
 
 def worker(q):
+    """该脚本会创建两个进程。
+    主进程：由主程序执行，负责创建工作进程、向队列中放入数据、等待工作进程结束等。
+    工作进程：由 multiprocessing.Process 创建，通过 target=worker 参数指定执行的函数是 worker 函数。
+    该进程在一个循环中不断从队列中获取数据，并进行处理，直到获取到特殊的终止信号为止。"""
     while True:
         item = q.get()  # 从队列中获取数据
         if item is None:
@@ -19,7 +18,6 @@ if __name__ == "__main__":
     q = Queue()
     p = Process(target=worker, args=(q,))
     p.start()
-    # 向队列中放入数据
     for item in range(10):
         q.put(item)
     # 向队列中放入None,表示不再有数据了.注释掉这行，会导致进程一直运行.

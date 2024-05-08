@@ -17,6 +17,7 @@ print(gen.send(2))
 刚才我们说过生成器函数执行到了赋值这一步，因此接下来就要真正开始执行赋值操作啦，也即是执行语句x = yield i的另一半过程：赋值。
 这个值就是调用者通过send(value)发送进生成器的值,也即是yield i这个表达式的值.
 """
+from color_pr import color_print_green, color_print_red
 
 
 def func():
@@ -30,5 +31,7 @@ def func():
 
 g = func()
 print(g.__next__())
-print(g.send("打印了吗?"))
+color_print_green()
+print(g.send("打印了吗打印了吗打印了吗打印了吗?"))
+color_print_red()
 print(g.__next__())
