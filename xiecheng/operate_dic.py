@@ -5,8 +5,7 @@ from loguru import logger
 
 
 async def get_directory_info(directory):
-    # 多进程+多任务
-    # async for 语法用于异步迭代，但是在这个脚本中，os.walk() 并不是异步操作，因此无法直接在 async for 中使用。
+    # 多进程+多任务. async for 语法用于异步迭代，但是在这个脚本中，os.walk() 并不是异步操作，因此无法直接在 async for 中使用。
     for root, dirs, files in os.walk(directory):
         logger.info(f"Directory: {root}")
         # for name in files:
@@ -23,7 +22,7 @@ def process_func(directory):
 if __name__ == "__main__":
     processes = []
     for _ in range(multiprocessing.cpu_count()):
-        p = multiprocessing.Process(target=process_func, args=("/Users/wl/go",))
+        p = multiprocessing.Process(target=process_func, args=("/Users/wl/Desktop/01需求日记",))
         processes.append(p)
         p.start()
 

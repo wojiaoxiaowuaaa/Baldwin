@@ -14,7 +14,7 @@ def logs_reduce(pwd):
         # time.sleep(1)
         d = {"str": token_hex(10), "num": random.random()}
         with open(pwd, "a") as f:
-            # a为追加模式, w为覆盖模式(每次都会清空文件导致只能写入一行数据) json.dumps(d)可以写入json类型的数据
+            # a为追加模式,w为覆盖模式(每次都会清空文件导致只能写入一行数据). json.dumps(d)可以写入json类型的数据.
             f.writelines(str(d) + "\n")
 
 
