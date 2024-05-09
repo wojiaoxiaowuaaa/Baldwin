@@ -1,4 +1,3 @@
-import json
 import time
 from secrets import token_hex
 import random
@@ -12,12 +11,12 @@ def logs_reduce(pwd):
     # while True   为一直写入数据到手动停止
     # while后跟判断条件
     while time.time() - start < 3:
-        time.sleep(1)
+        # time.sleep(1)
         d = {"str": token_hex(10), "num": random.random()}
         with open(pwd, "a") as f:
-            # a为追加模式, w为覆盖模式(会清空文件导致只能写入一行数据)
-            f.writelines(json.dumps(d) + "\n")
+            # a为追加模式, w为覆盖模式(每次都会清空文件导致只能写入一行数据) json.dumps(d)可以写入json类型的数据
+            f.writelines(str(d) + "\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logs_reduce("doc/logs.txt")
