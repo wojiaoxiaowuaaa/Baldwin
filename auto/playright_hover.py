@@ -1,8 +1,10 @@
 from playwright.sync_api import Playwright, sync_playwright
+from loguru import logger
 
 
 # 创建浏览器
 def run(playwright: Playwright) -> None:
+    logger.info('开始执行')
     # 创建浏览器
     browser = playwright.chromium.launch(headless=False)
 
@@ -54,6 +56,10 @@ def run(playwright: Playwright) -> None:
     # hover 出菜单
     page.hover('//div[@class="u-info"]/img')
 
+    page.wait_for_timeout(3000)
+
+    logger.info('点击button退出登录')
+
     # 退出登录
     page.click('//a[contains(text(), "退出登录")]')
 
@@ -68,6 +74,8 @@ def run(playwright: Playwright) -> None:
 
     # 关闭浏览器
     browser.close()
+
+    logger.info('执行完毕')
 
 
 # 调用

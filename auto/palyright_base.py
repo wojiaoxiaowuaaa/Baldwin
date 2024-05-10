@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-from time import sleep
+
 
 """Playwrigth 会安装 Chromium, Firefox 等浏览器并配置一些驱动，我们不必关心中间配置的过程，Playwright 会为我们配置好。
 使用 sync_playwright 方法启动浏览器。 
