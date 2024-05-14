@@ -9,7 +9,7 @@ async def producer(queue):
         await asyncio.sleep(random.random())
         item = f"item: {i}"
         await queue.put(item)
-        print(f"Produced {item}")
+        logger.info(f"Produced {item}")
 
 
 async def consumer(queue):
