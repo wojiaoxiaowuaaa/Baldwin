@@ -128,4 +128,9 @@ def test_range():
 test_iterable()
 test_range()
 ```
+```python
+# 将字典的键转换为列表，然后获取指定的键.同理可以转换为列表后取value: list(my_dict.values())
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+keys = list(my_dict)  # list(my_dict.keys())将字典的键转换为列表，然后获取第二个键. 同理可以转换为列表后取value的值list(my_dict.values())
 
+```
