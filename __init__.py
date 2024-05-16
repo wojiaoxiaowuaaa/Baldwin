@@ -15,6 +15,9 @@ sys.path 是一个列表，它指定了 Python 在导入模块时会搜索的目
 将当前目录添加到系统路径中。这样，当你在代码中使用import语句导入模块时，Python 将会在当前目录及其子目录中查找模块文件。
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 for i in sys.path: print(i)
+
+curl -X POST "http://127.0.0.1:8000/items/" -H "Content-Type: application/json" -d '{"name": "Sample Item", "description": "This is a sample item", "price": 10.5, "tax": 1.5}'
+
 """
 
 

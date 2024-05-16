@@ -1,34 +1,40 @@
-import asyncio
-import random
-from loguru import logger
+from fastapi import FastAPI
+from enum import Enum
+
+app = FastAPI()
 
 
-async def producer(queue):
-    for i in range(6):
-        # 协程的切换是由await关键字触发的。当协程遇到await时，会将控制权让给事件循环，事件循环可以切换到其他协程运行。
-        await asyncio.sleep(random.random())
-        item = f"item: {i}"
-        await queue.put(item)
-        print(f"Produced {item}")
+class Model(str, Enum):
+    name = "xiaowu"
+    age = "18"
+    address = "beijing"
 
 
-async def consumer(queue):
-    while True:
-        item = await queue.get()
-        if item is None:
-            break
-        logger.info(f"consumer: {item}")
-        queue.task_done()
+@app.get("/{id}")
+async def func(id: int) -> dict:
+    return {"id": id}
 
 
-async def main():
-    queue = asyncio.Queue()
-    # 任务是协程的包装器，表示要并发执行的协程。
-    p = asyncio.create_task(producer(queue))
-    c = asyncio.create_task(consumer(queue))
-    await p
-    await queue.put(None)
-    await c
+@app.get("/model/{model_type}")
+async def get_model(model_type: Model):
+    if model_type is Model.name:
+        return {"model_name": model_type, "message": "111"}
+    elif model_type == Model.age:
+        return {"model_age": model_type, "message": "222"}
+    else:
+        return 666
 
 
-asyncio.run(main())
+from pydantic import BaseModel
+
+
+class Item(BaseModel):
+    name: str
+    description: str = None
+    price: float
+    tax: float = None
+
+
+@app.post("/items/", response_model=Item)
+def create_item(item: Item):
+    return item
