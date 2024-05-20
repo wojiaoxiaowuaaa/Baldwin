@@ -1,5 +1,10 @@
+import sys
+import os
 import pandas as pd
-from color_print import color_print_green
+
+# 将根目录加入到系统路径中 否则下一行的导入在终端执行时会报错找不到对应的模块
+sys.path.append(os.path.abspath("/Users/wl/Desktop/Baldwin/"))
+from color_pr import color_print_green
 
 file_path = '/Users/wl/Documents/接口请求上报量汇总前1W.xlsx'
 df = pd.read_excel(file_path)
@@ -19,7 +24,7 @@ print(df.head())
 # selected_data = df[selected_column]
 # print(selected_data)
 
-color_print_green()  # 打印分隔线
+color_print_green()
 
 # 创建一个二维数据结构:DataFrame
 data = {'Name': ['Alice', 'Bob', 'Charlie', 'David'],
