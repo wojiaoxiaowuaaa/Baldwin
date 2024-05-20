@@ -3,13 +3,13 @@ from config.setting import MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYS
 
 
 class MysqlDb:
-    """部署docker MySQL并做容器端口映射
-    docker ps
+    """部署docker MySQL并做容器端口映射 docker ps
     ea7746dcbb9d   mysql:latest   "docker-entrypoint.s…"   13 days ago    Up 2 hours    0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-wl
     """
+
     def __init__(self, host, port, user, passwd, db):
         # 建立数据库连接
-        self.conn = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=db, autocommit=True)
+        self.conn = pymysql.connect(host=host, port=port, user=user, password=passwd, database=db, autocommit=True)
         # 通过 cursor() 创建游标对象，并让查询结果以字典格式输出
         self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
 
@@ -20,7 +20,7 @@ class MysqlDb:
         self.conn.close()
 
     def select_db(self, sql):
-        """查询"""
+        """查询语句"""
         # 检查连接是否断开，如果断开就进行重连
         self.conn.ping(reconnect=True)
         # 使用 execute() 执行sql
@@ -50,4 +50,5 @@ class MysqlDb:
 
 
 db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
-
+data = db.select_db("select * from test_result")
+print(data)
