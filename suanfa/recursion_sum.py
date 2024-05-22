@@ -10,4 +10,4 @@ def func(numbs):
     return numbs[0] + func(numbs[1:])
 
 
-func([1, 2, 3, 4])
+print(func([1, 2, 3, 4]))

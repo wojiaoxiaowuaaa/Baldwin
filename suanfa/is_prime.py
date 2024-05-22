@@ -12,4 +12,4 @@ def is_prime(n):
 
 
 if __name__ == '__main__':
-    is_prime(10)
+    print(is_prime(11))
