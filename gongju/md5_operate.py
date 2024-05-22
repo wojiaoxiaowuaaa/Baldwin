@@ -30,3 +30,4 @@ def md5_video(pwd):
 # video_md5('/Users/wl/Documents/guangxi.mp4')
 # md5_video('/Users/wl/Documents/guangxi.mp4')
 # print(get_md5('wl', '123456'))
+
