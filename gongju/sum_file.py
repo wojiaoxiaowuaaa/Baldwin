@@ -35,5 +35,5 @@ if __name__ == '__main__':
     if os.path.exists(mv_file):
         print(f"The size of the file '{mv_file}' is: {calculate_file_size(mv_file)} GB")
     else:
-        print(' file does not exist')
+        print('file does not exist')
 

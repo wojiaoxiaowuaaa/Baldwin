@@ -10,8 +10,8 @@ def encode_fields_to_base64(fields):
         # 对 JSON 字符串进行UTF-8编码 得到字节对象bytes
         json_data_encoded = json_str.encode('utf-8')
 
-        # 对 UTF-8 编码后的数据进行 Base64 编码
-        base64_encoded = base64.b64encode(json_data_encoded).decode('utf-8')
+        # 对 UTF-8 编码后的bytes数据进行 Base64 编码
+        base64_encoded = base64.b64encode(json_data_encoded).decode('utf-8')  # decode('utf-8') 是将字节序列转换为字符串的方法，使用 UTF-8 编码格式。
 
         return base64_encoded
     except Exception as e:

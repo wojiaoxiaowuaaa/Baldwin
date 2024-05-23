@@ -23,9 +23,6 @@ def fib(n):
 fib(36)
 print("with cached Time Taken: ", time.time() - s)
 
-
-
-
 """
 from cachetools import cached
 
