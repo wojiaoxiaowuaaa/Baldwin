@@ -1,6 +1,7 @@
 import os
-from config.setting import mv_file, book
+from config.setting import mv_file
 from time_count import calculate_execution_time
+from loguru import logger
 
 """生成器方法通常在内存使用方面更优，因为它逐块读取文件，不会一次性加载整个文件到内存中。os.path.getsize() 方法会
 一次性加载整个文件到内存中，这可能会导致内存不足或性能下降，特别是对于大型文件而言。
@@ -33,7 +34,10 @@ def calculate_file_size(file_path):
 
 if __name__ == '__main__':
     if os.path.exists(mv_file):
-        print(f"The size of the file '{mv_file}' is: {calculate_file_size(mv_file)} GB")
+        logger.info(f"The size of the file '{mv_file}' is: {calculate_file_size(mv_file)} GB")
     else:
-        print('file does not exist')
+        logger.info('file does not exist')
 
+# 计算指定文件夹的大小
+folder_size = sum([os.path.getsize(os.path.join(root, filename)) for root, dir, filenames in os.walk('..') for filename in filenames])
+logger.info(f"指定文件夹下的的文件大小总和是{folder_size / 1024 / 1024 / 1024} GB")

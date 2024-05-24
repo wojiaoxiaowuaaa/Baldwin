@@ -3,6 +3,7 @@ import time
 
 
 def fib(n):
+    # 计算斐波那契数列的第N个数
     return n if n < 2 else fib(n - 1) + fib(n - 2)
 
 

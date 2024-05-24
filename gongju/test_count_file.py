@@ -27,5 +27,5 @@ class TestCountLinesAndSize(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    # 终端 python3 test_count_file.py 运行测试用例
+    # python3 test_count_file.py 终端运行测试用例
     unittest.main()

@@ -1,6 +1,6 @@
 import psutil
 import time
-from color_print import color_print_green, color_print_red
+from color_pr import color_print_green
 
 start = time.time()
 

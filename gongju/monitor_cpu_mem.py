@@ -1,7 +1,8 @@
 import psutil
 import time
 import asyncio
-from color_print import color_print_green
+
+from color_pr import color_print_green
 
 
 async def get_memory_usage():

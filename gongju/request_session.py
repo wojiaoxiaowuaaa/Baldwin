@@ -10,9 +10,9 @@ class Send:
 
     @staticmethod
     def send_request(url="", method="get", **kwargs):
-        res = Send.session.request(method, url,  **kwargs)
-        print(f"状态码:{res.status_code}")
-        return res
+        response = Send.session.request(method, url, **kwargs)
+        print(f"状态码:{response.status_code}")
+        return response
 
 
 if __name__ == '__main__':

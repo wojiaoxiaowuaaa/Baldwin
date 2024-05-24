@@ -1,8 +1,7 @@
 ```python
-# 字符串处理Demo 去除空格指定符号等
 string0 = "  , Hello  ,  World!     , "
 
-# 默认去除开头和结尾的空格
+# 去除开头和结尾的空格. strip()方法移除字符串开头和结尾的指定字符（默认是空白字符、空格、换行符、制表符等).
 new_string1 = string0.strip()
 
 # 去除所有的空格
@@ -10,10 +9,6 @@ string2 = new_string1.replace(" ", "")
 
 # 去除开头和结尾的逗号
 new_string3 = string2.strip(",")
-
-print(new_string1)
-print(string2)
-print(new_string3)
 ```
 
 ```python
@@ -37,7 +32,6 @@ print(data)
 
 ```python
 # 使用 iter() 函数创建迭代器，使用 lambda 函数作为可调用对象
-
 # iter() 函数接受两个参数，分别是可调用对象和哨兵值。它会不断调用可调用对象，直到返回哨兵值为止。
 # 哨兵值（sentinel value）是一个特殊的值，用于表示迭代的终止条件。当迭代器产生哨兵值时，for 循环会认为迭代结束，从而退出循环。
 my_iterator = iter(lambda: input("Enter a number or 'stop' to end: "), 'stop')
@@ -45,7 +39,6 @@ my_iterator = iter(lambda: input("Enter a number or 'stop' to end: "), 'stop')
 # 使用 for 循环遍历迭代器
 for i in my_iterator:
     print(i)
-
 ```
 
 ```python
@@ -90,42 +83,6 @@ print(int(time.time()))
 from time import ctime
 print(ctime())
 
-```
-
-    
-```python
-import os
-import psutil
-
-# range(start, stop, step)
-# range() 返回的是一个可迭代对象，但不是一个迭代器(没有__next__方法),这个有点和列表list一样.但range是惰性计算.
-
-# 对比列表与range对象的内存占用  
-def show_memory_info(s='this process'):
-    """计算当前进程占用的内存大小"""
-    pid = os.getpid()
-    p = psutil.Process(pid)
-    info = p.memory_full_info()
-    memory = info.uss / 1024 / 1024
-    print('{} pid {} memory used: {} M'.format(s, pid, memory))
-
-
-def test_iterable():
-    show_memory_info('init iterable')
-    # 生成包含 1 亿个元素的列。这个列表会被加载到内存中，并占用一定的内存空间。但在Python中，当一个对象不再被引用时，垃圾回收机制会自动将其释放，因此在脚本执行完毕后，这个大型列表占用的内存空间会被自动释放掉。
-    [x * x for x in range(100000000)]
-    show_memory_info('after iterable initiated')
-    print('********')
-
-
-def test_range():
-    show_memory_info('init range')
-    range(100000000)
-    show_memory_info('after range initiated')
-
-
-test_iterable()
-test_range()
 ```
 ```python
 # 将字典的键转换为列表，然后获取指定的键.同理可以转换为列表后取value: list(my_dict.values())

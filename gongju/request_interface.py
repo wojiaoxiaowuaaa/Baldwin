@@ -1,22 +1,3 @@
-import requests
-
-headers = {
-    "Content-Type": "application/json",
-}
-
-
-def register():
-    url = 'http://127.0.0.1:9999/register'
-
-    data = {"username": "wintest3", "password": "123456", "sex": "0", "telephone": "18708923490", "address": "美国德州"}
-
-    response = requests.post(url=url, headers=headers, json=data)
-
-    print("Status Code:", response.status_code, '\n\n', "Response Content:", response.json())
-
-
-register()
-
 """
 res = requests.post(url=url, headers=headers, json=data)
 res = requests.post(url=url, headers=headers, data=data)
@@ -44,3 +25,21 @@ res = requests.post(url=url, headers=headers, data=urlencode(data))
 选择使用哪种方式取决于你要与服务器交互的方式。如果你需要发送JSON数据，使用`json=data`方式更为简便，
 而如果需要发送表单数据，使用`data=data`方式是常见的做法。
 """
+import requests
+
+headers = {"Content-Type": "application/json"}
+
+
+def register():
+    url = 'http://127.0.0.1:9999/register'
+
+    data = {"username": "wintest3", "password": "123456", "sex": "0", "telephone": "18708923490", "address": "美国德州"}
+
+    response = requests.post(url=url, headers=headers, json=data)
+
+    print("Status Code:", response.status_code, '\n\n', "Response Content:", response.json())
+
+
+register()
+
+
