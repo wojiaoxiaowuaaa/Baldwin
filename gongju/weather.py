@@ -12,7 +12,7 @@ def func(city):
 
     res = requests.post(url, headers=headers)
 
-    # print(res.text)  # 这里拿到的就是json字符串  如果使用res.json()则拿到的是Python字典
+    print(res.text)  # 这里拿到的就是json字符串  如果使用res.json()则拿到的是Python字典
 
     # res = json.dumps(res.json())  # 将Python字典转换为json字符串
 

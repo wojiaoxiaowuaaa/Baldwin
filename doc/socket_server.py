@@ -21,7 +21,7 @@ while True:
     print('连接地址:', addr)
 
     # 发送消息给客户端
-    message = '你好啊  海绵宝宝！'
+    message = '你好啊  海绵宝宝!'
     client_socket.send(message.encode('utf-8'))
 
     # 接收客户端消息

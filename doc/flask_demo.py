@@ -1,11 +1,14 @@
-from flask import Flask, request, make_response
+"""
+curl -X POST "http://127.0.0.1:5000/platform" -H "Content-Type: application/json" -d '{"name": "Sample Item", "description": "This is a sample item", "price": 10.5, "platform": "iOS"}'
+"""
+
+from flask import Flask, request, jsonify, make_response
 from loguru import logger
 
 app = Flask(__name__)
 
 """request对象是来自于flask，是一个请求上下文对象,具有较高的隔离性,
-flask的请求数据通过 request 对象来获取,
-request对象中保存了一次HTTP请求的一切信息。
+flask的请求数据通过 request 对象来获取,request对象中保存了一次HTTP请求的一切信息。
 
 Request对象的重要属性如下所列：
 form - 它是⼀个字典对象，包含表单参数及其值的键和值对。
@@ -13,13 +16,18 @@ args - 解析查询字符串的内容，它是浏览器问号"?"之后的URL的�
 """
 
 
-@app.route('/demo', methods=['GET', 'POST'])
-def demo():
-    """
-    curl -X POST -H "Content-Type: application/json" -d '{"name": "xiaowu", "age": 18}' http://172.23.224.120:8080/demo
-    """
-    logger.info(request.json.get('name'))
-    return make_response()
+@app.route('/platform', methods=['POST'])
+def get_platform():
+    # 从请求入参的JSON数据中获取platform字段，并去除首尾空格.如果请求的入参中不包含platform字段，则默认返回空字符串
+    platform = request.json.get("platform", "").strip()
+
+    logger.info(request.json)
+
+    return make_response({"message": "This is a complex response", "status": "success"}, 200)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)  # app.run('0.0.0.0', port=8080, debug=True)
 
 # 获取请求的基础数据
 # print(request.url)  # 请求的URL
@@ -74,7 +82,3 @@ def demo():
 #         file = files.get("file")
 #         file.save("./static/upload/" + file.filename)
 #         return json.dumps({"code": 0, "msg": "上传成功"})
-
-
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=8080, debug=True)

@@ -59,5 +59,5 @@ if __name__ == "__main__":
     encoded_result = encode_to_base64({'name': 'John Doe', 'age': 30, 'city': 'New York'})
     print("编码后的文本数据:", encoded_result)
 
-    encoded_image = encode_image_to_base64('../config/pic/111.webp')  # 这里的encoded_image 可用于在JSON 数据中嵌入图像或通过网络 API 传输图像
+    encoded_image = encode_image_to_base64('../config/pic/1~!!@@#11.webp')  # 这里的encoded_image 可用于在JSON 数据中嵌入图像或通过网络 API 传输图像
     print(encoded_image)

@@ -13,7 +13,7 @@ def download_images_from_file(filename, output_dir):
             url = line.strip()  # strip()方法移除字符串开头和结尾的指定字符(默认是空白字符、空格、换行符、制表符等)
             response = requests.get(url)
             if response.status_code == 200:
-                image_name = str(uuid.uuid4()).replace("-", "") + ".webp"
+                image_name = str(uuid.uuid4()).replace("-", "") + "1--11.webp"
                 save_path = os.path.join(output_dir, image_name)
                 with open(save_path, "wb") as f:
                     f.write(
