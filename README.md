@@ -1,5 +1,5 @@
 ```python
-string0 = "  , Hello  ,  World!     , "
+string0 = "  , !Hello & , ) World! _ + = 1  , "
 
 # 去除开头和结尾的空格. strip()方法移除字符串开头和结尾的指定字符（默认是空白字符、空格、换行符、制表符等).
 new_string1 = string0.strip()

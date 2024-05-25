@@ -18,7 +18,7 @@ def rename_files_in_directory(directory):
 
         # 如果是文件而不是文件夹
         if os.path.isfile(full_path):
-            # 清理文件名
+            # 去除问价名中的特殊字符
             clean_name = clean_filename(filename)
 
             # 获取新的完整路径
@@ -52,7 +52,7 @@ def add_webp_extension(folder_path):
 
 
 # 当前文件夹路径
-folder_path = '/Users/wl/Documents/douyin_download'
+folder_path = ''
 
 add_webp_extension(folder_path)
 

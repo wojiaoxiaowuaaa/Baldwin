@@ -6,25 +6,21 @@ import os
 
 def task(task_id):
     # 获取当前线程 ID
-    thread_id = threading.get_ident()
-    logger.info(f"Task {task_id} started in thread {thread_id}")
+    logger.info(f"Task {task_id} started in thread { threading.get_ident()}")
 
     # 获取当前进程 ID
-    process_id = os.getpid()
-    logger.info(f"Task {task_id} started in process {process_id}")
+    logger.info(f"Task {task_id} started in process { os.getpid()}")
 
     # 在这里执行任务的具体逻辑
     logger.info(f"Task {task_id} finished")
 
 
 def main():
-    # 设置线程池大小为 CPU 核心数量
-    num_threads = 12
+    # 创建线程池,设置线程池大小为 CPU 核心数量
+    with concurrent.futures.ThreadPoolExecutor(max_workers=12) as executor:
 
-    # 创建线程池
-    with concurrent.futures.ThreadPoolExecutor(max_workers=num_threads) as executor:
         # 提交任务到线程池
-        tasks = [executor.submit(task, i) for i in range(num_threads)]
+        tasks = [executor.submit(task, i) for i in range(12)]
 
         # 等待所有任务完成
         for future in concurrent.futures.as_completed(tasks):

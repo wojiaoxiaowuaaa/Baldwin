@@ -22,7 +22,7 @@ def print_process_info():
 
 
 if __name__ == "__main__":
-    print("线程信息：")
+    print("线程信息:")
     print_thread_info()
 
     print("\n进程信息：")

@@ -3,9 +3,9 @@ from DrissionPage import ChromiumPage
 from DataRecorder import Recorder
 
 
-# https://g1879.gitee.io/drissionpagedocs/
 def collect(tab, recorder, title):
     """
+    https://g1879.gitee.io/drissionpagedocs/
     :param tab: ChromiumTab 对象
     :param recorder: Recorder 记录器对象
     :param title: 类别标题
@@ -36,12 +36,11 @@ def main():
     # 获取第一个标签页对象
     tab1 = page.get_tab()
     # 新建一个标签页并访问另一个网址
-    tab2 = page.new_tab('https://gitee.com/explore/machine-learning')
+    tab = page.new_tab('https://gitee.com/explore/machine-learning')
     # 获取第二个标签页对象
-    tab2 = page.get_tab(tab2)
-
+    tab2 = page.get_tab(tab)
     # 新建记录器对象
-    recorder = Recorder('/Users/wl/Desktop/data.csv')
+    recorder = Recorder('/Users/mac/Desktop/data.csv')
 
     # 多线程同时处理多个页面
     Thread(target=collect, args=(tab1, recorder, 'ai')).start()
