@@ -22,11 +22,12 @@ from loguru import logger
 async def download_and_save(url, session):
     async with session.get(url) as response:
         if response.status == 200:
+            # 在Python的HTTP客户端库中，如aiohttp或requests，response.read()方法用于读取HTTP响应的主体（body）内容。这个方法通常返回一个字节串（bytes），代表了服务器返回的数据。这些数据可能是HTML、JSON、图片等任何形式的二进制数据。await response.read()是在异步环境中等待读取整个响应体
             content = await response.read()
             # 从 URL 中提取文件名
             filename = url.split("/")[-1].split("?")[0]
             # 拼接得到文件的绝对路径
-            filename = os.path.join('/Users/wl/Desktop', filename)
+            filename = os.path.join('/Users/mac/Desktop', filename)
             # 将内容保存到本地文件
             with open(filename, "wb") as f:
                 f.write(content)

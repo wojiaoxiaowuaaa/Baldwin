@@ -18,10 +18,7 @@ def color_print_red():
     print("\033[1;31m" + "*" * 30 + "\033[0m")
 
 
-def main():
-    color_print_green()
-    color_print_red()
-
 
 if __name__ == "__main__":
-    main()
+    color_print_green()
+    color_print_red()
