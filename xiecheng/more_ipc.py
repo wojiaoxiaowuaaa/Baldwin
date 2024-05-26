@@ -8,7 +8,7 @@ shared_data = 0
 def increment_shared_data():
     global shared_data
 
-    for _ in range(1000000):
+    for _ in range(1000):
         # 无锁状态下，多个线程同时访问和修改共享资源
         shared_data += 1
 
@@ -16,7 +16,7 @@ def increment_shared_data():
 def decrement_shared_data():
     global shared_data
 
-    for _ in range(1000000):
+    for _ in range(1000):
         # 无锁状态下，多个线程同时访问和修改共享资源
         shared_data -= 1
 

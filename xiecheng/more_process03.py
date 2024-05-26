@@ -1,17 +1,15 @@
-"""
-对象含有生产者、队列、消费者
-Queue:队列模块，不适合传大文件，通常传一些消息。
-多生产者进程和多消费者进程
-"""
 import time
 from multiprocessing import Process, Queue
 
 
 # 生产者
 def producers(q, name, food):
+    """
+    Queue:队列模块，不适合传大文件，通常传一些消息。
+    """
     for i in range(3):
-        print(f'{name}生产了{food}{i}')
-        res = f'{food}{i}'
+        print(f'{name}生产了{food} {i}')
+        res = f'{food} {i}'
         # 把生产者生产的一大堆包子打包成一个变量，然后直接put到队列的管子里（q.put(res)），等待消费者去get
         # 创建队列
         q.put(res)
@@ -40,25 +38,9 @@ if __name__ == '__main__':
     p1.start()
     c1.start()
 
-    p1.join()  # 用join方法保证生产者生产完毕
+    p1.join()  # 在 Python 多进程中，join方法用于等待子进程完成。它会阻塞当前进程，直到子进程执行完毕。(join方法会阻塞主进程，直到子进程完成。可以确保子进程在主进程之前完成，避免出现主进程先结束而子进程还在运行的情况。)
     # c1.join()  # 取消注释这行运行不会结束
 
-    q.put(None)  # 注释掉这行代码不会结束   阻塞  put none的作用是结束进程
+    q.put(None)  # 主程序会等待生产者进程完成，然后向队列中放入结束标识，通知消费者进程结束 q.put(None) 的作用是作为生产者与消费者之间的同步信号。当生产者完成所有工作后，它会向队列中放入一个 None 对象。消费者在从队列中获取并处理元素时，如果发现拿到的是 None，则知道所有生产已经完成，因此可以停止消费并退出循环。
     # q.put(None)  # 几个消费者进程put几次
 
-'''
-问题01：
-为什么会产生生产9个包子，吃掉了6个包子的问题？
-解答：
-put一次None，结束一个进程，总共put了3次None，
-但是只接收了两个None，所以就会导致生产9个包子，
-只吃掉了6个包子。
-
-问题02：
-为什么是两次None？
-q.put(None)
-q.put(None)
-
-问题03：
-问什么q.put(None)要写在这个地方？
-'''
