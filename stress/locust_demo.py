@@ -88,7 +88,7 @@ class PreUser(HttpUser):
 
 """
 终端执行的headless模式:
-locust -f locust_demo.py --headless  -u 5  -r 5 -t 5 --html report.html
+locust -f locust_demo.py --headless -u 5 -r 5 -t 5 --html report.html
 
 #配置文件启动demo,要执行的文件:
 locustfile = main.py

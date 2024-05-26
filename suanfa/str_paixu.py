@@ -1,30 +1,19 @@
-# 实现一个函数让所有奇数都在偶数前面，而且奇数升序排列，偶数降序排序，如字符串'1982376455',变成'1355798642'
+def count_letters(s):
+    letter_dict = {}
+    for char in s:
+        if char.isalpha():  # 判断字符是否为字母
+            if char in letter_dict:
+                letter_dict[char] += 1
+            else:
+                letter_dict[char] = 1
+    return letter_dict
 
-def func(s):
-    l = [int(i) for i in s]
-    l.sort(reverse=True)
-    # print(l)
-    for i in range(len(l)):
-        if l[i] % 2 > 0:
-            l.insert(0, l.pop(i))
-    return ''.join(str(s) for s in l)  # join()是字符串的一个常见方法,用于将序列(例如列表/元组/字符串)中的元素连接成一个新的字符串
+# 示例字符串
+input_string = "统计字符示例字符串，只计字母"
 
+# 调用函数
+result = count_letters(input_string)
 
-def sort_str(s):
-    # 将字符串转换为列表  map函数将可迭代对象s中的每个元素依次作用在int函数上并返回一个可迭代对象
-    l = list(map(int, s))
-    # 对奇偶数进行分类
-    two = [j for j in l if j % 2 == 0]
-    one = [k for k in l if k % 2 != 0]
-    # 排序
-    one.sort()
-    two.sort(reverse=True)
-    # 合并后返回
-    return "".join(map(str, one + two))
-
-
-s = '1982376455'
-print(func(s))
-
-s = '1982376455'
-print(sort_str(s))
+# 输出结果
+for letter, count in result.items():
+    print(f"'{letter}': {count}")
