@@ -94,3 +94,10 @@ keys = list(my_dict)[1]  # list(my_dict.keys())将字典的键转换为列表，
 d = {'a': 24, 'g': 52, 'i': 12, 'k': 33}
 print(sorted(d.items(), key=lambda x: x[1]))
 ```
+
+```python
+# 将列表按照指定大小分组
+l =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+chunk_size = 3
+print([l[i:i+chunk_size] for i in range(0, len(l), chunk_size)])
+```

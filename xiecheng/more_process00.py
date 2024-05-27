@@ -2,6 +2,8 @@ import multiprocessing
 
 
 """
+进程：程序运行在操作系统上的一个实例，就称之为进程。进程需要相应的系统资源：内存、时间片、pid等。
+
 Python 的多进程模块 multiprocessing 允许在多个 CPU 核上并行执行代码。每个进程都拥有自己的 Python 解释器和独立的内存空间，
 因此它们能够在不同的 CPU 核上同时运行。这使得 Python 的多进程模型能够充分利用多核系统，实现真正的并行性。
 与多线程模块 threading 不同，Python 的全局解释器锁（Global Interpreter Lock，GIL）对于多进程是没有影响的。在多线程模型中，
