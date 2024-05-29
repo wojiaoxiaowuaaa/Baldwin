@@ -41,18 +41,37 @@ def calculate_execution_time(func):
     return wrapper_er
 
 
-@get_time
-def fifty_million_loops() -> None:
-    fifty_million: int = int(5e7)
-    print('Looping...')
-    for _ in range(fifty_million):
-        pass
-    print('Done looping!')
+def logger_func(f):
+    """日志记录装饰器"""
+    @wraps(f)
+    def logger_wrapper(*args, **kwargs):
+        print((f.__name__ + " function was called with args: " + str(args) + "  " + str(kwargs) + "  code explain: " + f.__doc__))
+        return f(*args, **kwargs)
+
+    return logger_wrapper
 
 
-def main() -> None:
-    fifty_million_loops()
+@logger_func
+def add(a, b):
+    """adds two numbers"""
+    return a + b
 
 
-if __name__ == '__main__':
-    main()
+print(add(1, 2))
+
+
+# @get_time
+# def fifty_million_loops() -> None:
+#     fifty_million: int = int(5e7)
+#     print('Looping...')
+#     for _ in range(fifty_million):
+#         pass
+#     print('Done looping!')
+#
+#
+# def main() -> None:
+#     fifty_million_loops()
+#
+#
+# if __name__ == '__main__':
+#     main()

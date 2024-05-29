@@ -93,6 +93,8 @@ keys = list(my_dict)[1]  # list(my_dict.keys())将字典的键转换为列表，
 # 将字典按value值按升序排列
 d = {'a': 24, 'g': 52, 'i': 12, 'k': 33}
 print(sorted(d.items(), key=lambda x: x[1]))
+# 字典推导式对换一个字典的键跟值
+print({v: k for k, v in d.items()})
 ```
 
 ```python
