@@ -20,4 +20,4 @@ async def main():
 
 
 # yield 语句用于在异步生成器中生成值，而 async for 循环用于异步地迭代生成器产生的值。
-asyncio.run(main())
+print(asyncio.run(main()))

@@ -18,7 +18,6 @@ def color_print_red():
     print("\033[1;31m" + "*" * 30 + "\033[0m")
 
 
-
 if __name__ == "__main__":
     color_print_green()
     color_print_red()

@@ -36,7 +36,7 @@ if __name__ == '__main__':
     asyncio.run(main())
 
 
-"""在 asyncio 中，协程函数通常是通过 async def 关键字定义的，而在调用协程函数时，需要使用 await 关键字来等待协程的执行结果。
-如果不使用 await，则会得到协程对象本身而不是执行结果。
+"""在 asyncio 中，协程函数通常是通过 async def 关键字定义的，
+而在调用协程函数时，需要使用 await 关键字来等待协程的执行结果。如果不使用 await，则会得到协程对象本身而不是执行结果。
 在上面的脚本中，asyncio.create_task 创建了两个协程任务，并且使用 await 关键字来等待它们的执行结果，然后打印出来。
 如果不使用 await，那么 print(await memory) 和 print(await cpu) 语句就会直接打印出协程对象而不是执行结果。"""
