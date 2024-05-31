@@ -1,7 +1,7 @@
 import time
+import os
 from secrets import token_hex
-import random
-
+from random import random
 start = time.time()
 
 
@@ -12,11 +12,13 @@ def logs_reduce(pwd):
     # while后跟判断条件.循环条件是:当前时间与开始时间的差小于3秒.
     while time.time() - start < 3:
         time.sleep(1)
-        d = {"str": token_hex(10), "num": random.random()}
+        d = {"str": token_hex(10), "num": random()}
         with open(pwd, "a") as f:
             # a为追加模式,w为覆盖模式(每次都会清空文件导致只能写入一行数据). json.dumps(d)可以写入json类型的数据.
             # write() 方法接受一个字符串作为参数。writelines() 方法接受一个字符串序列（例如列表、元组）作为参数。
             f.writelines(str(d) + "\n")
+
+    # os.system(f'cat {pwd}')
 
 
 if __name__ == "__main__":

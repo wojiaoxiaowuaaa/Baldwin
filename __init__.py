@@ -25,7 +25,11 @@ curl -X POST "http://127.0.0.1:8000/items/" -H "Content-Type: application/json" 
 
 """
 
+# 路径(可作为项目拼接路径的参数)
+# BATH_PATH = os.path.dirname(os.path.abspath(__file__))
 
-# 项目根路径
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, BASE_PATH)
+
+# 添加项目目录到系统查询路径中
+# BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+# sys.path.insert(0, BASE_PATH)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
