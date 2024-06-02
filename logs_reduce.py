@@ -18,7 +18,7 @@ def logs_reduce(pwd):
             # write() 方法接受一个字符串作为参数。writelines() 方法接受一个字符串序列（例如列表、元组）作为参数。
             f.writelines(str(d) + "\n")
 
-    # os.system(f'cat {pwd}')
+    os.system(f'cat {pwd}')
 
 
 if __name__ == "__main__":

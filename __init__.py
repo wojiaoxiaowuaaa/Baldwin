@@ -19,17 +19,13 @@ for i in sys.path: print(i)
 可变类型 Vs 不可变类型
 可变类型（mutable）:     列表，字典
 不可变类型（unmutable):  数字，字符串，元组
-这里的可变不可变，是指内存中的那块内容（value）是否可以被改变.。如果是不可变类型，在对对象本身操作的时候，必须在内存中新申请一块区域(因为老区域不可变)如果是可变类型，对对象操作的时候，不需要再在其他地方申请内存，只需要在此对象后面连续申请(+/-)即可，也就是它的address会保持不变，但区域会变长或者变短。
+这里的可变不可变，是指内存中的那块内容（value）是否可以被改变.如果是不可变类型，在对对象本身操作的时候，必须在内存中新申请一块区域(因为老区域不可变)如果是可变类型，对对象操作的时候，不需要再在其他地方申请内存，只需要在此对象后面连续申请(+/-)即可，也就是它的address会保持不变，但区域会变长或者变短。
 
 curl -X POST "http://127.0.0.1:8000/items/" -H "Content-Type: application/json" -d '{"name": "Sample Item", "description": "This is a sample item", "price": 10.5, "tax": 1.5}'
-
 """
 
 # 路径(可作为项目拼接路径的参数)
-# BATH_PATH = os.path.dirname(os.path.abspath(__file__))
-
-
-# 添加项目目录到系统查询路径中
 # BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+# 添加项目目录到系统查询路径中
 # sys.path.insert(0, BASE_PATH)
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))

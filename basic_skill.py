@@ -7,10 +7,10 @@ class Student:
     name = "sale"
     age = "18"
 
-    def __init__(self, aa, bb):
+    def __init__(self, a, b):
         print("init function is run --->")
-        print(aa)
-        print(bb)
+        print(a)
+        print(b)
 
     def fun1(self):
         print("function 1 is run")

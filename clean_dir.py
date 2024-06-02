@@ -25,4 +25,5 @@ def rm_rf(pwd):
 
 if __name__ == '__main__':
     # rm_rf('')
-    clean_up('.pytest_cache')
+    clean_up('.idea')
+
