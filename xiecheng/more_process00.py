@@ -57,7 +57,7 @@ from queue import Queue
 
 
 def square_and_sum(l, queue):
-    """多线程版本"""
+    # 多线程版本
     square_sum = sum(x ** 2 for x in l)
     queue.put(square_sum)
 

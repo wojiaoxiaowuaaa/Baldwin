@@ -22,7 +22,7 @@ def process_func(directory):
 if __name__ == "__main__":
     processes = []
     for _ in range(multiprocessing.cpu_count()):
-        p = multiprocessing.Process(target=process_func, args=("/Users/mac/Desktop/Baldwin",))
+        p = multiprocessing.Process(target=process_func, args=("..",))
         processes.append(p)
         p.start()
 
