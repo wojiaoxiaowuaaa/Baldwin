@@ -47,3 +47,41 @@ if __name__ == "__main__":
         total_sum = sum(q.get() for _ in range(12))
 
     print("Total sum of squares:", total_sum)
+
+
+"""
+
+import threading
+import time
+from queue import Queue
+
+
+def square_and_sum(l, queue):
+    """多线程版本"""
+    square_sum = sum(x ** 2 for x in l)
+    queue.put(square_sum)
+
+
+if __name__ == "__main__":
+    start_time = time.time()
+    numbers = list(range(1, 100000001))
+    chunk_size = len(numbers) // 12
+    chunks = [numbers[i:i + chunk_size] for i in range(0, len(numbers), chunk_size)]
+    queue = Queue()  # 由于多线程共享内存空间，我们可以使用普通的队列而不是进程安全的队列。
+    threads = []
+
+    # 创建并启动线程
+    for chunk in chunks:
+        thread = threading.Thread(target=square_and_sum, args=(chunk, queue))
+        thread.start()
+        threads.append(thread)
+
+    # 等待所有线程完成
+    for thread in threads:
+        thread.join()
+
+    total_sum = sum(queue.get() for _ in range(12))
+    print("Total sum of squares:", total_sum)
+    print("Execution time:", time.time() - start_time)
+
+"""
