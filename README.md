@@ -98,7 +98,7 @@ print({v: k for k, v in d.items()})
 ```
 
 ```python
-# 将列表按照指定大小分组
+# 将列表按照指定步长拆分
 l =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 chunk_size = 3
 print([l[i:i+chunk_size] for i in range(0, len(l), chunk_size)])

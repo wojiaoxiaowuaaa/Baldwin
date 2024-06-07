@@ -1,7 +1,13 @@
 from playwright.sync_api import sync_playwright
 
-
-"""Playwrigth 会安装 Chromium, Firefox 等浏览器并配置一些驱动，我们不必关心中间配置的过程，Playwright 会为我们配置好。
+"""录制命令
+playwright codegen -o script.py -b firefox
+博客教程
+https://cuiqingcai.com/36045.html
+系统教程文档
+https://www.h3blog.com/article/431/
+Playwrigt 会安装 Chromium, Firefox 等浏览器并配置一些驱动，我们不必关心中间配置的过程，Playwright 会为我们配置好。
+(部分机器不会安装,脚本执行时会报错,配置好环境变量后执行playwright install即可)
 使用 sync_playwright 方法启动浏览器。 
 sync_playwright方法返回的是一个PlaywrightContextManager对象,可以理解是一个浏览器上下文管理器，我们将其赋值为变量p
 使用 browser.new_page() 方法创建新的浏览器页面。 
