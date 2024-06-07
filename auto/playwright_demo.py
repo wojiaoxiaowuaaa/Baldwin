@@ -1,7 +1,6 @@
 from playwright.sync_api import Playwright, sync_playwright
 
-"""下载驱动命令为playwright install下载后会自动配置驱动路径,即开即用.mac下的浏览器驱动存储的默认路径 /Users/wl/Library/Caches/ms-playwright 
-该库的源码在github加星列表,由微软开源"""
+"""下载驱动命令为playwright install下载后会自动配置驱动路径,即开即用.该库的源码在github加星列表,由微软开源"""
 
 
 def run(playwright: Playwright) -> None:
