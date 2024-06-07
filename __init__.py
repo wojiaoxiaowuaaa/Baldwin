@@ -29,8 +29,7 @@ deactivate
 curl -X POST "http://127.0.0.1:8000/items/" -H "Content-Type: application/json" -d '{"name": "Sample Item", "description": "This is a sample item", "price": 10.5, "tax": 1.5}'
 """
 
-# BASE_PATH(可作为项目拼接路径的参数)
-# BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+# BASE_PATH(可作为项目拼接路径的参数) BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 # 添加项目目录到系统查询路径中 sys.path.insert(0, BASE_PATH)
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
