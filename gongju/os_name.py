@@ -1,9 +1,6 @@
 import os
 import re
 
-import os
-import re
-
 
 def clean_filename(filename):
     # 使用正则表达式去除特殊字符，保留字母、数字、下划线和点

@@ -16,5 +16,5 @@ json_demo = os.getenv('JSON_DEMO')
 with open(json_demo) as f:
     data = f.read()
     # logger.info(type(data))
-    # logger.info(data)
+    logger.info(data)
 
