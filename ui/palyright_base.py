@@ -6,6 +6,7 @@ playwright codegen -o script.py -b firefox
 https://cuiqingcai.com/36045.html
 系统教程文档
 https://www.h3blog.com/article/431/
+
 Playwrigt 会安装 Chromium, Firefox 等浏览器并配置一些驱动，我们不必关心中间配置的过程，Playwright 会为我们配置好。
 (部分机器不会安装,脚本执行时会报错,配置好环境变量后执行playwright install即可)
 使用 sync_playwright 方法启动浏览器。 
