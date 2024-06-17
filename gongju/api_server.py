@@ -7,6 +7,7 @@ from loguru import logger
 # __name__ 是一个特殊变量，在 Python 模块中，它的值取决于模块是被直接运行还是被导入。如果模块是被直接运行的（即作为主程序执行），__name__ 的值是 '__main__'。如果模块是被另一个模块导入的，__name__ 的值是模块的名字（即模块的文件名，不包括扩展名）。
 app = flask.Flask(__name__)
 
+
 # 通过flask提供的装饰器 可以将普通函数转变为服务
 @app.route("/login", methods=["get", "post"])
 def login():

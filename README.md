@@ -25,7 +25,7 @@ def func(json_file):
         return data
 
 
-json_file = f'{os.path.dirname(__file__)}/doc/demo.json'
+json_file = f'{os.path.dirname(__file__)}/config/demo.json'
 data = func(json_file)
 print(data)
 ```
