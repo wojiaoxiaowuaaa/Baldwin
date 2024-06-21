@@ -9,6 +9,10 @@ print(square)
 print(squares)
 
 # 使用海象操作符在循环中同时进行赋值和比较
-while (line := input('--->')) != "stop":
-    print("Input:", line)
+# while (line := input('--->')) != "stop":
+#     print("Input:", line)
 
+# readline 读取一行文件
+with open('../requirement.txt', 'r') as f:
+    while (data := f.readline()) != '':
+        print(data)

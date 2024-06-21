@@ -9,8 +9,8 @@ class Student:
 
     def __init__(self, a, b):
         print("init function is run --->")
-        print(a)
-        print(b)
+        # print(a)
+        # print(b)
 
     def fun1(self):
         print("function 1 is run")
@@ -19,4 +19,4 @@ class Student:
 
 
 Student.fun1(Student(100, 200))  # Student(100, 200)整体,作为实例出来的对象,作为实参传递给func1方法的形参self
-# print(Student(100, 200))  # <__main__.Student object at 0x1048c6d90>
+print(Student(100, 200))  # <__main__.Student object at 0x1048c6d90>
