@@ -1,19 +1,18 @@
 import sys
 import os
 import pandas as pd
-
-# 将根目录加入到系统路径中 否则下一行的导入在终端执行时会报错找不到对应的模块
-sys.path.append(os.path.abspath("/Users/wl/Desktop/Baldwin/"))
+# 将根目录加入到系统路径中 否则下一行的导入在终端执行时会报错找不到对应的模块. BASE_PATH : /Users/wl/Downloads/Baldwin
+if (BASE_PATH := os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) not in sys.path: sys.path.insert(0, BASE_PATH)
 from color_pr import color_print_green
 
-file_path = '/Users/wl/Documents/接口请求上报量汇总前1W.xlsx'
+file_path = '/Users/wl/Documents/1675678004817.xlsx'
 df = pd.read_excel(file_path)
 
 # 打印表头（列名）
-# print("表头：", df.columns)
+print("表头：", df.columns)
 
 # 打印前几行数据
-print(df.head())
+# print(df.head())
 
 # 基本统计信息
 # print("基本统计信息：")
