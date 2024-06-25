@@ -51,13 +51,13 @@ def logger_func(f):
     return logger_wrapper
 
 
-@logger_func
-def add(a, b):
-    """adds two numbers"""
-    return a + b
-
-
-print(add(1, 2))
+# @logger_func
+# def add(a, b):
+#     """adds two numbers"""
+#     return a + b
+#
+#
+# print(add(1, 2))
 
 
 # @get_time

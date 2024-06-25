@@ -2,16 +2,27 @@ import time
 import os
 from secrets import token_hex
 from random import random
+
+"""文件读写模式:
+r	用于读，文件不存在会报错 IOError ，如果不传 mode 参数时默认为该模式
+w	用于写，文件不存在会自动创建
+a	用于追加，文件不存在会自动创建
+b	二进制模式
+r+	相当于 r+w ，可读可写，如果文件不存在会报错 IOError
+w+	相当于 w+r ，可读可写，如果文件不存在会自动创建
+a+	相当于 a+r ，可追加可写，如果文件不存在会自动创建
+默认都是以文本模式打开文件，如果要以二进制模式打开，那么就给对应模式加上 b 即可，如 rb、wb、ab、rb+、wb+、ab+ 等
+"""
 start = time.time()
 
 
 def logs_reduce(pwd):
     # 以追加模式打开文件,(如果有则)清空文件内容truncate(0).
-    with open(pwd, "a") as f: f.truncate(0)
+    with open(pwd, "a+") as f: f.truncate(0)
     # while True   为一直写入数据到手动停止
     # while后跟判断条件.循环条件是:当前时间与开始时间的差小于3秒.
     while time.time() - start < 3:
-        time.sleep(1)
+        # time.sleep(0.5)
         d = {"str": token_hex(10), "num": random()}
         with open(pwd, "a") as f:
             # a为追加模式,w为覆盖模式(每次都会清空文件导致只能写入一行数据). json.dumps(d)可以写入json类型的数据.
