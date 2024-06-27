@@ -1,12 +1,10 @@
+from typing import Tuple, Any
+
 import pymysql
 from config.setting import MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB
 
 
 class MysqlDb:
-    """部署docker MySQL并做容器端口映射 docker ps
-    ea7746dcbb9d   mysql:latest   "docker-entrypoint.s…"   13 days ago    Up 2 hours    0.0.0.0:3306->3306/tcp, 33060/tcp   mysql-wl
-    """
-
     def __init__(self, host, port, user, passwd, db):
         # 建立数据库连接
         self.conn = pymysql.connect(host=host, port=port, user=user, password=passwd, database=db, autocommit=True)
@@ -19,18 +17,17 @@ class MysqlDb:
         self.cur.close()
         self.conn.close()
 
-    def select_db(self, sql):
-        # 检查连接是否断开，如果断开就进行重连
+    def select_db(self, sql, params=None):
+        # 参数化查询.params:可选参数，默认值为None，用于传递给SQL查询的参数。这在执行需要外部输入的参数化查询时非常重要，以防止SQL注入攻击。
         self.conn.ping(reconnect=True)
-        # 使用 execute() 执行sql
-        self.cur.execute(sql)
-        # 使用 fetchall() 获取查询结果
-        data = self.cur.fetchall()
-        return data
+        # 当sql参数为SHOW DATABASES这样的无参数指令时,params参数为None或未被使用,不会影响整体的数据查询.因为这个SQL语句不需要外部参数，所以不会发生参数绑定,直接执行原生SQL命令.
+        self.cur.execute(sql, params)
+        # 返回一个包含查询结果中所有行的列表(列表的子元素为元祖tuple或字典dic)
+        return self.cur.fetchall()
 
     def execute_db(self, sql, data):
         """
-        使用参数化查询(该写法可以避免SQL注入的风险):
+        参数化:
         sql = " INSERT INTO test_result (platform, device_id, tc, task_id, result) VALUES (%s, %s, %s, %s, %s) "
         data = (platform, device_id, tc, task_id, result)
         db.execute_db(sql, data)
@@ -48,6 +45,8 @@ class MysqlDb:
             self.conn.rollback()
 
 
-db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
-data = db.select_db("select * from test_result")
-print(data)
+if __name__ == '__main__':
+    db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
+    data = db.select_db("show databases")
+    print(data)
+    # for _ in data: print(_)
