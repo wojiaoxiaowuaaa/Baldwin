@@ -1,5 +1,3 @@
-from typing import Tuple, Any
-
 import pymysql
 from config.setting import MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB
 

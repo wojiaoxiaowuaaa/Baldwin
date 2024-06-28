@@ -14,6 +14,6 @@ sys.path.append(path) 是将指定的路径 path 添加到 sys.path 列表中。
 Python的json模块提供了把内存中的对象序列化的方法.dump的功能就是把Python对象encode为json对象,一个编码过程。注意json模块提供了json.dumps和json.dump方法,区别是dump可以直接写到文件中,而dumps到一个字符串,这里的s可以理解为string。
 """
 
-# 将当前文件所在目录的父目录路径,添加到Python路径的最前面. sys.path.insert 添加的路径在程序运行期间有效，程序退出后失效.
-if (BASE_PATH := os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) not in sys.path: sys.path.insert(0, BASE_PATH)
+# 将当前文件所路径,添加到Python路径的最前面. sys.path.insert 添加的路径在程序运行期间有效，程序退出后失效.
+if (BASE_PATH := os.path.dirname(os.path.abspath(__file__))) not in sys.path: sys.path.insert(0, BASE_PATH)
 

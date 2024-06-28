@@ -7,9 +7,11 @@
 """
 import json
 import base64
+import os
+import sys
 
 # 假设这是要嵌入的二进制数据b"Hello, World!"
-# 将图片读取为二进制数据 并使用海象操作符将其保存到变量binary_data中 <class 'bytes'>
+# 将图片读取为二进制数据 并使用海象操作符将其保存到变量binary_data中 <class 'bytes'>\
 with open("../config/soft.png", "rb") as f: (binary_data := f.read())
 
 # 将二进制数据进行 Base64 编码

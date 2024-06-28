@@ -11,12 +11,12 @@ async def async_walk(pwd):
 
 
 async def main():
-    l = []
-    # async for 循环会等待异步生成器产生的值，而异步生成器会在需要时异步地生成值并将其返回给循环. os用于获取当前脚本所在目录的上级目录的绝对路径.
+    ll = []
+    # async for 循环会等待异步生成器产生的值，而异步生成器会在需要时异步地生成值并将其返回给循环.
     async for res in async_walk(os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]):
-        l.append(res)
-    print(len(l))
-    return l
+        ll.append(res)
+    # print(len(ll))
+    return ll
 
 
 # yield 语句用于在异步生成器中生成值，而 async for 循环用于异步地迭代生成器产生的值。

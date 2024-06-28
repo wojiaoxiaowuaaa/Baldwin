@@ -7,12 +7,24 @@ from loguru import logger
 
 app = Flask(__name__)
 
-"""request对象是来自于flask，是一个请求上下文对象,具有较高的隔离性,
-flask的请求数据通过 request 对象来获取,request对象中保存了一次HTTP请求的一切信息。
+"""request对象是来自于flask，是一个请求上下文对象,具有较高的隔离性,flask的请求数据通过 request 对象来获取,request对象中保存了一次HTTP请求的一切信息。使得开发者可以方便地访问客户端发送过来的数据。以下是request对象的一些关键属性和方法：
 
-Request对象的重要属性如下所列：
-form - 它是⼀个字典对象，包含表单参数及其值的键和值对。
-args - 解析查询字符串的内容，它是浏览器问号"?"之后的URL的⼀部分。
+属性
+form：一个字典，包含了POST请求中的表单数据（或者PUT、PATCH请求体中编码为application/x-www-form-urlencoded或multipart/form-data的数据）。例如，如果用户提交了一个表单，你可以通过request.form['username']来获取表单中的用户名字段。
+args：一个字典，包含了URL中的查询参数。例如，对于URL http://example.com/search?q=query+string，可以通过request.args.get('q')获取到query string。
+json：如果请求包含了JSON数据（Content-Type为application/json），这个属性会提供一个字典，内容为JSON解码后的数据。如果请求没有JSON数据或Content-Type不匹配，访问这个属性会引发一个异常。
+data：原始请求体数据，对于非表单的POST请求很有用，如上传文件或自定义格式的数据。
+files：一个字典，包含了上传的文件。键是表单字段名，值是FileStorage对象。
+method：一个字符串，表示HTTP请求方法（如GET、POST等）。
+headers：一个EnvironHeaders对象，提供了访问请求头的方法，如request.headers['User-Agent']。
+cookies：一个字典，包含了请求中的cookies。
+url：请求的完整URL。
+base_url：没有查询字符串的URL基础部分。
+path：请求的路径部分，不包括查询字符串。
+
+方法
+get_json(force=False, silent=False)：尝试从请求中解析JSON数据。如果force=True，即使Content-Type不是application/json也会尝试解析。silent=True时，解析失败时不抛出异常，而是返回None。
+get_data(cache=True, as_text=False)：获取请求的数据。cache=True时，数据只被读取一次并缓存。as_text=True时，如果数据是字节流，则尝试解码为UTF-8字符串返回。
 """
 
 
@@ -21,9 +33,9 @@ def get_platform():
     # 从请求入参的JSON数据中获取platform字段，并去除首尾空格.如果请求的入参中不包含platform字段，则默认返回空字符串
     platform = request.json.get("platform", "").strip()
 
-    logger.info(request.json)
+    logger.info(request.headers)
 
-    return make_response({"message": "This is a complex response", "status": "success"}, 200)
+    return make_response({"message": "This is a complex response", "platform": platform}, 200)
 
 
 if __name__ == '__main__':
