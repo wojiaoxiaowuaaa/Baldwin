@@ -14,7 +14,7 @@ def func(city):
 
     print(res.text)  # 这里拿到的就是json字符串  如果使用res.json()则拿到的是Python字典
 
-    with open("../config/demo.json", "w") as f:
+    with open("demo.json", "w") as f:
         # 这里必须写入字符串格式内容,尝试写入字典会报错 TypeError: write() argument must be str, not dict
         f.write(res.text)
 

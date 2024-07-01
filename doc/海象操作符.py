@@ -13,6 +13,6 @@ print(squares)
 #     print("Input:", line)
 
 # readline 读取一行文件
-with open('../requirement.txt', 'r') as f:
+with open('../requirements.txt', 'r') as f:
     while (data := f.readline()) != '':
         print(data)
