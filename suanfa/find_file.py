@@ -32,5 +32,5 @@ def find_files(directory: Path, pattern: str):
 
 
 # var = find_files(Path.cwd(), '*.txt')
-for i in (var := find_files(Path(__file__).parent.parent, '*.txt')): print(i)
+for i in (var := find_files(Path('.'), '*.py')): print(i)
 
