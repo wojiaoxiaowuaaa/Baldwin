@@ -10,5 +10,5 @@ sys.path.append(path) 是将指定的路径 path 添加到 sys.path 列表中。
 """
 
 # 将当前文件所路径,添加到Python路径的最前面. sys.path.insert 添加的路径在程序运行期间有效，程序退出后失效.
-if (BASE_PATH := os.path.dirname(os.path.abspath(__file__))) not in sys.path: sys.path.insert(0, BASE_PATH)
+if (BASE_PATH := os.path.abspath('.')) not in sys.path: sys.path.insert(0, BASE_PATH)
 

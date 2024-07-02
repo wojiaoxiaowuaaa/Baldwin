@@ -3,9 +3,9 @@ from config.setting import MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYS
 
 
 class MysqlDb:
-    def __init__(self, host, port, user, passwd, db):
+    def __init__(self, host, port, user, passwd, db_name):
         # 建立数据库连接
-        self.conn = pymysql.connect(host=host, port=port, user=user, password=passwd, database=db, autocommit=True)
+        self.conn = pymysql.connect(host=host, port=port, user=user, password=passwd, database=db_name, autocommit=True)
         # 通过 cursor() 创建游标对象，并让查询结果以字典格式输出
         self.cur = self.conn.cursor(cursor=pymysql.cursors.DictCursor)
 
@@ -23,18 +23,13 @@ class MysqlDb:
         # 返回一个包含查询结果中所有行的列表(列表的子元素为元祖tuple或字典dic)
         return self.cur.fetchall()
 
-    def execute_db(self, sql, data):
-        """
-        参数化:
-        sql = " INSERT INTO test_result (platform, device_id, tc, task_id, result) VALUES (%s, %s, %s, %s, %s) "
-        data = (platform, device_id, tc, task_id, result)
-        db.execute_db(sql, data)
-        """
+    def execute_db(self, sql, params=None):
+        """参数化 防止SQL注入"""
         try:
             # 检查连接是否断开，如果断开就进行重连
             self.conn.ping(reconnect=True)
             # 使用 execute() 执行sql
-            self.cur.execute(sql, data)
+            self.cur.execute(sql, params)
             # 提交事务
             self.conn.commit()
         except Exception as e:
@@ -43,8 +38,19 @@ class MysqlDb:
             self.conn.rollback()
 
 
+db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
+
 if __name__ == '__main__':
-    db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
-    data = db.select_db("show databases")
+    data = db.select_db("select * from movies")
     print(data)
-    # for _ in data: print(_)
+    for _ in data: print(_)
+
+    # data = """
+    #     CREATE TABLE IF NOT EXISTS movies (
+    #     id INT AUTO_INCREMENT PRIMARY KEY,
+    #     movie_name VARCHAR(255) NOT NULL,
+    #     movie_ VARCHAR(255)  NOT NULL,
+    #     img_url VARCHAR(255) NOT NULL
+    #     );
+    #     """
+    # db.execute_db(data)
