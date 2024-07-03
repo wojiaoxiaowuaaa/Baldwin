@@ -43,7 +43,7 @@ db = MysqlDb(MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWD, MYSQL_DB)
 if __name__ == '__main__':
     data = db.select_db("select * from movies")
     print(data)
-    for _ in data: print(_)
+    # for _ in data: print(_)
 
     # data = """
     #     CREATE TABLE IF NOT EXISTS movies (

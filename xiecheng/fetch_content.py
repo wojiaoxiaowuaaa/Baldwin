@@ -42,7 +42,7 @@ async def main():
         img_tag = soup_item.find("img")
         print("{} {} {}".format(movie_name, movie_date, img_tag["src"]))
         # 将数据写到MySQL(测试通过)
-        db.execute_db("INSERT INTO movies(movie_name, movie_, img_url) VALUES (%s, %s, %s)", (movie_name, movie_date, img_tag["src"]))
+        # db.execute_db("INSERT INTO movies(movie_name, movie_, img_url) VALUES (%s, %s, %s)", (movie_name, movie_date, img_tag["src"]))
 
 
 if __name__ == "__main__":

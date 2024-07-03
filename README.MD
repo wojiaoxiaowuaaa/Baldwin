@@ -1,4 +1,9 @@
 ```python
+from pathlib import Path
+# 读取本地存储的文件内容
+demo_json = Path('./config/demo.json').read_text()
+```
+```python
 string0 = "  , !Hello & , ) World! _ + = 1  , "
 
 # 去除开头和结尾的空格. strip()方法移除字符串开头和结尾的指定字符（默认是空白字符、空格、换行符、制表符等).

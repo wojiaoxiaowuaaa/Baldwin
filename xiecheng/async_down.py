@@ -50,3 +50,43 @@ async def main():
 
 
 asyncio.run(main())
+
+
+"""
+import asyncio
+import aiohttp
+import time
+from loguru import logger
+
+
+# 异步编程可以更高效地处理 I/O 密集型任务，因为它允许在等待 I/O 操作完成时执行其他任务，从而更好地利用 CPU 资源。
+# I/O 密集型任务示例：异步下载多个网页
+async def download_page(session, url):
+    async with (session.get(url) as response):
+        logger.info(f"Downloaded {url} with status code {response.status}")
+
+
+# 要下载的网页列表
+urls = [
+    "https://www.example.com",
+    "https://www.python.org",
+    "https://www.github.com",
+    "https://www.stackoverflow.com",
+]
+
+
+async def main():
+    async with aiohttp.ClientSession() as session:
+        tasks = [download_page(session, url) for url in urls]
+        await asyncio.gather(*tasks)
+
+
+if __name__ == "__main__":
+    start_time = time.time()
+
+    asyncio.run(main())
+
+    end_time = time.time()
+    print(f"Total time taken: {end_time - start_time} seconds")
+
+"""
