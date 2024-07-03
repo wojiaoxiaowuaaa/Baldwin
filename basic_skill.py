@@ -30,7 +30,7 @@ class Student:
 
     def fun1(self):
         print("function 1 is run")
-        print(self)  # <__main__.Student object at 0x1048c6d90>  与第22行的输出相同(证明self就是类实例出的对象本身)
+        print(self)  # <__main__.Student object at 0x1048c6d90>  与第38行的输出相同(证明self就是类实例出的对象本身)
         # print(self.aa)  #  因为init方法中没有声明self.aa = aa这里会报错. self.aa = aa 这一行代码的作用是将传入的参数 aa 赋值给该对象实例的 aa 属性。这样，每个被创建的 Student 类的实例都会有一个 aa 属性，并且该属性的值会根据传入的参数而不同。
 
 

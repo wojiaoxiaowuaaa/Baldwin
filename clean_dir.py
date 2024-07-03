@@ -27,3 +27,43 @@ if __name__ == '__main__':
     # rm_rf('')
     clean_up('.idea')
 
+"""
+import os
+import tempfile
+import unittest
+from clean_dir import clean_up
+from loguru import logger
+
+# 针对clean_up函数编写单测
+class TestCleanUp(unittest.TestCase):
+    def setUp(self):
+        # 创建一个临时目录
+        self.test_dir = tempfile.mkdtemp()
+        logger.info(self.test_dir)
+
+    def tearDown(self):
+        # 测试完成后清理临时目录
+        if os.path.exists(self.test_dir):
+            os.rmdir(self.test_dir)
+            logger.info(os.path.exists(self.test_dir))
+
+    def test_clean_up_existing_directory(self):
+        # 测试删除存在的目录
+        dir_name = os.path.join(self.test_dir, 'test_subdir')
+        os.mkdir(dir_name)
+        self.assertTrue(os.path.exists(dir_name))
+        clean_up(dir_name)
+        self.assertFalse(os.path.exists(dir_name))
+
+    def test_clean_up_non_existing_directory(self):
+        # 测试尝试删除不存在的目录
+        dir_name = os.path.join(self.test_dir, 'non_existing_dir')
+        self.assertFalse(os.path.exists(dir_name))
+        clean_up(dir_name)  # 不应该抛出异常
+        self.assertFalse(os.path.exists(dir_name))  # 确认目录仍然不存在
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+"""
