@@ -21,7 +21,7 @@ def find_files(directory: Path, pattern: str):
     遍历指定目录及其子目录，查找匹配指定模式的文件。
 
     :param directory: 要遍历的目录路径
-    :param pattern: 文件匹配模式（例如 '*.txt'）
+    :param pattern: 文件匹配dou模式（例如 '*.txt'）
     :return: 匹配的文件列表
     """
     if not directory.is_dir():
@@ -32,5 +32,5 @@ def find_files(directory: Path, pattern: str):
 
 
 # var = find_files(Path.cwd(), '*.txt')
-for i in (var := find_files(Path('.'), '*.py')): print(i)
+for i in (var := find_files(Path.cwd(), '*.py')): print(i)
 
