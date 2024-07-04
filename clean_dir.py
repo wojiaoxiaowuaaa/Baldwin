@@ -18,13 +18,14 @@ def clean_up(dir):
         print(f"Error during clean up: {e}")
 
 
-def rm_rf(pwd):
+# def rm_rf(pwd):
     # 使用subprocess模块来运行系统命令如subprocess.run(['ls'])也可以使用os.system('echo $PATH')--这种方式更简洁轻便但是不具备复杂情况的处理能力
-    subprocess.run(["rm", "-rf", pwd], check=True)
+    # subprocess.run(["rm", "-rf", pwd], check=True)
+
+# rm_rf('')
 
 
 if __name__ == '__main__':
-    # rm_rf('')
     clean_up('.idea')
 
 """
