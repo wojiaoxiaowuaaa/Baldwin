@@ -33,3 +33,4 @@ if __name__ == "__main__":
     color_print_red()
     print("-------------------设置分块任务-------------------")
     show_memory_info()
+
