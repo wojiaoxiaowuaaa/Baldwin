@@ -1,6 +1,7 @@
 import asyncio
 import os
 
+
 async def async_walk(pwd):
     # 用于异步遍历目录的函数 返回指定目录下的所有文件的绝对路径
     for root, dirs, filenames in os.walk(pwd):

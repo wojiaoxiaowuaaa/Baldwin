@@ -1,4 +1,8 @@
 ```python
+# 嵌套循环
+arr = [(i, j) for i in ['a', 'b', 'c'] for j in [1, 2, 3]]
+```
+```python
 from pathlib import Path
 # 读取本地存储的文件内容
 demo_json = Path('./config/demo.json').read_text()
