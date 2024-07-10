@@ -1,31 +1,6 @@
 from cachetools import cached
+from functools import lru_cache, cache
 import time
-
-
-def fib(n):
-    # 计算斐波那契数列的第N个数
-    return n if n < 2 else fib(n - 1) + fib(n - 2)
-
-
-s = time.time()
-fib(36)
-print("Time Taken:", time.time() - s)
-
-# Now using cached
-s = time.time()
-
-
-# Use this decorator to enable caching
-@cached(cache={})
-def fib(n):
-    return n if n < 2 else fib(n - 1) + fib(n - 2)
-
-
-fib(36)
-print("with cached Time Taken: ", time.time() - s)
-
-"""
-from cachetools import cached
 
 
 @cached(cache={})
@@ -40,8 +15,26 @@ def func(n):
 res = func(5)
 print(res)
 
-# 第二次调用，它会直接从缓存中拿结果(未打印执行了低递归算法相关的print语句)
+# 第二次调用，它会直接从缓存中拿结果(未打印print语句)
 res = func(5)
 print(res)
+
+"""
+
+from functools import lru_cache
+import cProfile
+
+
+# 当fibonacci函数被调用时，@lru_cache会缓存其参数和返回值。如果之后再次以相同的参数调用fibonacci函数，@lru_cache会直接从缓存中返回结果，而不是重新计算。
+# 缓存的数据存储在进程的内存中。这意味着缓存只在当前进程的生命周期内有效，进程结束后，缓存中的数据也会随之丢失。
+# 加了缓存装饰器后如果函数执行过 统计到的执行耗时是0(不加缓存会耗时几十秒)
+@lru_cache(maxsize=100)
+def fib(n):
+    return n if n < 2 else fib(n - 1) + fib(n - 2)
+
+
+cProfile.run('fib(40)')
+print('-'*100)
+cProfile.run('fib(40)')
 
 """
