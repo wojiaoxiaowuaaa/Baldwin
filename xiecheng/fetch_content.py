@@ -5,7 +5,7 @@ import sys
 import time
 import aiohttp
 from bs4 import BeautifulSoup
-if (BASE_PATH := os.path.abspath('.')) not in sys.path: sys.path.insert(0, BASE_PATH)
+# if (BASE_PATH := os.path.abspath('.')) not in sys.path: sys.path.insert(0, BASE_PATH)
 from gongju.mysql_operate import *
 
 

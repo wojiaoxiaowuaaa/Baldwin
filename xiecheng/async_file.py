@@ -3,6 +3,12 @@ import aiofiles
 import os
 from loguru import logger
 
+"""在asyncio.gather(*tasks)中，星号*是必要的，它用于解包序列（这里是tasks列表）并将其中的元素作为单独的参数传递给asyncio.gather()函数。asyncio.gather()函数接受一个或多个awaitable对象（如Future或Coroutine）作为参数，并等待它们全部完成。
+为什么需要*,如果不使用星号*，asyncio.gather()将接收到整个tasks列表作为一个单一参数，而不是列表中的各个任务。asyncio.gather()函数并不接受一个包含任务的列表作为单个参数，而是需要各个任务作为独立的参数输入。因此，*的作用是将列表解包，使asyncio.gather()能够正确识别并等待列表中的每一个任务。
+示例: 假设tasks = [task1, task2, task3]，那么：asyncio.gather(*tasks)相当于asyncio.gather(task1, task2, task3)，这是正确的用法。
+如果写成asyncio.gather(tasks)，那么实际上是在调用asyncio.gather([task1, task2, task3])，这会导致TypeError，因为asyncio.gather()期望的是多个awaitable对象，而不是一个包含这些对象的列表。
+因此，在使用asyncio.gather()时，使用星号*来解包任务列表是非常重要的，它确保了每个任务都能被正确地识别和等待"""
+
 
 async def read_file(filename):
     async with aiofiles.open(filename, mode='r') as f:

@@ -16,8 +16,8 @@ def show_memory_info(s='this process'):
     pid = os.getpid()
     p = psutil.Process(pid)
     info = p.memory_full_info()
-    memory = info.uss / 1024 / 1024
-    print('{} pid {} memory used: {} M'.format(s, pid, memory))
+    memory = info.uss / 1024. / 1024
+    print(' {} pid is {} memory used: {} M'.format(s, pid, memory))
 
 
 def color_print_green():

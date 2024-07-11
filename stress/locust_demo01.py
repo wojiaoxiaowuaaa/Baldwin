@@ -64,8 +64,8 @@ class WebsiteTask(TaskSet):
             "pageSize": 10
         }
         res = self.client.post('/jbdpEdc/api/getRolePage', json.dumps(role_data), headers=self.api_header)
-        print(res.json())
-        print(res.status_code, '--->')
+        # print(res.json())
+        # print(res.status_code, '--->')
 
 
 class WebsiteUser(HttpUser):
