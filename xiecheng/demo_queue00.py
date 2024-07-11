@@ -5,7 +5,7 @@ from random import randint
 async def consumer(queue, id):
     while True:
         item = await queue.get()
-        if item is None:
+        if item is None:  # 检测到结束信号
             break
         print(f"Consumer {id} got {item}")
         await asyncio.sleep(1)
@@ -17,7 +17,7 @@ async def producer(queue, id):
         await queue.put(item)
         print(f"Producer {id} put {item}")
         await asyncio.sleep(1)
-    await queue.put(None)
+    await queue.put(None)  # 定义一个特殊的结束信号None 生产者在完成生产后将这个信号放入队列.消费者在获取到这个信号后退出循环.
 
 
 async def main():
@@ -29,9 +29,8 @@ async def main():
     # c = asyncio.create_task(consumer(queue, 'consume'))
     # await asyncio.gather(p, c)
 
+
 asyncio.run(main())
-
-
 
 # import queue
 # import threading
@@ -67,4 +66,3 @@ asyncio.run(main())
 # # 等待线程结束
 # producer_thread.join()
 # consumer_thread.join()
-
