@@ -25,7 +25,7 @@ class ManyProcess:
             pool.map(self.cpu_bound, self.numbers)
 
     def calculate_d(self):
-        # 单进程执行
+        # 单进程执行(在Python中,当你直接在一个进程的主线程中顺序执行代码,没有显式地创建新的进程或线程来并行处理任务时，就可以认为是单进程执行)
         for _ in self.numbers:
             self.cpu_bound(_)
 
@@ -41,5 +41,5 @@ def many_p():
 
 
 if __name__ == "__main__":
-    one_p()
     many_p()
+    one_p()
