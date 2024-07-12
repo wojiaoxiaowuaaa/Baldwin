@@ -3,6 +3,7 @@ from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from loguru import logger
 from typing import List
+
 # sys.path.insert(0, str(Path.cwd().parent))
 from gongju.time_count import calculate_execution_time
 
@@ -30,11 +31,13 @@ class ManyProcess:
 
 
 @calculate_execution_time
-def one_p(): ManyProcess().calculate_d()
+def one_p():
+    ManyProcess().calculate_d()
 
 
 @calculate_execution_time
-def many_p(): ManyProcess().calculate_p()
+def many_p():
+    ManyProcess().calculate_p()
 
 
 if __name__ == "__main__":
