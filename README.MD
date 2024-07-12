@@ -9,13 +9,10 @@ demo_json = Path('./config/demo.json').read_text()
 ```
 ```python
 string0 = "  , !Hello & , ) World! _ + = 1  , "
-
 # 去除开头和结尾的空格. strip()方法移除字符串开头和结尾的指定字符（默认是空白字符、空格、换行符、制表符等).
 new_string1 = string0.strip()
-
 # 去除所有的空格
 string2 = new_string1.replace(" ", "")
-
 # 去除开头和结尾的逗号
 new_string3 = string2.strip(",")
 ```
