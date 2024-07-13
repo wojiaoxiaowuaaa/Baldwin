@@ -31,6 +31,6 @@ def color_print_red():
 if __name__ == "__main__":
     color_print_green()
     color_print_red()
-    print("-------------------设置分块任务-------------------")
+    print("-------------------分割线-------------------")
     show_memory_info()
 
