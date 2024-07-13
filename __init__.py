@@ -1,6 +1,5 @@
 import os
 import sys
-
 """
 echo $PATH命令在Mac终端（或任何Linux系统）中用于显示当前用户的环境变量PATH的内容。PATH环境变量包含了一系列的目录，这些目录被操作系统用来搜索可执行文件。
 
