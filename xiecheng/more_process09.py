@@ -3,7 +3,6 @@ from pathlib import Path
 from multiprocessing import Pool, cpu_count
 from loguru import logger
 from typing import List
-
 # sys.path.insert(0, str(Path.cwd().parent))
 from gongju.time_count import calculate_execution_time
 
