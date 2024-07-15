@@ -3,4 +3,7 @@ __pycache__
 .gitignore
 .DS_Store
 abc_test.py
+test.*
+wl*
+abc_test.py
 tempfile_1720844810735.py
