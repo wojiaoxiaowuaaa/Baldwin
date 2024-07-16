@@ -20,19 +20,17 @@ class Student:
     4.进程结束：
     脚本执行完成后，Python 解释器会结束，操作系统会清理该进程使用的所有资源，并关闭进程.
     """
-    name = "sale"
-    age = "18"
+    name: str = "sale"
+    age: int = 18
 
-    def __init__(self, a, b):
-        print("init function is run --->")
-        # print(a)
-        # print(b)
+    def __init__(self, a: int, b: int):
+        self.a = a  # 将形参 a 的值赋值给实例属性self.a
+        self.b = b  # 将形参 b 的值赋值给实例属性self.b
 
-    def fun1(self):
-        print("function 1 is run")
+    def func(self):
         print(self)  # <__main__.Student object at 0x1048c6d90>  与第38行的输出相同(证明self就是类实例出的对象本身)
-        # print(self.aa)  #  因为init方法中没有声明self.aa = aa这里会报错. self.aa = aa 这一行代码的作用是将传入的参数 aa 赋值给该对象实例的 aa 属性。这样，每个被创建的 Student 类的实例都会有一个 aa 属性，并且该属性的值会根据传入的参数而不同。
+        # print(self.aa)  #  因为init方法中没有声明self.aa这里会报错. self.aa = aa 这一行代码的作用是将传入的参数 aa 赋值给该对象实例的 aa 属性。这样，每个被创建的 Student 类的实例都会有一个 aa 属性，并且该属性的值会根据传入的参数而不同。
 
 
-Student.fun1(Student(100, 200))  # Student(100, 200)整体,作为实例出来的对象,作为实参传递给func1方法的形参self
+Student.func(Student(100, 200))  # Student(100, 200)整体,作为实例出来的对象,作为实参传递给func方法的形参self
 print(Student(100, 200))  # <__main__.Student object at 0x1048c6d90>

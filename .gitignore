@@ -1,9 +1,12 @@
+log
+log*
+*.log
+tempfile_*
 .idea
 __pycache__
-.gitignore
 .DS_Store
 abc_test.py
-tempfile_1720844810735.py
 test*
 wl*
 *.pyc
+.env
