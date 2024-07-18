@@ -6,10 +6,11 @@ Magenta: \033[1;35m
 Cyan: \033[1;36m
 White: \033[1;37m
 """
+
 import os
 import psutil
 
-banner = '''
+banner = """
 ______                        ______             _
 | ___ \_                      | ___ \           | |
 | |_/ / \__ __   __  _ __   _ | |_/ /___   ___  | |
@@ -19,16 +20,16 @@ ______                        ______             _
                        __ / /
                       /___ /
 
-'''
+"""
 
 
-def show_memory_info(s='this process'):
+def show_memory_info(s="this process"):
     """计算当前进程占用的内存大小"""
     pid = os.getpid()
     p = psutil.Process(pid)
     info = p.memory_full_info()
-    memory = info.uss / 1024. / 1024
-    print(' {} pid is {} memory used: {} M'.format(s, pid, memory))
+    memory = info.uss / 1024.0 / 1024
+    print(" {} pid is {} memory used: {} M".format(s, pid, memory))
 
 
 def color_print_green():
@@ -44,4 +45,3 @@ if __name__ == "__main__":
     color_print_red()
     print("-------------------分割线-------------------")
     show_memory_info()
-
