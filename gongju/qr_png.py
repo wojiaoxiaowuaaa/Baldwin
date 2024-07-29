@@ -18,4 +18,4 @@ def qr_png(data):
     plt.show()
 
 
-qr_png('test')
+qr_png('http://www.pofengqx.com/QTCX?b=8660629937_1')
