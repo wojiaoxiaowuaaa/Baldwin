@@ -43,7 +43,8 @@ def find_file02(file: str, pwd: str) -> None:
     for root, dirs, files in os.walk(pwd):
         if file in files:
             result = os.path.join(root, file)
-            print(f"目标文件的路径是: {result}")
+            print(result)
 
 
-# for i in (var := find_file01(Path.cwd(), "*.py")): print(i)
+# for i in (var := find_file01(Path.cwd().parent, "*.py")): print(i)
+# find_file02("__init__.py", "/Users/wl/Downloads")

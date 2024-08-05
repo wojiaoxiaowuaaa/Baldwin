@@ -1,3 +1,6 @@
+# 总结:通过子类继承父类并实现其接口，我们可以在保持代码结构和逻辑清晰的同时，灵活地扩展和定制功能。这种方式使得代码更加模块化，
+# 易于理解和维护。在面向对象编程中，这是一种非常常见且强大的设计模式。
+# 父类提供了一个通用的框架或接口，而子类则提供了具体的实现.在面向对象编程中，这是实现多态性的关键技术之一.
 from loguru import logger
 from pathlib import Path
 import re
@@ -5,17 +8,13 @@ import re
 
 class SearchEngineBase(object):
     """这段代码实现了一个简单的搜索引擎。它能够将文本文件添加到搜索库中，并允许用户通过关键词搜索这些文件。如果文件内容包含了用户的查询关键词，这个文件的路径会作为搜索结果返回。
-
-    ### 代码结构和逻辑
-
     1. **`SearchEngineBase` 类**：定义了搜索引擎的基本框架，包括添加文本到搜索库(`add_corpus`)、处理文本(`process_corpus`)和搜索(`search`)的方法。这是一个抽象基类，具体的处理和搜索逻辑需要在子类中实现。
 
     2. **`SimpleEngine` 类**：`SearchEngineBase` 的一个具体实现。它通过一个字典(`__id_to_texts`)存储文件路径和文件内容的映射，实现了基本的文本处理和搜索功能。
 
     3. **`main` 函数**：接受一个搜索引擎实例作为参数，添加指定的文本文件到搜索库中，并允许用户输入查询关键词进行搜索，最后打印出搜索结果。
 
-    ### 关键代码块解释
-
+    关键代码块解释:
     - `class SearchEngineBase(object):` 定义了搜索引擎的基类，包含了添加文本(`add_corpus`)、处理文本(`process_corpus`)和搜索(`search`)的基本方法框架。
 
     - `def add_corpus(self, file_path):` 该方法用于添加文本文件到搜索库。它读取指定路径的文件内容，并调用 `process_corpus` 方法处理这些内容。
@@ -32,8 +31,7 @@ class SearchEngineBase(object):
 
     - `def main(search_engine_wl):` 函数接受一个搜索引擎实例，添加指定的文件到搜索库，并允许用户输入查询关键词进行搜索。搜索结果会被打印出来。
 
-    ### 执行流程
-
+    执行流程:
     1. 创建 `SimpleEngine` 实例。
     2. 调用 `main` 函数，传入创建的搜索引擎实例。
     3. 在 `main` 函数中，将指定的文件添加到搜索库(字典)。
@@ -73,11 +71,6 @@ class SimpleEngine(SearchEngineBase):
             if query in text:
                 results.append(id)
         return results
-
-
-# 总结:通过子类继承父类并实现其接口，我们可以在保持代码结构和逻辑清晰的同时，灵活地扩展和定制功能。这种方式使得代码更加模块化，易于理解和维护。在面向对象编程中，这是一种非常常见且强大的设计模式。
-# 父类提供了一个通用的框架或接口，而子类则提供了具体的实现.在面向对象编程中，这是实现多态性的关键技术之一.
-# main(SimpleEngine())
 
 
 class BOWEngine(SearchEngineBase):
@@ -134,5 +127,6 @@ def main(search_engine):
 
 search_engine = BOWEngine()
 
+# main(SimpleEngine())
 
 # main(search_engine)

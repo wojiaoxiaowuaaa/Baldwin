@@ -1,4 +1,6 @@
-# from .time_count import calculate_execution_time, timer, get_time
+# 在Python中,当你导入一个包时，Python会自动执行该包的__init__.py文件__init__.py文件的作用是初始化包,
+# 它可以包含包的初始化代码,包括变量定义,类和函数的定义等.因此,如果你执行:from gongju import BANNER可以直接导入下面的BANNER变量
+
 BANNER = r"""
 ****************************************************************
 *** ______  ********************* ______ *********** _  ********

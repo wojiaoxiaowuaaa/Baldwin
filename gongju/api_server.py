@@ -1,3 +1,38 @@
+"""
+import requests
+
+
+def func(uri):
+    data = {
+        'name': 'xiaowu',
+        'pwd': '111'
+    }
+    res = requests.get(uri, data)
+    print(res.json())  # {'code': 200, 'message': '登录成功'}
+
+
+url = 'http://127.0.0.1:9999/login'
+func(url)
+
+from sanic import Sanic, json
+from time import ctime
+
+---------------------------------------------------------------------------------------
+
+# 创建 Sanic 应用程序
+app = Sanic("CodeToAPI")
+
+
+@app.route('/')
+async def index(request):
+    data = {'current time': f'{ctime()}'}
+    return json(data)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
+"""
+
 import json
 import flask
 from flask import request
@@ -33,20 +68,3 @@ def login():
 if __name__ == "__main__":
     # 指定端口、host,0.0.0.0代表不管几个网卡，任何ip都可以访问
     app.run(debug=True, port=9999, host="0.0.0.0")
-
-"""
-import requests
-
-
-def func(uri):
-    data = {
-        'name': 'xiaowu',
-        'pwd': '111'
-    }
-    res = requests.get(uri, data)
-    print(res.json())  # {'code': 200, 'message': '登录成功'}
-
-
-url = 'http://127.0.0.1:9999/login'
-func(url)
-"""
