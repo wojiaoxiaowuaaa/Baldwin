@@ -58,18 +58,6 @@ def encode_image_to_base64(image_path):
 
 
 if __name__ == "__main__":
-    decoded_json = base64_to_json(
-        "eyJuYW1lIjogIkpvaG4gRG9lIiwgImFnZSI6IDMwLCAiY2l0eSI6ICJOZXcgWW9yayJ9"
-    )
-    # print("解码后的JSON据:", decoded_json)
+    encoded_result = encode_to_base64({'name': 'John Doe', 'age': 30, 'city': 'New York'})
+    # print("编码后的文本数据:", encoded_result)
 
-    # encoded_result = encode_to_base64({'name': 'John Doe', 'age': 30, 'city': 'New York'})
-    encoded_result = encode_to_base64(
-        "https://github.com/wojiaoxiaowuaaa/Baldwin/blob/master/gongju/base64_decrypt.py"
-    )
-    print("编码后的文本数据:", encoded_result)
-
-    # encoded_image = encode_image_to_base64(
-    #     "../config/pic/1~!!@@#11.webp"
-    # )  # 这里的encoded_image 可用于在JSON 数据中嵌入图像或通过网络 API 传输图像
-    # print(encoded_image)
