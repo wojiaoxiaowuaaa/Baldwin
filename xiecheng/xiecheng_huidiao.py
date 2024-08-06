@@ -27,8 +27,5 @@ def callback_function(result):
 
 
 # 调用 do_operation 函数，并传入 callback_function 作为回调函数
-if __name__ == '__main__':
+if __name__ == "__main__":
     do_operation(10, 20, callback_function)
-
-
-

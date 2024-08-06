@@ -4,6 +4,7 @@ import json
 
 # url = 'https://restapi.amap.com/v3/geocode/regeo?key=76a0c1cb61925ad793467c654cb328e0&location=116.481488,39.990464'
 
+
 class AMap(object):
     """
     高德地图sdk，编写时间2020-08-20
@@ -12,7 +13,9 @@ class AMap(object):
     -将接口封装成一个统一的类，直接调用相应的方法即可调取
     """
 
-    def __init__(self, keys='76a0c1cb61925ad793467c654cb328e0', sig=None, output="JSON"):
+    def __init__(
+        self, keys="76a0c1cb61925ad793467c654cb328e0", sig=None, output="JSON"
+    ):
         """
         初始化，需要密钥
         :param keys: 密钥，需要去高德开放平台申请
@@ -33,13 +36,13 @@ class AMap(object):
         response = requests.get(url, params=params)
         data = False
         if response.status_code == 200:
-            if self.output == 'JSON':
+            if self.output == "JSON":
                 data = response.json()
             else:
                 data = response.text
         return json.dumps(data)
 
-    def location_encode(self, address, city=None, is_batch='false', callback=None):
+    def location_encode(self, address, city=None, is_batch="false", callback=None):
         """
         地理位置转经纬度,官方文档参考：https://lbs.amap.com/api/webservice/guide/api/georegeo
         :param address: 国家、省份、城市、区县、城镇、乡村、街道、门牌号码、屋邨、大厦，如：北京市朝阳区阜通东大街6号。
@@ -82,19 +85,28 @@ class AMap(object):
         """
         url = "https://restapi.amap.com/v3/geocode/geo?parameters"
         params = {
-            'key': self.keys,
-            'address': address,
-            'city': city,
-            'is_batch': is_batch,
-            'sig': self.sig,
-            'output': self.output,
-            'callback': callback
+            "key": self.keys,
+            "address": address,
+            "city": city,
+            "is_batch": is_batch,
+            "sig": self.sig,
+            "output": self.output,
+            "callback": callback,
         }
         data = self.get_data(url, params)
         return data
 
-    def location_decode(self, location, poi_type=None, radius=1000, extensions="base", is_batch='false', road_level=None
-                        , callback=None, home_or_corp=0):
+    def location_decode(
+        self,
+        location,
+        poi_type=None,
+        radius=1000,
+        extensions="base",
+        is_batch="false",
+        road_level=None,
+        callback=None,
+        home_or_corp=0,
+    ):
         """
         该方法用于经纬度坐标转地理位置，官方文档参考：https://lbs.amap.com/api/webservice/guide/api/georegeo
         :param location: 经纬度坐标, Str类型。
@@ -229,17 +241,17 @@ class AMap(object):
         """
         url = "https://restapi.amap.com/v3/geocode/regeo?parameters"
         params = {
-            'key': self.keys,
-            'location': location,
-            'poi_type'.replace('_', ''): poi_type,
-            'radius': radius,
-            'extensions': extensions,
-            'batch': is_batch,
-            'road_level'.replace('_', ''): road_level,
-            'sig': self.sig,
-            'output': self.output,
-            'callback': callback,
-            'home_or_corp'.replace('_', ''): home_or_corp
+            "key": self.keys,
+            "location": location,
+            "poi_type".replace("_", ""): poi_type,
+            "radius": radius,
+            "extensions": extensions,
+            "batch": is_batch,
+            "road_level".replace("_", ""): road_level,
+            "sig": self.sig,
+            "output": self.output,
+            "callback": callback,
+            "home_or_corp".replace("_", ""): home_or_corp,
         }
         data = self.get_data(url, params)
         return data
@@ -294,18 +306,29 @@ class AMap(object):
         """
         url = "https://restapi.amap.com/v3/direction/walking?parameters"
         params = {
-            'key': self.keys,
-            'sig': self.sig,
-            'output': self.output,
-            'origin': origin,
-            'destination': destination,
-            'callback': callback
+            "key": self.keys,
+            "sig": self.sig,
+            "output": self.output,
+            "origin": origin,
+            "destination": destination,
+            "callback": callback,
         }
         data = self.get_data(url, params)
         return data
 
-    def bus_path_plan(self, origin, destination, city, city_destination=None, extensions='base', strategy='0',
-                      night_flag='0', date=None, time=None, callback=None):
+    def bus_path_plan(
+        self,
+        origin,
+        destination,
+        city,
+        city_destination=None,
+        extensions="base",
+        strategy="0",
+        night_flag="0",
+        date=None,
+        time=None,
+        callback=None,
+    ):
         """
         公交路径规划 API 可以规划综合各类公共（火车、公交、地铁）交通方式的通勤方案，并且返回通勤方案的数据。
 
@@ -323,19 +346,19 @@ class AMap(object):
         """
         url = "	https://restapi.amap.com/v3/direction/transit/integrated?parameters"
         params = {
-            'key': self.keys,
-            'sig': self.sig,
-            'output': self.output,
-            'origin': origin,
-            'destination': destination,
-            'city': city,
-            'city_d'.replace('_', ''): city_destination,
-            'extensions': extensions,
-            'strategy': strategy,
-            'night_flag'.replace('_', ''): night_flag,
-            'date': date,
-            'time': time,
-            'callback': callback
+            "key": self.keys,
+            "sig": self.sig,
+            "output": self.output,
+            "origin": origin,
+            "destination": destination,
+            "city": city,
+            "city_d".replace("_", ""): city_destination,
+            "extensions": extensions,
+            "strategy": strategy,
+            "night_flag".replace("_", ""): night_flag,
+            "date": date,
+            "time": time,
+            "callback": callback,
         }
         data = self.get_data(url, params)
         return data
@@ -349,17 +372,13 @@ class AMap(object):
         :return: 官方文档参考：https://lbs.amap.com/api/webservice/guide/api/direction#t8
         """
         url = "https://restapi.amap.com/v4/direction/bicycling?parameters"
-        params = {
-            'key': self.keys,
-            'origin': origin,
-            'destination': destination
-        }
+        params = {"key": self.keys, "origin": origin, "destination": destination}
         data = self.get_data(url, params)
         return data
 
 
 map = AMap()
-tar = map.location_encode('116.481488,39.990464')
+tar = map.location_encode("116.481488,39.990464")
 print(tar)
-tar = map.location_encode('北京市东城区天安门')  # "116.397455,39.909187"
+tar = map.location_encode("北京市东城区天安门")  # "116.397455,39.909187"
 print(tar)

@@ -2,6 +2,7 @@ import asyncio
 import aiohttp
 import os
 from loguru import logger
+
 """在计算机编程中，"异步" 是指一种编程模型，它允许程序在执行某些任务时不阻塞其他任务的执行。传统的同步编程模型是按照顺序逐步执行代码，如果遇到一个耗时
 的操作，整个程序会被阻塞，直到该操作完成。相比之下，异步编程通过使用异步任务、事件循环等机制，能够在执行耗时操作时让程序继续执行其他任务。
 在 Python 中，使用 `asyncio` 库可以实现异步编程。以下是一些与异步相关的基本概念：
@@ -27,7 +28,7 @@ async def download_and_save(url, session):
             # 从 URL 中提取文件名
             filename = url.split("/")[-1].split("?")[0]
             # 拼接得到文件的绝对路径
-            filename = os.path.join('/Users/mac/Desktop', filename)
+            filename = os.path.join("/Users/mac/Desktop", filename)
             # 将内容保存到本地文件
             with open(filename, "wb") as f:
                 f.write(content)
@@ -39,7 +40,7 @@ async def download_and_save(url, session):
 async def main():
     urls = []
     # 读取文件中的 URL 添加到列表中
-    with open("../config/doc.txt", 'r') as f:
+    with open("../config/doc.txt", "r") as f:
         for i in f:
             urls.append(i.strip())
 

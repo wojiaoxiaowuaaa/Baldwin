@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 -------------------------------------------------
-   File Name：     WebRequest
+   File Name:     WebRequest
    Description :   Network Requests Class
    Author :        J_hao
-   date：          2017/7/31
+   date:          2017/7/31
 -------------------------------------------------
 """
-import logging
 from requests.models import Response
 from lxml import etree
 import requests
@@ -15,12 +14,14 @@ import random
 import time
 from urllib3 import disable_warnings
 from log_register import LogRegister
+
 disable_warnings()
 # requests.packages.urllib3.disable_warnings()
 
 
 class WebRequest(object):
-    """封装的请求类 包含日志记录"""
+    """封装的请求类 包含自定义日志记录"""
+
     name = "webRequest"  # 类变量 日志文件名
 
     def __init__(self, *args, **kwargs):
@@ -58,17 +59,18 @@ class WebRequest(object):
             "Accept-Language": "zh-CN,zh;q=0.8",
         }
 
-    def get(self, url, header=None, retry_time=3, retry_interval=3, timeout=5, *args, **kwargs):
-        """
-        get method
-        :param url: target url
-        :param header: headers
-        :param retry_time: retry time
-        :param retry_interval: retry interval
-        :param timeout: network timeout
-        :return:
-        """
-        headers = self.header  # {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95', 'Accept': '*/*', 'Connection': 'keep-alive', 'Accept-Language': 'zh-CN,zh;q=0.8'}
+    def get(
+        self,
+        url,
+        header=None,
+        retry_time=3,
+        retry_interval=3,
+        timeout=5,
+        *args,
+        **kwargs
+    ):
+
+        headers = self.header
         if header and isinstance(header, dict):
             headers.update(header)
         while True:
@@ -82,36 +84,44 @@ class WebRequest(object):
                 retry_time -= 1
                 if retry_time <= 0:
                     resp = Response()
-                    resp.status_code = 200
+                    resp.status_code = 500
                     return self
                 self.log.info("retry %s second after" % retry_interval)
                 time.sleep(retry_interval)
 
-    def post(self, url, data=None, json=None, header=None, retry_time=3, retry_interval=3, timeout=5, *args, **kwargs):
-        """
-        post method
-        :param url: target url
-        :param data: form data
-        :param json: json data
-        :param header: headers
-        :param retry_time: retry time
-        :param retry_interval: retry interval
-        :param timeout: network timeout
-        :return:
-        """
+    def post(
+        self,
+        url,
+        data=None,
+        json=None,
+        header=None,
+        retry_time=3,
+        retry_interval=3,
+        timeout=5,
+        *args,
+        **kwargs
+    ):
         headers = self.header
         if header and isinstance(header, dict):
             headers.update(header)
         while True:
             try:
-                self.response = requests.post(url, data=data, json=json, headers=headers, timeout=timeout, *args, **kwargs)
+                self.response = requests.post(
+                    url,
+                    data=data,
+                    json=json,
+                    headers=headers,
+                    timeout=timeout,
+                    *args,
+                    **kwargs
+                )
                 return self
             except Exception as e:
                 self.log.error("requests: %s error: %s" % (url, str(e)))
                 retry_time -= 1
                 if retry_time <= 0:
                     resp = Response()
-                    resp.status_code = 200  # 注意：这里设置状态码为200可能不合适，因为请求实际上失败了。应考虑使用更合适的错误处理方式。
+                    resp.status_code = 200  # 注意:这里设置状态码为200可能不合适,因为请求实际上失败了.应考虑使用更合适的错误处理
                     return self
                 self.log.info("retry %s second after" % retry_interval)
                 time.sleep(retry_interval)
@@ -134,8 +144,8 @@ class WebRequest(object):
             return {}
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    web_log = WebRequest().log
     baidu = WebRequest().get("https://www.baidu.com").json
-    # WebRequest().log.info(baidu)
-    # print(dir(WebRequest().response))
-    print(baidu)
+    # web_log.info(baidu)
+    # print(dir(web_log))

@@ -14,11 +14,11 @@ def collect(tab, recorder, title):
     num = 1  # 当前采集页数
     while True:
         # 遍历所有标题元素
-        for i in tab.eles('.title project-namespace-path'):
+        for i in tab.eles(".title project-namespace-path"):
             # 获取某页所有库名称，记录到记录器
             recorder.add_data((title, i.text, num))
         # 如果有下一页，点击翻页
-        btn = tab('@rel=next', timeout=2)
+        btn = tab("@rel=next", timeout=2)
         if btn:
             btn.click(by_js=True)
             tab.wait.load_start()
@@ -32,22 +32,22 @@ def main():
     # 新建页面对象
     page = ChromiumPage()
     # 第一个标签页访问网址
-    page.get('https://gitee.com/explore/ai')
+    page.get("https://gitee.com/explore/ai")
     # 获取第一个标签页对象
     tab1 = page.get_tab()
     # 新建一个标签页并访问另一个网址
-    tab = page.new_tab('https://gitee.com/explore/machine-learning')
+    tab = page.new_tab("https://gitee.com/explore/machine-learning")
     # 获取第二个标签页对象
     tab2 = page.get_tab(tab)
     # 新建记录器对象
-    recorder = Recorder('/Users/mac/Desktop/data.csv')
+    recorder = Recorder("/Users/mac/Desktop/data.csv")
 
     # 多线程同时处理多个页面
-    Thread(target=collect, args=(tab1, recorder, 'ai')).start()
-    Thread(target=collect, args=(tab2, recorder, '机器学习')).start()
+    Thread(target=collect, args=(tab1, recorder, "ai")).start()
+    Thread(target=collect, args=(tab2, recorder, "机器学习")).start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
 """

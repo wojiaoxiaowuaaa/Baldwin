@@ -7,4 +7,4 @@ def fib(n):
 
 
 for i in fib(10):
-    print(i, end=' ')
+    print(i, end=" ")

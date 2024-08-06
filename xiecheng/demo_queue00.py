@@ -17,7 +17,9 @@ async def producer(queue, id):
         await queue.put(item)
         print(f"Producer {id} put {item}")
         await asyncio.sleep(1)
-    await queue.put(None)  # 定义一个特殊的结束信号None 生产者在完成生产后将这个信号放入队列.消费者在获取到这个信号后退出循环.
+    await queue.put(
+        None
+    )  # 定义一个特殊的结束信号None 生产者在完成生产后将这个信号放入队列.消费者在获取到这个信号后退出循环.
 
 
 async def main():

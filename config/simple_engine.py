@@ -44,22 +44,24 @@ class SearchEngineBase(object):
 
     def add_corpus(self, file_path):
         # 将文件路径&&内容添加到字典中
-        with open(file_path, 'r') as fin:
+        with open(file_path, "r") as fin:
             text = fin.read()
         self.process_corpus(file_path, text)
 
     def process_corpus(self, id, text):
         # 在Python中，raise NotImplementedError或Exception是一种常用的编程习惯，用于指示某个方法是抽象的，即它需要在子类中被重写和实现，而不是直接在当前类中使用。这种做法在定义基类（或抽象类）时特别有用，因为它为子类提供了一个明确的实现接口。
-        raise Exception('process_corpus not implemented.')
+        raise Exception("process_corpus not implemented.")
 
     def search(self, query):
-        raise Exception('search not implemented.')
+        raise Exception("search not implemented.")
 
 
 class SimpleEngine(SearchEngineBase):
     def __init__(self):
         super().__init__()
-        self.__id_to_texts = {}  # 初始化了自己的私有变量，也就是这个用来存储文件名和文件内容的字典。
+        self.__id_to_texts = (
+            {}
+        )  # 初始化了自己的私有变量，也就是这个用来存储文件名和文件内容的字典。
 
     def process_corpus(self, id, text):
         self.__id_to_texts[id] = text
@@ -99,11 +101,11 @@ class BOWEngine(SearchEngineBase):
     @staticmethod
     def parse_text_to_words(text):
         # 使用正则表达式去除标点符号和换行符
-        text = re.sub(r'[^w ]', ' ', text)
+        text = re.sub(r"[^w ]", " ", text)
         # 转为小写
         text = text.lower()
         # 生成所有单词的列表
-        word_list = text.split(' ')
+        word_list = text.split(" ")
         # 去除空白单词
         word_list = filter(None, word_list)
         # 返回单词的 set
@@ -112,15 +114,15 @@ class BOWEngine(SearchEngineBase):
 
 def main(search_engine):
     # 使用列表推导式 获取当前目录下所有指定格式的文件路径(递归搜索)
-    for file_path in [f for f in Path.cwd().rglob('*.txt')]:
+    for file_path in [f for f in Path.cwd().rglob("*.txt")]:
         search_engine.add_corpus(file_path)
 
     while True:
-        if (query := input("请输入查询关键词：")) == 'exit':
+        if (query := input("请输入查询关键词：")) == "exit":
             break
         results = search_engine.search(query)
         # logger.info('found {} result(s):'.format(len(results)))
-        print(('found {} result(s):'.format(len(results))))
+        print(("found {} result(s):".format(len(results))))
         for result in results:
             print(result)
 

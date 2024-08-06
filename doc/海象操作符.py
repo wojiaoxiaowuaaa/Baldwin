@@ -4,7 +4,7 @@ if (n := len([1, 2, 3])) > 2:
     print(f"List is too long ({n} elements, expected <= 2)")
 
 # 使用海象操作符在列表推导式中进行赋值
-squares = [square := x ** 2 for x in range(10)]
+squares = [square := x**2 for x in range(10)]
 print(square)
 print(squares)
 
@@ -13,6 +13,6 @@ print(squares)
 #     print("Input:", line)
 
 # readline 读取一行文件
-with open('../requirements.txt', 'r') as f:
-    while (data := f.readline()) != '':
+with open("../requirements.txt", "r") as f:
+    while (data := f.readline()) != "":
         print(data)

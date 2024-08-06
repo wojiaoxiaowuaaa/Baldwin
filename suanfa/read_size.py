@@ -10,7 +10,7 @@ import os
 def func(pwd):
     block_size = 1024
 
-    with open(pwd, 'r') as f:
+    with open(pwd, "r") as f:
         while True:
             data = f.read(block_size)
             if data:
@@ -18,4 +18,5 @@ def func(pwd):
             return
 
 
-for i in func(os.path.abspath(__file__)): print(i)
+for i in func(os.path.abspath(__file__)):
+    print(i)

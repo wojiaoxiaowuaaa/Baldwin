@@ -1,7 +1,7 @@
 from loguru import logger
 
 count = 0
-logger.info(f'开始执行前的全局count:{count}')
+logger.info(f"开始执行前的全局count:{count}")
 
 
 def func(count):
@@ -13,7 +13,7 @@ def func(count):
         """
         nonlocal count
         count += x
-        logger.info(f'闭包内的count --- {count}')
+        logger.info(f"闭包内的count --- {count}")
 
     return inner
 
@@ -21,4 +21,4 @@ def func(count):
 res = func(count)
 res(3)
 res(6)
-logger.info(f'执行结束后的全局count: {count}')
+logger.info(f"执行结束后的全局count: {count}")

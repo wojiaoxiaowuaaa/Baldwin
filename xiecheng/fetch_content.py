@@ -5,13 +5,16 @@ import sys
 import time
 import aiohttp
 from bs4 import BeautifulSoup
+
 # if (BASE_PATH := os.path.abspath('.')) not in sys.path: sys.path.insert(0, BASE_PATH)
 from gongju.mysql_operate import *
 
 
 async def fetch_content(url):
     # 异步获取URL内容并返回文本数据
-    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
+    async with aiohttp.ClientSession(
+        connector=aiohttp.TCPConnector(ssl=False)
+    ) as session:
         async with session.get(url) as response:
             return await response.text()
 
@@ -19,14 +22,14 @@ async def fetch_content(url):
 async def main():
     url = "https://movie.douban.com/cinema/later/beijing/"
     init_page = await fetch_content(url)
-    init_soup = BeautifulSoup(init_page, 'lxml')
+    init_soup = BeautifulSoup(init_page, "lxml")
 
     movie_names, urls_to_fetch, movie_dates = [], [], []
 
     all_movies = init_soup.find("div", id="showing-soon")
 
     for each_movie in all_movies.find_all("div", class_="item"):
-        all_a_tag = each_movie.find_all('a')
+        all_a_tag = each_movie.find_all("a")
         all_li_tag = each_movie.find_all("li")
 
         movie_names.append(all_a_tag[1].text)

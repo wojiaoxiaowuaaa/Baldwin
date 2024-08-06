@@ -1,3 +1,8 @@
+import site
+import sys
+
+sys.path.insert(0, "/Users/wl/Downloads/Baldwin")
+# site.addsitedir("/Users/wl/Downloads/Baldwin")
 from tenacity import retry, stop_after_attempt, wait_fixed
 from color_pr import color_print_green
 from retry_decorator import retry_decorator
@@ -7,7 +12,7 @@ from retry_decorator import retry_decorator
 def my_function():
     # 重试三次  时间间隔为1秒
     color_print_green()
-    raise Exception('error')
+    raise Exception("error")
 
 
 @retry_decorator(3, 1)
@@ -17,4 +22,4 @@ def wl_func():
 
 
 # my_function()
-# wl_func()
+wl_func()

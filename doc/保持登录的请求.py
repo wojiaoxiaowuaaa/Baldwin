@@ -9,10 +9,7 @@ class Send:
     # 登录方法
     def login(self, login_url, username, password, **kwargs):
         # 准备登录数据，这取决于具体网站的要求，这里仅为示例
-        login_data = {
-            "username": username,
-            "password": password
-        }
+        login_data = {"username": username, "password": password}
         # 发送登录请求
         response = self.session.post(login_url, data=login_data, **kwargs)
         # 检查登录是否成功，这里可以根据实际情况调整检查逻辑，比如检查响应状态码或返回的内容
@@ -30,7 +27,7 @@ class Send:
         return response
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 实例化Send类
     sender = Send()
 

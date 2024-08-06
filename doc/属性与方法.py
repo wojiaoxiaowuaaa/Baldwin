@@ -27,6 +27,7 @@ class Person:
         print(f"Created a person named {person.name} who is {person.age} years old.")
         return person
 
+
 # 创建对象实例
 person1 = Person("Alice", 30)
 person2 = Person("Bob", 25)
@@ -41,4 +42,6 @@ Person.get_population()  # 输出: Total population: 2
 print(Person.is_adult(20))  # 输出: True
 
 # 类方法中创建对象并访问实例属性
-person3 = Person.create_person("Charlie", 22)  # 输出: Created a person named Charlie who is 22 years old.
+person3 = Person.create_person(
+    "Charlie", 22
+)  # 输出: Created a person named Charlie who is 22 years old.

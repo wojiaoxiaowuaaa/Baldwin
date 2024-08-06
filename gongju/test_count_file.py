@@ -6,7 +6,6 @@ from count_file import count_lines_and_size
 class TestCountLinesAndSize(unittest.TestCase):
     def setUp(self):
         self.test_file = "aaa.json"
-        # 生成的测试文件在项目的根目录下
         with open(self.test_file, "w") as f:
             f.write('{"name": "是小舞不是小武"}\n' * 10)
 
@@ -18,7 +17,7 @@ class TestCountLinesAndSize(unittest.TestCase):
 
     def test_count_lines_and_size(self):
         line_count, file_size = count_lines_and_size(self.test_file)
-        self.assertEqual(10, line_count)  # 我们写入了10行，所以期望行数为10
+        self.assertEqual(10, line_count)  # 我们写入了10行,所以期望行数为10
         self.assertTrue(file_size > 0.3)  # 文件大小应该大于0
 
 

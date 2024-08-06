@@ -39,4 +39,3 @@ def quick_sort(arr):
 # 示例用法
 arr = [3, 6, 8, 10, 1, 2, 1, 11, 5, 7, 7, 9, 0, 4, 4, 4, 4]
 print(quick_sort(arr))
-

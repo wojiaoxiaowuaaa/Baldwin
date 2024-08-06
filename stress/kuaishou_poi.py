@@ -14,7 +14,7 @@ class QuickstartUser(HttpUser):
     wait_time = between(1, 2)
 
     # host参数是HttpUser类的一个属性,用于定义请求的基础域名,这样在发送请求时,只需要指定接口路径即可.Locust会自动将host属性的值与路径拼接起来形成完整的URL.
-    host = 'https://apissl.gifshow.com'
+    host = "https://apissl.gifshow.com"
 
     url = "/rest/zt/frigate/col/loc/query"
 
@@ -72,7 +72,7 @@ class QuickstartUser(HttpUser):
         "thermal": "10000",
         "token": "346a12b87e534e15a0a8591f07559206-2695455579",
         "uQaTag": "2#3333333333999999999",
-        "videoModelCrowdTag": "1_100"
+        "videoModelCrowdTag": "1_100",
     }
 
     def on_start(self) -> None:
@@ -84,7 +84,8 @@ class QuickstartUser(HttpUser):
         self.client.get(self.url, params=self.params)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # locust -f kuaishou_poi.py  --headless -u 100 -r 100 -t 50 --html report.html
     import os
-    os.system('locust -f kuaishou_poi.py')
+
+    os.system("locust -f kuaishou_poi.py")

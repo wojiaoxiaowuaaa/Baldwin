@@ -124,79 +124,73 @@ class HTTPServer(object):
         request.close()
 
     def handle_error(self, client_address):
-        print('-' * 40, file=sys.stderr)
-        print('Exception occurred during processing of request from', client_address, file=sys.stderr)
+        print("-" * 40, file=sys.stderr)
+        print(
+            "Exception occurred during processing of request from",
+            client_address,
+            file=sys.stderr,
+        )
         import traceback
+
         traceback.print_exc()
-        print('-' * 40, file=sys.stderr)
+        print("-" * 40, file=sys.stderr)
 
 
 # 处理请求
 class HTTPRequestHandler(object):
     responses = {
-        100: ('Continue', 'Request received, please continue'),
-        101: ('Switching Protocols',
-              'Switching to new protocol; obey Upgrade header'),
-
-        200: ('OK', 'Request fulfilled, document follows'),
-        201: ('Created', 'Document created, URL follows'),
-        202: ('Accepted',
-              'Request accepted, processing continues off-line'),
-        203: ('Non-Authoritative Information', 'Request fulfilled from cache'),
-        204: ('No Content', 'Request fulfilled, nothing follows'),
-        205: ('Reset Content', 'Clear input form for further input.'),
-        206: ('Partial Content', 'Partial content follows.'),
-
-        300: ('Multiple Choices',
-              'Object has several resources -- see URI list'),
-        301: ('Moved Permanently', 'Object moved permanently -- see URI list'),
-        302: ('Found', 'Object moved temporarily -- see URI list'),
-        303: ('See Other', 'Object moved -- see Method and URL list'),
-        304: ('Not Modified',
-              'Document has not changed since given time'),
-        305: ('Use Proxy',
-              'You must use proxy specified in Location to access this '
-              'resource.'),
-        307: ('Temporary Redirect',
-              'Object moved temporarily -- see URI list'),
-
-        400: ('Bad Request',
-              'Bad request syntax or unsupported method'),
-        401: ('Unauthorized',
-              'No permission -- see authorization schemes'),
-        402: ('Payment Required',
-              'No payment -- see charging schemes'),
-        403: ('Forbidden',
-              'Request forbidden -- authorization will not help'),
-        404: ('Not Found', 'Nothing matches the given URI'),
-        405: ('Method Not Allowed',
-              'Specified method is invalid for this resource.'),
-        406: ('Not Acceptable', 'URI not available in preferred format.'),
-        407: ('Proxy Authentication Required', 'You must authenticate with '
-                                               'this proxy before proceeding.'),
-        408: ('Request Timeout', 'Request timed out; try again later.'),
-        409: ('Conflict', 'Request conflict.'),
-        410: ('Gone',
-              'URI no longer exists and has been permanently removed.'),
-        411: ('Length Required', 'Client must specify Content-Length.'),
-        412: ('Precondition Failed', 'Precondition in headers is false.'),
-        413: ('Request Entity Too Large', 'Entity is too large.'),
-        414: ('Request-URI Too Long', 'URI is too long.'),
-        415: ('Unsupported Media Type', 'Entity body in unsupported format.'),
-        416: ('Requested Range Not Satisfiable',
-              'Cannot satisfy request range.'),
-        417: ('Expectation Failed',
-              'Expect condition could not be satisfied.'),
-
-        500: ('Internal Server Error', 'Server got itself in trouble'),
-        501: ('Not Implemented',
-              'Server does not support this operation'),
-        502: ('Bad Gateway', 'Invalid responses from another server/proxy.'),
-        503: ('Service Unavailable',
-              'The server cannot process the request due to a high load'),
-        504: ('Gateway Timeout',
-              'The gateway server did not receive a timely response'),
-        505: ('HTTP Version Not Supported', 'Cannot fulfill request.'),
+        100: ("Continue", "Request received, please continue"),
+        101: ("Switching Protocols", "Switching to new protocol; obey Upgrade header"),
+        200: ("OK", "Request fulfilled, document follows"),
+        201: ("Created", "Document created, URL follows"),
+        202: ("Accepted", "Request accepted, processing continues off-line"),
+        203: ("Non-Authoritative Information", "Request fulfilled from cache"),
+        204: ("No Content", "Request fulfilled, nothing follows"),
+        205: ("Reset Content", "Clear input form for further input."),
+        206: ("Partial Content", "Partial content follows."),
+        300: ("Multiple Choices", "Object has several resources -- see URI list"),
+        301: ("Moved Permanently", "Object moved permanently -- see URI list"),
+        302: ("Found", "Object moved temporarily -- see URI list"),
+        303: ("See Other", "Object moved -- see Method and URL list"),
+        304: ("Not Modified", "Document has not changed since given time"),
+        305: (
+            "Use Proxy",
+            "You must use proxy specified in Location to access this " "resource.",
+        ),
+        307: ("Temporary Redirect", "Object moved temporarily -- see URI list"),
+        400: ("Bad Request", "Bad request syntax or unsupported method"),
+        401: ("Unauthorized", "No permission -- see authorization schemes"),
+        402: ("Payment Required", "No payment -- see charging schemes"),
+        403: ("Forbidden", "Request forbidden -- authorization will not help"),
+        404: ("Not Found", "Nothing matches the given URI"),
+        405: ("Method Not Allowed", "Specified method is invalid for this resource."),
+        406: ("Not Acceptable", "URI not available in preferred format."),
+        407: (
+            "Proxy Authentication Required",
+            "You must authenticate with " "this proxy before proceeding.",
+        ),
+        408: ("Request Timeout", "Request timed out; try again later."),
+        409: ("Conflict", "Request conflict."),
+        410: ("Gone", "URI no longer exists and has been permanently removed."),
+        411: ("Length Required", "Client must specify Content-Length."),
+        412: ("Precondition Failed", "Precondition in headers is false."),
+        413: ("Request Entity Too Large", "Entity is too large."),
+        414: ("Request-URI Too Long", "URI is too long."),
+        415: ("Unsupported Media Type", "Entity body in unsupported format."),
+        416: ("Requested Range Not Satisfiable", "Cannot satisfy request range."),
+        417: ("Expectation Failed", "Expect condition could not be satisfied."),
+        500: ("Internal Server Error", "Server got itself in trouble"),
+        501: ("Not Implemented", "Server does not support this operation"),
+        502: ("Bad Gateway", "Invalid responses from another server/proxy."),
+        503: (
+            "Service Unavailable",
+            "The server cannot process the request due to a high load",
+        ),
+        504: (
+            "Gateway Timeout",
+            "The gateway server did not receive a timely response",
+        ),
+        505: ("HTTP Version Not Supported", "Cannot fulfill request."),
     }
 
     def __init__(self, request, client_address, server):
@@ -213,8 +207,8 @@ class HTTPRequestHandler(object):
     def setup(self):
         self.connection = self.request
         # 初始化请求和响应的文件句柄
-        self.rfile = self.connection.makefile('rb', -1)
-        self.wfile = self.connection.makefile('wb', 0)
+        self.rfile = self.connection.makefile("rb", -1)
+        self.wfile = self.connection.makefile("wb", 0)
 
     def handle(self):
         try:
@@ -222,16 +216,16 @@ class HTTPRequestHandler(object):
             self.raw_requestline = self.rfile.readline(65537)
             # 如果超过限制则返回 414 HTTP code
             if len(self.raw_requestline) > 65536:
-                self.requestline = ''
-                self.request_version = ''
-                self.command = ''
+                self.requestline = ""
+                self.request_version = ""
+                self.command = ""
                 self.send_error(414)
                 return
             # 解析 HTTP 请求，并把值通过 self 属性传递
             if not self.parse_request():
                 return
             # 具体处理请求的方法 do_方法，比如：do_get、do_post
-            mname = ('do_' + self.command).lower()
+            mname = ("do_" + self.command).lower()
             if not hasattr(self, mname):
                 self.send_error(501, "Unsupported method (%r)" % self.command)
                 return
@@ -269,26 +263,27 @@ class HTTPRequestHandler(object):
         {request body}
         """
         # 解析请求头
-        requestline = str(self.raw_requestline, 'iso-8859-1')
-        requestline = requestline.rstrip('\r\n')
+        requestline = str(self.raw_requestline, "iso-8859-1")
+        requestline = requestline.rstrip("\r\n")
         self.requestline = requestline
         words = requestline.split()
         if len(words) == 3:
             # HTTP method, PATH, HTTP version
             command, path, version = words
-            if version[:5] != 'HTTP/':
+            if version[:5] != "HTTP/":
                 self.send_error(400, "Bad request version (%r)" % version)
                 return False
             # 检查 HTTP version 正确性
             try:
-                base_version_number = version.split('/', 1)[1]
+                base_version_number = version.split("/", 1)[1]
                 version_number = base_version_number.split(".")
                 if len(version_number) != 2:
                     raise ValueError
                 version_number = int(version_number[0]), int(version_number[1])
                 if version_number >= (2, 0):
                     self.send_error(
-                        505, "Invalid HTTP Version (%s)" % base_version_number)
+                        505, "Invalid HTTP Version (%s)" % base_version_number
+                    )
                     return False
             except (ValueError, IndexError):
                 self.send_error(400, "Bad request version (%r)" % version)
@@ -313,23 +308,22 @@ class HTTPRequestHandler(object):
         headers = {}
         while True:
             line = self.rfile.readline()
-            if line in (b'\r\n', b'\n', b''):
+            if line in (b"\r\n", b"\n", b""):
                 break
-            line_str = str(line, 'utf-8')
-            key, value = line_str.split(': ')
+            line_str = str(line, "utf-8")
+            key, value = line_str.split(": ")
             headers[key] = value.strip()
         return headers
 
     def log_message(self, format, *args):
         log_data_time_string = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-        sys.stderr.write("%s - - [%s] %s\n" %
-                         (self.client_address[0],
-                          log_data_time_string,
-                          format % args))
+        sys.stderr.write(
+            "%s - - [%s] %s\n"
+            % (self.client_address[0], log_data_time_string, format % args)
+        )
 
-    def log_request(self, code='-', size='-'):
-        self.log_message('"%s" %s %s',
-                         self.requestline, str(code), str(size))
+    def log_request(self, code="-", size="-"):
+        self.log_message('"%s" %s %s', self.requestline, str(code), str(size))
 
     def log_error(self, format, *args):
         self.log_message(format, *args)
@@ -341,7 +335,7 @@ class HTTPRequestHandler(object):
         try:
             short, long = self.responses[code]
         except KeyError:
-            short, long = '???', '???'
+            short, long = "???", "???"
         if message is None:
             message = short
         explain = long
@@ -351,15 +345,15 @@ class HTTPRequestHandler(object):
         content = None
         # 状态码大于 200，并且不是 204、205、304 为异常
         if code > 200 and code not in (204, 205, 304):
-            content = (DEFAULT_ERROR_MESSAGE % {
-                'code': code,
-                'message': html.escape(message),
-                'explain': explain
-            })
+            content = DEFAULT_ERROR_MESSAGE % {
+                "code": code,
+                "message": html.escape(message),
+                "explain": explain,
+            }
             self.send_header("Content-Type", "text/html;charset=utf-8")
         self.end_headers()
-        body = content.encode('UTF-8', 'replace')
-        if self.command != 'HEAD' and content:
+        body = content.encode("UTF-8", "replace")
+        if self.command != "HEAD" and content:
             # 返回响应
             self.wfile.write(body)
 
@@ -369,7 +363,7 @@ class HTTPRequestHandler(object):
             if code in self.responses:
                 message = self.responses[code][0]
             else:
-                message = ''
+                message = ""
         # 响应体格式
         """
         {HTTP version} {status code} {status phrase}\r\n
@@ -379,15 +373,17 @@ class HTTPRequestHandler(object):
         {response body}
         """
         # 写响应头
-        self.wfile.write(("%s %d %s\r\n" %
-                          (self.protocol_version, code, message)).encode(
-            'latin-1', 'strict'))
-        self.send_header('Server', "HG/Python " + sys.version.split()[0])
+        self.wfile.write(
+            ("%s %d %s\r\n" % (self.protocol_version, code, message)).encode(
+                "latin-1", "strict"
+            )
+        )
+        self.send_header("Server", "HG/Python " + sys.version.split()[0])
         # 写响应 header
-        self.send_header('Date', self.date_time_string())
+        self.send_header("Date", self.date_time_string())
 
     def send_header(self, keyword, value):
-        self.wfile.write(("%s: %s\r\n" % (keyword, value)).encode('latin-1', 'strict'))
+        self.wfile.write(("%s: %s\r\n" % (keyword, value)).encode("latin-1", "strict"))
 
     def end_headers(self):
         # header 结束的标识符
@@ -395,80 +391,98 @@ class HTTPRequestHandler(object):
 
     @staticmethod
     def date_time_string(timestamp=None):
-        weekdayname = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        weekdayname = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
-        monthname = [None, 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-                     'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        monthname = [
+            None,
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ]
         if timestamp is None:
             timestamp = time.time()
         year, month, day, hh, mm, ss, wd, y, z = time.gmtime(timestamp)
         s = "%s, %02d %3s %4d %02d:%02d:%02d GMT" % (
             weekdayname[wd],
-            day, monthname[month],
-            year, hh, mm, ss)
+            day,
+            monthname[month],
+            year,
+            hh,
+            mm,
+            ss,
+        )
         return s
 
 
 # 请求具体的处理方式
 class RequestHandler(HTTPRequestHandler):
     def handle_index(self):
-        page = '''
+        page = """
         <html>
         <body>
         <p>你好, HG Web Server!</p>
         </body>
         </html>
-        '''
+        """
         self.send_response(200)  # status code
         # 试试删除这行
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(page)))
         self.end_headers()
-        self.wfile.write(page.encode('utf-8'))
+        self.wfile.write(page.encode("utf-8"))
 
     def handle_favicon(self):
-        page = '''
+        page = """
         <html>
         <body>
         <p>这里还未开发</p>
         </body>
         </html>
-        '''
+        """
         self.send_response(200)  # status code
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(page)))
         self.end_headers()
-        self.wfile.write(page.encode('utf-8'))
+        self.wfile.write(page.encode("utf-8"))
 
     def handle_about(self):
-        page = '''
+        page = """
         <html>
         <body>
         <p>This is the about page!</p>
         </body>
         </html>
-        '''
+        """
         self.send_response(200)
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(page)))
         self.end_headers()
-        self.wfile.write(page.encode('utf-8'))
+        self.wfile.write(page.encode("utf-8"))
 
     # 处理 GET 请求
     def do_get(self):
         # 根据 path 对应到具体的处理方法
-        if self.path == '/':
+        if self.path == "/":
             self.handle_index()
-        elif self.path.startswith('/favicon'):
+        elif self.path.startswith("/favicon"):
             self.handle_favicon()
-        elif self.path == '/handle_about':
+        elif self.path == "/handle_about":
             self.handle_about()
         else:
             self.send_error(404)
 
 
-if __name__ == '__main__':
-    server = HTTPServer(('', 8080), RequestHandler)
+if __name__ == "__main__":
+    server = HTTPServer(("", 8080), RequestHandler)
     # 启动服务 curl http://172.23.224.120:8080/handle_about
     server.serve_forever()
 

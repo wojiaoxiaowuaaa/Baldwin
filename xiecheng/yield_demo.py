@@ -39,6 +39,7 @@ c.send("Hello")
 c.send("World")
 
 """
+
 from color_pr import color_print_green, color_print_red
 
 
@@ -57,5 +58,3 @@ color_print_green()
 print(g.send("打印了吗打印了吗打印了吗打印了吗?"))
 color_print_red()
 print(g.__next__())
-
-

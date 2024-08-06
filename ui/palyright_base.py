@@ -22,13 +22,13 @@ with sync_playwright() as p:
     # launch 方法返回的是一个 Browser 对象，调用 browser的new_page方法相当于新建了一个选项卡
     page = browser.new_page()
     # 调用 page 的一系列 API 来进行各种自动化操作了.比如调用goto方法就是加载某个页面.screenshot截图.
-    page.goto('http://www.baidu.com')
-    page.screenshot(path=f'screenshot-.png')
+    page.goto("http://www.baidu.com")
+    page.screenshot(path=f"screenshot-.png")
 
     # 等待5秒
     page.wait_for_timeout(5000)
 
-    page.goto('https://www.h3blog.com')
+    page.goto("https://www.h3blog.com")
     title = page.title()
     print(title)
 

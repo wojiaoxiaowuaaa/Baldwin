@@ -8,6 +8,7 @@ def count_letters(s):
                 letter_dict[char] = 1
     return letter_dict
 
+
 # 示例字符串
 input_string = "统计字符示例字符串，只计字母"
 

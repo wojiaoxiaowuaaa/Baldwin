@@ -3,12 +3,12 @@ from sanic import response
 import datetime
 from loguru import logger
 
-app = Sanic('my_app')
+app = Sanic("my_app")
 
 hello_requests_count = 0  # 全局变量 用于统计接口的请求次数
 
 
-@app.get('/hello')
+@app.get("/hello")
 def handle_hello(request):
     time = str(datetime.datetime.now())[:-7]
     global hello_requests_count
@@ -17,13 +17,13 @@ def handle_hello(request):
     return response.json({"hello time": time})
 
 
-@app.get('/world')
+@app.get("/world")
 def handle_world(request):
     time = str(datetime.datetime.now())[:-7]
     return response.json({"world time": time})
 
 
-@app.post('/login')
+@app.post("/login")
 def handle_login(request):
     time = str(datetime.datetime.now())[:-7]
 
@@ -36,7 +36,7 @@ def handle_login(request):
         return response.json({"login time": time})
 
 
-@app.post('/logout')
+@app.post("/logout")
 def handle_logout(request):
     time = str(datetime.datetime.now())[:-7]
     data = request.json

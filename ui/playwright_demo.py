@@ -16,11 +16,11 @@ def run(playwright: Playwright) -> None:
     page = content.new_page()
 
     # 页面打开指定网址
-    page.goto('https://www.baidu.com')
+    page.goto("https://www.baidu.com")
 
     # 找到百度输入框（ locator 会自动识别传入的选择器是 css xpath .... 不需要像 selenium 指定 By.XPATH/ID 这样的 ）
     # page.locator('//input[@id="kw"]').fill('周杰伦') # 也可以写成下面这样：
-    page.fill('//input[@id="kw"]', '周杰伦')
+    page.fill('//input[@id="kw"]', "周杰伦")
 
     # 点击百度一下进行搜索
     # page.locator('//input[@id="su"]').click() # 也可以写成下面这样：

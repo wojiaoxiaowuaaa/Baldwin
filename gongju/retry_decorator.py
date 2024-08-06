@@ -16,23 +16,27 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
 
     # Don't let the user use this decorator if they are high
     if retries < 1 or delay <= 0:
-        raise ValueError('Are you high, mate?')
+        raise ValueError("Are you high, mate?")
 
     def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs) -> Any:
-            for i in range(1, retries + 1):  # 1 to retries + 1 since upper bound is exclusive
+            for i in range(
+                1, retries + 1
+            ):  # 1 to retries + 1 since upper bound is exclusive
                 try:
-                    logger.info(f'Running ({i}): {func.__name__}()...')
+                    logger.info(f"Running ({i}): {func.__name__}()...")
                     return func(*args, **kwargs)
                 except Exception as e:
                     # Break out of the loop if the max amount of retries is exceeded
                     if i == retries:
-                        logger.info(f'Error: {repr(e)}.')
-                        logger.info(f'"{func.__name__}()" failed after {retries} retries.')
+                        logger.info(f"Error: {repr(e)}.")
+                        logger.info(
+                            f'"{func.__name__}()" failed after {retries} retries.'
+                        )
                         break
                     else:
-                        logger.info(f'Error: {repr(e)}')
+                        logger.info(f"Error: {repr(e)}")
                         sleep(delay)  # Add a delay before running the next iteration
 
         return wrapper
@@ -43,12 +47,12 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
 @retry_decorator(retries=3, delay=3)
 def connect() -> None:
     time.sleep(1)
-    raise Exception('Could not connect to internet')
+    raise Exception("Could not connect to internet")
 
 
 def main() -> None:
     connect()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

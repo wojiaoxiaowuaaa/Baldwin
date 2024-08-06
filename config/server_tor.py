@@ -21,15 +21,17 @@ class About(RequestHandler):
         self.write("是小舞不是小武")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     """
-     curl  http://0.0.0.0:9876/about
-     curl  http://0.0.0.0:9876/index
+    curl  http://0.0.0.0:9876/about
+    curl  http://0.0.0.0:9876/index
     """
-    app = tornado.web.Application([
-        (r'/index', Index),
-        (r'/about', About),
-    ])
+    app = tornado.web.Application(
+        [
+            (r"/index", Index),
+            (r"/about", About),
+        ]
+    )
     app.listen(9876)
     try:
         tornado.ioloop.IOLoop.current().start()

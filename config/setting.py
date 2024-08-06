@@ -1,5 +1,5 @@
 # 项目路径
-BASE_PATH = '/Users/wl/Downloads/Baldwin/config/'
+BASE_PATH = "/Users/wl/Downloads/Baldwin/config/"
 
 # MySQL配置  测试用表:movies
 MYSQL_HOST = "127.0.0.1"
@@ -22,3 +22,5 @@ io_text = "I/O 密集型任务通常是指那些需要频繁进行输入输出�
 
 # price
 products = {143121312: 100, 432314553: 30, 32421912367: 150}
+
+pic = "/Users/wl/Downloads/Baldwin/config/soft.png"

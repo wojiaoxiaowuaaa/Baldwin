@@ -24,5 +24,7 @@ def func(l):
     return l
 
 
-l = random.sample(range(1000), 1000)  # 生成长度为k的随机列表  k必须为小于或等于1000的值(与range的参数有关)
+l = random.sample(
+    range(1000), 1000
+)  # 生成长度为k的随机列表  k必须为小于或等于1000的值(与range的参数有关)
 func(l)

@@ -8,9 +8,9 @@ lrwxrwxrwx 1 wl staff 8   Jan 14 22:52  /Users/wl/Documents/pypy3.10-v7.3.15-mac
 """
 t = time.time()
 
-for i in range(10 ** 9):
+for i in range(10**9):
     continue
 
-print(time.time() - t)  # 32.539549112319946/1.2057199478149414  cpython解释器与pypy解释器的性能差异
-
-
+print(
+    time.time() - t
+)  # 32.539549112319946/1.2057199478149414  cpython解释器与pypy解释器的性能差异

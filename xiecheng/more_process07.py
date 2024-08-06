@@ -11,7 +11,9 @@ def pro_func(name, age, **kwargs):
 
 
 if __name__ == "__main__":
-    p = Process(target=pro_func, args=('小明', 18), kwargs={'city': '北京', 'temperature': 20})
+    p = Process(
+        target=pro_func, args=("小明", 18), kwargs={"city": "北京", "temperature": 20}
+    )
     p.start()
     time.sleep(0.5)
     p.terminate()  # 0.5秒钟之后,立刻结束子进程.由于子进程会被主进程终止，因此子进程可能不会完成所有5次循环。

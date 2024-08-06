@@ -11,14 +11,16 @@ from loguru import logger
 
 
 async def read_file(filename):
-    async with aiofiles.open(filename, mode='r') as f:
+    async with aiofiles.open(filename, mode="r") as f:
         contents = await f.read()
         return filename, contents
 
 
 async def read_all_files_in_directory():
-    files = os.listdir('.')  # 获取文件夹下的所有文件名&目录名
-    tasks = [read_file(file) for file in files if os.path.isfile(file)]  # 创建一个任务列表，每个任务都是异步读取一个文件的操作
+    files = os.listdir(".")  # 获取文件夹下的所有文件名&目录名
+    tasks = [
+        read_file(file) for file in files if os.path.isfile(file)
+    ]  # 创建一个任务列表，每个任务都是异步读取一个文件的操作
     result = await asyncio.gather(*tasks)  # 并行 执行所有异步读取文件的任务
     return result
 

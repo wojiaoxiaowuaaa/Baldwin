@@ -45,4 +45,3 @@ if __name__ == "__main__":
     color_print_red()
     print("-------------------分割线-------------------")
     show_memory_info()
-

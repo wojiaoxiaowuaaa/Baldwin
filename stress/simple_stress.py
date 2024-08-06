@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # logger.info(f'QPS{ COUNT / time_cost}')
 
     # multi thread
-    logger.info(f'Multi-thread perform search action parallelly {COUNT}  {NQ}')
+    logger.info(f"Multi-thread perform search action parallelly {COUNT}  {NQ}")
     threads = []
     time_start = time.time()
     for k in range(COUNT):
@@ -38,6 +38,5 @@ if __name__ == "__main__":
     for t in threads:
         t.join()
     time_cost = time.time() - time_start
-    logger.info(f'Totally time cost {time_cost}  sec')
-    logger.info(f'QPS: {COUNT / time_cost}')
-
+    logger.info(f"Totally time cost {time_cost}  sec")
+    logger.info(f"QPS: {COUNT / time_cost}")
