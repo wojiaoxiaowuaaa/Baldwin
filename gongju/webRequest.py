@@ -25,7 +25,7 @@ class WebRequest(object):
     name = "webRequest"  # 类变量 日志文件名
 
     def __init__(self, *args, **kwargs):
-        self.log = LogRegister(self.name, file=False)
+        self.log = LogRegister(self.name, file=False)  # 实例变量 日志记录
         self.response = Response()
 
     @property
