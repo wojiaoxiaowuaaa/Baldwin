@@ -1,5 +1,7 @@
 # 项目路径
-BASE_PATH = "/Users/wl/Downloads/Baldwin/config/"
+BASE_PATH = "/Users/wl/Downloads/Baldwin"
+
+home = '/Users/wl'
 
 # MySQL配置  测试用表:movies
 MYSQL_HOST = "127.0.0.1"

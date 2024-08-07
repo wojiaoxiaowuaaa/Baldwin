@@ -18,3 +18,12 @@ from .webRequest import WebRequest
 from .log_register import LogRegister
 from .qr_png import qr_png
 
+# 初始化包级别的变量,在其他代码片段中import gongju可以直接使用print(gongju.package_variable).
+package_variable = "This is a package variable"
+
+__version__ = 1.0
+
+__author__ = "wl"
+
+# 定义 __all__ 列表
+# __all__ = ["WebRequest", "LogRegister", "qr_png"]
