@@ -1,9 +1,6 @@
-# 在Python中,当你导入一个包时,Python会自动执行该包的__init__.py文件__init__.py文件的作用是初始化包,
-# 它可以包含包的初始化代码,包括变量定义,类和函数的定义等.因此,如果你执行:from gongju import BANNER可以直接导入下面的BANNER变量
-
-from . import webRequest
-
-BANNER = r"""
+# 在Python中,当你导入一个包时,Python会自动执行该包的__init__.py文件它的作用是初始化包,
+# 它可以包含包的初始化代码,包括变量定义,类和函数的定义等.因此如果你执行from gongju import BANNER可以直接导入下面的BANNER变量.
+ban = r"""
 ****************************************************************
 *** ______  ********************* ______ *********** _  ********
 *** | ___ \_ ******************** | ___ \ ********* | | ********
@@ -16,3 +13,8 @@ BANNER = r"""
 *************************       ********************************
 ****************************************************************
 """
+# 当其在他代码中from gongju import WebRequest时，可以直接使用下面的 WebRequest 类.这种写法简化了导包的操作.
+from .webRequest import WebRequest
+from .log_register import LogRegister
+from .qr_png import qr_png
+

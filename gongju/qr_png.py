@@ -23,4 +23,5 @@ def qr_png(data):
     plt.show()
 
 
-qr_png("http://www.pofengqx.com/QTCX?b=8660629937_1")
+if __name__ == "__main__":
+    qr_png("http://www.pofengqx.com/QTCX?b=8660629937_1")

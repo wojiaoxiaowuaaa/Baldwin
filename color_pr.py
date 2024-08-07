@@ -38,7 +38,7 @@ def color_print_green():
 
 
 def color_print_red():
-    print("\033[1;31m" + "*" * 30 + "\033[0m")
+    print("\033[1;31m" + "自定义内容" * 10 + "\033[0m")
 
 
 if __name__ == "__main__":
