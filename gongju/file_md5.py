@@ -45,5 +45,5 @@ def md5_video(pwd):
     print(md5)
 
 
-md5_value = calculate_md5(os.path.abspath(__file__))
-print(md5_value)
+# md5_value = calculate_md5(os.path.abspath(__file__))
+# print(md5_value)
