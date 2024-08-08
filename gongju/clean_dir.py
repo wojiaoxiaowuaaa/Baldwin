@@ -9,7 +9,8 @@ def clean_up(dir):
     cache_directory = os.path.join(os.path.dirname(__file__), dir)
     try:
         if os.path.exists(cache_directory):
-            # shutil 是 Python 标准库中的一个模块，提供了一些用于文件和目录操作的高级功能。它是 "shell utility" 的缩写，旨在提供类似于 shell 命令的功能。
+            # shutil 是 Python 标准库中的一个模块，提供了一些用于文件和目录操作的高级功能。
+            # 它是 "shell utility" 的缩写，旨在提供类似于 shell 命令的功能。
             shutil.rmtree(cache_directory)
             print(f"Directory '{cache_directory}' deleted successfully.")
         else:
@@ -19,7 +20,9 @@ def clean_up(dir):
 
 
 def rm_rf(pwd):
-    #  使用subprocess模块来运行系统命令如subprocess.run(['ls'])也可以使用os.system('echo $PATH')--这种方式更简洁轻便但是不具备复杂情况的处理能力
+    """删除制定的目录 pwd:待删除目录路径.
+    使用subprocess模块来运行系统命令如subprocess.run(['ls'])
+    也可以使用os.system('echo $PATH')这种方式虽然更简洁轻便但是不具备复杂情况的处理能力 """
     subprocess.run(["rm", "-rf", pwd], check=True)
 
 
