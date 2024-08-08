@@ -11,5 +11,5 @@ def sum_(n):
     # print(count)
     return count
 
-
-cProfile.run("sum_(100000000)")
+if __name__ == '__main__':
+    cProfile.run("sum_(100000000)")
