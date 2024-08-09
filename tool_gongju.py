@@ -10,3 +10,4 @@ only_name = str(uuid.uuid4()).replace('-', '')
 
 def mo():
     asyncio.run(SystemMonitor().monitor())  # 运行监控程序
+
