@@ -7,6 +7,7 @@ def clean_up(dir):
     """删除当前脚本下的指定目录
     :param dir: 当前脚本所在目录下待删除的目录"""
     cache_directory = os.path.join(os.path.dirname(__file__), dir)
+    print(cache_directory)
     try:
         if os.path.exists(cache_directory):
             # shutil 是 Python 标准库中的一个模块，提供了一些用于文件和目录操作的高级功能。
