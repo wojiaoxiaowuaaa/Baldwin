@@ -19,8 +19,7 @@ def download_images_from_file(filename, output_dir):
                 image_name = str(uuid.uuid4()).replace("-", "") + ".webp"
                 save_path = os.path.join(output_dir, image_name)
                 with open(save_path, "wb") as f:
-                    f.write(response.content)  # response.content 是 requests 库中
-                    # 的一个属性,它包含了服务器返回的原始响应数据.对于图片资源,response.content 包含的是图片的二进制数据.
+                    f.write(response.content)  # response.content 是 requests 库中的一个属性,它包含了服务器返回的原始响应数据.对于图片资源,response.content 包含的是图片的二进制数据.
                 print(f"已下载图片:{save_path}")
             else:
                 print(f"无法下载图片:{url}")
