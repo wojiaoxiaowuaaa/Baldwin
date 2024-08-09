@@ -26,7 +26,7 @@ class WebRequest(object):
 
     def __init__(self, *args, **kwargs):
         self.log = LogRegister(self.name, file=False)  # 实例变量 日志记录
-        self.response = Response()
+        self.response = Response()  # self.response对象包含了HTTP响应的所有信息,如状态码(status_code)、响应头(headers)、响应体(text或content)等.在WebRequest类中,通过执行get方法发起HTTP GET请求后,self.response会被更新为实际的HTTP响应对象,从而可以在类的其他方法中(如tree、text、json属性方法)使用这个响应对象来提取响应的不同部分.
 
     @property
     def user_agent(self):
