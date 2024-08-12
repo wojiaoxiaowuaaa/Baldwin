@@ -146,6 +146,8 @@ class WebRequest(object):
 
 if __name__ == "__main__":
     web_log = WebRequest().log
-    baidu = WebRequest().get("https://www.baidu.com").json
+    baidu = WebRequest().get("http://127.0.0.1:9999/login?name=xiaowu&pwd=111").json()
+    print(baidu)
     # web_log.info(baidu)
     # print(dir(web_log))
+

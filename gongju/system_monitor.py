@@ -14,12 +14,10 @@ class SystemMonitor:
         self.interval = interval
 
     async def get_memory_usage(self):
-        memory = psutil.virtual_memory()
-        return f"Memory Usage: {memory.percent}%"
+        return f"Memory Usage: {psutil.virtual_memory().percent}%"
 
     async def get_cpu_usage(self):
-        cpu = psutil.cpu_percent(interval=1)
-        return f"CPU Usage: {cpu}%"
+        return f"CPU Usage: {psutil.cpu_percent(interval=1)}%"
 
     async def monitor(self, duration=30):
         start = time.time()
