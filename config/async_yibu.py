@@ -18,10 +18,12 @@ async def main():
         "https://www.bing.com/",
     ]
     tasks = [fetch_data(url) for url in urls]
+    # asyncio.gather用于并发执行多个协程（coroutines）或任务（tasks）。使用 asyncio.gather 可以同时等待多个异步操作完成，并收集它们的结果。它特别适合用于管理多个异步任务的执行和结果处理。
     results = await asyncio.gather(*tasks)
+    print(type(results[0]))
     # print(results[0])
-    for _ in results:
-        logger.info(_)
+    # for _ in results:
+    #     logger.info(_)
 
 
 asyncio.run(main())
