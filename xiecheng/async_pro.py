@@ -21,7 +21,7 @@ def run_async_task(name):
 
 
 if __name__ == "__main__":
-    """使用异步编程和多进程来执行并行任务"""
+    # 使用异步编程和多进程来执行并行任务
     processes = []
 
     for i in range(3):
