@@ -1,8 +1,14 @@
 import time
+import site
+import sys
 from functools import wraps
 from typing import Callable, Any
 from loguru import logger
 from time import sleep
+from tenacity import retry, stop_after_attempt, wait_fixed
+from color_pr import color_print_green
+
+sys.path.insert(0, "/Users/wl/Downloads/Baldwin")
 
 
 def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
@@ -22,7 +28,7 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs) -> Any:
             for i in range(
-                1, retries + 1
+                    1, retries + 1
             ):  # 1 to retries + 1 since upper bound is exclusive
                 try:
                     logger.info(f"Running ({i}): {func.__name__}()...")
@@ -44,15 +50,30 @@ def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
     return decorator
 
 
+# 使用示例
 @retry_decorator(retries=3, delay=3)
 def connect() -> None:
     time.sleep(1)
     raise Exception("Could not connect to internet")
 
 
-def main() -> None:
-    connect()
+def main(): connect()
+
+
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
+def my_function():
+    # 重试三次  时间间隔为1秒
+    color_print_green()
+    raise Exception("error")
+
+
+@retry_decorator(3, 1)
+def wl_func():
+    color_print_green()
+    assert 1 == 2
 
 
 if __name__ == "__main__":
     main()
+    # my_function()
+    # wl_func()

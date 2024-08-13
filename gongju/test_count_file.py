@@ -1,9 +1,10 @@
 import os
 import unittest
-from count_file import count_lines_and_size
+from dir_file import count_lines_and_size
 
 
 class TestCountLinesAndSize(unittest.TestCase):
+    """单元测试示例.测试count_lines_and_size函数."""
     def setUp(self):
         self.test_file = "aaa.json"
         with open(self.test_file, "w") as f:
@@ -31,7 +32,7 @@ import os
 import sys
 import pytest
 # if (BASE_PATH := os.path.dirname(os.path.abspath(__file__))) not in sys.path: sys.path.insert(0, BASE_PATH)
-# from gongju.count_file import count_lines_and_size
+# from gongju.dir_file import count_lines_and_size
 from count_file import count_lines_and_size
 
 
