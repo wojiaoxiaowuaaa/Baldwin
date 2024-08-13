@@ -17,8 +17,9 @@ async def main():
     print(result)
 
 
-# 运行主协程,从而实现了异步调用 secrets_str() 函数并打印结果.
-asyncio.run(main())
+if __name__ == '__main__':
+    # 运行主协程,从而实现了异步调用 secrets_str() 函数并打印结果.
+    asyncio.run(main())
 
 # 在Python中,await 关键字用于暂停当前协程的执行,等待另一个协程完成并返回结果.这个关键字只能在协程内部使用,它告诉事件循环event_loop暂停当前协程的执行,并执行其他协程,直到等待的协程完成并返回结果,然后再继续执行当前协程.
 # 下面这行代码,await secrets_str() 位于顶级上下文中,而不是在异步函数内部.在顶级上下文中使用 await 是不允许的,因为 Python 解释器无法直接处理异步调用.而在异步函数内部,使用 await 是允许的,因为在异步函数内部可以使用异步操作.

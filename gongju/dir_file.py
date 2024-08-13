@@ -49,7 +49,7 @@ from pathlib import Path
 from loguru import logger
 
 sys.path.insert(0, '../')  # 将上级目录 添加到Python解释器 模块搜索路径列表
-from time_count import calculate_execution_time
+from .time_count import calculate_execution_time
 from config.setting import pic
 
 
