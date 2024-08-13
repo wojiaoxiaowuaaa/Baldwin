@@ -6,15 +6,13 @@ import time
 import aiohttp
 from bs4 import BeautifulSoup
 
-# if (BASE_PATH := os.path.abspath('.')) not in sys.path: sys.path.insert(0, BASE_PATH)
+if (BASE_PATH := os.path.abspath('../xiecheng')) not in sys.path: sys.path.insert(0, BASE_PATH)
 from gongju.mysql_operate import *
 
 
 async def fetch_content(url):
     # 异步获取URL内容并返回文本数据
-    async with aiohttp.ClientSession(
-        connector=aiohttp.TCPConnector(ssl=False)
-    ) as session:
+    async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
         async with session.get(url) as response:
             return await response.text()
 

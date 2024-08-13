@@ -4,7 +4,7 @@ from loguru import logger
 
 
 def task(n):
-    # print(f"执行任务的进程ID: {os.getpid()}")  输出的进程 ID 可能是相同的。这是因为在某些操作系统上，进程 ID 是有限的资源，并且在进程池中的进程被销毁和重新创建时，它们可能会被分配相同的进程 ID。
+    logger.info(f"执行任务的进程ID: {os.getpid()}")  # 输出的进程 ID 可能是相同的。这是因为在某些操作系统上，进程 ID 是有限的资源，并且在进程池中的进程被销毁和重新创建时，它们可能会被分配相同的进程 ID。
     return n * n
 
 

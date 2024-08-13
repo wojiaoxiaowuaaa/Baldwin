@@ -4,9 +4,7 @@ import time
 
 
 def worker(x):
-    print(
-        f"Processing  {x}  in process:  {getpid()}"
-    )  # multiprocessing.current_process().pid
+    print(f"Processing  {x}  in process:  {getpid()}")  # multiprocessing.current_process().pid
     time.sleep(3)  # 模拟耗时操作
     return x * x
 

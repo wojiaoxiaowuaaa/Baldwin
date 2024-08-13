@@ -2,34 +2,26 @@ import asyncio
 from random import randint
 
 
-async def consumer(queue, id):
-    while True:
-        item = await queue.get()
-        if item is None:  # 检测到结束信号
-            break
-        print(f"Consumer {id} got {item}")
-        await asyncio.sleep(1)
-
-
-async def producer(queue, id):
-    for i in range(5):
+async def producer(q):
+    for i in range(3):
         item = randint(1, 10)
-        await queue.put(item)
-        print(f"Producer {id} put {item}")
+        await q.put(item)
+        print(f'生产者生产：{item}')
         await asyncio.sleep(1)
-    await queue.put(
-        None
-    )  # 定义一个特殊的结束信号None 生产者在完成生产后将这个信号放入队列.消费者在获取到这个信号后退出循环.
+    await q.put(None)  # 定义一个特殊的结束信号None 生产者在完成生产后将这个信号放入队列.消费者在获取到这个信号后退出循环.
+
+
+async def consumer(q):
+    while True:
+        item = await q.get()
+        if item is None:
+            break
+        print(f'消费者消费：{item}')
 
 
 async def main():
     queue = asyncio.Queue()
-    consumers = [consumer(queue, i) for i in range(5)]
-    producers = [producer(queue, i) for i in range(5)]
-    await asyncio.gather(*consumers, *producers)
-    # p = asyncio.create_task(producer(queue, 'produce'))
-    # c = asyncio.create_task(consumer(queue, 'consume'))
-    # await asyncio.gather(p, c)
+    await asyncio.gather(producer(queue), consumer(queue))
 
 
 asyncio.run(main())
