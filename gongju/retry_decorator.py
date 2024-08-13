@@ -8,7 +8,7 @@ from time import sleep
 from tenacity import retry, stop_after_attempt, wait_fixed
 from color_pr import color_print_green
 
-sys.path.insert(0, "/Users/wl/Downloads/Baldwin")
+sys.path.insert(0, "../")
 
 
 def retry_decorator(retries: int = 3, delay: float = 1) -> Callable:
