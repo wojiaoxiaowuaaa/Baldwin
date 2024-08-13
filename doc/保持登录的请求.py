@@ -3,6 +3,8 @@ import requests
 
 class Send:
     # 初始化时创建session对象
+    # 登录状态维持: 通过 requests.Session，代码能够维持登录状态，因为会话 cookie 会被自动管理。
+    # 后续请求: 只要在同一个 Session 对象中发送请求，就可以保持登录状态，访问需要认证的资源。
     def __init__(self):
         self.session = requests.Session()
 
