@@ -1,8 +1,9 @@
 import os
+from pathlib import Path
 
 
 def count_characters(file_path):
-    # (统计文本中字符的出现次数 排序后展示最高频的前十个)初始化一个空字典hashmap来存储字符及其出现次数
+    """(统计文本中字符的出现次数 排序后展示最高频的前十个).初始化一个空字典hashmap来存储字符及其出现次数"""
     hashmap = {}
     try:
         with open(file_path, "r") as f:
@@ -28,4 +29,19 @@ def count_characters(file_path):
     return dict(hashmap)
 
 
-print(count_characters(os.path.abspath(__file__)))  # (也可传参)Path(__file__)返回当前 Python 文件的绝对路径
+# print(count_characters(os.path.abspath(__file__)))
+
+
+def count_file(pwd):
+    """统计文件中小写字母的数量"""
+    count = 0
+
+    with open(pwd, "r") as f:
+        data = f.read()
+        for _ in data:
+            if _.islower():  # 统计大写用 isupper
+                count += 1
+    return count
+
+
+# print(count_file(Path(__file__)))  # Path(__file__)返回当前 Python 文件的绝对路径
