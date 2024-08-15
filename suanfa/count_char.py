@@ -74,7 +74,7 @@ input_string = "统计字符示例字符串，aabbcc 111"
 def reverse_int(x):
     """反转一个int类型 方法一&方法二"""
     s = [i for i in str(x)][::-1]  # 列表反向切片
-    return "".join(s)
+    return int("".join(s))
 
 
 def reverse_integer(number):

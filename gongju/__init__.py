@@ -17,6 +17,7 @@ ban = r"""
 from .webRequest import WebRequest
 from .log_register import LogRegister
 from .qr_png import qr_png
+from .jiaoji import get_arr
 
 # 初始化包级别的变量,在其他代码片段中import gongju可以直接使用print(gongju.package_variable).
 package_variable = "This is a package variable"
