@@ -1,3 +1,10 @@
+def get_arr(k):
+    """生成一个长度为v的随机数组"""
+    import random
+    ll = random.sample(range(k), k)
+    return ll
+
+
 def jihe():
     """求a, b两个列表的交集"""
     a = [1, 2, 3, 4, 5, 7]

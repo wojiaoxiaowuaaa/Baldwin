@@ -11,6 +11,7 @@ from gongju import WebRequest
 from gongju.system_monitor import SystemMonitor
 from gongju.dir_file import replace_punctuation_in_dir, replace_punctuation_in_file
 from gongju.secrets_str import secrets_str
+from gongju.jiaoji import get_arr
 
 only_name = str(uuid.uuid4()).replace('-', '')
 
@@ -39,9 +40,16 @@ async def main():
     print(s)
 
 
+def get_ll():
+    """获取长度为10的随机数据"""
+    l = get_arr(10)
+    print(l)
+
+
 if __name__ == '__main__':
     ...
     # mo()
     # web()
     # asyncio.run(main())
-    tran()
+    # tran()
+    # get_ll()
