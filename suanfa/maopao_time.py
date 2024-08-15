@@ -24,7 +24,6 @@ def func(l):
     return l
 
 
-l = random.sample(
-    range(1000), 1000
-)  # 生成长度为k的随机列表  k必须为小于或等于1000的值(与range的参数有关)
-func(l)
+# 生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)
+l = random.sample(range(10), 10)
+print(func(l))
