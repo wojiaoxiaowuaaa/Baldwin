@@ -23,7 +23,7 @@ def mo():
 def tran():
     """中英文标点转换 文件或者目录维度"""
     replace_punctuation_in_dir("", [])
-    replace_punctuation_in_file("/Users/wl/Downloads/Baldwin/basic_skill.py")
+    replace_punctuation_in_file("/Users/wl/Downloads/Baldwin/suanfa/jiaoji.py")
 
 
 def web():
