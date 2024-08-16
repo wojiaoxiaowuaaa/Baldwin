@@ -33,12 +33,14 @@ def show_memory_info(s="this process"):
     print(" {} pid is {} memory used: {} M".format(s, pid, memory))
 
 
-def color_print_green():
-    print("\033[1;32m" + "*" * 30 + "\033[0m")
+def color_print_green(s="*"):
+    """打印自定义彩色字符"""
+    print("\033[1;32m" + s * 30 + "\033[0m")
 
 
-def color_print_red():
-    print("\033[1;31m" + "自定义内容" * 10 + "\033[0m")
+def color_print_red(s="-"):
+    """打印自定义彩色字符"""
+    print("\033[1;31m" + s * 30 + "\033[0m")
 
 
 if __name__ == "__main__":
