@@ -10,7 +10,7 @@ def func(numbs):
     return numbs[0] + func(numbs[1:])
 
 
-print(func([1, 2, 3, 4]))
+# print(func([1, 2, 3, 4]))
 
 
 def func_sum(x):
@@ -26,4 +26,15 @@ def func_sum(x):
         return 0
 
 
-print(func_sum(100))
+# print(func_sum(100))
+
+
+
+def recursive_function():
+    return recursive_function()  # 无限递归
+
+try:
+    recursive_function()
+except RecursionError as e:
+    print("RecursionError:", e)  # RecursionError: maximum recursion depth exceeded
+
