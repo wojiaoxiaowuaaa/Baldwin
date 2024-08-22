@@ -87,3 +87,40 @@ if __name__ == "__main__":
     }
 
     run_concurrency_api_test(test_data)
+
+
+def square_number(number, shared_queue):
+    """
+    计算给定数字的平方并将结果放入共享队列中。
+    :param number: 要计算平方的数字。
+    :param shared_queue: 用于进程间通信的共享队列。
+    """
+    result = number * number
+    shared_queue.put(result)
+    print(f"数字 {number} 的平方是 {result}")
+    # print(shared_queue.get())
+
+
+# if __name__ == "__main__":
+#     # 创建一个管理器队列用于进程间通信
+#     shared_queue = multiprocessing.Manager().Queue()
+#
+#     # 定义一组数字
+#     numbers = [1, 2, 3, 4, 5]
+#
+#     # 创建一个进程池
+#     pool = multiprocessing.Pool(processes=len(numbers))
+#
+#     # 启动多个进程，每个进程都执行 square_number 函数
+#     for number in numbers:
+#         pool.apply_async(square_number, args=(number, shared_queue))
+#
+#     # 关闭进程池，防止更多任务提交到池中
+#     pool.close()
+#
+#     # 等待所有进程完成
+#     pool.join()
+#
+#     # 从共享队列中获取并打印所有结果
+#     while not shared_queue.empty():
+#         print(f"队列中的结果：{shared_queue.get()}")
