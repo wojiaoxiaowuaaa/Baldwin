@@ -55,12 +55,7 @@ print(time)
 
 import time
  # 当前时刻的时间戳 单位:秒
-print(int(time.time())) 
-
-# 在不传递参数的情况下，ctime() 函数会将当前时间（即当前系统时钟所显示的时间）转换为可读的字符串形式。
-from time import ctime
-print(ctime())
-
+print(int(time.time()))
 ```
 ```python
 # 将字典的键转换为列表，然后获取指定的键.同理可以转换为列表后取value: list(my_dict.values())

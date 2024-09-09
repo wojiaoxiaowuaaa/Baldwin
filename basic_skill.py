@@ -28,10 +28,11 @@ class Student:
     def __init__(self, a: int, b: int):
         self.a = a  # 将形参 a 的值赋值给实例属性self.a
         self.b = b  # 实例属性
-        c = None  # 局部变量(不会保存到__dict__中)
+        # age = 18  # 局部变量(不会保存到__dict__中)
 
     def func(self):  # 类属性(或者类方法不会保存到__dict__中)
         print(self)  # <__main__.Student object at 0x1048c6d90>  与第38行的输出相同(证明self就是类实例出的对象本身)
+        print(self.name)  # 在Python中,类变量是属于类的变量,它被所有该类的实例共享.当你通过实例访问一个属性时,Python会首先尝试在该实例的__dict__中查找该属性.如果没有找到,它会继续在该实例所属类的__dict__中查找,这就是为什么可以通过self引用类变量的原因.
         # print(self.aa)  #  因为init方法中没有声明self.aa这里会报错. self.aa = aa 这一行代码的作用是将传入的参数 aa 赋值给该对象实例的 aa 属性.这样,每个被创建的 Student 类的实例都会有一个 aa 属性,并且该属性的值会根据传入的参数而不同.
 
 

@@ -80,14 +80,20 @@ def rm_rf(pwd):
 def delete_file(path, suffix):
     """递归遍历目录 删除指定后缀的文件如.log"""
     if not os.path.exists(path):
+        print(f'{path}目录不存在')
         return False
+
+    bool_file = False
 
     for root, dirs, files in os.walk(path):
         for _ in files:
             if _.endswith(suffix):
                 os.remove(os.path.join(root, _))
-
+                bool_file = True
+    if bool_file:
         print(f'删除{suffix}后缀文件完成')
+    else:
+        print(f'{path}没有{suffix}后缀文件')
 
 
 def count_lines_and_size(json_file):
