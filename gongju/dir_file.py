@@ -91,9 +91,9 @@ def delete_file(path, suffix):
                 os.remove(os.path.join(root, _))
                 bool_file = True
     if bool_file:
-        print(f'删除{suffix}后缀文件完成')
+        print(f'删除{suffix}后缀的文件完成')
     else:
-        print(f'{path}没有{suffix}后缀文件')
+        print(f'{path}下{suffix}后缀文件删除完毕')
 
 
 def count_lines_and_size(json_file):
