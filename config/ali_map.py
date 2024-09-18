@@ -14,7 +14,10 @@ class AMap(object):
     """
 
     def __init__(
-        self, keys="76a0c1cb61925ad793467c654cb328e0", sig=None, output="JSON"
+        self,
+        keys="76a0c1cb61925ad793467c654cb328e0",
+        sig=None,
+        output="JSON"
     ):
         """
         初始化，需要密钥
@@ -376,9 +379,9 @@ class AMap(object):
         data = self.get_data(url, params)
         return data
 
-
-map = AMap()
-tar = map.location_encode("116.481488,39.990464")
-print(tar)
-tar = map.location_encode("北京市东城区天安门")  # "116.397455,39.909187"
-print(tar)
+if __name__ == '__main__':
+    map = AMap()
+    # tar = map.location_encode("116.481488,39.990464")
+    # print(tar)
+    tar = map.location_encode("北京市朝阳区锐创大厦")  # "116.397455,39.909187"
+    print(tar)
