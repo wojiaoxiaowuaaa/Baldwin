@@ -12,8 +12,7 @@ async def async_task(name, sleep_time=3):
 
 
 def run_async_task(name):
-    """定义函数 尝试运行异步任务.
-    run_async_task函数起到了桥接的作用,它是一个普通的同步函数,可以被multiprocessing.Process直接调用.在run_async_task函数内部,它通过asyncio.run(async_task(name))来运行异步协程函数,这样既满足了multiprocessing.Process对可调用目标的需求,又能执行异步任务."""
+    """定义函数 尝试运行异步任务.run_async_task函数起到了桥接的作用,它是一个普通的同步函数,可以被multiprocessing.Process直接调用.在run_async_task函数内部,它通过asyncio.run(async_task(name))来运行异步协程函数,这样既满足了multiprocessing.Process对可调用目标的需求,又能执行异步任务."""
     try:
         asyncio.run(async_task(name))
     except Exception as e:
