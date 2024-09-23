@@ -26,7 +26,7 @@ async def consumer(queue):
 
 async def main():
     queue = asyncio.Queue()
-    p = asyncio.create_task(producer(queue))    # 任务是协程的包装器 表示要并发执行的协程
+    p = asyncio.create_task(producer(queue))   # 任务是协程的包装器 表示要并发执行的协程
     c = asyncio.create_task(consumer(queue))
     await p
     await queue.put(None)
