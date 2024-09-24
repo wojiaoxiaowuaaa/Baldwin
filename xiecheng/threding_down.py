@@ -11,7 +11,7 @@ def down_one(url: str) -> None:
 
 def down_all(urls: List[str]) -> None:
     """单线程版本: for _ in urls:down_one(_)
-    (并发之)多线程版本:创建一个线程池,用于并发执行多个任务.max_workers=5 指定了线程池中的最大线程数为5.这在处理I/O密集型任务时特别有用,如网络请求、文件读写等
+    (并发)多线程版本:创建一个线程池,用于并发执行多个任务.max_workers=5 指定了线程池中的最大线程数为5.这在处理I/O密集型任务时特别有用,如网络请求、文件读写等
     另外，虽然线程的数量可以自己定义，但是线程数并不是越多越好，因为线程的创建、维护和删除也会有一定的开销。所以如果你设置的很大，反而可能会导致速度变慢.我们往往需要根据实际的需求做一些测试,来寻找最优的线程数量
     """
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
