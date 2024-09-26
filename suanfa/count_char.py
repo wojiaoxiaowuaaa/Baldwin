@@ -126,7 +126,6 @@ def file_write():
             l.append(open(file, "w"))
         for num in range(1, 200):
             if is_prime(num):
-
                 if num <= 10:
                     l[0].write(str(num) + "\n")
                 elif num <= 100:
@@ -147,11 +146,7 @@ def is_valid(s: str) -> bool:
 
     stack = []  # 1. 初始化一个空栈`stack`，用于存储遇到的左括号。
 
-    mapping = {
-        ")": "(",
-        "}": "{",
-        "]": "[",
-    }  # 2. (字典的key均为右括号)创建一个映射字典，它将每个右括号映射到其对应的左括号。
+    mapping = {")": "(",  "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典，它将每个右括号映射到其对应的左括号。
 
     for char in s:  # 3. 遍历输入字符串`s`中的每个字符`char`：如果`char`是一个右括号（即在`mapping`字典的键中），检查栈顶元素（如果栈不为空则弹出，否则假设为'-'） 如果栈顶元素不是与当前右括号匹配的左括号，返回`False`，因为这意味着括号不匹配。否则，`char`是一个左括号，将其压入栈中。
         if char in mapping:
