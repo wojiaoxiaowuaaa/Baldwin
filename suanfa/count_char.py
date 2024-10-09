@@ -17,7 +17,7 @@ def count_characters(file_path):
                 else:
                     hashmap[char] = 1
     except FileNotFoundError:
-        print(f"文件 {file_path} 未找到。")
+        print(f"文件 {file_path} 未找")
         return  # 捕获到异常后立即退出函数,防止继续执行后续代码.这有助于避免在处理错误时出现不必要的执行和潜在的错误输出.
     except PermissionError:  # try 语句后面可以有多个 except 块，每个 except 块可以处理不同类型的异常。这样可以针对不同的异常类型执行不同的处理逻辑。
         print(f"没有权限读取文件 {file_path}。")

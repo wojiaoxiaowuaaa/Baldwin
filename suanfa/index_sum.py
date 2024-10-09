@@ -15,7 +15,7 @@ def func(ll, tar):
             return k, j
 
 
-l = [1, 3, 7, 11, 12]
+ll = [1, 3, 7, 11, 12]
 target = 12
 
 
@@ -56,8 +56,8 @@ def find_index(lst, element):
         return "Not found"
 
 
-my_list = [10, 20, 30, 40, 30, 50]
-element_to_find = 30
+# my_list = [10, 20, 30, 40, 30, 50]
+# element_to_find = 30
 
 # print(find_all_indices(my_list, element_to_find))
 # print(find_index(my_list, element_to_find))
