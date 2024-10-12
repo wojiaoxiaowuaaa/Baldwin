@@ -1,8 +1,3 @@
-import os
-from pathlib import Path
-from math import sqrt
-
-
 def count_characters(file_path):
     """(统计文本中字符的出现次数 排序后展示最高频的前十个).初始化一个空字典hashmap来存储字符及其出现次数"""
     hashmap = {}
@@ -19,8 +14,8 @@ def count_characters(file_path):
     except FileNotFoundError:
         print(f"文件 {file_path} 未找")
         return  # 捕获到异常后立即退出函数,防止继续执行后续代码.这有助于避免在处理错误时出现不必要的执行和潜在的错误输出.
-    except PermissionError:  # try 语句后面可以有多个 except 块，每个 except 块可以处理不同类型的异常。这样可以针对不同的异常类型执行不同的处理逻辑。
-        print(f"没有权限读取文件 {file_path}。")
+    except PermissionError:  # try 语句后面可以有多个 except 块,每个 except 块可以处理不同类型的异常.这样可以针对不同的异常类型执行不同的处理逻辑.
+        print(f"没有权限读取文件 {file_path}.")
         return
     except Exception as e:
         print(f"读取文件时出错: {e}")
@@ -60,7 +55,7 @@ def count_letters(s):
 
 
 # 示例字符串
-input_string = "统计字符示例字符串，aabbcc 111"
+input_string = "统计字符示例字符串,aabbcc 111"
 
 
 # 调用函数
@@ -103,6 +98,7 @@ def filter_numbers(l):
 def is_prime(n):
     """判断素数的函数"""
     if n > 1:
+        from math import sqrt
         for factor in range(2, int(sqrt(n)) + 1):
             if n % factor == 0:
                 return False
@@ -112,9 +108,9 @@ def is_prime(n):
 
 def file_write():
     """
-    1. if 语句：用于判断一个条件是否为真。如果条件为真，则执行 if 代码块中的语句。
-    2. elif 语句：是“else if”的缩写，用于在前面的 if 或 elif 条件不满足时，检查另一个条件。如果 elif 条件为真，则执行 elif 代码块中的语句。
-    3. else 语句：用于在所有前面的 if 和 elif 条件都不满足时执行代码块"""
+    1. if 语句:用于判断一个条件是否为真.如果条件为真,则执行 if 代码块中的语句.
+    2. elif 语句:是"else if"的缩写,用于在前面的 if 或 elif 条件不满足时,检查另一个条件.如果 elif 条件为真,则执行 elif 代码块中的语句.
+    3. else 语句:用于在所有前面的 if 和 elif 条件都不满足时执行代码块"""
     filenames = (
         "../config/log/aaa.txt",
         "../config/log/aaab.txt",
@@ -142,13 +138,13 @@ def file_write():
 # file_write()
 
 def is_valid(s: str) -> bool:
-    """检查字符串是否表示一个有效的括号序列。有效括号序列是指由左括号（"(", "{", "["）和相应的右括号（")", "}", "]"）组成，且左括号和右括号成对出现，没有多余的括号"""
+    """检查字符串是否表示一个有效的括号序列.有效括号序列是指由左括号("(", "{", "[")和相应的右括号(")", "}", "]")组成,且左括号和右括号成对出现,没有多余的括号"""
 
-    stack = []  # 1. 初始化一个空栈`stack`，用于存储遇到的左括号。
+    stack = []  # 1. 初始化一个空栈`stack`,用于存储遇到的左括号.
 
-    mapping = {")": "(",  "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典，它将每个右括号映射到其对应的左括号。
+    mapping = {")": "(",  "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典,它将每个右括号映射到其对应的左括号.
 
-    for char in s:  # 3. 遍历输入字符串`s`中的每个字符`char`：如果`char`是一个右括号（即在`mapping`字典的键中），检查栈顶元素（如果栈不为空则弹出，否则假设为'-'） 如果栈顶元素不是与当前右括号匹配的左括号，返回`False`，因为这意味着括号不匹配。否则，`char`是一个左括号，将其压入栈中。
+    for char in s:  # 3. 遍历输入字符串`s`中的每个字符`char`:如果`char`是一个右括号(即在`mapping`字典的键中),检查栈顶元素(如果栈不为空则弹出,否则假设为'-') 如果栈顶元素不是与当前右括号匹配的左括号,返回`False`,因为这意味着括号不匹配.否则,`char`是一个左括号,将其压入栈中.
         if char in mapping:
             top_element = stack.pop() if stack else "-"
             if mapping[char] != top_element:
@@ -156,7 +152,7 @@ def is_valid(s: str) -> bool:
         else:
             stack.append(char)
 
-    return not stack  # 遍历结束后，如果栈为空，说明所有左括号都有对应的右括号，返回`True`；否则返回`False`，因为存在未闭合的左括号。
+    return not stack  # 遍历结束后,如果栈为空,说明所有左括号都有对应的右括号,返回`True`;否则返回`False`,因为存在未闭合的左括号.
 
 
 # print(is_valid("()[]{}"))

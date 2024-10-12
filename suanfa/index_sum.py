@@ -1,7 +1,3 @@
-import random
-import time
-
-
 def func(ll, tar):
     """给定一个整数数组和一个目标值,找出数组中和为目标值的两个数并返回下标"""
     hashmap = {}
@@ -75,7 +71,7 @@ def fib(n):
 
 # for i in fib(10): print(i, end=" ")
 
-def func(numbs):
+def func_di(numbs):
     """
     递归三原则
     (1)递归算法必须有基本情况;(算法停止递归的条件)
@@ -84,10 +80,10 @@ def func(numbs):
     """
     if len(numbs) == 1:
         return numbs[0]
-    return numbs[0] + func(numbs[1:])
+    return numbs[0] + func_di(numbs[1:])
 
 
-# print(func([1, 2, 3, 4]))
+# print(func_di([1, 2, 3, 4]))
 
 
 def func_sum(x):
@@ -98,7 +94,7 @@ def func_sum(x):
     4.递归效率不高,递归层次过多会导致栈溢出(在计算机中,函数调用是通过栈(stack)这种数据结构实现的,每当进入一个函数调用,栈就会加一层栈帧,每当函数返回,栈就会减一层栈帧.由于栈的大小不是无限的,所以,递归调用的次数过多,会导致栈溢出)
     5.递归的终止条件一般定义在递归函数内部, 在递归调用前要做一个条件判断, 根据判断的结果选择是继续调用自身, 还是return, 返回终止递归;"""
     if x > 0:
-        return x + func(x - 1)
+        return x + func_di(x - 1)
     else:
         return 0
 

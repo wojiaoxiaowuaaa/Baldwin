@@ -8,3 +8,6 @@ sys.path.append(path) 是将指定的路径 path 添加到 sys.path 列表中.�
 # 将当前文件所路径,添加到Python路径的最前面.
 # import sys, os
 # if (BASE_PATH := os.path.abspath(".")) not in sys.path: sys.path.insert(0, BASE_PATH)
+
+# Mac查看cpu温度
+sudo powermetrics --samplers smc | grep -i "CPU die temperature"
