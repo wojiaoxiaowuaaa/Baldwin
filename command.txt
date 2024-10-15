@@ -17,7 +17,7 @@ grep -ri "example"
 grep demo test.log
 
 # 递归查找当前目录及其子目录下的指定后缀的文件
-find  .  -name  ".py"
+find  .  -name  "*.py"
  
 # 递归查找当前目录及其子目录下大于10M的文件
 find .  -size  +10M
