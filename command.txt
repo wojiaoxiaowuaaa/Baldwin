@@ -1,5 +1,4 @@
 
-"""
 # 递归复制目录
 cp  -r  source_directory 6 destination_directory  
 
@@ -46,5 +45,3 @@ sudo powermetrics --samplers smc | grep -i "CPU die temperature"
 git fetch origin
 git reset --hard origin/feature/yang01
 git clean -fd
-
-"""
