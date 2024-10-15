@@ -1,0 +1,50 @@
+
+"""
+# 递归复制目录
+cp  -r  source_directory 6 destination_directory  
+
+# 分页查看
+less  demo.txt
+
+# 显示目录的总大小
+du  -sh  directory  
+
+# 实时跟踪展示日志的最新内容
+tail  -f  demo.log
+
+# 大小写不敏感,在指定目录中寻找字符串
+grep -ri "example" 
+
+# 在文件中查找指定字符串
+grep demo test.log
+
+# 递归查找当前目录及其子目录下的指定后缀的文件
+find  .  -name  ".py"
+ 
+ # 递归查找当前目录及其子目录下大于10M的文件
+find .  -size  +10M
+ 
+# 打包指定的目录
+tar  -zcvf  demo.tar.gz  Desktop
+ 
+ # 查看指定端口上的进程信息
+ ps -ef | grep 3306
+ 
+ # 查看端口上的进程信息，杀进程。
+lsof -i:8089
+
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Python  34258   wl    4u  IPv6 0xfc27ca2fec79365b      0t0  TCP *:8089 (LISTEN)
+
+kill  -9   34258
+
+
+1. Mac查看cpu温度
+sudo powermetrics --samplers smc | grep -i "CPU die temperature"
+
+2. 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
+git fetch origin
+git reset --hard origin/feature/yang01
+git clean -fd
+
+"""
