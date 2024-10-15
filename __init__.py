@@ -9,7 +9,13 @@
 # if (BASE_PATH := os.path.abspath(".")) not in sys.path: sys.path.insert(0, BASE_PATH)
 
 """
-Mac查看cpu温度
+1. Mac查看cpu温度
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"
+
+2. 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
+git fetch origin
+git reset --hard origin/feature/yang01
+git clean -fd
+
 
 """
