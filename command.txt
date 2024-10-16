@@ -1,8 +1,5 @@
 # 递归复制目录
-cp  -r  source_directory 6 destination_directory  
-
-# 分页查看
-less  demo.txt
+cp  -r  source_directory  destination_directory
 
 # 显示目录的总大小
 du  -sh  directory  
@@ -20,7 +17,7 @@ grep demo test.log
 find  .  -name  "*.py"
  
 # 递归查找当前目录及其子目录下大于10M的文件
-find .  -size  +10M
+find .  -size  +100M
  
 # 打包指定的目录
 tar  -zcvf  demo.tar.gz  Desktop
@@ -32,7 +29,11 @@ ps -ef | grep 3306
 COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 Python  34258   wl    4u  IPv6 0xfc27ca2fec79365b      0t0  TCP *:8089 (LISTEN)
 
+# 分页查看
+less  demo.txt
 
+
+------------------------------
 # Mac查看cpu温度(以下为work指令)
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"
 
@@ -50,8 +51,8 @@ gzip -d boom.gz
 find .  -name   "*.zip"  -exec unzip -o {} \;
 
 # sublime打开终端(底部打开or标签页打开)
- Open Default Shell in Tab
- Open Default Shell in Panel
+Open Default Shell in Tab
+Open Default Shell in Panel
 
 # 安装HTTP工具(优化请求结果展示)：
 pip3 install httpstat (brew install httpstat)
@@ -67,6 +68,7 @@ tl  demo.log
 brew install android-platform-tools
 
 
+--------------------------------------
 python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
 python3 -m pip install demo # 如果pip安装包后提示找不到可以用改方法来安装
 pip3 install -r requirements.txt  # 从txt中安装-r是必须的
