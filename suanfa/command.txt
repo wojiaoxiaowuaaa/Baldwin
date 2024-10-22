@@ -41,6 +41,7 @@ sudo powermetrics --samplers smc | grep -i "CPU die temperature"
 git fetch origin
 git reset --hard origin/feature/yang01
 git clean -fd
+git fetch origin && git reset --hard origin/feature/yang01 && git clean -fd
 
 # 生成测试压缩文件文件
 dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz
