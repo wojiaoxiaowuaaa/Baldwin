@@ -24,4 +24,4 @@ def qr_png(data):
 
 
 if __name__ == "__main__":
-    qr_png("")
+    qr_png(23453425)

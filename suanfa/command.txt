@@ -1,3 +1,4 @@
+----------------------------------------------------------------------------------------------
 # 递归复制目录
 cp  -r  source_directory  destination_directory
 
@@ -32,8 +33,7 @@ Python  34258   wl    4u  IPv6 0xfc27ca2fec79365b      0t0  TCP *:8089 (LISTEN)
 # 分页查看
 less  demo.txt
 
-
-------------------------------
+----------------------------------------------------------------------------------------------
 # Mac查看cpu温度(以下为work指令)
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"
 
@@ -44,16 +44,15 @@ git clean -fd
 git fetch origin && git reset --hard origin/feature/yang01 && git clean -fd
 
 # 生成测试压缩文件文件
-dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz
-# 解压得到大文件1G
-gzip -d boom.gz
+dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)
+
+
 
 # 解压当前目录下的所有zip文件,末尾的分号记得带上
 find .  -name   "*.zip"  -exec unzip -o {} \;
 
 # sublime打开终端(底部打开or标签页打开)
-Open Default Shell in Tab
-Open Default Shell in Panel
+Open Default Shell in Tab  (Open Default Shell in Panel)
 
 # 安装HTTP工具(优化请求结果展示)：
 pip3 install httpstat (brew install httpstat)
@@ -62,18 +61,22 @@ pip3 install httpstat (brew install httpstat)
 tspin demo.log
 
 # 日志/json查看工具
-pip3 install toolong
-tl  demo.log
+tl  demo.log   (pip3 install toolong)
 
 # 安装adb工具(查看版本adb version)
 brew install android-platform-tools
 
-
---------------------------------------
+----------------------------------------------------------------------------------------------
 python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
+
 python3 -m pip install demo # 如果pip安装包后提示找不到可以用改方法来安装
+
 pip3 install -r requirements.txt  # 从txt中安装-r是必须的
+
 pip3 install --no-cache-dir -r requirements.txt  # pip安装失败时可这个命令
+
 cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://指定的pip源 extra-index-url = https://添加多个源
+
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip config set global.extra-index-url https://pypi.org/simple
+
 driver = webdriver.Chrome("/usr/local/bin/chromedriver") # 实例化浏览器对象,指定驱动的存放位置,必须在/usr/local/bin/ 下(需要下载对应版本的驱动,然后在Mac的隐私与安全中对驱动授权)from selenium import webdriver
