@@ -17,7 +17,7 @@ class ExcelModifier:
         """
         first_row_data = [cell.value for cell in self.sheet[2]]
 
-        for row in range(3, 2001):
+        for row in range(3, 1001):
             for col, value in enumerate(first_row_data, start=1):
                 self.sheet.cell(row=row, column=col, value=value)
 
@@ -32,7 +32,8 @@ class ExcelModifier:
         start_value = 8166460001
 
         # 从第二行开始，每一行第一列的值递增
-        for row in range(2, self.sheet.max_row + 1):
+        for row in range(2, 1001):
+        # for row in range(2, self.sheet.max_row + 1):
             self.sheet.cell(row=row, column=1, value=start_value)
             start_value += 1
 
@@ -41,5 +42,5 @@ class ExcelModifier:
 
 if __name__ == "__main__":
     modifier = ExcelModifier("/Users/wl/Downloads/big_new_file.xlsx")
-    modifier.duplicate_first_row("/Users/wl/Downloads/output.xlsx")
-    modifier.increment_first_column("/Users/wl/Downloads/wl.xlsx")
+    modifier.duplicate_first_row("/Users/wl/Downloads/copy.xlsx")
+    modifier.increment_first_column("/Users/wl/Downloads/dizeng.xlsx")
