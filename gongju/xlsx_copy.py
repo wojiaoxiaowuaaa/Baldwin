@@ -7,7 +7,8 @@ class ExcelModifier:
         :param file_path: 待处理的文件路径
         初始化方法，用于加载工作簿
         """
-        self.workbook = openpyxl.load_workbook(filename=file_path)
+        self.file_path = file_path
+        self.workbook = openpyxl.load_workbook(filename=self.file_path)
         self.sheet = self.workbook.active
 
     def duplicate_first_row(self, output_path):
@@ -31,7 +32,7 @@ class ExcelModifier:
         """
         start_value = 8166460001
 
-        # 从第二行开始，每一行第一列的值递增
+        # 从第二行开始，每一行第一列的值递增.复制1000遍.
         for row in range(2, 1001):
         # for row in range(2, self.sheet.max_row + 1):
             self.sheet.cell(row=row, column=1, value=start_value)
@@ -40,7 +41,11 @@ class ExcelModifier:
         # 保存修改后的文件
         self.workbook.save(output_path)
 
-if __name__ == "__main__":
-    modifier = ExcelModifier("/Users/wl/Downloads/big_new_file.xlsx")
-    modifier.duplicate_first_row("/Users/wl/Downloads/copy.xlsx")
-    modifier.increment_first_column("/Users/wl/Downloads/dizeng.xlsx")
+    def modify_cell(self, row, column, value):
+        # 修改当前文件指定单元格的内容 row:行 column:列 value:值
+        self.sheet.cell(row=row, column=column, value=value)
+        self.workbook.save(self.file_path)
+
+
+if __name__ == '__main__':
+    ExcelModifier('/Users/wl/Downloads/case备份/big_new_file.xlsx').modify_cell(row=2, column=1, value='666')
