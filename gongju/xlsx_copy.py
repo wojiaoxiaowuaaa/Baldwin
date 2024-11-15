@@ -1,11 +1,12 @@
 import openpyxl
-
+import pandas as pd
 
 class ExcelModifier:
     def __init__(self, file_path):
         """
-        :param file_path: 待处理的文件路径
+        :param file_path: 待处理的文件.
         初始化方法，用于加载工作簿
+        self.file_path 将文件路径作为实例属性保存下来,使得这个路径可以在类的其他方法中被访问和使用.
         """
         self.file_path = file_path
         self.workbook = openpyxl.load_workbook(filename=self.file_path)
@@ -46,6 +47,12 @@ class ExcelModifier:
         self.sheet.cell(row=row, column=column, value=value)
         self.workbook.save(self.file_path)
 
+    def pd_read_excel(self):
+        # 读取excel文件
+        df = pd.read_excel(self.file_path).head()
+        return df
+
 
 if __name__ == '__main__':
-    ExcelModifier('/Users/wl/Downloads/case备份/big_new_file.xlsx').modify_cell(row=2, column=1, value='666')
+    # ExcelModifier('/Users/wl/Downloads/case备份/big_new_file.xlsx').modify_cell(row=2, column=1, value='666')
+    print(ExcelModifier('/Users/wl/Downloads/case备份/big_new_file.xlsx').pd_read_excel())
