@@ -19,6 +19,7 @@ class ExcelModifier:
         """
         first_row_data = [cell.value for cell in self.sheet[2]]
 
+        # 修改10001的值为其它 可变更复制的行数
         for row in range(3, 10001):
             for col, value in enumerate(first_row_data, start=1):
                 self.sheet.cell(row=row, column=col, value=value)
