@@ -18,7 +18,7 @@
 
 ```c
 // example.c
-#include <Python.h>
+[[include]] <Python.h>
 
 static PyObject* example_add(PyObject* self, PyObject* args) {
     int a, b;
