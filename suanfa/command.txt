@@ -1,72 +1,56 @@
-----------------------------------------------------------------------------------------------
-# 递归复制目录
-cp  -r  source_directory  destination_directory
+git checkout feature/wl03
+git reset --hard origin/master
+git push origin feature/wl03 --force  # 废弃本地的内容与远程的master分支同步（三步）
 
-# 显示目录的总大小
-du  -sh  directory  
+git restore # 回滚
 
-# 实时跟踪展示日志的最新内容
-tail  -f  demo.log
+git  pull origin  master  # 同步远程的master内容到本地
 
-# 大小写不敏感,在指定目录中寻找字符串
-grep -ri "example" 
-
-# 在文件中查找指定字符串
-grep demo test.log
-
-# 递归查找当前目录及其子目录下的指定后缀的文件
-find  .  -name  "*.py"
- 
-# 递归查找当前目录及其子目录下大于10M的文件
-find .  -size  +100M
- 
-# 打包指定的目录
-tar  -zcvf  demo.tar.gz  Desktop
- 
-# 查看指定端口上的进程信息
-ps -ef | grep 3306
- 
-# 查看端口上的进程信息,杀进程. lsof -i:8089 然后输入kill -9 pid
-COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-Python  34258   wl    4u  IPv6 0xfc27ca2fec79365b      0t0  TCP *:8089 (LISTEN)
-
-# 分页查看
-less  demo.txt
 
 ----------------------------------------------------------------------------------------------
-# Mac查看cpu温度(以下为work指令)
-sudo powermetrics --samplers smc | grep -i "CPU die temperature"
+cp  -r  source_directory  destination_directory # 递归复制目录
 
-# 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
-git fetch origin
-git reset --hard origin/feature/yang01
-git clean -fd
-git fetch origin && git reset --hard origin/master && git clean -fd
+du  -sh  directory  # 显示目录的总大小
 
-# 生成测试压缩文件文件
-dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)
+tail  -f  demo.log  # 实时跟踪展示日志的最新内容
 
+grep -ri "example" # 大小写不敏感,在指定目录中寻找字符串
 
+grep demo test.log  # 在文件中查找指定字符串
 
-# 解压当前目录下的所有zip文件,末尾的分号记得带上
-find .  -name   "*.zip"  -exec unzip -o {} \;
+find  .  -name  "*.py"  # 递归查找当前目录及其子目录下的指定后缀的文件
+ 
+find .  -size  +100M  # 递归查找当前目录及其子目录下大于10M的文件
+ 
+tar  -zcvf  demo.tar.gz  Desktop  # 打包指定的目录
+ 
+ps -ef | grep 3306  # 查看指定端口上的进程信息
+ 
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME  # 查看端口上的进程信息,杀进程. lsof -i:8089 然后输入kill -9 pid
+Python  34258   wl    4u  IPv6 0xfc27ca2fec79365b      0t0  TCP *:8089 (LISTEN)  
 
-# sublime打开终端(底部打开or标签页打开)
-Open Default Shell in Tab  (Open Default Shell in Panel)
+less  demo.txt  # 分页查看
 
-# 安装HTTP工具(优化请求结果展示)：
-pip3 install httpstat (brew install httpstat)
-
-# 查看 日志
-tspin demo.log
-
-# 日志/json查看工具
-tl  demo.log   (pip3 install toolong)
-
-# 安装adb工具(查看版本adb version)
-brew install android-platform-tools
 
 ----------------------------------------------------------------------------------------------
+sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
+
+git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
+
+dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)  # 生成测试压缩文件文件
+
+find .  -name   "*.zip"  -exec unzip -o {} \;  # 解压当前目录下的所有zip文件,末尾的分号记得带上
+
+Open Default Shell in Tab  (Open Default Shell in Panel)  # sublime打开终端(底部打开or标签页打开)
+
+pip3 install httpstat (brew install httpstat)  # 安装HTTP工具(优化请求结果展示)：
+
+tspin demo.log  # 查看 日志
+
+tl  demo.log   (pip3 install toolong)  # 日志/json查看工具
+
+brew install android-platform-tools  # 安装adb工具(查看版本adb version)
+
 python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
 
 python3 -m pip install demo # 如果pip安装包后提示找不到可以用改方法来安装
@@ -79,4 +63,4 @@ cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://
 
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip config set global.extra-index-url https://pypi.org/simple
 
-driver = webdriver.Chrome("/usr/local/bin/chromedriver") # 实例化浏览器对象,指定驱动的存放位置,必须在/usr/local/bin/ 下(需要下载对应版本的驱动,然后在Mac的隐私与安全中对驱动授权)from selenium import webdriver
+/usr/local/bin/chromedriver  # 驱动位置
