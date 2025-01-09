@@ -6,6 +6,7 @@ git restore # 回滚
 
 git  pull origin  master  # 同步远程的master内容到本地
 
+git rebase --abort && git fetch origin && git reset --hard origin/master && git push origin feature/wlfenzhi --force
 
 ----------------------------------------------------------------------------------------------
 cp  -r  source_directory  destination_directory # 递归复制目录
@@ -14,7 +15,7 @@ du  -sh  directory  # 显示目录的总大小
 
 tail  -f  demo.log  # 实时跟踪展示日志的最新内容
 
-grep -ri "example" # 大小写不敏感,在指定目录中寻找字符串
+grep -ri "example" # 大小写不敏感,在指定目录中寻找字符串  ack 测试(与grep类似可视化更好)
 
 grep demo test.log  # 在文件中查找指定字符串
 
