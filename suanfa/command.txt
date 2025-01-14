@@ -6,6 +6,8 @@ git  pull origin  master  # 同步远程的master内容到本地
 
 git rebase --abort && git fetch origin && git reset --hard origin/master && git push origin feature/wlfenzhi --force
 
+git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
+
 ----------------------------------------------------------------------------------------------
 cp  -r  source_directory  destination_directory # 递归复制目录
 
@@ -33,8 +35,6 @@ less  demo.txt  # 分页查看
 
 ----------------------------------------------------------------------------------------------
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
-
-git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
 
 dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)  # 生成测试压缩文件文件
 
