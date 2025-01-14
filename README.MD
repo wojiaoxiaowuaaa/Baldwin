@@ -5,7 +5,7 @@ arr = [(i, j) for i in ['a', 'b', 'c'] for j in [1, 2, 3]]
 ```python
 from pathlib import Path
 # 读取本地存储的文件内容
-demo_json = Path('./config/demo.json').read_text()
+demo_json = Path(__file__).read_text()
 ```
 ```python
 string0 = "  , !Hello & , ) World! _ + = 1  , "
@@ -18,30 +18,10 @@ new_string3 = string2.strip(",")
 ```
 
 ```python
-import json
-import os
-
-
-def func(json_file):
-    """读取本地存储的json文件,转化为dic类型
-    json.load 用于从文件中加载 JSON 数据，接收文件对象作为参数,例如f。
-    json.loads 用于从json字符串中加载 JSON 数据，接收字符串作为参数例如f.read()或变量名"""
-    with open(json_file, 'r') as f:
-        data = json.load(f)  # <class 'dict'>
-        return data
-
-
-json_file = f'{os.path.dirname(__file__)}/config/demo.json'
-data = func(json_file)
-print(data)
-```
-
-```python
 # 使用 iter() 函数创建迭代器，使用 lambda 函数作为可调用对象
 # iter() 函数接受两个参数，分别是可调用对象和哨兵值。它会不断调用可调用对象，直到返回哨兵值为止。
 # 哨兵值（sentinel value）是一个特殊的值，用于表示迭代的终止条件。当迭代器产生哨兵值时，for 循环会认为迭代结束，从而退出循环。
 my_iterator = iter(lambda: input("Enter a number or 'stop' to end: "), 'stop')
-
 # 使用 for 循环遍历迭代器
 for i in my_iterator:
     print(i)
@@ -49,14 +29,13 @@ for i in my_iterator:
 
 ```python
 from datetime import datetime
-# 获取当前时间(可读格式),并将其转换为字符串形式.
-time = str(datetime.now())[:-7]
-print(time)
-
 import time
+# 获取当前时间(可读格式),并将其转换为字符串形式.
+print(str(datetime.now())[:-7])
  # 当前时刻的时间戳 单位:秒
 print(int(time.time()))
 ```
+
 ```python
 # 将字典的键转换为列表，然后获取指定的键.同理可以转换为列表后取value: list(my_dict.values())
 my_dict = {'a': 1, 'b': 2, 'c': 3}
