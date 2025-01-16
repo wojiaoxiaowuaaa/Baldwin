@@ -9,6 +9,10 @@ git rebase --abort && git fetch origin && git reset --hard origin/master && git 
 git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致(本地与远程的分支名称均为:feature/yang01)
 
 ----------------------------------------------------------------------------------------------
+find . -type f -name "*.log" # 递归查找当前目录及其子目录下的指定后缀的文件
+
+find . -type f -name "*.log" -delete # 删除指定目录下所有指定后缀的文件
+
 cp  -r  source_directory  destination_directory # 递归复制目录
 
 du  -sh  directory  # 显示目录的总大小

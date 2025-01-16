@@ -19,10 +19,10 @@ import json
 import sys
 
 
-def convert_and_print_json(input_dict_str):
+def convert_and_print_json(s):
     try:
-        # 将输入的字符串转换为字典
-        input_dict = eval(input_dict_str)
+        # 将通过参数输入的字符串转换为字典
+        input_dict = eval(s)
         # 将字典转换为格式化的 JSON 字符串，并设置 ensure_ascii=False 以正确显示非 ASCII 字符
         json_output = json.dumps(input_dict, indent=4, ensure_ascii=False)
         print()
