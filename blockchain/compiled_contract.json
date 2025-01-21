@@ -1,0 +1,64 @@
+{
+    "contracts": {
+        "SimpleStorage.sol": {
+            "SimpleStorage": {
+                "abi": [
+                    {
+                        "anonymous": false,
+                        "inputs": [
+                            {
+                                "indexed": false,
+                                "internalType": "uint256",
+                                "name": "data",
+                                "type": "uint256"
+                            }
+                        ],
+                        "name": "DataStored",
+                        "type": "event"
+                    },
+                    {
+                        "inputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "x",
+                                "type": "uint256"
+                            }
+                        ],
+                        "name": "set",
+                        "outputs": [],
+                        "stateMutability": "nonpayable",
+                        "type": "function"
+                    },
+                    {
+                        "inputs": [],
+                        "name": "storedData",
+                        "outputs": [
+                            {
+                                "internalType": "uint256",
+                                "name": "",
+                                "type": "uint256"
+                            }
+                        ],
+                        "stateMutability": "view",
+                        "type": "function"
+                    }
+                ],
+                "evm": {
+                    "bytecode": {
+                        "generatedSources": [],
+                        "linkReferences": {},
+                        "object": "608060405234801561001057600080fd5b5061017b806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80632a1afcd91461003b57806360fe47b114610059575b600080fd5b610043610075565b6040516100509190610109565b60405180910390f35b610073600480360381019061006e91906100d1565b61007b565b005b60005481565b806000819055507f9455957c3b77d1d4ed071e2b469dd77e37fc5dfd3b4d44dc8a997cc97c7b3d49816040516100b19190610109565b60405180910390a150565b6000813590506100cb8161012e565b92915050565b6000602082840312156100e357600080fd5b60006100f1848285016100bc565b91505092915050565b61010381610124565b82525050565b600060208201905061011e60008301846100fa565b92915050565b6000819050919050565b61013781610124565b811461014257600080fd5b5056fea264697066735822122037565ddf6b96415ad462b5fc5476950f270efd7aded7eebca2b4e7e11f84745364736f6c63430008000033",
+                        "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0x17B DUP1 PUSH2 0x20 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x36 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x2A1AFCD9 EQ PUSH2 0x3B JUMPI DUP1 PUSH4 0x60FE47B1 EQ PUSH2 0x59 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x43 PUSH2 0x75 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH2 0x50 SWAP2 SWAP1 PUSH2 0x109 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x73 PUSH1 0x4 DUP1 CALLDATASIZE SUB DUP2 ADD SWAP1 PUSH2 0x6E SWAP2 SWAP1 PUSH2 0xD1 JUMP JUMPDEST PUSH2 0x7B JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST DUP1 PUSH1 0x0 DUP2 SWAP1 SSTORE POP PUSH32 0x9455957C3B77D1D4ED071E2B469DD77E37FC5DFD3B4D44DC8A997CC97C7B3D49 DUP2 PUSH1 0x40 MLOAD PUSH2 0xB1 SWAP2 SWAP1 PUSH2 0x109 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG1 POP JUMP JUMPDEST PUSH1 0x0 DUP2 CALLDATALOAD SWAP1 POP PUSH2 0xCB DUP2 PUSH2 0x12E JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0xE3 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x0 PUSH2 0xF1 DUP5 DUP3 DUP6 ADD PUSH2 0xBC JUMP JUMPDEST SWAP2 POP POP SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH2 0x103 DUP2 PUSH2 0x124 JUMP JUMPDEST DUP3 MSTORE POP POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 ADD SWAP1 POP PUSH2 0x11E PUSH1 0x0 DUP4 ADD DUP5 PUSH2 0xFA JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH1 0x0 DUP2 SWAP1 POP SWAP2 SWAP1 POP JUMP JUMPDEST PUSH2 0x137 DUP2 PUSH2 0x124 JUMP JUMPDEST DUP2 EQ PUSH2 0x142 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 CALLDATACOPY JUMP 0x5D 0xDF PUSH12 0x96415AD462B5FC5476950F27 0xE REVERT PUSH27 0xDED7EEBCA2B4E7E11F84745364736F6C6343000800003300000000 ",
+                        "sourceMap": "57:390:0:-:0;;;;;;;;;;;;;;;;;;;"
+                    }
+                },
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"data\",\"type\":\"uint256\"}],\"name\":\"DataStored\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"}],\"name\":\"set\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"storedData\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"SimpleStorage.sol\":\"SimpleStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"SimpleStorage.sol\":{\"keccak256\":\"0x8c76f51b72a7b67f4baa7b8bd09a1fdc98028f020630a290577aa1c155700365\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d74218682a4c2f5a5e5274c8fcaa90fd35e9ea0072ede397b57a137f3a0d9761\",\"dweb:/ipfs/QmRFqDSnDYccLV2k5L9k2wZwFFbX4FfpE7dEEHT48J5mAa\"]}},\"version\":1}"
+            }
+        }
+    },
+    "sources": {
+        "SimpleStorage.sol": {
+            "id": 0
+        }
+    }
+}

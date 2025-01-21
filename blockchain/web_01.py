@@ -8,16 +8,14 @@ account management, balance checking, and Ether transfers between accounts.
 import sys
 from eth_typing import ChecksumAddress
 from loguru import logger
-from web3 import Web3
+from web3 import Web3 
 
 
 class EthereumTransactionManager:
     """
     A class to manage Ethereum transactions using Web3.py.
-
     This class provides methods to connect to a Ganache instance, retrieve account information,
     check balances, and perform Ether transfers between accounts.
-
     Attributes:
         GANACHE_URL (str): The URL of the Ganache instance.
         GAS_LIMIT (int): The gas limit for transactions.
