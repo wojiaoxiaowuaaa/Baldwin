@@ -1,55 +1,96 @@
-from web3 import Web3
+"""
+This module provides functionality for managing Ethereum transactions using Web3.py.
+
+It includes a class EthereumTransactionManager that handles connections to a local Ganache instance,
+account management, balance checking, and Ether transfers between accounts.
+"""
+
+import sys
+from eth_typing import ChecksumAddress
 from loguru import logger
-# 连接到本地 Ganache 区块链
-ganache_url = "http://127.0.0.1:8545"
-web3 = Web3(Web3.HTTPProvider(ganache_url))
+from web3 import Web3
 
-# 检查是否成功连接
-# if web3.isConnected():
-if web3.is_connected():
-    logger.info("Connected to Ganache")
-else:
-    logger.info("Failed to connect to Ganache")
-    exit()
 
-# 获取所有账户
-accounts = web3.eth.accounts
-logger.info(f"Accounts all: {accounts}")
+class EthereumTransactionManager:
+    """
+    A class to manage Ethereum transactions using Web3.py.
 
-# 获取第一个账户的余额
-account_0 = accounts[0]
-balance_0 = web3.eth.get_balance(account_0)
-logger.info(f"Balance of account one: {account_0}: {web3.from_wei(balance_0, 'ether')} ETH")
+    This class provides methods to connect to a Ganache instance, retrieve account information,
+    check balances, and perform Ether transfers between accounts.
 
-# 获取第二个账户的余额
-account_1 = accounts[1]
-balance_1 = web3.eth.get_balance(account_1)
-logger.info(f"Balance of account two: {account_1}: {web3.from_wei(balance_1, 'ether')} ETH")
+    Attributes:
+        GANACHE_URL (str): The URL of the Ganache instance.
+        GAS_LIMIT (int): The gas limit for transactions.
+        GAS_PRICE (str): The gas price in Gwei.
+        TRANSFER_AMOUNT (int): The default amount of Ether to transfer.
+    """
 
-# 转账操作：从第一个账户向第二个账户转账 1 ETH
-transaction = {
-    'to': account_1,
-    'from': account_0,
-    'value': web3.to_wei(1, 'ether'),
-    'gas': 21000,
-    'gasPrice': web3.to_wei('50', 'gwei'),
-    'nonce': web3.eth.get_transaction_count(account_0),
-}
+    GANACHE_URL = "http://127.0.0.1:8545"
+    GAS_LIMIT = 21000
+    GAS_PRICE = '50'
+    TRANSFER_AMOUNT = 1
 
-# 使用私钥签名交易
-private_key_0 = "0x122a1ebd64d6ddda65e9931b3ed3b5dccb6740adadff9609ae78cb01828925eb"
-signed_txn = web3.eth.account.sign_transaction(transaction, private_key_0)
+    def __init__(self):
+        """
+        Initialize the EthereumTransactionManager by connecting to Ganache and retrieving accounts.
+        """
+        self.web3 = self.connect_to_ganache()
+        self.accounts = self.get_accounts()
 
-# 发送交易
-txn_hash = web3.eth.send_raw_transaction(signed_txn.raw_transaction)
-logger.info(f"Transaction hash: {web3.to_hex(txn_hash)}")
+    def connect_to_ganache(self) -> Web3:
+        web3 = Web3(Web3.HTTPProvider(self.GANACHE_URL))
+        if not web3.is_connected():
+            logger.error("Failed to connect to Ganache")
+            sys.exit(1)
+        logger.info("Connected to Ganache")
+        return web3
 
-# 等待交易被挖矿
-txn_receipt = web3.eth.wait_for_transaction_receipt(txn_hash)
-logger.info(f"Transaction receipt: {txn_receipt}")
+    def get_accounts(self) -> tuple[ChecksumAddress]:
+        accounts = self.web3.eth.accounts
+        logger.info(f"Accounts: {accounts}")
+        return accounts
 
-# 再次获取账户余额
-balance_0 = web3.eth.get_balance(account_0)
-balance_1 = web3.eth.get_balance(account_1)
-logger.info(f"New balance of account {account_0}: {web3.from_wei(balance_0, 'ether')} ETH")
-logger.info(f"New balance of account {account_1}: {web3.from_wei(balance_1, 'ether')} ETH")
+    def get_balance(self, account) -> float:
+        balance = self.web3.eth.get_balance(account)
+        return self.web3.from_wei(balance, 'ether')
+
+    def log_balances(self):
+        """
+        Log the balances of the first two accounts.
+        """
+        for i, account in enumerate(self.accounts[:2], 1):
+            balance = self.get_balance(account)
+            logger.info(f"Balance of account {i}: {account}: {balance} ETH")
+
+    def transfer_eth(self, from_account, to_account: str, amount: int, private_key: str) -> str:
+        transaction = {
+            'to': to_account,
+            'from': from_account,
+            'value': self.web3.to_wei(amount, 'ether'),
+            'gas': self.GAS_LIMIT,
+            'gasPrice': self.web3.to_wei(self.GAS_PRICE, 'gwei'),
+            'nonce': self.web3.eth.get_transaction_count(from_account),
+        }
+
+        signed_txn = self.web3.eth.account.sign_transaction(transaction, private_key)
+        txn_hash = self.web3.eth.send_raw_transaction(signed_txn.raw_transaction)
+        return self.web3.to_hex(txn_hash)
+
+    def execute_transaction(self):
+        """
+        Execute a sample transaction, transferring Ether between the first two accounts.
+        """
+        self.log_balances()
+        private_key = "0x447f4e9f63f7ae911adc8f1f1e0b19038198b4e7d9e851dbc90c5c437b3f713c"
+        txn_hash = self.transfer_eth(self.accounts[0], self.accounts[1], self.TRANSFER_AMOUNT, private_key)
+        logger.info(f"Transaction hash: {txn_hash}")
+        txn_receipt = self.web3.eth.wait_for_transaction_receipt(txn_hash)
+        logger.info(f"Transaction receipt: {txn_receipt}")
+        self.log_balances()
+
+def main():
+    manager = EthereumTransactionManager()
+    manager.execute_transaction()
+
+if __name__ == "__main__":
+    main()
