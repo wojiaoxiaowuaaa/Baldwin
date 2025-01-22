@@ -42,6 +42,8 @@ sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu
 
 dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)  # 生成测试压缩文件文件
 
+dd if=/dev/zero of=output_file bs=1M count=24  # 生大小24M  文件名output_file
+
 find .  -name   "*.zip"  -exec unzip -o {} \;  # 解压当前目录下的所有zip文件,末尾的分号记得带上
 
 Open Default Shell in Tab  (Open Default Shell in Panel)  # sublime打开终端(底部打开or标签页打开)
