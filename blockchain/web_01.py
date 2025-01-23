@@ -4,12 +4,16 @@ This module provides functionality for managing Ethereum transactions using Web3
 It includes a class EthereumTransactionManager that handles connections to a local Ganache instance,
 account management, balance checking, and Ether transfers between accounts.
 """
-
+import os
 import sys
 from eth_typing import ChecksumAddress
 from loguru import logger
 from web3 import Web3 
+from dotenv import load_dotenv
 
+load_dotenv()
+
+pri_key = os.environ.get('private_key')
 
 class EthereumTransactionManager:
     """
@@ -79,7 +83,7 @@ class EthereumTransactionManager:
         Execute a sample transaction, transferring Ether between the first two accounts.
         """
         self.log_balances()
-        private_key = "0x447f4e9f63f7ae911adc8f1f1e0b19038198b4e7d9e851dbc90c5c437b3f713c"
+        private_key = pri_key
         txn_hash = self.transfer_eth(self.accounts[0], self.accounts[1], self.TRANSFER_AMOUNT, private_key)
         logger.info(f"Transaction hash: {txn_hash}")
         txn_receipt = self.web3.eth.wait_for_transaction_receipt(txn_hash)
