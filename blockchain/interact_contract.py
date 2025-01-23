@@ -1,5 +1,14 @@
+from dotenv import load_dotenv
 from web3 import Web3
+from pathlib import Path
 import json
+import sys
+import os
+
+load_dotenv()
+# sys.path.append('/Users/wl/Downloads/Baldwin/blockchain')
+# sys.path.insert(0, str(Path().cwd()))
+contract_address = os.environ.get('contract_address')
 
 # 连接到本地Ganache网络
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
@@ -11,7 +20,7 @@ print("连接状态:", w3.is_connected())
 deployer_account = w3.eth.accounts[0]
 
 # 已部署的合约地址
-contract_address = "0x4999E8909876162c5D195552962A1F8e57289D70"  # 替换为实际地址
+# contract_address = "0x4999E8909876162c5D195552962A1F8e57289D70"  
 
 # 读取ABI
 with open("compiled_contract.json", "r") as file:
