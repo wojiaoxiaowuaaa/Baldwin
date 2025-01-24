@@ -32,7 +32,7 @@ def clean_dir(dir_path: str) -> None:
     :param dir_path: 要清理的目录的绝对路径
     """
     # 设置日志配置
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s  - [%(filename)s:%(lineno)d]')
 
     logging.info(f"Attempting to clean directory: {dir_path}")
 

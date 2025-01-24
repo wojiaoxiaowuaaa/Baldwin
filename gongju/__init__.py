@@ -4,7 +4,6 @@
 # 初始化包级别的变量,在其他代码片段中import gongju可以直接使用print(gongju.package_variable).
 from .webRequest import WebRequest
 from .log_register import LogRegister
-from .qr_png import qr_png
 from .jiaoji import get_arr
 from .color_pr import color_print_green, color_print_red, show_memory_info
 
