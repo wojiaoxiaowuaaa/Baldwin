@@ -5,24 +5,25 @@ from logging.handlers import RotatingFileHandler
 
 class EnhancedColoredFormatter(logging.Formatter):
     """修复后的带颜色格式化器"""
+
     COLORS = {
-        logging.DEBUG: '\033[36m',
-        logging.INFO: '\033[32m',
-        logging.WARNING: '\033[33m',
-        logging.ERROR: '\033[31m',
-        logging.CRITICAL: '\033[31;1m'
+        logging.DEBUG: "\033[36m",
+        logging.INFO: "\033[32m",
+        logging.WARNING: "\033[33m",
+        logging.ERROR: "\033[31m",
+        logging.CRITICAL: "\033[31;1m",
     }
-    RESET = '\033[0m'
-    GREY = '\033[90m'
+    RESET = "\033[0m"
+    GREY = "\033[90m"
 
     def __init__(self, fmt: Optional[str] = None, datefmt: Optional[str] = None):
         # 设置默认格式
         default_fmt = (
-            '[%(asctime)s] '
-            '[PID:%(process)d|TID:%(thread)d] '
-            '[%(levelname)-8s] '
-            '%(filename)s:%(lineno)d - '
-            '%(message)s'
+            "[%(asctime)s] "
+            "[PID:%(process)d|TID:%(thread)d] "
+            "[%(levelname)-8s] "
+            "%(filename)s:%(lineno)d - "
+            "%(message)s"
         )
         fmt = fmt or default_fmt
         super().__init__(fmt, datefmt)
@@ -31,7 +32,7 @@ class EnhancedColoredFormatter(logging.Formatter):
         # 调用父类(即 logging.Formatter)的 format 方法来格式化日志记录 record,并将格式化后的结果赋值给变量 message.
         message = super().format(record)
         # 添加颜色修饰
-        color = self.COLORS.get(record.levelno, '')
+        color = self.COLORS.get(record.levelno, "")
         colored_message = (
             f"{self.GREY}[{record.asctime}]{self.RESET} "
             f"{self.GREY}[PID:{record.process}|TID:{record.thread}]{self.RESET} "
@@ -39,20 +40,22 @@ class EnhancedColoredFormatter(logging.Formatter):
             f"{self.GREY}{record.filename}:{record.lineno}{self.RESET} - "
             f"{color}{record.message}{self.RESET}"
         )
+        # 返回一个包含了所有这些颜色修饰的字符串,它将被返回并用于在控制台输出带颜色的日志消息.
         return colored_message
 
 
 class GlobalLogger:
     """全局日志管理器(单例模式)"""
+
     _instance = None
     DEFAULT_FORMAT = (
-        '[%(asctime)s] '
-        '[PID:%(process)d|TID:%(thread)d] '
-        '[%(levelname)-8s] '
-        '%(filename)s:%(lineno)d '
-        '- %(message)s'
+        "[%(asctime)s] "
+        "[PID:%(process)d|TID:%(thread)d] "
+        "[%(levelname)-8s] "
+        "%(filename)s:%(lineno)d "
+        "- %(message)s"
     )
-    DEFAULT_DATEFMT = '%Y-%m-%d %H:%M:%S'
+    DEFAULT_DATEFMT = "%Y-%m-%d %H:%M:%S"
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
@@ -60,20 +63,22 @@ class GlobalLogger:
             cls._instance._initialized = False
         return cls._instance
 
-    def __init__(self,
-                 level: int = logging.INFO,
-                 fmt: str = DEFAULT_FORMAT,
-                 datefmt: str = DEFAULT_DATEFMT,
-                 use_color: bool = True,
-                 log_file: Optional[str] = None,
-                 max_bytes: int = 10 * 1024 * 1024,  # 默认10MB日志轮转
-                 backup_count: int = 5):
+    def __init__(
+        self,
+        level: int = logging.INFO,
+        fmt: str = DEFAULT_FORMAT,
+        datefmt: str = DEFAULT_DATEFMT,
+        use_color: bool = True,
+        log_file: Optional[str] = None,
+        max_bytes: int = 10 * 1024 * 1024,  # 默认10MB日志轮转
+        backup_count: int = 5,
+    ):
         if self._initialized:
             return
         self._initialized = True
 
         # 创建主logger
-        self.logger = logging.getLogger('GlobalEnhancedLogger')
+        self.logger = logging.getLogger("GlobalEnhancedLogger")
         self.logger.setLevel(level)
 
         # 清理旧处理器
@@ -97,28 +102,36 @@ class GlobalLogger:
                 filename=log_file,
                 maxBytes=max_bytes,
                 backupCount=backup_count,
-                encoding='utf-8'
+                encoding="utf-8",
             )
             file_formatter = logging.Formatter(
-                fmt.replace('\033[', '')  # 去除颜色代码
-                .replace('[0m', '')  # 避免文件日志含ANSI码
-                .replace('[90m', ''),
-                datefmt
+                fmt.replace("\033[", "")  # 去除颜色代码
+                .replace("[0m", "")  # 避免文件日志含ANSI码
+                .replace("[90m", ""),
+                datefmt,
             )
             file_handler.setFormatter(file_formatter)
             self.logger.addHandler(file_handler)
 
     @classmethod
-    def initialize(cls,
-                   level: int = logging.INFO,
-                   fmt: str = DEFAULT_FORMAT,
-                   datefmt: str = DEFAULT_DATEFMT,
-                   use_color: bool = True,
-                   log_file: Optional[str] = None,
-                   **kwargs):
+    def initialize(
+        cls,
+        level: int = logging.INFO,
+        fmt: str = DEFAULT_FORMAT,
+        datefmt: str = DEFAULT_DATEFMT,
+        use_color: bool = True,
+        log_file: Optional[str] = None,
+        **kwargs,
+    ):
         """初始化配置(程序启动时调用)"""
-        cls(level=level, fmt=fmt, datefmt=datefmt,
-            use_color=use_color, log_file=log_file, **kwargs)
+        cls(
+            level=level,
+            fmt=fmt,
+            datefmt=datefmt,
+            use_color=use_color,
+            log_file=log_file,
+            **kwargs,
+        )
 
     @staticmethod
     def get_logger() -> logging.Logger:

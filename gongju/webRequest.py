@@ -13,7 +13,6 @@ import requests
 import random
 import time
 from urllib3 import disable_warnings
-from gongju.log_register import LogRegister
 
 disable_warnings()
 # requests.packages.urllib3.disable_warnings()
