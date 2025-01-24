@@ -4,6 +4,9 @@ https://yuxuetr.com/en/blog/2024/05/24/solana-account-model
 
 RPC Listening on 127.0.0.1:8545
 
+brew install solidity
+
+solc --bin --abi --optimize -o ./build --overwrite ./SimpleStorage.sol
 ```
 ganache
 ganache-cli
