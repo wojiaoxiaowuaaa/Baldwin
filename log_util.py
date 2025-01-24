@@ -164,3 +164,12 @@ class GlobalLogger:
 
 # 默认导出接口
 Logger = GlobalLogger
+
+if __name__ == "__main__":
+    logger = GlobalLogger.get_logger()
+    # 记录不同级别的日志
+    logger.debug("This is a debug message")
+    logger.info("This is an info message")
+    logger.warning("This is a warning message")
+    logger.error("This is an error message")
+    logger.critical("This is a critical message")
