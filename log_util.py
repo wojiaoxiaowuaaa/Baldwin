@@ -173,3 +173,37 @@ if __name__ == "__main__":
     logger.warning("This is a warning message")
     logger.error("This is an error message")
     logger.critical("This is a critical message")
+
+
+
+"""
+from log_util import Logger
+
+# 创建两个集合
+dict_set = set(Logger.__dict__.keys())
+dir_set = set(dir(Logger))
+
+# 计算交集
+intersection = dict_set.intersection(dir_set)
+
+# 计算并集
+union = dict_set.union(dir_set)
+
+# 打印结果
+Logger.critical("交集:")
+for item in sorted(intersection): Logger.critical(item)
+
+Logger.critical("\n并集:")
+for item in sorted(union): Logger.critical(item)
+
+# 额外信息：只在 dir() 中出现的项
+only_in_dir = dir_set - dict_set
+Logger.critical("\n只在 dir() 中出现的项:")
+for item in sorted(only_in_dir): Logger.critical(item)
+
+# 额外信息：只在 __dict__ 中出现的项
+only_in_dict = dict_set - dir_set
+Logger.critical("\n只在 __dict__ 中出现的项:")
+for item in sorted(only_in_dict): Logger.critical(item)
+git
+"""
