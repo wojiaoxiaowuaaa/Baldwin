@@ -6,3 +6,6 @@
 # sys.path.insert 添加的路径在程序运行期间有效，程序退出后失效. 如: sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 # 将当前文件所在路径,添加到Python路径的最前面:  if (BASE_PATH := os.path.abspath(".")) not in sys.path: sys.path.insert(0, BASE_PATH)
 
+# 通过设置 PYTHONPATH 环境变量，你可以指定 Python 解释器在查找模块和包时应该搜索的目录。这使得你能够在自定义目录中组织和管理你的 Python 模块和包，而不需要将它们复制到标准库路径或当前脚本目录中。
+# export PYTHONPATH="/Users/wl/Downloads/Baldwin:$PYTHONPATH"
+# 在其他目录下的脚本中导入项目根目录下的包示例：  from log_util import logger
