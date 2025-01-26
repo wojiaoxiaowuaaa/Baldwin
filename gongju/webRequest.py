@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
 """
 -------------------------------------------------
-   File Name:     WebRequest
+   File Name:      WebRequest
    Description :   Network Requests Class
-   Author :        J_hao
-   date:          2017/7/31
+   Author :        wl
+   date:           2017/7/31
+   update:         2025/01/26
 -------------------------------------------------
 """
 from requests.models import Response
@@ -147,8 +147,8 @@ class WebRequest(object):
 if __name__ == "__main__":
     web_log = WebRequest().log
     # baidu = WebRequest().get("http://127.0.0.1:9999/login?name=xiaowu&pwd=111").json()
-    baidu = WebRequest().get("http://www.biadu.com").json()
+    baidu = WebRequest().get("http://www.biadu.com").text
     print(baidu)
-    # web_log.info(baidu)
+    # web_log.info(baidu)   
     # print(dir(web_log))
 
