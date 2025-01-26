@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 
 
 class EnhancedColoredFormatter(logging.Formatter):
-    """修复后的带颜色格式化器"""
+    """带颜色格式化器 为日志消息添加颜色"""
 
     COLORS = {
         logging.DEBUG: "\033[36m",
@@ -60,7 +60,7 @@ class GlobalLogger:
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = super().__new__(cls)
-            cls._instance._initialized = False
+            cls._instance._initialized = False  # 在这里动态添加 _initialized 属性.这个属性不需要预先在类中定义，Python 允许我们动态地添加它。
         return cls._instance
 
     def __init__(
@@ -80,8 +80,6 @@ class GlobalLogger:
         # 创建主logger
         self.logger = logging.getLogger("GlobalEnhancedLogger")
         self.logger.setLevel(level)
-
-        # 清理旧处理器
         self.logger.handlers.clear()
 
         # 控制台处理器
@@ -96,7 +94,7 @@ class GlobalLogger:
         console_handler.setFormatter(formatter)
         self.logger.addHandler(console_handler)
 
-        # 文件处理器(日志轮转)
+        # 文件处理器
         if log_file:
             file_handler = RotatingFileHandler(
                 filename=log_file,
@@ -140,7 +138,6 @@ class GlobalLogger:
             GlobalLogger.initialize()  # 默认初始化
         return GlobalLogger._instance.logger
 
-    # 快捷方法
     @staticmethod
     def debug(msg: str, *args, **kwargs):
         GlobalLogger.get_logger().debug(msg, *args, **kwargs)
@@ -163,16 +160,10 @@ class GlobalLogger:
 
 
 # 默认导出接口
-Logger = GlobalLogger
+logger = GlobalLogger
 
-if __name__ == "__main__":
-    logger = GlobalLogger.get_logger()
-    # 记录不同级别的日志
-    logger.debug("This is a debug message")
-    logger.info("This is an info message")
-    logger.warning("This is a warning message")
-    logger.error("This is an error message")
-    logger.critical("This is a critical message")
+# for i in dir(logger):
+#     logger.info(i)
 
 
 
