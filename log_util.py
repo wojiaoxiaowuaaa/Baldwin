@@ -164,9 +164,7 @@ class GlobalLogger:
 # 默认导出接口
 logger = GlobalLogger
 
-# for i in dir(logger):
-#     logger.info(i)
-
+# for i in dir(logger): logger.info(i)
 
 
 """
