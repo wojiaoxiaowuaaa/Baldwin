@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import logging
 from typing import Optional
 from logging.handlers import RotatingFileHandler
+import os
+import sys
 
 
 class EnhancedColoredFormatter(logging.Formatter):
@@ -67,7 +67,7 @@ class GlobalLogger:
 
     def __init__(
         self,
-        level: int = logging.INFO,
+        level: int = logging.DEBUG,
         fmt: str = DEFAULT_FORMAT,
         datefmt: str = DEFAULT_DATEFMT,
         use_color: bool = True,
@@ -116,7 +116,7 @@ class GlobalLogger:
     @classmethod
     def initialize(
         cls,
-        level: int = logging.INFO,
+        level: int = logging.DEBUG,
         fmt: str = DEFAULT_FORMAT,
         datefmt: str = DEFAULT_DATEFMT,
         use_color: bool = True,
@@ -142,23 +142,23 @@ class GlobalLogger:
 
     @staticmethod
     def debug(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().debug(msg, *args, **kwargs)
-
+        GlobalLogger.get_logger().debug(msg, *args, stacklevel=3, **kwargs)
+        
     @staticmethod
     def info(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().info(msg, *args, **kwargs)
+        GlobalLogger.get_logger().info(msg, *args, stacklevel=3, **kwargs)
 
     @staticmethod
     def warning(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().warning(msg, *args, **kwargs)
+        GlobalLogger.get_logger().warning(msg, *args, stacklevel=3, **kwargs)
 
     @staticmethod
     def error(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().error(msg, *args, **kwargs)
+        GlobalLogger.get_logger().error(msg, *args, stacklevel=3, **kwargs)
 
     @staticmethod
     def critical(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().critical(msg, *args, **kwargs)
+        GlobalLogger.get_logger().critical(msg, *args, stacklevel=3, **kwargs)
 
 
 # 默认导出接口

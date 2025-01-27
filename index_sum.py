@@ -18,8 +18,8 @@ def func(ll, tar):
             return k, j
 
 
-ll = [1, 3, 7, 11, 12]
-target = 12
+# ll = [1, 3, 7, 11, 12]
+# target = 12
 # print(func(l, target))
 
 
@@ -38,31 +38,26 @@ def two_sum(l: list, tar: int) -> list:
 
     return []
 
-
 # print(two_sum(l, target))
 
+# 找列表中指定元素的下标
+def find_all_indices(lst, element):
+    """如果你希望查找所有出现的下标,可以使用列表推导式.整个列表推导式的作用是:遍历列表中的每个元素,检查它是否等于我们要查找的元素,如果是,则将该元素的下标添加到新列表中."""
+    res = [index for index, value in enumerate(lst) if value == element]
+    return res if res else "Not found"
 
-# # 找列表中指定元素的下标
-# def find_all_indices(lst, element):
-#     """如果你希望查找所有出现的下标,可以使用列表推导式.整个列表推导式的作用是:遍历列表中的每个元素,检查它是否等于我们要查找的元素,如果是,则将该元素的下标添加到新列表中."""
-#     res = [index for index, value in enumerate(lst) if value == element]
-#     return res if res else "Not found"
-#
-#
-# def find_index(lst, element):
-#     """可以使用 list.index() 方法来查找列表中指定元素的下标.如果元素不在列表中,它会引发 ValueError 异常."""
-#     try:
-#         return lst.index(element)
-#     except ValueError:
-#         return "Not found"
 
+def find_index(lst, element):
+    """可以使用 list.index() 方法来查找列表中指定元素的下标.如果元素不在列表中,它会引发 ValueError 异常."""
+    try:
+        return lst.index(element)
+    except ValueError:
+        return "Not found"
 
 # my_list = [10, 20, 30, 40, 30, 50]
 # element_to_find = 30
-
 # print(find_all_indices(my_list, element_to_find))
 # print(find_index(my_list, element_to_find))
-
 
 def fib(n):
     # 生成器生成斐波那契数列
@@ -70,7 +65,6 @@ def fib(n):
     for _ in range(n):
         a, b = b, a + b
         yield a
-
 
 # for i in fib(10): print(i, end=" ")
 
@@ -85,9 +79,7 @@ def func_di(numbs):
         return numbs[0]
     return numbs[0] + func_di(numbs[1:])
 
-
 # print(func_di([1, 2, 3, 4]))
-
 
 def func_sum(x):
     """递归的特性:
@@ -101,17 +93,14 @@ def func_sum(x):
     else:
         return 0
 
-
 # print(func_sum(100))
 
-
-def recursive_function():
-    return recursive_function()  # 无限递归
-
-try:
-    recursive_function()
-except RecursionError as e:
-    print("RecursionError:", e)  # RecursionError: maximum recursion depth exceeded
+# def recursive_function():
+    # return recursive_function()  # 无限递归
+# try:
+#     recursive_function()
+# except RecursionError as e:
+#     print("RecursionError:", e)  # RecursionError: maximum recursion depth exceeded
 
 
 # def quick_sort(arr):  # 快速排序
@@ -123,10 +112,8 @@ except RecursionError as e:
 #     right = [x for x in arr if x > pivot]
 #     return quick_sort(left) + middle + quick_sort(right)
 #
-#
 # arr = [3, 6, 8, 10, 1, 2, 1]
 # print(quick_sort(arr))
-
 
 def quick_sort(arr):
     # 增加异常处理以确保传入的是列表并且列表中至少有一个元素
@@ -152,7 +139,6 @@ def quick_sort(arr):
     # 递归地对小于和大于基准的部分进行排序,然后连接三个部分
     return quick_sort(less) + equal + quick_sort(greater)
 
-
 # arr = [3, 6, 8, 10, 1, 2, 1, 11, 5, 7, 7, 9, 0, 4, 4, 4, 4]
 # print(quick_sort(arr))
 
@@ -162,7 +148,6 @@ def mao(l):
             if l[j] > l[j + 1]:
                 l[j], l[j + 1] = l[j + 1], l[j]
     return l
-
 
 # 生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)
 # l = random.sample(range(10), 10)
