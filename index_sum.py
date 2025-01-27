@@ -1,3 +1,6 @@
+import random
+from log_util import logger
+
 def func(ll, tar):
     """给定一个整数数组和一个目标值,找出数组中和为目标值的两个数并返回下标"""
     hashmap = {}
@@ -164,4 +167,3 @@ def mao(l):
 # 生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)
 # l = random.sample(range(10), 10)
 # print(mao(l))
-
