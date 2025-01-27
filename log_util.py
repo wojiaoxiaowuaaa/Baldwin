@@ -1,8 +1,6 @@
 import logging
-from typing import Optional
 from logging.handlers import RotatingFileHandler
-import os
-import sys
+from typing import Optional
 
 
 class EnhancedColoredFormatter(logging.Formatter):
@@ -31,8 +29,7 @@ class EnhancedColoredFormatter(logging.Formatter):
         super().__init__(fmt, datefmt)
 
     def format(self, record: logging.LogRecord) -> str:
-        # 调用父类(即 logging.Formatter)的 format 方法来格式化日志记录 record,并将格式化后的结果赋值给变量 message.
-        # message = super().format(record)
+        # 调用父类(即 logging.Formatter)的 format 方法来格式化日志记录 record
         super().format(record)
 
         # 添加颜色修饰
@@ -87,7 +84,6 @@ class GlobalLogger:
         self.logger.handlers.clear()
 
         # 控制台处理器
-        # console_handler = logging.StreamHandler(sys.stdout)
         console_handler = logging.StreamHandler()
         console_handler.setLevel(level)
         if use_color:
