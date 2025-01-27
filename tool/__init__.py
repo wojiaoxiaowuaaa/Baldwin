@@ -4,6 +4,7 @@
 # 初始化包级别的变量,在其他代码片段中import gongju可以直接使用print(gongju.package_variable).
 from .webRequest import WebRequest
 from .jiaoji import get_arr
+from .dir_file import replace_punctuation_in_file
 from .color_pr import color_print_green, color_print_red, show_memory_info
 
 ban = r"""

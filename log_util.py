@@ -32,7 +32,9 @@ class EnhancedColoredFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         # 调用父类(即 logging.Formatter)的 format 方法来格式化日志记录 record,并将格式化后的结果赋值给变量 message.
-        message = super().format(record)
+        # message = super().format(record)
+        super().format(record)
+
         # 添加颜色修饰
         color = self.COLORS.get(record.levelno, "")
         colored_message = (

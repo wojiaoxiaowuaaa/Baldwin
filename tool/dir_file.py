@@ -49,7 +49,7 @@ from pathlib import Path
 from loguru import logger
 
 sys.path.insert(0, '/Users/wl/Downloads/Baldwin')  # 将上级目录 添加到Python解释器 模块搜索路径列表
-from gongju.time_count import calculate_execution_time
+from tool.time_count import calculate_execution_time
 from config.setting import pic
 
 
@@ -60,8 +60,8 @@ def clean_dir(dir):
     print(cache_directory)
     try:
         if os.path.exists(cache_directory):
-            # shutil 是 Python 标准库中的一个模块，提供了一些用于文件和目录操作的高级功能。
-            # 它是 "shell utility" 的缩写，旨在提供类似于 shell 命令的功能。
+            # shutil 是 Python 标准库中的一个模块,提供了一些用于文件和目录操作的高级功能.
+            # 它是 "shell utility" 的缩写,旨在提供类似于 shell 命令的功能.
             shutil.rmtree(cache_directory)
             print(f"Directory '{cache_directory}' deleted successfully.")
         else:
@@ -149,20 +149,20 @@ def rename_files_in_directory(directory):
 
 
 punctuation_mapping = {
-    "，": ",",
-    "。": ".",
-    "！": "!",
-    "？": "?",
-    "；": ";",
-    "：": ":",
-    "（": "(",
-    "）": ")",
-    "【": "[",
-    "】": "]",
-    "“": '"',
-    "”": '"',
-    "‘": "'",
-    "’": "'",
+    ",": ",",
+    ".": ".",
+    "!": "!",
+    "?": "?",
+    ";": ";",
+    ":": ":",
+    "(": "(",
+    ")": ")",
+    "[": "[",
+    "]": "]",
+    """: '"',
+    """: '"',
+    "'": "'",
+    "'": "'",
 }
 
 
@@ -174,7 +174,7 @@ def replace_punctuation_in_dir(directory: str, exclude_files: list):
     for root, dirs, files in os.walk(directory):
         for file in files:
             file_path = os.path.join(root, file)
-            # 检查文件是否在排除列表中，或者是否是当前脚本文件  跳过排除的文件
+            # 检查文件是否在排除列表中,或者是否是当前脚本文件  跳过排除的文件
             if file_path in exclude_files or file_path == current_script:
                 continue
 
@@ -200,14 +200,13 @@ def replace_punctuation_in_file(file_path: str):
 
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(content)
-
     print("文件标点替换完成")
 
 
 def find_file(file: str, pwd: str) -> tuple:
     """
     遍历文件夹查找指定格式(后缀)的文件并进行数据统计
-    os.walk：Python 的标准库函数用于以递归的方式遍历目录树 它返回一个生成器 每次迭代都会返回一个包含三个元素的元组：当前目录的路径，当前目录下的子目录列表，以及当前目录下的文件列表.
+    os.walk:Python 的标准库函数用于以递归的方式遍历目录树 它返回一个生成器 每次迭代都会返回一个包含三个元素的元组:当前目录的路径,当前目录下的子目录列表,以及当前目录下的文件列表.
     :param file: 文件后缀
     :param pwd: 文件夹路径
     """
@@ -223,9 +222,9 @@ def find_file(file: str, pwd: str) -> tuple:
 
 def find_file01(directory: Path, pattern: str) -> list[Path]:
     """
-    遍历指定目录及其子目录，查找匹配指定模式的文件。
+    遍历指定目录及其子目录,查找匹配指定模式的文件.
     :param directory: 要遍历的目录路径的Path对象 (例如 Path("/Users/wl/Downloads"))
-    :param pattern: 文件匹配模式（例如 '*.txt'）
+    :param pattern: 文件匹配模式(例如 '*.txt')
     :return: 匹配的文件列表
     """
     if not directory.is_dir():
