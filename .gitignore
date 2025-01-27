@@ -2,7 +2,7 @@ tempfile_*
 abc_test*
 test*
 wl*
-__pycache__
+__pycache
 .idea
 .DS_Store
 *.log
