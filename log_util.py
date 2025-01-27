@@ -142,23 +142,23 @@ class GlobalLogger:
 
     @staticmethod
     def debug(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().debug(msg, *args, stacklevel=3, **kwargs)
+        GlobalLogger.get_logger().debug(msg, stacklevel=3, *args, **kwargs)
         
     @staticmethod
     def info(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().info(msg, *args, stacklevel=3, **kwargs)
+        GlobalLogger.get_logger().info(msg, stacklevel=3, *args, **kwargs)
 
     @staticmethod
     def warning(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().warning(msg, *args, stacklevel=3, **kwargs)
+        GlobalLogger.get_logger().warning(msg, stacklevel=3, **args, **kwargs)
 
     @staticmethod
     def error(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().error(msg, *args, stacklevel=3, **kwargs)
+        GlobalLogger.get_logger().error(msg, stacklevel=3, *args, **kwargs)
 
     @staticmethod
     def critical(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().critical(msg, *args, stacklevel=3, **kwargs)
+        GlobalLogger.get_logger().critical(msg, stacklevel=3, *args, **kwargs)
 
 
 # 默认导出接口
