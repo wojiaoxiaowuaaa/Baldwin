@@ -64,7 +64,7 @@ class GlobalLogger:
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
             cls._instance = super().__new__(cls)
-            cls._instance._initialized = False  # 在这里动态添加 _initialized 属性.这个属性不需要预先在类中定义，Python 允许我们动态地添加它。
+            cls._instance._initialized = False  # 在这里动态添加 _initialized 属性.这个属性不需要预先在类中定义,Python 允许我们动态地添加它.
         return cls._instance
 
     def __init__(
@@ -189,14 +189,13 @@ for item in sorted(intersection): Logger.critical(item)
 Logger.critical("\n并集:")
 for item in sorted(union): Logger.critical(item)
 
-# 额外信息：只在 dir() 中出现的项
+# 额外信息:只在 dir() 中出现的项
 only_in_dir = dir_set - dict_set
 Logger.critical("\n只在 dir() 中出现的项:")
 for item in sorted(only_in_dir): Logger.critical(item)
 
-# 额外信息：只在 __dict__ 中出现的项
+# 额外信息:只在 __dict__ 中出现的项
 only_in_dict = dict_set - dir_set
 Logger.critical("\n只在 __dict__ 中出现的项:")
 for item in sorted(only_in_dict): Logger.critical(item)
-git
 """
