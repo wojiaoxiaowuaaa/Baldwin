@@ -150,7 +150,7 @@ class GlobalLogger:
 
     @staticmethod
     def warning(msg: str, *args, **kwargs):
-        GlobalLogger.get_logger().warning(msg, stacklevel=3, **args, **kwargs)
+        GlobalLogger.get_logger().warning(msg, stacklevel=3, *args, **kwargs)
 
     @staticmethod
     def error(msg: str, *args, **kwargs):
