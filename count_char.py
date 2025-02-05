@@ -1,20 +1,19 @@
 def count_characters(file_path):
-    """(统计文本中字符的出现次数 排序后展示最高频的前十个).初始化一个空字典hashmap来存储字符及其出现次数"""
+    """统计文本中字符的出现次数 排序后展示最高频的前十个. 初始化一个空字典hashmap来存储字符及其出现次数"""
     hashmap = {}
     try:
         with open(file_path, "r") as f:
-            # for line in f:
-            #     for char in line:
             for char in f.read():
-                # char = char.strip()  # 去除首尾的空格和换行符.排除统计数据中的'\n'.
+                if char.isspace():  # 跳过空格和换行符
+                    continue
                 if char in hashmap:
                     hashmap[char] += 1
                 else:
                     hashmap[char] = 1
     except FileNotFoundError:
-        print(f"文件 {file_path} 未找")
-        return  # 捕获到异常后立即退出函数,防止继续执行后续代码.这有助于避免在处理错误时出现不必要的执行和潜在的错误输出.
-    except PermissionError:  # try 语句后面可以有多个 except 块,每个 except 块可以处理不同类型的异常.这样可以针对不同的异常类型执行不同的处理逻辑.
+        print(f"文件 {file_path} 未找到")
+        return
+    except PermissionError:
         print(f"没有权限读取文件 {file_path}.")
         return
     except Exception as e:
@@ -23,9 +22,6 @@ def count_characters(file_path):
 
     hashmap = sorted(hashmap.items(), key=lambda x: x[1], reverse=True)
     return dict(hashmap)
-
-
-# print(count_characters(os.path.abspath(__file__)))
 
 
 def count_file(pwd):
@@ -38,9 +34,6 @@ def count_file(pwd):
             if _.islower():  # 统计大写用 isupper
                 count += 1
     return count
-
-
-# print(count_file(Path(__file__)))  # Path(__file__)返回当前 Python 文件的绝对路径
 
 def count_letters(s):
     """统计字符串中字母出现的次数"""
@@ -135,8 +128,6 @@ def file_write():
             f.close()
 
 
-# file_write()
-
 def is_valid(s: str) -> bool:
     """检查字符串是否表示一个有效的括号序列.有效括号序列是指由左括号("(", "{", "[")和相应的右括号(")", "}", "]")组成,且左括号和右括号成对出现,没有多余的括号"""
 
@@ -155,17 +146,14 @@ def is_valid(s: str) -> bool:
     return not stack  # 遍历结束后,如果栈为空,说明所有左括号都有对应的右括号,返回`True`;否则返回`False`,因为存在未闭合的左括号.
 
 
-# print(is_valid("()[]{}"))
-
-
 def is_hui(num):
     """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
     return str(num) == str(num)[::-1]
 
 
 # print(is_hui(12321))
-
-
+# print(count_characters(__file__))
+# print(is_valid("()[]{}"))
 
 
 # from log_util import logger
