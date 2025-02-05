@@ -12,32 +12,31 @@
 
 # mac下的brew安装的解释器路径: /usr/local/Cellar/python@3.13/3.13.1/Frameworks/Python.framework/Versions/3.13/bin
 
+# from log_util import logger
+# dict_set = set(logger.__dict__.keys())
+# dir_set = set(dir(logger))
 
-from log_util import logger
-dict_set = set(logger.__dict__.keys())
-dir_set = set(dir(logger))
-
-# 计算交集
-# intersection = dict_set.intersection(dir_set)
-intersection = dict_set & dir_set
+# # 计算交集
+# # intersection = dict_set.intersection(dir_set)
+# intersection = dict_set & dir_set
 
 
-# 计算并集
-union = dict_set.union(dir_set)
+# # 计算并集
+# union = dict_set.union(dir_set)
 
-# 打印结果
-logger.critical("交集:")
-for item in sorted(intersection): logger.critical(item)
+# # 打印结果
+# logger.critical("交集:")
+# for item in sorted(intersection): logger.critical(item)
 
-logger.critical("并集:")
-for item in sorted(union): logger.critical(item)
+# logger.critical("并集:")
+# for item in sorted(union): logger.critical(item)
 
-# 额外信息:只在 dir() 中出现的项
-only_in_dir = dir_set - dict_set
-logger.critical("\n只在 dir() 中出现的项:")
-for item in sorted(only_in_dir): logger.critical(item)
+# # 额外信息:只在 dir() 中出现的项
+# only_in_dir = dir_set - dict_set
+# logger.critical("\n只在 dir() 中出现的项:")
+# for item in sorted(only_in_dir): logger.critical(item)
 
-# 额外信息:只在 __dict__ 中出现的项
-only_in_dict = dict_set - dir_set
-logger.critical("\n只在 __dict__ 中出现的项:")
-for item in sorted(only_in_dict): logger.critical(item)
+# # 额外信息:只在 __dict__ 中出现的项
+# only_in_dict = dict_set - dir_set
+# logger.critical("\n只在 __dict__ 中出现的项:")
+# for item in sorted(only_in_dict): logger.critical(item)
