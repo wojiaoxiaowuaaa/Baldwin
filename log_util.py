@@ -49,6 +49,7 @@ class GlobalLogger:
     """全局日志管理器(单例模式)"""
 
     _instance = None
+
     DEFAULT_FORMAT = (
         "[%(asctime)s] "
         "[PID:%(process)d|TID:%(thread)d] "
@@ -163,35 +164,3 @@ class GlobalLogger:
 logger = GlobalLogger
 
 # for i in dir(logger): logger.info(i)
-
-
-"""
-from log_util import Logger
-
-# 创建两个集合
-dict_set = set(Logger.__dict__.keys())
-dir_set = set(dir(Logger))
-
-# 计算交集
-intersection = dict_set.intersection(dir_set)
-
-# 计算并集
-union = dict_set.union(dir_set)
-
-# 打印结果
-Logger.critical("交集:")
-for item in sorted(intersection): Logger.critical(item)
-
-Logger.critical("\n并集:")
-for item in sorted(union): Logger.critical(item)
-
-# 额外信息:只在 dir() 中出现的项
-only_in_dir = dir_set - dict_set
-Logger.critical("\n只在 dir() 中出现的项:")
-for item in sorted(only_in_dir): Logger.critical(item)
-
-# 额外信息:只在 __dict__ 中出现的项
-only_in_dict = dict_set - dir_set
-Logger.critical("\n只在 __dict__ 中出现的项:")
-for item in sorted(only_in_dict): Logger.critical(item)
-"""
