@@ -26,3 +26,4 @@ zsh_file = f"{wl_dir}/.zshrc"
 
 # with open('config.toml', 'r') as f: config = toml.load(f)
 
+

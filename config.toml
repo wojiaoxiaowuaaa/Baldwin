@@ -1,3 +1,19 @@
+title = "示例配置"
+
+baldwin = "/Users/wl/Downloads/Baldwin"
+
+[[products]]
+name = "Laptop"
+price = 999.99
+
+[[products]]
+name = "Smartphone"
+price = 499.99
+
+[[products]]
+name = "Tablet"
+price = 299.99
+
 [database]
 host = "localhost"
 port = 5432
@@ -5,4 +21,5 @@ username = "user"
 password = "pass"
 
 [features]
-baldwin = '/Users/wl/Downloads/Baldwin'
+enable_feature_x = true
+enable_feature_y = false
