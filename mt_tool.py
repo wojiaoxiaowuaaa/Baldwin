@@ -24,6 +24,6 @@ zsh_file = f"{wl_dir}/.zshrc"
 
 # replace_punctuation_in_file("")  # 文件标点替换
 
-# with open('config.toml', 'r') as f: config = toml.load(f)
+# with open('config/config.toml', 'r') as f: config = toml.load(f)
 
 
