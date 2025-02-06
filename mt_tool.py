@@ -8,13 +8,15 @@ from dotenv import load_dotenv
 import os
 import toml
 
-# load_dotenv()
-
 only_name = str(uuid.uuid4()).replace("-", "")
 
-wl_dir = Path(__file__).parent.resolve()
+wl_dir = Path(__file__).resolve().parents[2]
 
 zsh_file = f"{wl_dir}/.zshrc"
+
+# def get_env():
+#     load_dotenv()
+#     return os.getenv("baldwin")
 
 # def web():
 #     """网络请求封装"""
@@ -25,5 +27,3 @@ zsh_file = f"{wl_dir}/.zshrc"
 # replace_punctuation_in_file("")  # 文件标点替换
 
 # with open('config/config.toml', 'r') as f: config = toml.load(f)
-
-
