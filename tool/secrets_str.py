@@ -5,7 +5,7 @@ secrets 模块与 random 模块相似,但它专门用于生成安全的随机数
 
 import asyncio
 import secrets
-
+from loguru import logger
 
 async def secrets_str(length=10):
     return secrets.token_hex(length)
@@ -14,7 +14,7 @@ async def secrets_str(length=10):
 async def main():
     # 当调用 secrets_str() 函数时,会返回一个异步任务对象,你可以将其 await,以等待结果的返回.
     result = await secrets_str()
-    print(result)
+    logger.info(result)
 
 
 if __name__ == '__main__':

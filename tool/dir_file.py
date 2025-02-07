@@ -47,6 +47,7 @@ import requests
 import uuid
 from pathlib import Path
 from loguru import logger
+import asyncio
 
 sys.path.insert(0, '/Users/wl/Downloads/Baldwin')  # 将上级目录 添加到Python解释器 模块搜索路径列表
 from tool.time_count import calculate_execution_time
@@ -296,10 +297,6 @@ def calculate_file_size(file_path):
         # 在Python中bytes 对象是一个不可变的字节序列,len() 函数用于计算字节串中的字节数,这种情况下,一个字节串中的长度就代表了文件中读取的数据量(以字节为单位).因此len(chunk) 返回的是字节串 chunk 中的字节数.
         total_size += len(chunk)
     return total_size / 1024 / 1024
-
-
-import asyncio
-import os
 
 # async def async_walk(pwd):
 #     # 用于异步遍历目录的函数 返回指定目录下的所有文件的绝对路径
