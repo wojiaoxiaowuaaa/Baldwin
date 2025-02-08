@@ -8,6 +8,7 @@ git rebase --abort && git fetch origin && git reset --hard origin/master && git 
 
 git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致
 
+
 ----------------------------------------------------------------------------------------------
 find . -type f -name "*.log" # 递归查找当前目录及其子目录下的指定后缀的文件
 
@@ -30,11 +31,11 @@ find .  -size  +100M  # 递归查找当前目录及其子目录下大于10M的�
 tar  -zcvf  demo.tar.gz  Desktop  # 打包指定的目录
  
 ps -ef | grep 3306  # 查看指定端口上的进程信息
- 
-COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME  # 查看端口上的进程信息,杀进程. lsof -i:8089 然后输入kill -9 pid
-Python  34258   wl    4u  IPv6 0xfc27ca2fec79365b      0t0  TCP *:8089 (LISTEN)  
+
+lsof -i:8089  # 查看端口上的进程信息 然后输入kill -9 pid 杀进程
 
 less  demo.txt  # 分页查看
+
 
 ----------------------------------------------------------------------------------------------
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
@@ -68,3 +69,4 @@ cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip config set global.extra-index-url https://pypi.org/simple
 
 /usr/local/bin/chromedriver  # 驱动位置
+
