@@ -77,7 +77,6 @@ def rm_rf(pwd):
     也可以使用os.system('echo $PATH')这种方式虽然更简洁轻便但是不具备复杂情况的处理能力 """
     subprocess.run(["rm", "-rf", pwd], check=True)
 
-
 def delete_file(path, suffix):
     """递归遍历目录 删除指定后缀的文件如.log"""
     if not os.path.exists(path):

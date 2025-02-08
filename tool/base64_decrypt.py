@@ -32,7 +32,6 @@ decoded_binary_data = base64.b64decode(received_base64_encoded.encode("utf-8"))
 # 现在你可以处理解码后的二进制数据
 print(decoded_binary_data)
 
------------------------------
 Base64 编码是一种将二进制数据转换为可打印字符的编码方式.它在计算机科学和网络通信中有许多用途和好处:
 1. 数据传输:** Base64 编码常用于将二进制数据在不同系统之间进行传输,特别是在网络通信中.因为某些字符在网络传输中可能会被解释为控制字符或特殊字符,使用 Base64 编码可以确保数据在不同环境中保持一致,避免数据损坏或解释错误.
 2. 电子邮件附件:** 电子邮件文本仅支持 ASCII 字符,如果要将二进制文件(如图片、音频、视频等)作为邮件附件发送,可以使用 Base64 编码将其转换为可嵌入文本的形式.
@@ -45,7 +44,6 @@ Base64 编码是一种将二进制数据转换为可打印字符的编码方式.
 import base64
 import json
 import hashlib
-import os
 from config.setting import MD5_SALT
 
 
@@ -67,9 +65,7 @@ def encode_to_base64(fields):
         json_data_encoded = json_str.encode("utf-8")
 
         # 对 UTF-8 编码后的bytes数据进行 Base64 编码
-        base64_encoded = base64.b64encode(json_data_encoded).decode(
-            "utf-8"
-        )  # decode('utf-8') 是将字节序列转换为字符串的方法,使用 UTF-8 编码格式.
+        base64_encoded = base64.b64encode(json_data_encoded).decode()  # decode('utf-8') 是将字节序列转换为字符串的方法,使用 UTF-8 编码格式.
 
         return base64_encoded
     except Exception as e:
@@ -86,9 +82,7 @@ def encode_image_to_base64(image_path):
     try:
         with open(image_path, "rb") as image_file:
             image_data = image_file.read()
-            encoded_image = base64.b64encode(image_data).decode(
-                "utf-8"
-            )  # b64encode()函数对二进制图像数据进行Base64编码,编码后的Base64数据是二进制数据,decode('utf-8')将二进制数据解码为UTF-8字符串.
+            encoded_image = base64.b64encode(image_data).decode()  # b64encode()函数对二进制图像数据进行Base64编码,编码后的Base64数据是二进制数据,decode('utf-8')将二进制数据解码为UTF-8字符串.
             return encoded_image
     except Exception as e:
         print(f"Error: {e}")
@@ -140,7 +134,6 @@ def md5_video(pwd):
 if __name__ == "__main__":
     encoded_result = encode_to_base64({"name": "John Doe", "age": 30, "city": "New York"})
     # print("编码后的文本数据:", encoded_result)
-
     # md5_value = calculate_md5(os.path.abspath(__file__))
     # print(md5_value)
 
