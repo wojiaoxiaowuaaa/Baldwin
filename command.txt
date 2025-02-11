@@ -13,6 +13,8 @@ git update-index --assume-unchanged file_path  #  忽略对本地文件的追踪
 ----------------------------------------------------------------------------------------------
 find . -type f -name "*.log" # 递归查找当前目录及其子目录下的指定后缀的文件
 
+top -o mem # 内存占用排序
+
 find . -type f -name "*.log" -delete # 删除指定目录下所有指定后缀的文件
 
 cp  -r  source_directory  destination_directory # 递归复制目录
