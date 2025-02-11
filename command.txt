@@ -8,6 +8,7 @@ git rebase --abort && git fetch origin && git reset --hard origin/master && git 
 
 git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致
 
+git update-index --assume-unchanged file_path  #  忽略对本地文件的追踪不提交到git.恢复追踪使用git update-index --no-assume-unchanged file_path  
 
 ----------------------------------------------------------------------------------------------
 find . -type f -name "*.log" # 递归查找当前目录及其子目录下的指定后缀的文件
