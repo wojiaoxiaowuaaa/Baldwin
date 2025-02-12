@@ -3,7 +3,7 @@ from log_util import logger
 from web3 import Web3
 from pathlib import Path
 import json
-import sys
+import syssl
 import os
 
 load_dotenv()

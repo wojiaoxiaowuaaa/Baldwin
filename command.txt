@@ -8,6 +8,8 @@ git rebase --abort && git fetch origin && git reset --hard origin/master && git 
 
 git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致
 
+git checkout -b develop origin/develop  # 克隆后切换分支 然后同步git pull origin develop
+
 git update-index --assume-unchanged file_path  #  忽略对本地文件的追踪不提交到git.恢复追踪使用git update-index --no-assume-unchanged file_path  
 
 ----------------------------------------------------------------------------------------------
@@ -23,7 +25,7 @@ du  -sh  directory  # 显示目录的总大小
 
 tail  -f  demo.log  # 实时跟踪展示日志的最新内容
 
-grep -ri "example" # 大小写不敏感,在指定目录中寻找字符串  ack 测试(与grep类似可视化更好)
+grep -ri "example" # 大小写不敏感,在指定目录中寻找字符串  ack(与grep类似可视化更好)
 
 grep demo test.log  # 在文件中查找指定字符串
 

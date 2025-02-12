@@ -51,7 +51,7 @@ import asyncio
 
 sys.path.insert(0, '/Users/wl/Downloads/Baldwin')  # 将上级目录 添加到Python解释器 模块搜索路径列表
 from tool.time_count import calculate_execution_time
-from config.setting import pic
+
 
 
 def clean_dir(dir):
