@@ -75,3 +75,8 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip con
 
 /usr/local/bin/chromedriver  # 驱动位置
 
+
+----------------------------------------------------------------------------------------------
+https://ollama.com/
+https://www.ddooo.com/az/13_1.htm
+
