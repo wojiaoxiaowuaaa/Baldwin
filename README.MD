@@ -30,7 +30,7 @@ from datetime import datetime
 import time
 # 获取当前时间(可读格式),并将其转换为字符串形式.
 print(str(datetime.now())[:-7])
- # 当前时刻的时间戳 单位:秒
+# 当前时刻的时间戳 单位:秒
 print(int(time.time()))
 ```
 ```python
