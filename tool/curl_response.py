@@ -15,8 +15,8 @@ curl_command = """  curl 'https://www.baidu.com/sugrec?&prod=pc_his&from=pc_web&
   -H 'sec-ch-ua-mobile: ?0' \
   -H 'sec-ch-ua-platform: '  """
 
-response = os.popen(curl_command).read()
+response = os.popen(curl_command).read()  # 如果接口返回的是JSON那么这里的response就是JSON
 
-print(response) # 如果接口返回的是JSON那么这里的response就是JSON
-
-print(type(response))
+if __name__ == '__main__':
+    print(response)  
+    print(type(response))

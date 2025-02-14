@@ -28,5 +28,5 @@ import toml
 #     web_req = WebRequest().get(url).json
 #     return web_req
 
-replace_punctuation_in_file("/Users/wl/Downloads/Baldwin/config/yield_demo.py")  # 文件标点替换
+# replace_punctuation_in_file("/Users/wl/Downloads/Baldwin/config/yield_demo.py")  # 文件标点替换
 
