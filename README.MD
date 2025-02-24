@@ -8,15 +8,6 @@ from pathlib import Path
 demo_json = Path(__file__).read_text()
 ```
 ```python
-string0 = "  , !Hello & , ) World! _ + = 1  , "
-# 去除开头和结尾的空格. strip()方法移除字符串开头和结尾的指定字符（默认是空白字符、空格、换行符、制表符等).
-new_string1 = string0.strip()
-# 去除所有的空格
-string2 = new_string1.replace(" ", "")
-# 去除开头和结尾的逗号
-new_string3 = string2.strip(",")
-```
-```python
 # 使用 iter() 函数创建迭代器，使用 lambda 函数作为可调用对象
 # iter() 函数接受两个参数，分别是可调用对象和哨兵值。它会不断调用可调用对象，直到返回哨兵值为止。
 # 哨兵值（sentinel value）是一个特殊的值，用于表示迭代的终止条件。当迭代器产生哨兵值时，for 循环会认为迭代结束，从而退出循环。

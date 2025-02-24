@@ -74,6 +74,8 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip con
 
 /usr/local/bin/chromedriver  # 驱动位置
 
+pytest -sv # 运行打印输出详细的测试细节
+
 
 ----------------------------------------------------------------------------------------------
 https://ollama.com/

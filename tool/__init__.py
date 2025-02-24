@@ -30,4 +30,5 @@ __author__ = "wl"
 dic_demo = {'status': 1000, 'message': '请求成功', 'data': [{'assetsId': 'H21241234411487', 'assetsType': 6, 'alias': '1自动化c5n', 'recentUpdateTime': 1698742683062, 'connectStatusDesc': '在线', 'connectStatus': 1, 'useStatusDesc': '启用', 'useStatus': 1, 'availableQuantity': None, 'chargingQuantity': 0, 'emptyQuantity': 0, 'exceptionQuantity': None, 'isCanOperate': 1, 'alertQuantity': 0}], 'success': True}
 
 # 定义 __all__ 列表
-# __all__ = ["WebRequest", "LogRegister", "qr_png"]
+__all__ = ["WebRequest", "LogRegister", "qr_png"]
+

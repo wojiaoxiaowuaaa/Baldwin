@@ -12,7 +12,6 @@ import toml
 # wl_dir = Path(__file__).resolve().parents[2]
 
 # zsh_file = f"{wl_dir}/.zshrc"
-
 # def get_env():
 #     """获取环境变量"""
 #     import os
