@@ -1,11 +1,11 @@
 import os
 import shutil
 from typing import Optional
-from log_util import Logger
+from log_util import logger
 import logging
 
 # 初始化配置（程序入口调用一次）
-Logger.initialize(level=logging.DEBUG, log_file="app.log")
+# logger.initialize(level=logging.DEBUG, log_file="app.log")
 
 
 def clean_dir(dir_path: str) -> None:
@@ -16,18 +16,18 @@ def clean_dir(dir_path: str) -> None:
     # 设置日志配置
     # logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s  - [%(filename)s:%(lineno)d]')
 
-    Logger.info(f"Attempting to clean directory: {dir_path}")
+    logger.info(f"Attempting to clean directory: {dir_path}")
 
     if os.path.exists(dir_path):
         try:
             shutil.rmtree(dir_path)
-            Logger.info(f"Directory '{dir_path}' deleted successfully.")
+            logger.info(f"Directory '{dir_path}' deleted successfully.")
         except PermissionError:
-            Logger.error(f"Permission denied: Unable to delete '{dir_path}'.")
+            logger.error(f"Permission denied: Unable to delete '{dir_path}'.")
         except Exception as e:
-            Logger.error(f"Error during clean up: {e}")
+            logger.error(f"Error during clean up: {e}")
     else:
-        Logger.warning(f"Directory '{dir_path}' does not exist.")
+        logger.warning(f"Directory '{dir_path}' does not exist.")
 
 
 def main(args: Optional[list[str]] = None) -> None:
@@ -39,7 +39,7 @@ def main(args: Optional[list[str]] = None) -> None:
         abs_path = os.path.abspath(args[0])
         clean_dir(abs_path)
     else:
-        Logger("Usage: python clean_dir.py <absolute_directory_path>")
+        logger.error("Usage: python clean_dir.py <absolute_directory_path>")
 
 
 if __name__ == "__main__":
