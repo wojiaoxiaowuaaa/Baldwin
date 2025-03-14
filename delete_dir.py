@@ -2,7 +2,9 @@ import os
 import shutil
 from typing import Optional
 from log_util import logger
-import logging
+
+
+# import logging
 
 # 初始化配置（程序入口调用一次）
 # logger.initialize(level=logging.DEBUG, log_file="app.log")
@@ -13,8 +15,7 @@ def clean_dir(dir_path: str) -> None:
     设置日志配置并清理指定目录，如果目录存在则删除，否则报告目录不存在。
     :param dir_path: 要清理的目录的绝对路径
     """
-    # 设置日志配置
-    # logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s  - [%(filename)s:%(lineno)d]')
+    # logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s  - [%(filename)s:%(lineno)d]')  # 设置日志配置
 
     logger.info(f"Attempting to clean directory: {dir_path}")
 
@@ -45,8 +46,6 @@ def main(args: Optional[list[str]] = None) -> None:
 if __name__ == "__main__":
     main()
 
-
-
 # def clean_dir(dir_path: str) -> None:
 #     """
 #     清理指定目录，如果目录存在则删除，否则报告目录不存在。
@@ -67,4 +66,3 @@ if __name__ == "__main__":
 #             logging.error(f"Error during clean up: {e}")
 #     else:
 #         logging.warning(f"Directory '{full_path}' does not exist.")
-

@@ -33,11 +33,11 @@ class EnhancedColoredFormatter(logging.Formatter):
             "%(message)s"
         )
         fmt = fmt or default_fmt
-        super().__init__(fmt, datefmt)
+        super(EnhancedColoredFormatter, self).__init__(fmt, datefmt)
 
     def format(self, record: logging.LogRecord) -> str:
         # 调用父类(即 logging.Formatter)的 format 方法来格式化日志记录 record
-        super().format(record)
+        super(EnhancedColoredFormatter, self).format(record)
 
         # 添加颜色修饰
         color = self.COLORS.get(record.levelno, "")
@@ -68,19 +68,19 @@ class GlobalLogger:
 
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super().__new__(cls)
+            cls._instance = super(GlobalLogger, cls).__new__(cls)
             cls._instance._initialized = False  # 在这里动态添加 _initialized 属性.这个属性不需要预先在类中定义,Python 允许我们动态地添加它.
         return cls._instance
 
     def __init__(
-        self,
-        level: int = logging.DEBUG,
-        fmt: str = DEFAULT_FORMAT,
-        datefmt: str = DEFAULT_DATEFMT,
-        use_color: bool = True,
-        log_file: Optional[str] = None,
-        max_bytes: int = 10 * 1024 * 1024,  # 默认10MB日志轮转
-        backup_count: int = 5,
+            self,
+            level: int = logging.DEBUG,
+            fmt: str = DEFAULT_FORMAT,
+            datefmt: str = DEFAULT_DATEFMT,
+            use_color: bool = True,
+            log_file: Optional[str] = None,
+            max_bytes: int = 10 * 1024 * 1024,  # 默认10MB日志轮转
+            backup_count: int = 5,
     ):
         if self._initialized:
             return
@@ -121,13 +121,13 @@ class GlobalLogger:
 
     @classmethod
     def initialize(
-        cls,
-        level: int = logging.DEBUG,
-        fmt: str = DEFAULT_FORMAT,
-        datefmt: str = DEFAULT_DATEFMT,
-        use_color: bool = True,
-        log_file: Optional[str] = None,
-        **kwargs,
+            cls,
+            level: int = logging.DEBUG,
+            fmt: str = DEFAULT_FORMAT,
+            datefmt: str = DEFAULT_DATEFMT,
+            use_color: bool = True,
+            log_file: Optional[str] = None,
+            **kwargs,
     ):
         """初始化配置(程序启动时调用)"""
         cls(
@@ -170,5 +170,4 @@ class GlobalLogger:
 # 默认导出接口
 logger = GlobalLogger
 
-# if __name__ == "__main__":
-    # for i in dir(logger): logger.info(i)
+# for i in dir(logger): logger.info(i)
