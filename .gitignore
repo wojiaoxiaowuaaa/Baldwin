@@ -1,11 +1,11 @@
+demo
+.idea
+.DS_Store
+.env
+.pytest_cache
+__pycache__
 tempfile_*
 abc_test*
 wl*
-__pycache
-.idea
-.DS_Store
 *.log
 *.pyc
-.env
-.pytest_cache
-demo
