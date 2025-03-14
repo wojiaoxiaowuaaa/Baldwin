@@ -11,7 +11,7 @@ from typing import Optional
 
 
 class EnhancedColoredFormatter(logging.Formatter):
-    """带颜色格式化器 为日志消息添加颜色"""
+    """带颜色格式化器 为日志消息添加颜色和其他额外自定义信息"""
 
     COLORS = {
         logging.DEBUG: "\033[36m",
@@ -53,7 +53,8 @@ class EnhancedColoredFormatter(logging.Formatter):
 
 
 class GlobalLogger:
-    """全局日志管理器(单例模式)"""
+    """全局日志管理器GlobalLogger是一个功能强大的全局日志管理器，支持单例模式、控制台和文件日志输出、日志轮转、带颜色的日志输出等功能。
+    它的设计简化了日志的使用，提供了统一的日志管理接口，非常适合在中大型项目中使用。"""
 
     _instance = None
 
