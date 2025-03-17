@@ -41,7 +41,10 @@ def func(pwd):
 # for i in func('jiaoji.py'): print(i)
 
 if __name__ == '__main__':
-    from log_util import logger   # noqa: E402
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, f"{Path(__file__).parents[1]}")
+    from log_util import logger   
 
     dict_set = set(logger.__dict__.keys())
     dir_set = set(dir(logger))

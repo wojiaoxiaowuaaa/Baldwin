@@ -5,3 +5,5 @@
 # echo $PATH命令在Mac终端(或任何Linux系统)中用于显示当前用户的环境变量PATH的内容.PATH环境变量包含了一系列的目录,这些目录被操作系统用来搜索可执行文件.
 
 # os.system("ls -l") 直接执行命令;home_dir = os.environ.get("HOME")获取主目录;home_dir = os.environ.get("PATH")获取环境变量;
+
+from .log_util import logger
