@@ -6,4 +6,4 @@
 
 # os.system("ls -l") 直接执行命令;home_dir = os.environ.get("HOME")获取主目录;home_dir = os.environ.get("PATH")获取环境变量;
 
-from .log_util import logger
+# os.path.insert(0, "..") 添加当前脚本的上级目录到系统路径列表的开头
