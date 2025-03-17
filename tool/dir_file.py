@@ -97,7 +97,7 @@ def delete_file(path, suffix):
 
 
 def count_lines_and_size(json_file):
-    """统计制定文件的行数与存储空间占用"""
+    """统计指定文件的行数与存储空间占用"""
     count = 0
     size = os.path.getsize(json_file) / 1024  # 将文件大小转换为KB  默认的单位是字节
 
@@ -274,12 +274,9 @@ def download_images_from_file(filename, output_dir):
 
 def read_file_in_chunks(file_path, chunk_size=4096):
     """使用生成器,每次读取一个 chunk_size 大小的数据块,直到读取完文件.
-    生成器方法通常在内存使用方面更优,因为它逐块读取文件,不会一次性加载整个文件到内存中.
-    os.path.getsize() 方法会一次性加载整个文件到内存中,这可能会导致内存不足或性能下降,特别是对于大型文件而言.
-    在 Python 中,bytes 类型是一种用于表示二进制数据的类型.它类似于字符串,但与字符串不同的是,bytes 类型可以包含任意字节的数据.
-    len() 函数用于获取一个对象的长度.当将一个 bytes 类型的对象传递给 len() 函数时,它会返回该 bytes 对象中字节的数量.
-    需要注意的是,len() 函数对于 bytes 对象的计算是基于字节数的,而不是字符数.每个字节都被视为一个独立的单位.
-    二进制文件也可以被看作是一个可迭代对象(iterable),其包含了一系列的字节(bytes)"""
+    生成器方法通常在内存使用方面更优,因为它逐块读取文件,不会一次性加载整个文件到内存中.os.path.getsize() 方法会一次性加载整个文件到内存中,这可能会导致内存不足或性能下降,特别是对于大型文件而言.
+    在 Python 中,bytes 类型是一种用于表示二进制数据的类型.它类似于字符串,但与字符串不同的是,bytes 类型可以包含任意字节的数据.len() 函数用于获取一个对象的长度.当将一个 bytes 类型的对象传递给 len() 函数时,它会返回该 bytes 对象中字节的数量.
+    需要注意的是,len() 函数对于 bytes 对象的计算是基于字节数的,而不是字符数.每个字节都被视为一个独立的单位.二进制文件也可以被看作是一个可迭代对象(iterable),其包含了一系列的字节(bytes)"""
     with open(file_path, "rb") as file:
         while True:
             data = file.read(chunk_size)
@@ -362,3 +359,8 @@ if __name__ == "__main__":
     #     ]
     # )
     # logger.info(f"指定文件夹下的的文件大小总和是{folder_size / 1024 / 1024 / 1024} GB")
+
+
+# 浅拷贝例如 [:] 会为顶层对象创建新的内存地址,但嵌套对象的内存地址保持不变。 
+# 修改浅拷贝中的嵌套对象会影响原始对象。
+# 如果需要完全独立的副本,应该使用深拷贝（copy.deepcopy）。
