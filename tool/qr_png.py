@@ -1,5 +1,5 @@
-import qrcode
 from matplotlib import pyplot as plt
+import qrcode
 
 
 def qr_png(data):

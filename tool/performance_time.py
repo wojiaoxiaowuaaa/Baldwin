@@ -1,5 +1,5 @@
-import cProfile
 from time_count import calculate_execution_time
+import cProfile
 
 
 @calculate_execution_time
@@ -10,6 +10,7 @@ def sum_(n):
         count += i
     # print(count)
     return count
+
 
 if __name__ == '__main__':
     cProfile.run("sum_(100000000)")
