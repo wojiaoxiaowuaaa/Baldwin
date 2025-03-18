@@ -55,7 +55,7 @@ def logger_func(f):
                 f.__name__
                 + " function was called with args: "
                 + str(args)
-                + "  "
+                + " kwargs: "
                 + str(kwargs)
                 + "  code doc is: "
                 + f.__doc__
