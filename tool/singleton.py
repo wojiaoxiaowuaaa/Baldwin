@@ -24,7 +24,9 @@ class Singleton(type):
 
 
 if __name__ == '__main__':
-    class My(metaclass=Singleton): ...
+    class My(metaclass=Singleton): pass  # noqa: E701
+
+
     a = My()
     b = My()
     print(a is b)
