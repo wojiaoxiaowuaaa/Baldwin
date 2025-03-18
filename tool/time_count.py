@@ -2,7 +2,6 @@ import time
 from functools import wraps
 from typing import Callable, Any
 from loguru import logger
-from loguru import logger
 
 
 def get_time(func: Callable) -> Callable:
@@ -58,7 +57,7 @@ def logger_func(f):
                 + str(args)
                 + "  "
                 + str(kwargs)
-                + "  code explain: "
+                + "  code doc is: "
                 + f.__doc__
             )
         )
