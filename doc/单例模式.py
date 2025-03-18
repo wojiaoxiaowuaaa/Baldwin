@@ -1,16 +1,11 @@
-# 一般情况下，__new__ 方法不需要手动调用，因为在对象创建时，Python 解释器会自动调用它。
-# __new__ 负责对象的创建和内存的分配，而 __init__ 方法则负责对象的初始化。在很多情况下，你只需要重写 __init__ 方法，因为大部分对象的创建和初始化都可以在这个方法中完成
-class User:
-    __instance = (
-        None  # 类变量  初始化为None  存储唯一的实例对象(重写new方法实现单例模式)
-    )
+class Singleton:
+    """重写__new__方法,实现单例模式"""
+    _instance = None  # 类属性,用于存储当前类的唯一实例.
 
     def __new__(cls, *args, **kwargs):
-        if cls.__instance is None:  # 重写new方法  创建实例之前检查是否已经存在实例
-            cls.__instance = super().__new__(
-                cls, *args, **kwargs
-            )  # 调用父类的 __new__ 方法，创建一个新的实例，并将其赋值给 __instance。这里调用父类的 __new__ 方法，确保正确地创建实例。
-        return cls.__instance  # 返回存储在 __instance 中的唯一实例。
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
 
 
 def singleton(cls):
@@ -27,15 +22,8 @@ def singleton(cls):
     return get_instance
 
 
-@singleton
-class Singleton:
-    pass
-
-
-a = Singleton()
-b = Singleton()
-print(a is b)
-
+# @singleton
+# class Singleton: pass
 
 class Printer:
     """使用类名创建对象时Python解释器做的事:
@@ -53,9 +41,7 @@ class Printer:
 
     def __new__(cls, *args, **kwargs):
         print("new___")
-        instance = super().__new__(cls)
+        instance = super(Printer, cls).__new__(cls)
         return instance  # 重写new方法一定要返回对象的引用,否则Python解释器得不到分配了空间的对象引用,就不会调用对象的初始化方法.
 
-
-obj = Printer()  # 创建对象时 new方法会被自动调用(时间上早于init方法)
-print(obj)
+# print(Printer())  # 创建对象时 new方法会被自动调用(时间上早于init方法)
