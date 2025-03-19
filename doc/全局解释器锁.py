@@ -8,7 +8,7 @@ counter = 0
 
 def increment_counter():
     global counter
-    for _ in range(1000000):
+    for _ in range(10000000):
         counter += 1
 
 
@@ -33,7 +33,7 @@ def calculate_prime(n):
     primes = []
     for num in range(2, n + 1):
         # all() 是Python内置函数之一，用于判断可迭代对象中的所有元素是否都为真（True）。如果可迭代对象中的所有元素都为真，all() 函数返回 True；否则，返回 False
-        if all(num % i != 0 for i in range(2, int(num**0.5) + 1)):
+        if all(num % i != 0 for i in range(2, int(num ** 0.5) + 1)):
             primes.append(num)
     return primes
 
