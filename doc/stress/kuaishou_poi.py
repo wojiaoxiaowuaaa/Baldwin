@@ -76,7 +76,7 @@ class QuickstartUser(HttpUser):
     }
 
     def on_start(self) -> None:
-        # 在压测开始的时候执行一次  用于检测服务接口的可用性(准确说是有多少个用户就会请求多少次)
+        # 在压测开始的时候执行一次  用于检测服务接口的可用性
         logger.info((res := self.client.get(self.path, params=self.params)).json())
 
     @task

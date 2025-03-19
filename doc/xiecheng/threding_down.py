@@ -2,11 +2,12 @@ import concurrent.futures
 import time
 from typing import List
 import requests
+from loguru import logger
 
 
 def down_one(url: str) -> None:
     resp = requests.get(url)
-    print(len(resp.content), url)
+    logger.info(f"{len(resp.content)} {url}")
 
 
 def down_all(urls: List[str]) -> None:
@@ -39,11 +40,10 @@ def main():
     s = time.perf_counter()
     down_all(sites)
     e = time.perf_counter()
-    print(f"Finished in {e - s:.2f} seconds")
+    logger.info(f"Finished in {e - s:.2f} seconds")
 
 
 main()
-
 
 """
 import asyncio
