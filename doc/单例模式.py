@@ -1,5 +1,4 @@
 class Singleton:
-    """重写__new__方法,实现单例模式"""
     _instance = None  # 类属性,用于存储当前类的唯一实例.
 
     def __new__(cls, *args, **kwargs):
