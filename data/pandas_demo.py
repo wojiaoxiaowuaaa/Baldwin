@@ -1,17 +1,13 @@
-import sys
-import os
 import pandas as pd
 
 # 将根目录加入到系统路径中 否则下一行的导入在终端执行时会报错找不到对应的模块. BASE_PATH : /Users/wl/Downloads/Baldwin
-if (BASE_PATH := os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) not in sys.path: sys.path.insert(0, BASE_PATH)
+# if (BASE_PATH := os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) not in sys.path: sys.path.insert(0, BASE_PATH)
 
-from color_pr import color_print_green
-
-file_path = "/Users/wl/Documents/1675678004817.xlsx"
-df = pd.read_excel(file_path)
+# file_path = "/Users/wl/Documents/1675678004817.xlsx"
+# df = pd.read_excel(file_path)
 
 # 打印表头（列名）
-print("表头：", df.columns)
+# print("表头：", df.columns)
 
 # 打印前几行数据
 # print(df.head())
@@ -25,7 +21,6 @@ print("表头：", df.columns)
 # selected_data = df[selected_column]
 # print(selected_data)
 
-color_print_green()
 
 # 创建一个二维数据结构:DataFrame
 data = {
@@ -38,6 +33,5 @@ df = pd.DataFrame(data)
 
 # 打印 DataFrame
 print(df)
-
 # to_xlsx 方法保存 DataFrame 到 Excel 文件
 # df.to_csv('output.csv', index=False)
