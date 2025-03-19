@@ -3,10 +3,8 @@ import os
 import pandas as pd
 
 # 将根目录加入到系统路径中 否则下一行的导入在终端执行时会报错找不到对应的模块. BASE_PATH : /Users/wl/Downloads/Baldwin
-if (
-    BASE_PATH := os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-) not in sys.path:
-    sys.path.insert(0, BASE_PATH)
+if (BASE_PATH := os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) not in sys.path: sys.path.insert(0, BASE_PATH)
+
 from color_pr import color_print_green
 
 file_path = "/Users/wl/Documents/1675678004817.xlsx"
