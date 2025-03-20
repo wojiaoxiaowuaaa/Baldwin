@@ -19,6 +19,12 @@ def func(ll, tar):
 # target = 12
 # print(func(ll, target))
 
+# def func(arr, target):
+#     """求两数之和的下标"""
+#     for i in arr:
+#         for j in arr:
+#             if i + j == target:
+#                 return arr.index(i), arr.index(j)
 
 def two_sum(l: list, tar: int) -> list:
     #  这个函数的时间复杂度是O(n),因为它只遍历一次列表.空间复杂度也是O(n),因为在最坏的情况下,字典需要存储列表中的所有元素.
