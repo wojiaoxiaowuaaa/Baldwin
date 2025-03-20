@@ -27,7 +27,8 @@ class Student:
 
     def __init__(self, a: int, b: int):
         self.a = a  # 将形参 a 的值赋值给实例属性self.a
-        self.b = b  # 实例属性  # age = 18  # 局部变量(不会保存到__dict__中)
+        self.b = b  # 实例属性
+        # age = 18  # 局部变量(不会保存到__dict__中)
 
     def func(self):  # 类属性(或者类方法不会保存到__dict__中)
         print(self)  # <__main__.Student object at 0x1048c6d90>  与第40行的输出相同(证明self就是类实例出的对象本身)
