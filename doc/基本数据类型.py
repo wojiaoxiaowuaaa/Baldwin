@@ -16,28 +16,18 @@
 二进制类型：bytes、bytearray
 
 空类型：NoneType
-"""
-
-x = "Hello World"
 
 x = 20
 
 x = 20.5  # float
 
-x = ["apple", "banana", "cherry"]
-
-x = ("apple", "banana", "cherry")
-
 x = range(6)  # range
-
-x = {"name": "John", "age": 36}
 
 x = {"apple", "banana", "cherry"}  # set
 
 x = frozenset({"apple", "banana", "cherry"})  # frozenset
 
-x = True  # bool
-
 x = b"Hello"  # bytes
 
 x = None  # NoneType
+"""
