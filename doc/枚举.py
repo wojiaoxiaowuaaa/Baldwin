@@ -5,7 +5,7 @@ from enum import unique, Enum
 
 @unique
 class BikeLifeEnum(Enum):
-    WENSHU = "000-ZHANGYAO-运营-工厂-test"
+    WENSHU = "000-运营--test"
 
     @property
     def get_value(self):
