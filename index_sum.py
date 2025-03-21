@@ -42,25 +42,25 @@ def func(ll, tar):
 #             if i + j == target:
 #                 return arr.index(i), arr.index(j)
 
-def two_sum(l: list, tar: int) -> list:
-    #  这个函数的时间复杂度是O(n),因为它只遍历一次列表.空间复杂度也是O(n),因为在最坏的情况下,字典需要存储列表中的所有元素.
-    hashmap = {}
-    result = []  # 用于存储所有满足条件的索引对
-    for i, num in enumerate(l):
-        hashmap[num] = i
-        # 计算目标值与当前元素的差值var
-        var = tar - num
-        # 检查var是否已经在字典hashmap中.如果在,说明我们已经找到了一个数与当前数相加等于目标值的组合,将这两个数的索引`hashmap[var][和](file://abc_test.py#6#85)i`加入结果列表
-        if var in hashmap:
-            result.append((hashmap[var], i))
-        #  如果var不在字典中,将当前元素的值和它的索引存入字典,以便后续查找.
-        # hashmap[num] = i
-    # 遍历结束后,返回所有满足条件的数对
-    return result
+# def two_sum(l: list, tar: int) -> list:
+#     #  这个函数的时间复杂度是O(n),因为它只遍历一次列表.空间复杂度也是O(n),因为在最坏的情况下,字典需要存储列表中的所有元素.
+#     hashmap = {}
+#     result = []  # 用于存储所有满足条件的索引对
+#     for i, num in enumerate(l):
+#         hashmap[num] = i
+#         # 计算目标值与当前元素的差值var
+#         var = tar - num
+#         # 检查var是否已经在字典hashmap中.如果在,说明我们已经找到了一个数与当前数相加等于目标值的组合,将这两个数的索引`hashmap[var][和](file://abc_test.py#6#85)i`加入结果列表
+#         if var in hashmap:
+#             result.append((hashmap[var], i))
+#         #  如果var不在字典中,将当前元素的值和它的索引存入字典,以便后续查找.
+#         # hashmap[num] = i
+#     # 遍历结束后,返回所有满足条件的数对
+#     return result
 
 
-res = two_sum([2, 7, 10, 15, 5, 12], 17)
-print(res)
+# res = two_sum([2, 7, 10, 15, 5, 12], 17)
+# print(res)
 
 
 def find_all_indices(lst, element):
