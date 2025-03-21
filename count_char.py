@@ -35,6 +35,7 @@ def count_file(pwd):
                 count += 1
     return count
 
+
 def count_letters(s):
     """统计字符串中字母出现的次数"""
     letter_dict = {}
@@ -48,7 +49,7 @@ def count_letters(s):
 
 
 # 示例字符串
-input_string = "统计字符示例字符串,aabbcc 111"
+# input_string = "统计字符示例字符串,aabbcc 111"
 
 
 # 调用函数
@@ -75,10 +76,6 @@ def reverse_integer(number):
     return int(result)
 
 
-# print(reverse_integer(1234))
-# print(reverse_int(1234))
-
-
 def filter_numbers(l):
     """处理输入的列表  要求返回的新列表中的每个元素都是偶数&&该元素在原list中的下标也是偶数"""
     # return [number for index, number in enumerate(l) if index % 2 == 0 and number % 2 ==0]
@@ -88,44 +85,44 @@ def filter_numbers(l):
 # print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 
-def is_prime(n):
-    """判断素数的函数"""
-    if n > 1:
-        from math import sqrt
-        for factor in range(2, int(sqrt(n)) + 1):
-            if n % factor == 0:
-                return False
-        return True if n != 1 else False
-    return False
+# def is_prime(n):
+#     """判断素数的函数"""
+#     if n > 1:
+#         from math import sqrt
+#         for factor in range(2, int(sqrt(n)) + 1):
+#             if n % factor == 0:
+#                 return False
+#         return True if n != 1 else False
+#     return False
 
 
-def file_write():
-    """
-    1. if 语句:用于判断一个条件是否为真.如果条件为真,则执行 if 代码块中的语句.
-    2. elif 语句:是"else if"的缩写,用于在前面的 if 或 elif 条件不满足时,检查另一个条件.如果 elif 条件为真,则执行 elif 代码块中的语句.
-    3. else 语句:用于在所有前面的 if 和 elif 条件都不满足时执行代码块"""
-    filenames = (
-        "../config/log/aaa.txt",
-        "../config/log/aaab.txt",
-        "../config/log/aaac.txt",
-    )
-    l = []
-    try:
-        for file in filenames:
-            l.append(open(file, "w"))
-        for num in range(1, 200):
-            if is_prime(num):
-                if num <= 10:
-                    l[0].write(str(num) + "\n")
-                elif num <= 100:
-                    l[1].write(str(num) + "\n")
-                else:
-                    l[2].write(str(num) + "\n")
-    except IOError as e:
-        print(e)
-    finally:
-        for f in l:
-            f.close()
+# def file_write():
+#     """
+#     1. if 语句:用于判断一个条件是否为真.如果条件为真,则执行 if 代码块中的语句.
+#     2. elif 语句:是"else if"的缩写,用于在前面的 if 或 elif 条件不满足时,检查另一个条件.如果 elif 条件为真,则执行 elif 代码块中的语句.
+#     3. else 语句:用于在所有前面的 if 和 elif 条件都不满足时执行代码块"""
+#     filenames = (
+#         "../config/log/aaa.txt",
+#         "../config/log/aaab.txt",
+#         "../config/log/aaac.txt",
+#     )
+#     l = []
+#     try:
+#         for file in filenames:
+#             l.append(open(file, "w"))
+#         for num in range(1, 200):
+#             if is_prime(num):
+#                 if num <= 10:
+#                     l[0].write(str(num) + "\n")
+#                 elif num <= 100:
+#                     l[1].write(str(num) + "\n")
+#                 else:
+#                     l[2].write(str(num) + "\n")
+#     except IOError as e:
+#         print(e)
+#     finally:
+#         for f in l:
+#             f.close()
 
 
 def is_valid(s: str) -> bool:
@@ -133,7 +130,7 @@ def is_valid(s: str) -> bool:
 
     stack = []  # 1. 初始化一个空栈`stack`,用于存储遇到的左括号.
 
-    mapping = {")": "(",  "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典,它将每个右括号映射到其对应的左括号.
+    mapping = {")": "(", "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典,它将每个右括号映射到其对应的左括号.
 
     for char in s:  # 3. 遍历输入字符串`s`中的每个字符`char`:如果`char`是一个右括号(即在`mapping`字典的键中),检查栈顶元素(如果栈不为空则弹出,否则假设为'-') 如果栈顶元素不是与当前右括号匹配的左括号,返回`False`,因为这意味着括号不匹配.否则,`char`是一个左括号,将其压入栈中.
         if char in mapping:
@@ -149,9 +146,3 @@ def is_valid(s: str) -> bool:
 def is_hui(num):
     """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
     return str(num) == str(num)[::-1]
-
-
-# print(is_hui(12321))
-# print(count_characters(__file__))
-# print(is_valid("()[]{}"))
-
