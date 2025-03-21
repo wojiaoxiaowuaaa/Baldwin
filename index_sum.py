@@ -1,6 +1,22 @@
 # import random
 # from log_util import logger
 
+def find_max(s):
+    """找出字符串中的最大数字子串"""
+    current = 0
+    max_num = 0
+
+    for char in s:
+        if char.isdigit():  # 判断字符是否为数字
+            current = current * 10 + int(char)
+            if current > max_num:
+                max_num = current
+        else:
+            current = 0
+
+    return max_num
+
+
 def func(ll, tar):
     """给定一个整数数组和一个目标值,找出数组中和为目标值的两个数并返回下标"""
     hashmap = {}
