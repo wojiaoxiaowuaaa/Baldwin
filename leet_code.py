@@ -55,7 +55,8 @@ def find_max(s):
     return max_num
 
 
-def func(arr, target):
+def func_index(arr, target):
+    """两数之和对应下标"""
     hashmap = {}
 
     for index, value in enumerate(arr):
