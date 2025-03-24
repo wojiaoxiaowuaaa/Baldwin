@@ -7,3 +7,12 @@
 # os.system("ls -l") 直接执行命令;home_dir = os.environ.get("HOME")获取主目录;home_dir = os.environ.get("PATH")获取环境变量;
 
 # os.path.insert(0, "..") 添加当前脚本的上级目录到系统路径列表的开头
+
+# only_name = str(uuid.uuid4()).replace("-", "")
+
+# wl_dir = Path(__file__).resolve().parents[2]
+
+# with open('config/config.toml', 'r') as f: config = toml.load(f)
+
+# from tool import replace_punctuation_in_file
+# replace_punctuation_in_file("/Users/wl/Downloads/Baldwin/wl_mt.py")  # 文件标点替换
