@@ -1,6 +1,24 @@
 # import random
 # from log_util import logger
 
+def move_zero(arr):
+    """双指针.给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序."""
+    if not arr:
+        return 0
+
+    j = 0  # 第一次遍历的时候,j指针记录非0的个数,只要是非0的统统都赋给nums[j]
+
+    for i in range(len(arr)):
+        if arr[i]:
+            arr[j] = arr[i]
+            j += 1
+
+    for z in range(j, len(arr)):  # 非0元素统计完了,剩下的都是0了所以第二次遍历把末尾的元素都赋为0即可
+        arr[z] = 0
+
+    return arr
+
+
 def max_len(arr):
     """找到一个整数数组中最长连续递增序列的长度"""
     if not arr:
