@@ -1,6 +1,26 @@
 # import random
 # from log_util import logger
 
+def max_len(arr):
+    """找到一个整数数组中最长连续递增序列的长度"""
+    if len(arr) == 0:
+        return 0
+
+    arr.sort()
+
+    res_len = 1  # 用于记录最长连续序列的长度,初始值为1因为至少有一个元素时序列长度为1
+    cur_len = 1  # 用于记录当前连续序列的长度
+    for i in range(1, len(arr)):
+        if arr[i] == arr[i - 1] + 1:
+            cur_len += 1
+            res_len = max(res_len, cur_len)
+        elif arr[i] == arr[i - 1]:
+            pass
+        else:
+            cur_len = 1  # 序列中断 重置当前连续序列的长度为1
+    return res_len
+
+
 def find_max(s):
     """找出字符串中的最大数字子串"""
     current = 0
