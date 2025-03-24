@@ -3,8 +3,8 @@
 
 def max_len(arr):
     """找到一个整数数组中最长连续递增序列的长度"""
-    if len(arr) == 0:
-        return 0
+    if not arr:
+        return 0  # 空数组返回0
 
     arr.sort()
 
