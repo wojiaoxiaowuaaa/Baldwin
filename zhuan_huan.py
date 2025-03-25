@@ -3,6 +3,7 @@ import sys
 
 
 def convert_and_print_json(s):
+    """字典转JSON"""
     try:
         # 将通过参数输入的字符串转换为字典
         input_dict = eval(s)
