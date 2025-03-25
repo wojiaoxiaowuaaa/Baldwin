@@ -123,8 +123,6 @@ def func_di(numbs):
     return numbs[0] + func_di(numbs[1:])
 
 
-# print(func_di([1, 2, 3, 4]))
-
 def func_sum(x):
     """递归的特性:
     1.必须有一个明确的结束条件;
@@ -200,7 +198,7 @@ def count_characters(file_path):
     """统计文本中字符的出现次数 排序后展示最高频的前十个. 初始化一个空字典hashmap来存储字符及其出现次数"""
     hashmap = {}
     try:
-        with open(file_path, "r") as f:
+        with open(file_path) as f:
             for char in f.read():
                 if char.isspace():  # 跳过空格和换行符
                     continue
@@ -222,16 +220,16 @@ def count_characters(file_path):
     return dict(hashmap)
 
 
-def count_file(pwd):
-    """统计文件中小写字母的数量"""
-    count = 0
-
-    with open(pwd, "r") as f:
-        data = f.read()
-        for _ in data:
-            if _.islower():  # 统计大写用 isupper
-                count += 1
-    return count
+# def count_file(pwd):
+#     """统计文件中小写字母的数量"""
+#     count = 0
+#
+#     with open(pwd) as f:
+#         data = f.read()
+#         for _ in data:
+#             if _.islower():  # 统计大写用 isupper
+#                 count += 1
+#     return count
 
 
 def count_letters(s):
