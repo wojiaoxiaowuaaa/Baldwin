@@ -20,8 +20,7 @@ def move_zero(arr):
 
 def max_len(arr):
     """找到一个整数数组中最长连续递增序列的长度"""
-    if not arr:
-        return 0  # 空数组返回0
+    if not arr: return 0  # 空数组返回0  # noqa: E701
 
     arr.sort()
 
@@ -38,18 +37,17 @@ def max_len(arr):
     return res_len
 
 
-def find_max(s):
+def find_max(s: str):
     """找出字符串中的最大数字子串"""
-    current = 0
-    max_num = 0
+    cur_num = 0  # 存储当前正在处理的数字
+    max_num = 0  # 存储最大的数字
 
     for char in s:
-        if char.isdigit():  # 判断字符是否为数字
-            current = current * 10 + int(char)
-            if current > max_num:
-                max_num = current
+        if char.isdigit():
+            cur_num = cur_num * 10 + int(char)
+            max_num = max(cur_num, max_num)
         else:
-            current = 0
+            cur_num = 0
 
     return max_num
 
