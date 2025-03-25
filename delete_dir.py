@@ -15,6 +15,7 @@ def clean_dir(dir_path: str) -> None:
     设置日志配置并清理指定目录，如果目录存在则删除，否则报告目录不存在。
     :param dir_path: 要清理的目录的绝对路径
     """
+
     # logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s  - [%(filename)s:%(lineno)d]')  # 设置日志配置
 
     logger.info(f"Attempting to clean directory: {dir_path}")
