@@ -46,19 +46,16 @@ import shutil
 import requests
 import uuid
 from pathlib import Path
-from loguru import logger
-import asyncio
 
-sys.path.insert(0, '/Users/wl/Downloads/Baldwin')  # 将上级目录 添加到Python解释器 模块搜索路径列表
+# sys.path.insert(0, '/Users/wl/Downloads/Baldwin')  # 将上级目录 添加到Python解释器 模块搜索路径列表
 from tool.time_count import calculate_execution_time
-
 
 
 def clean_dir(dir):
     """删除当前脚本下的指定目录
     :param dir: 当前脚本所在目录下待删除的目录"""
     cache_directory = os.path.join(os.path.dirname(__file__), dir)
-    print(cache_directory)
+    # print(cache_directory)
     try:
         if os.path.exists(cache_directory):
             # shutil 是 Python 标准库中的一个模块,提供了一些用于文件和目录操作的高级功能.
@@ -76,6 +73,7 @@ def rm_rf(pwd):
     使用subprocess模块来运行系统命令如subprocess.run(['ls'])
     也可以使用os.system('echo $PATH')这种方式虽然更简洁轻便但是不具备复杂情况的处理能力 """
     subprocess.run(["rm", "-rf", pwd], check=True)
+
 
 def delete_file(path, suffix):
     """递归遍历目录 删除指定后缀的文件如.log"""
@@ -101,7 +99,7 @@ def count_lines_and_size(json_file):
     count = 0
     size = os.path.getsize(json_file) / 1024  # 将文件大小转换为KB  默认的单位是字节
 
-    with open(json_file, "r") as f:
+    with open(json_file) as f:
         for _ in f:
             count += 1  # 循环结构会逐行读取文件 json_file 的内容.可使用 _.strip() 去掉每行末尾的换行符.
 
@@ -178,7 +176,7 @@ def replace_punctuation_in_dir(directory: str, exclude_files: list):
             if file_path in exclude_files or file_path == current_script:
                 continue
 
-            with open(file_path, "r", encoding="utf-8") as f:
+            with open(file_path, encoding="utf-8") as f:
                 content = f.read()
 
             for chinese, english in punctuation_mapping.items():
@@ -192,7 +190,7 @@ def replace_punctuation_in_dir(directory: str, exclude_files: list):
 
 def replace_punctuation_in_file(file_path: str):
     """替换文件中的中文标点符号为英文格式"""
-    with open(file_path, "r", encoding="utf-8") as f:
+    with open(file_path, encoding="utf-8") as f:
         content = f.read()
 
     for chinese, english in punctuation_mapping.items():
@@ -294,6 +292,7 @@ def calculate_file_size(file_path):
         total_size += len(chunk)
     return total_size / 1024 / 1024
 
+
 # async def async_walk(pwd):
 #     # 用于异步遍历目录的函数 返回指定目录下的所有文件的绝对路径
 #     for root, dirs, filenames in os.walk(pwd):
@@ -360,7 +359,6 @@ if __name__ == "__main__":
     # )
     # logger.info(f"指定文件夹下的的文件大小总和是{folder_size / 1024 / 1024 / 1024} GB")
 
-
-# 浅拷贝例如 [:] 会为顶层对象创建新的内存地址,但嵌套对象的内存地址保持不变。 
+# 浅拷贝例如 [:] 会为顶层对象创建新的内存地址,但嵌套对象的内存地址保持不变。
 # 修改浅拷贝中的嵌套对象会影响原始对象。
 # 如果需要完全独立的副本,应该使用深拷贝（copy.deepcopy）。

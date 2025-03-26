@@ -21,16 +21,11 @@ ban = r"""
 ****************************************************************
 """
 
-package_variable = "This is a package variable"
-
 __version__ = 1.0
 
 __author__ = "wl"
 
-dic_demo = {'status': 1000, 'message': '请求成功', 'data': [
-    {'assetsId': 'H21241234411487', 'assetsType': 6, 'alias': '1自动化c5n', 'recentUpdateTime': 1698742683062, 'connectStatusDesc': '在线', 'connectStatus': 1,
-     'useStatusDesc': '启用', 'useStatus': 1, 'availableQuantity': None, 'chargingQuantity': 0, 'emptyQuantity': 0, 'exceptionQuantity': None, 'isCanOperate': 1,
-     'alertQuantity': 0}], 'success': True}
+# dic_demo = {'status': 1000, 'message': '请求成功', 'data': [{'assetsId': 'H21241234411487', 'assetsType': 6, 'alias': '1自动化c5n', 'recentUpdateTime': 1698742683062, 'connectStatusDesc': '在线', 'connectStatus': 1,'useStatusDesc': '启用', 'useStatus': 1, 'availableQuantity': None, 'chargingQuantity': 0, 'emptyQuantity': 0, 'exceptionQuantity': None, 'isCanOperate': 1,'alertQuantity': 0}], 'success': True}
 
 # 定义 __all__ 列表  all 是一个特殊的变量，用于定义模块在使用 from module import * 时，允许导出的名称列表。如果模块中定义了 all，只有 all 中列出的名称会被导出。如果没有定义 all，默认会导出所有不以下划线 _ 开头的全局变量、函数和类。通过定义 all，可以显式控制模块的公共 API，隐藏不希望被外部访问的实现细节。
 # __all__ = ["WebRequest", "LogRegister", "qr_png"]
