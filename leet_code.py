@@ -3,7 +3,7 @@
 
 def move_zero(arr):
     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序.双指针."""
-    if not arr: return 0  # noqa: E701
+    if not arr: return arr  # noqa: E701
 
     j = 0  # 第一次遍历的时候,j指针记录非0的个数,只要是非0的统统都赋给nums[j]
 
@@ -16,6 +16,21 @@ def move_zero(arr):
         arr[z] = 0
 
     return arr
+
+
+# def move_zero02(arr):
+#     if not arr: return arr  # noqa: E701
+#
+#     j = 0  # 指向下一个非0元素应该放置的位置
+#
+#     for i in range(len(arr)):  # [1, 3, 0, 8, 0, 1]
+#         if arr[i]:
+#             # print(i)  0 1 3 5
+#             # print(j)  0 1 2 3
+#             arr[j], arr[i] = arr[i], arr[j]
+#             j += 1
+#
+#     return arr  # [1, 3, 8, 1, 0, 0]
 
 
 def max_len(arr):
@@ -52,18 +67,28 @@ def find_max(s: str):
     return max_num
 
 
-def func_index(arr, target):
-    """两数之和对应下标"""
+def two_sum(arr, target):
+    """两数只和下标"""
     hashmap = {}
 
     for index, value in enumerate(arr):
-        hashmap[value] = index
-
         if target - value in hashmap:
-            j = hashmap.get(target - value)
+            return hashmap[target - value], index  # 可以在找到结果时立即返回 不需要继续循环
+        hashmap[value] = index
+    return None
 
-            if j != index and j is not None:
-                return j, index
+
+# def func_index(arr, target):
+#     hashmap = {}
+#
+#     for index, value in enumerate(arr):
+#         hashmap[value] = index
+#
+#         if target - value in hashmap:
+#             j = hashmap.get(target - value)
+#
+#             if j != index:
+#                 return j, index
 
 
 # def func(ll, tar):
