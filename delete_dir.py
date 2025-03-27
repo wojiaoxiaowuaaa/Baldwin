@@ -5,7 +5,6 @@ from log_util import logger
 
 
 # import logging
-
 # 初始化配置（程序入口调用一次）
 # logger.initialize(level=logging.DEBUG, log_file="app.log")
 
