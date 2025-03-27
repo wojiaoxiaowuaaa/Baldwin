@@ -20,7 +20,7 @@ cp  -r  source_directory  destination_directory # 递归复制目录
 
 du  -sh  directory  # 显示目录的总大小
 
-tail  -f  demo.log  # 实时跟踪展示日志的最新内容
+tail  -f  demo.log  # 实时跟踪展示日志的最新内容less  demo.txt分页查看
 
 grep -ri "example" # 大小写不敏感,在指定目录中寻找字符串  ack(与grep类似可视化更好)
 
@@ -36,7 +36,6 @@ ps -ef | grep 3306  # 查看指定端口上的进程信息
 
 lsof -i:8089  # 查看端口上的进程信息 然后输入kill -9 pid 杀进程
 
-less  demo.txt  # 分页查看
 
 
 ----------------------------------------------------------------------------------------------
