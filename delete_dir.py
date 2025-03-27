@@ -34,7 +34,7 @@ def clean_dir(dir_path: str) -> None:
 def main(args: Optional[list[str]] = None) -> None:
     import sys
     if args is None:
-        args = sys.argv[1:]
+        args = sys.argv[1:]  # 获取终端传入的命令行参数(在这里是要删除的目录)list类型
 
     if args:
         abs_path = os.path.abspath(args[0])
