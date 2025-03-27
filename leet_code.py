@@ -1,6 +1,6 @@
 def move_zero(arr):
     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序.推导式"""
-    # return [i for i in arr if i] + [0]*arr.count(0)
+    # arr[:]表示在原列表的基础上修改跟赋值不同不会开辟新的内存空间.
     arr[:] = [i for i in arr if i] + [0] * arr.count(0)
 
 
@@ -117,16 +117,18 @@ def two_sum(arr, target):
 
 def find_all_indices(lst, element):
     """找列表中指定元素的下标.遍历列表中的每个元素,检查它是否等于我们要查找的元素,如果是,则将该元素的下标添加到列表中"""
-    res = [index for index, value in enumerate(lst) if value == element]
-    return res if res else "Not found"
+    # res = [index for index, value in enumerate(lst) if value == element]
+    # return res if res else "Not found"
+    # 下面这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用.
+    return lst.index(element) if element in lst else "Not Found"
 
 
-def find_index(lst, element):
-    """可以使用 list.index() 方法来查找列表中指定元素的下标.如果元素不在列表中,它会引发 ValueError 异常."""
-    try:
-        return lst.index(element)
-    except ValueError:
-        return "Not found"
+# def find_index(lst, element):
+#     """可以使用 list.index() 方法来查找列表中指定元素的下标.如果元素不在列表中,它会引发 ValueError 异常."""
+#     try:
+#         return lst.index(element)
+#     except ValueError:
+#         return "Not found"
 
 
 def fib(n):
