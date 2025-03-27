@@ -286,8 +286,7 @@ def count_letters(s):
 
 def reverse_int(x):
     """反转一个int类型 方法一&方法二"""
-    s = [i for i in str(x)][::-1]  # 列表反向切片
-    return int("".join(s))
+    return "".join([i for i in str(x)][::-1])
 
 
 def reverse_integer(number):
