@@ -247,7 +247,8 @@ def count_characters(file_path):
         return
 
     hashmap = sorted(hashmap.items(), key=lambda x: x[1], reverse=True)
-    return dict(hashmap)
+    res = hashmap[:10]
+    return dict(res)
 
 
 # def count_file(pwd):
@@ -274,18 +275,6 @@ def count_letters(s):
     return letter_dict
 
 
-# 示例字符串
-# input_string = "统计字符示例字符串,aabbcc 111"
-
-
-# 调用函数
-# result = count_letters(input_string)
-# 输出结果
-# for letter, count in result.items():
-#     print(f"'{letter}': {count}")
-# print(result)
-
-
 def reverse_int(x):
     """反转一个int类型 方法一&方法二"""
     return int("".join([i for i in str(x)][::-1]))
@@ -307,7 +296,10 @@ def filter_numbers(l):  # noqa: E741
     # return [i for i in l if i % 2 == 0 and l.index(i) % 2 == 0]
 
 
-# print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+def is_hui(num):
+    """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
+    return str(num) == str(num)[::-1]
+    # print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 
 # def is_prime(n):
@@ -366,8 +358,3 @@ def is_valid(s: str) -> bool:
             stack.append(char)
 
     return not stack  # 遍历结束后,如果栈为空,说明所有左括号都有对应的右括号,返回`True`;否则返回`False`,因为存在未闭合的左括号.
-
-
-def is_hui(num):
-    """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
-    return str(num) == str(num)[::-1]
