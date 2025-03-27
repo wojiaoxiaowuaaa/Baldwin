@@ -30,6 +30,8 @@ def move_zero(arr):
 #         if arr[i]:
 #             # print(i)  0 1 3 5
 #             # print(j)  0 1 2 3
+#             # 1.计算右边的表达式:会生成一个元组 (arr[i], arr[j])
+#             # 2.解包元组：将元组中的值分别赋给左边的变量 arr[j] 和 arr[i] 交换两个元素的位置
 #             arr[j], arr[i] = arr[i], arr[j]
 #             j += 1
 #
@@ -141,16 +143,16 @@ def fib(n):
 
 # for i in fib(10): print(i, end=" ")
 
-def func_di(numbs):
-    """
-    递归三原则
-    (1)递归算法必须有基本情况;(算法停止递归的条件)
-    (2)递归算法必须改变其状态并向基本情况靠近;
-    (3)递归算法必须递归地调用自己.
-    """
-    if len(numbs) == 1:
-        return numbs[0]
-    return numbs[0] + func_di(numbs[1:])
+# def func_di(numbs):
+#     """
+#     递归三原则
+#     (1)递归算法必须有基本情况;(算法停止递归的条件)
+#     (2)递归算法必须改变其状态并向基本情况靠近;
+#     (3)递归算法必须递归地调用自己.
+#     """
+#     if len(numbs) == 1:
+#         return numbs[0]
+#     return numbs[0] + func_di(numbs[1:])
 
 
 def func_sum(x):
@@ -161,15 +163,13 @@ def func_sum(x):
     4.递归效率不高,递归层次过多会导致栈溢出(在计算机中,函数调用是通过栈(stack)这种数据结构实现的,每当进入一个函数调用,栈就会加一层栈帧,每当函数返回,栈就会减一层栈帧.由于栈的大小不是无限的,所以,递归调用的次数过多,会导致栈溢出)
     5.递归的终止条件一般定义在递归函数内部, 在递归调用前要做一个条件判断, 根据判断的结果选择是继续调用自身, 还是return, 返回终止递归;"""
     if x > 0:
-        return x + func_di(x - 1)
+        return x + func_sum(x - 1)
     else:
         return 0
 
 
-# print(func_sum(100))
-
 # def recursive_function():
-# return recursive_function()  # 无限递归
+#   return recursive_function()  # 无限递归
 # try:
 #     recursive_function()
 # except RecursionError as e:
@@ -301,10 +301,10 @@ def reverse_integer(number):
     return int(result)
 
 
-def filter_numbers(l):
+def filter_numbers(l):  # noqa: E741
     """处理输入的列表  要求返回的新列表中的每个元素都是偶数&&该元素在原list中的下标也是偶数"""
-    # return [number for index, number in enumerate(l) if index % 2 == 0 and number % 2 ==0]
-    return [i for i in l if i % 2 == 0 and l.index(i) % 2 == 0]
+    return [number for index, number in enumerate(l) if index % 2 == 0 and number % 2 == 0]
+    # return [i for i in l if i % 2 == 0 and l.index(i) % 2 == 0]
 
 
 # print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))

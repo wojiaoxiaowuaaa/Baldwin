@@ -1,4 +1,4 @@
-# 过设置 PYTHONPATH 环境变量,你可以指定 Python 解释器在查找模块和包时应该搜索的目录.这使得你能够在自定义目录中组织和管理你的 Python 模块和包,而不需要将它们复制到标准库路径或当前脚本目录中.  export PYTHONPATH="/Users/wl/Downloads/Baldwin:$PYTHONPATH"
+# 过设置 PYTHONPATH 环境变量,你可以指定 Python 解释器在查找模块和包时应该搜索的目录.这使得你能够在自定义目录中组织和管理你的 Python 模块和包,而不需要将它们复制到标准库路径或当前脚本目录中.  export PYTHONPATH="/Users/wl/Downloads/Baldwin:$PYTHONPATH" (写到.zshrc文件中可永久生效)
 
 # mac下的brew安装的解释器路径: /usr/local/Cellar/python@3.13/3.13.1/Frameworks/Python.framework/Versions/3.13/bin
 
