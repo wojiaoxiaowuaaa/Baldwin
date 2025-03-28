@@ -1,3 +1,18 @@
+def func_max_diff(arr):
+    """查找数组中从左到右的最大差值"""
+    if not arr: return 0  # noqa: E701
+
+    max_diff = 0  # 初始化的最大差值为0
+    min_num = arr[0]  # 初始化的最小数为列表中的第一个元素
+
+    for i in range(len(arr)):
+        min_num = min(min_num, arr[i])
+        cur_diff = arr[i] - min_num
+        max_diff = max(cur_diff, max_diff)
+
+    return max_diff
+
+
 def move_zero(arr):
     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序.推导式"""
     # arr[:]表示在原列表的基础上修改跟赋值不同不会开辟新的内存空间.
