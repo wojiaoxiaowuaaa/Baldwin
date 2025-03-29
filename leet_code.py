@@ -1,5 +1,5 @@
 def func_max_diff(arr):
-    """查找数组中从左到右的最大差值"""
+    """从左到右 查找数组中从左到右的最大差值"""
     if not arr: return 0  # noqa: E701
 
     max_diff = 0  # 初始化的最大差值为0
