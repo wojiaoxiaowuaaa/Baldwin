@@ -53,7 +53,7 @@ def move_zero(arr):
 #     return arr  # [1, 3, 8, 1, 0, 0]
 
 def max_len(arr):
-	"""在一个数组中找到最长的连续子序列的长度"""
+    """在一个数组中找到最长的连续子序列的长度"""
     if not arr: return 0
 
     arr = set(arr)
