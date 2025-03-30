@@ -24,7 +24,6 @@ def move_zero(arr):
 #     if not arr: return arr  # noqa: E701
 #
 #     j = 0  # 第一次遍历的时候,j指针记录非0的个数,只要是非0的统统都赋给nums[j]
-#
 #     for i in range(len(arr)):
 #         if arr[i]:
 #             arr[j] = arr[i]
