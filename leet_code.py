@@ -98,6 +98,13 @@ def two_sum(arr, target):
     return None
 
 
+# def find_index(arr, target):
+#     for i in range(len(arr)):
+#         res = target - arr[i]
+#         if res in arr[i + 1:]:
+#             return i, arr[i + 1:].index(res) + i + 1
+
+
 # def func_index(arr, target):
 #     hashmap = {}
 #
