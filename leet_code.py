@@ -51,22 +51,22 @@ def move_zero(arr):
 #
 #     return arr  # [1, 3, 8, 1, 0, 0]
 
-def max_len(arr):
-    """在一个数组中找到最长的连续子序列的长度"""
-    if not arr: return 0
-
-    arr = set(arr)
-    max_len = 0  # 初始化最长连续子序列长度
-
-    for i in arr:
-        if i - 1 not in arr:  # 找到一个连续子序列的起始点
-            cur_len = 1
-            while (i + 1) in arr:  # 检查后续的连续数字
-                cur_len += 1
-                i += 1
-            max_len = max(max_len, cur_len)  # 更新最长连续子序列长度
-
-    return max_len  # 返回最终结果
+# def max_len(arr):
+#     """在一个数组中找到最长的连续子序列的长度"""
+#     if not arr: return 0  # noqa: E701
+#
+#     arr = set(arr)
+#     max_len = 0  # 初始化最长连续子序列长度
+#
+#     for i in arr:
+#         if i - 1 not in arr:  # 找到一个连续子序列的起始点
+#             cur_len = 1
+#             while (i + 1) in arr:  # 检查后续的连续数字
+#                 cur_len += 1
+#                 i += 1
+#             max_len = max(max_len, cur_len)  # 更新最长连续子序列长度
+#
+#     return max_len  # 返回最终结果
 
 
 def max_len(arr):
