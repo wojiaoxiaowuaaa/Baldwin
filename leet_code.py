@@ -155,12 +155,12 @@ def two_sum(arr, target):
 #                 return arr.index(i), arr.index(j)
 
 
-def find_all_indices(lst, element):
-    """找列表中指定元素的下标.遍历列表中的每个元素,检查它是否等于我们要查找的元素,如果是,则将该元素的下标添加到列表中"""
-    # res = [index for index, value in enumerate(lst) if value == element]
-    # return res if res else "Not found"
-    # 下面这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用.
-    return lst.index(element) if element in lst else "Not Found"
+# def find_all_indices(lst, element):
+#     """找列表中指定元素的下标.遍历列表中的每个元素,检查它是否等于我们要查找的元素,如果是,则将该元素的下标添加到列表中"""
+#     # res = [index for index, value in enumerate(lst) if value == element]
+#     # return res if res else "Not found"
+#     # 下面这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用.
+#     return lst.index(element) if element in lst else "Not Found"
 
 
 # def find_index(lst, element):
@@ -279,16 +279,16 @@ def count_characters(file_path):
 #     return count
 
 
-def count_letters(s):
-    """统计字符串中字母出现的次数"""
-    letter_dict = {}
-    for char in s:
-        if char.isalpha():  # 判断字符是否为字母(中文+英文)
-            if char in letter_dict:
-                letter_dict[char] += 1
-            else:
-                letter_dict[char] = 1
-    return letter_dict
+# def count_letters(s):
+#     """统计字符串中字母出现的次数"""
+#     letter_dict = {}
+#     for char in s:
+#         if char.isalpha():  # 判断字符是否为字母(中文+英文)
+#             if char in letter_dict:
+#                 letter_dict[char] += 1
+#             else:
+#                 letter_dict[char] = 1
+#     return letter_dict
 
 
 def reverse_int(x):
@@ -296,26 +296,26 @@ def reverse_int(x):
     return int("".join([i for i in str(x)][::-1]))
 
 
-def reverse_integer(number):
-    arr = list(str(number))  # 将str转换为list(注:int类型不可以直接转为list会报错TypeError: 'int' object is not iterable)
-    # l.reverse()
-    # return ''.join(l)
-    result = ""
-    while len(arr) > 0:
-        result += arr.pop()  # 出栈
-    return int(result)
+# def reverse_integer(number):
+#     arr = list(str(number))  # 将str转换为list(注:int类型不可以直接转为list会报错TypeError: 'int' object is not iterable)
+#     # l.reverse()
+#     # return ''.join(l)
+#     result = ""
+#     while len(arr) > 0:
+#         result += arr.pop()  # 出栈
+#     return int(result)
 
 
-def filter_numbers(l):  # noqa: E741
-    """处理输入的列表  要求返回的新列表中的每个元素都是偶数&&该元素在原list中的下标也是偶数"""
-    return [number for index, number in enumerate(l) if index % 2 == 0 and number % 2 == 0]
-    # return [i for i in l if i % 2 == 0 and l.index(i) % 2 == 0]
+# def filter_numbers(l):  # noqa: E741
+#     """处理输入的列表  要求返回的新列表中的每个元素都是偶数&&该元素在原list中的下标也是偶数"""
+#     return [number for index, number in enumerate(l) if index % 2 == 0 and number % 2 == 0]
+#     # return [i for i in l if i % 2 == 0 and l.index(i) % 2 == 0]
 
 
-def is_hui(num):
-    """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
-    return str(num) == str(num)[::-1]
-    # print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+# def is_hui(num):
+#     """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
+#     return str(num) == str(num)[::-1]
+#     # print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
 
 # def is_prime(n):
