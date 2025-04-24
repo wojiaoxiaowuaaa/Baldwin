@@ -28,7 +28,7 @@ def clean_dir(dir_path: str) -> None:
         except Exception as e:
             logger.error(f"Error during clean up: {e}")
     else:
-        logger.warning(f"Directory '{dir_path}' does not exist.")
+        logger.error(f"Directory '{dir_path}' does not exist.")
 
 
 def main(args: Optional[list[str]] = None) -> None:
