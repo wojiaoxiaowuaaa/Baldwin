@@ -1,4 +1,4 @@
-sudo netstat -tuln | grep 5000 # 查看5000端口是否开放
+sudo netstat -tuln | grep 5000 # 监听指定端口的流量信息
 
 git checkout feature/wl03 && git reset --hard origin/master && git push origin feature/wl03 --force  # 废弃本地的内容与远程的master分支同步（三步）
 
