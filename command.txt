@@ -79,6 +79,6 @@ pytest -sv # 运行打印输出详细的测试细节
 ----------------------------------------------------------------------------------------------
 https://ollama.com/
 
-https://www.ddooo.com/az/13_1.html
+https://www.ddooo.com  
 
 https://www.trae.com.cn/home
