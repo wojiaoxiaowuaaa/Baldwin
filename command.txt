@@ -39,7 +39,6 @@ ps -ef | grep 3306  # 查看指定端口上的进程信息
 lsof -i:8089  # 查看端口上的进程信息 然后输入kill -9 pid 杀进程
 
 
-
 ----------------------------------------------------------------------------------------------
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
 
@@ -58,6 +57,8 @@ tspin demo.log  # 查看 日志
 tl  demo.log   (pip3 install toolong)  # 日志/json查看工具
 
 brew install android-platform-tools  # 安装adb工具(查看版本adb version)
+
+brew --prefix docker # 查看docker的安装位置
 
 python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
 
