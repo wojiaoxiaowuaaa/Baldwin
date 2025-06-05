@@ -1,18 +1,5 @@
 sudo netstat -tuln | grep 5000 # 监听指定端口的流量信息，可以用 ss -tuln | grep :5000替代
 
-git checkout feature/wl03 && git reset --hard origin/master && git push origin feature/wl03 --force  # 废弃本地的内容与远程的master分支同步（三步）
-
-git restore # 回滚
-
-git  pull origin  master  # 同步远程的master内容到本地
-
-git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致
-
-git checkout -b develop origin/develop  # 克隆后切换分支 然后同步git pull origin develop
-
-git rebase --abort && git fetch origin && git reset --hard origin/master && git push origin feature/wlfenzhi --force
-
-
 ----------------------------------------------------------------------------------------------
 top -o mem # 内存占用排序
 
@@ -75,6 +62,20 @@ pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip con
 /usr/local/bin/chromedriver  # 驱动位置
 
 pytest -sv # 运行打印输出详细的测试细节
+
+
+----------------------------------------------------------------------------------------------
+git checkout feature/wl03 && git reset --hard origin/master && git push origin feature/wl03 --force  # 废弃本地的内容与远程的master分支同步（三步）
+
+git restore # 回滚
+
+git  pull origin  master  # 同步远程的master内容到本地
+
+git fetch origin && git reset --hard origin/master && git clean -fd  # 废弃本地所有未提交的更改并于远程分支最新的额内容保持一致
+
+git checkout -b develop origin/develop  # 克隆后切换分支 然后同步git pull origin develop
+
+git rebase --abort && git fetch origin && git reset --hard origin/master && git push origin feature/wlfenzhi --force
 
 
 ----------------------------------------------------------------------------------------------
