@@ -79,8 +79,6 @@ git rebase --abort && git fetch origin && git reset --hard origin/master && git 
 
 
 ----------------------------------------------------------------------------------------------
-https://ollama.com/
-
 软件网站： https://www.ddooo.com  
 
 油猴脚本： https://www.userscript.zone/  
