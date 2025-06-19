@@ -49,6 +49,8 @@ brew --prefix docker # 查看docker的安装位置
 
 python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
 
+python3 -m http.server --bind 0.0.0.0 8080
+
 python3 -m pip install demo # 如果pip安装包后提示找不到可以用改方法来安装
 
 pip3 install -r requirements.txt  # 从txt中安装-r是必须的
