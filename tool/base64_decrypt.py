@@ -114,7 +114,8 @@ def get_md5(username, str):
 
 
 def video_md5(pwd):
-    """获取视频的md5值 节约内存型"""
+    """获取md5值 节约内存型"""
+    # hash_obj = hashlib.sha1()
     md5_hash = hashlib.md5()
     with open(pwd, "rb") as f:
         while chunk := f.read(4096):
