@@ -41,6 +41,7 @@ Base64 编码是一种将二进制数据转换为可打印字符的编码方式.
 6. 编码可打印字符:** Base64 编码将二进制数据转换为由字母、数字和少数几个特殊字符组成的可打印字符串,这使得它适用于那些只能处理文本数据的场景.
 7. 数据处理和显示:** 在某些情况下,将二进制数据转换为 Base64 编码后,可以更方便地在文本环境中处理、显示和复制粘贴数据"""
 
+import os
 import base64
 import json
 import hashlib
@@ -60,13 +61,10 @@ def encode_to_base64(fields):
     try:
         # 将字典转为 JSON 字符串
         json_str = json.dumps(fields)
-
         # 对 JSON 字符串进行UTF-8编码 得到字节对象bytes
         json_data_encoded = json_str.encode("utf-8")
-
         # 对 UTF-8 编码后的bytes数据进行 Base64 编码
         base64_encoded = base64.b64encode(json_data_encoded).decode()  # decode('utf-8') 是将字节序列转换为字符串的方法,使用 UTF-8 编码格式.
-
         return base64_encoded
     except Exception as e:
         print(f"Error: {e}")
@@ -91,16 +89,14 @@ def encode_image_to_base64(image_path):
 
 def calculate_md5(file_path, block_size=1024):
     md5 = hashlib.md5()
-    with open(
-            file_path, "rb"
-    ) as file:  # 二进制模式意味着文件将以字节流的形式读取,而不是文本.
-        for block in iter(
-                lambda: file.read(block_size), b""
-        ):  # 创建一个迭代器,该迭代器会重复调用 lambda: file.read(block_size),直到返回值为 b''(空字节串,即文件末尾)迭代器停止.
-            md5.update(
-                block
-            )  # 这个方法会更新 MD5 对象的状态,考虑到了新的数据块.在整个文件读取过程中,这个方法会不断更新 MD5 对象,将所有的数据块一一加入计算.
-    return md5.hexdigest()  # 获取 MD5 摘要的十六进制表示
+    # 二进制模式意味着文件将以字节流的形式读取,而不是文本.
+    with open(file_path, "rb") as file:
+        # 创建一个迭代器,该迭代器会重复调用 lambda: file.read(block_size) 直到返回值为 b''(空字节串,即文件末尾)迭代器停止.
+        for block in iter(lambda: file.read(block_size), b""):
+            # 这个方法会更新 MD5 对象的状态,考虑到了新的数据块.在整个文件读取过程中,这个方法会不断更新 MD5 对象,将所有的数据块一一加入计算.
+            md5.update(block)
+    # 获取 MD5 摘要的十六进制表示
+    return md5.hexdigest()
 
 
 def get_md5(username, str):
@@ -123,19 +119,17 @@ def video_md5(pwd):
     print(md5_hash.hexdigest())
 
 
-def md5_video(pwd):
-    """获取视频的md5 快速型(一次性加载全部数据到内存)
-    Python的内存管理是基于引用计数和垃圾回收的,一次性读取大文件可能会导致整个文件的内容都存储在内存中,占用大量的内存空间.如果文件过大,超出了系统的可用内存限制,就会导致内存溢出
-    """
-    with open(pwd, "rb") as f:
-        md5 = hashlib.md5(f.read()).hexdigest()
-    print(md5)
+# def md5_video(pwd):
+#     """获取视频的md5 快速型(一次性加载全部数据到内存)
+#     Python的内存管理是基于引用计数和垃圾回收的,一次性读取大文件可能会导致整个文件的内容都存储在内存中,占用大量的内存空间.如果文件过大,超出了系统的可用内存限制,就会导致内存溢出
+#     """
+#     with open(pwd, "rb") as f:md5 = hashlib.md5(f.read()).hexdigest()
 
 
 if __name__ == "__main__":
-    encoded_result = encode_to_base64({"name": "John Doe", "age": 30, "city": "New York"})
+    # encoded_result = encode_to_base64({"name": "John Doe", "age": 30, "city": "New York"})
     # print("编码后的文本数据:", encoded_result)
     # md5_value = calculate_md5(os.path.abspath(__file__))
-    # print(md5_value)
+    print(calculate_md5(''))
 
 
