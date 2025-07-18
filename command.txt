@@ -61,10 +61,11 @@ cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://
 
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip config set global.extra-index-url https://pypi.org/simple
 
-/usr/local/bin/chromedriver  # 驱动位置
+/usr/local/bin/chromedriver  
 
 pytest -sv # 运行打印输出详细的测试细节
 
+uv python list
 
 ----------------------------------------------------------------------------------------------
 git checkout feature/wl03 && git reset --hard origin/master && git push origin feature/wl03 --force  # 废弃本地的内容与远程的master分支同步（三步）
