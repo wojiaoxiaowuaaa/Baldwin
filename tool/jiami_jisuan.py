@@ -1,14 +1,10 @@
 """
-Base64 编码是一种基于64个可打印字符来表示二进制数据的编码方法.它广泛应用于需要将二进制数据转换为文本格式的场景,
-如在URL、电子邮件和Web应用中传输数据.
+Base64 编码是一种基于64个可打印字符来表示二进制数据的编码方法.它广泛应用于需要将二进制数据转换为文本格式的场景,如在URL、电子邮件和Web应用中传输数据.
 经过 Base64 编码的二进制数据可以解码成原始的数据形式,包括 JSON 数据 Base64 编码只是一种将二进制数据转换为文本的方式,而在解码时,
-你可以将 Base64 编码的数据还原成原始的二进制数据,然后根据数据的格式解析.
-通常情况下,如果你需要在二进制数据和文本之间进行转换,可以使用 Base64 编码和解码.
-例如,当你想在 JSON 数据中嵌入二进制数据(如图片、音频等)时,可以将二进制数据进行 Base64 编码,然后将编码后的Base64字符串嵌入到JSON中
-在接收端,你可以将 Base64 字符串解码成二进制数据,然后进行处理.
+你可以将 Base64 编码的数据还原成原始的二进制数据,然后根据数据的格式解析.通常情况下,如果你需要在二进制数据和文本之间进行转换,可以使用 Base64 编码和解码.
+例如,当你想在 JSON 数据中嵌入二进制数据(如图片、音频等)时,可以将二进制数据进行 Base64 编码,然后将编码后的Base64字符串嵌入到JSON中在接收端,你可以将 Base64 字符串解码成二进制数据,然后进行处理.
 以下是一个简单的示例,演示了如何在 JSON 数据中嵌入经过 Base64 编码的二进制数据:
-# 假设这是要嵌入的二进制数据b"Hello, World!"
-# 将图片读取为二进制数据 并使用海象操作符将其保存到变量binary_data中 <class 'bytes'>
+# 假设这是要嵌入的二进制数据b"Hello, World!" 将图片读取为二进制数据 并使用海象操作符将其保存到变量binary_data中 <class 'bytes'>
 with open("../config/soft.png", "rb") as f: (binary_data := f.read())
 
 # 将二进制数据进行 Base64 编码
@@ -33,7 +29,7 @@ decoded_binary_data = base64.b64decode(received_base64_encoded.encode("utf-8"))
 print(decoded_binary_data)
 
 Base64 编码是一种将二进制数据转换为可打印字符的编码方式.它在计算机科学和网络通信中有许多用途和好处:
-1. 数据传输:** Base64 编码常用于将二进制数据在不同系统之间进行传输,特别是在网络通信中.因为某些字符在网络传输中可能会被解释为控制字符或特殊字符,使用 Base64 编码可以确保数据在不同环境中保持一致,避免数据损坏或解释错误.
+1. 数据传输:** Base64 编码常用于将二进制数据在不同系统之间进行输,特别是在网络通信中.因为某些字符在网络传输中可能会被解释为控制字符或特殊字符,使用 Base64 编码可以确保数据在不同环境中保持一致,避免数据损坏或解释错误.
 2. 电子邮件附件:** 电子邮件文本仅支持 ASCII 字符,如果要将二进制文件(如图片、音频、视频等)作为邮件附件发送,可以使用 Base64 编码将其转换为可嵌入文本的形式.
 3. URL 参数:** URL 中不能直接包含一些特殊字符,例如 `/`、`?` 等.如果你需要将数据传递给 URL,可以使用 Base64 编码将其转换为安全的 URL 参数.
 4. 存储敏感数据:** 尽管 Base64 编码并不加密数据,但它可以在一定程度上隐藏原始数据的内容,适用于存储一些敏感但不需要高级加密的信息,如 API 密钥或令牌.
@@ -84,7 +80,7 @@ def encode_image_to_base64(image_path):
             return encoded_image
     except Exception as e:
         print(f"Error: {e}")
-        return None
+        return
 
 
 def calculate_md5(file_path, block_size=1024):
@@ -101,22 +97,20 @@ def calculate_md5(file_path, block_size=1024):
 
 def get_md5(username, str):
     """MD5加密处理"""
-    str = username + str + MD5_SALT  # 把用户名也作为str加密的一部分
+    str_res = username + str + MD5_SALT  # 把用户名也作为str加密的一部分
     md5 = hashlib.md5()  # 创建md5对象
-    md5.update(str.encode("utf-8"))  # Python3中需要先转换为 bytes 类型,才能加密
-    return (
-        md5.hexdigest()
-    )  # 计算输入数据的 MD5 哈希值,并将其以十六进制字符串的形式返回.
+    md5.update(str_res.encode("utf-8"))  # Python3中需要先转换为 bytes 类型,才能加密
+    return md5.hexdigest()  # 计算输入数据的 MD5 哈希值,并将其以十六进制字符串的形式返回.
 
 
-def video_md5(pwd):
+def video_hash(pwd):
     """获取md5值 节约内存型"""
-    # hash_obj = hashlib.sha1()
-    md5_hash = hashlib.md5()
+    hash_obj = hashlib.sha1()
+    # hash_obj = hashlib.md5()
     with open(pwd, "rb") as f:
         while chunk := f.read(4096):
-            md5_hash.update(chunk)
-    print(md5_hash.hexdigest())
+            hash_obj.update(chunk)
+    print(hash_obj.hexdigest())
 
 
 # def md5_video(pwd):
@@ -128,8 +122,4 @@ def video_md5(pwd):
 
 if __name__ == "__main__":
     # encoded_result = encode_to_base64({"name": "John Doe", "age": 30, "city": "New York"})
-    # print("编码后的文本数据:", encoded_result)
-    # md5_value = calculate_md5(os.path.abspath(__file__))
-    print(calculate_md5(''))
-
-
+    print(video_hash(""))
