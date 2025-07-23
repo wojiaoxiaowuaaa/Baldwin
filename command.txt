@@ -61,7 +61,7 @@ cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://
 
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip config set global.extra-index-url https://pypi.org/simple
 
-/usr/local/bin/chromedriver  
+/usr/local/bin/chromedriver
 
 pytest -sv # 运行打印输出详细的测试细节
 

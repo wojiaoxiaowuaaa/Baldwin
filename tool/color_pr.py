@@ -42,6 +42,7 @@ def color_print_red(s="-"):
     """打印自定义彩色字符"""
     print("\033[1;31m" + s * 30 + "\033[0m")
 
+
 def show_color_demo():
     print("\033[31m    \033[0m")
     print("\033[31mThis is red text\033[0m")
@@ -58,8 +59,6 @@ def show_color_demo():
     print("\033[45m\033[37mThis is white text on purple background\033[0m")
     print("\033[46m\033[37mThis is white text on cyan background\033[0m")
     print("\033[42m\033[37mThis is white text on green background\033[0m")
-    
-
 
 
 if __name__ == "__main__":

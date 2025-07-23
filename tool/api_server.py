@@ -134,8 +134,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 if not os.path.exists(UPLOAD_FOLDER): os.makedirs(UPLOAD_FOLDER)
 
-def allowed_file(filename:str) -> bool:
+
+def allowed_file(filename: str) -> bool:
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route('/')
 def index():
@@ -147,9 +149,10 @@ def index():
       <input type=submit value=Upload>
     </form>''')
 
+
 @app.route('/', methods=['POST'])
 def upload_file():
-    logger.info(request.files)  # ImmutableMultiDict([('file', <FileStorage: '02取换电派单格口.txt' ('text/plain')>)])
+    # logger.info(request.files)  # ImmutableMultiDict([('file', <FileStorage: '02取换电派单格口.txt' ('text/plain')>)])
     if 'file' not in request.files:
         return redirect(request.url)
     file = request.files['file']
@@ -162,13 +165,11 @@ def upload_file():
         return redirect(url_for('uploaded_file', filename=filename))
     return redirect(request.url)
 
+
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
