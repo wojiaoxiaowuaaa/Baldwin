@@ -47,6 +47,7 @@ async def main():
         tasks = [fetch(session, url) for url in DOMAINS]
         results1 = []
         for coro in tqdm.as_completed(tasks, total=len(tasks), desc="访问网站中"):
+            # result是协程的返回值（字典类型的数据包含了请求的详细数据）
             result = await coro
             results1.append(result)
         return results1
