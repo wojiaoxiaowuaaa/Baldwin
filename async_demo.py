@@ -20,7 +20,7 @@ DOMAINS = [
 
 # 可选：启用 HTTP/HTTPS 代理
 USE_PROXY = False
-PROXY_URL = 'http://127.0.0.1:7890'  # 你可以改成自己代理地址（如 clash）
+PROXY_URL = 'http://127.0.0.1:7890'  
 
 
 # 请求函数，带响应时间统计
