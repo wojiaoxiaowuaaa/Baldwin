@@ -25,6 +25,9 @@ ps -ef | grep 3306  # 查看指定端口上的进程信息
 
 lsof -i:8089  # 查看端口上的进程信息 然后输入kill -9 pid  杀进程
 
+只输出当前主机的 IPv4 地址（简洁版）：hostname -I  (完整版 ip a）
+
+查看公网 IP（需联网）  curl ifconfig.me / curl ipinfo.io/ip
 
 ----------------------------------------------------------------------------------------------
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
