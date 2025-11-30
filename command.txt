@@ -29,6 +29,8 @@ lsof -i:8089  # 查看端口上的进程信息 然后输入kill -9 pid  杀进�
 
 查看公网 IP（需联网）  curl ifconfig.me / curl ipinfo.io/ip
 
+sudo launchctl list | grep com.company.test.service  # MAC查看服务
+
 ----------------------------------------------------------------------------------------------
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
 
