@@ -330,7 +330,7 @@ if __name__ == "__main__":
     # print(f"File size: {file_size} KB")
 
     # 批量去除文件名中的特殊字符
-    # directory_path = "../config/pic"
+    # directory_path = "../data/pic"
     # rename_files_in_directory(directory_path)
 
     # 排除的文件列表
@@ -342,7 +342,7 @@ if __name__ == "__main__":
     # for i in (var := find_file01(Path.cwd().parent, "*.py")): print(i)
     # find_file02("__init__.py", "/Users/wl/Downloads")
 
-    # download_images_from_file("../config/url.txt", "../config/pic")
+    # download_images_from_file("../data/url.txt", "../data/pic")
 
     # (
     #     logger.info(f"The size of the file '{pic}' is: {calculate_file_size(pic)} MB")

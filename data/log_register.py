@@ -25,7 +25,7 @@ NOTSET = 0
 
 CURRENT_PATH: str = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH: str = os.path.join(CURRENT_PATH, os.pardir)
-LOG_PATH: str = os.path.join(ROOT_PATH, "config/log")
+LOG_PATH: str = os.path.join(ROOT_PATH, "data/log")
 
 if not os.path.exists(LOG_PATH):
     """

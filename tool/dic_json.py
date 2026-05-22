@@ -11,7 +11,7 @@
 #         return data
 #
 #
-# json_file = f'{os.path.dirname(__file__)}/config/demo.json'
+# json_file = f'{os.path.dirname(__file__)}/data/demo.json'
 # data = func(json_file)
 # print(data)
 

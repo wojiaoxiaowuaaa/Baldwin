@@ -12,7 +12,7 @@
 
 # wl_dir = Path(__file__).resolve().parents[2]
 
-# with open('config/config.toml', 'r') as f: config = toml.load(f)
+# with open('data/data.toml', 'r') as f: data = toml.load(f)
 
 # from tool import replace_punctuation_in_file
 # replace_punctuation_in_file("/Users/wl/Downloads/Baldwin/wl_mt.py")  # 文件标点替换

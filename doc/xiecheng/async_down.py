@@ -40,7 +40,7 @@ async def download_and_save(url, session):
 async def main():
     urls = []
     # 读取文件中的 URL 添加到列表中
-    with open("../config/doc.txt", "r") as f:
+    with open("../data/doc.txt", "r") as f:
         for i in f:
             urls.append(i.strip())
 

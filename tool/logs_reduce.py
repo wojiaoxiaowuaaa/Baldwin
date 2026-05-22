@@ -39,4 +39,4 @@ def logs_reduce(pwd):
 
 
 if __name__ == "__main__":
-    logs_reduce("config/logs.txt")
+    logs_reduce("data/logs.txt")

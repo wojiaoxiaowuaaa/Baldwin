@@ -335,9 +335,9 @@ def reverse_int(x):
 #     2. elif 语句:是"else if"的缩写,用于在前面的 if 或 elif 条件不满足时,检查另一个条件.如果 elif 条件为真,则执行 elif 代码块中的语句.
 #     3. else 语句:用于在所有前面的 if 和 elif 条件都不满足时执行代码块"""
 #     filenames = (
-#         "../config/log/aaa.txt",
-#         "../config/log/aaab.txt",
-#         "../config/log/aaac.txt",
+#         "../data/log/aaa.txt",
+#         "../data/log/aaab.txt",
+#         "../data/log/aaac.txt",
 #     )
 #     l = []
 #     try:

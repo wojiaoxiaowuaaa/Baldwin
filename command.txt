@@ -1,5 +1,3 @@
-
-
 sudo netstat -tuln | grep 5000 # 监听指定端口的流量信息，可以用 ss -tuln | grep :5000替代
 
 top -o mem  # 内存占用排序
@@ -78,6 +76,7 @@ pytest -sv # 运行打印输出详细的测试细节
 
 uv python list
 
+
 ----------------------------------------------------------------------------------------------
 git checkout feature/wl03 && git reset --hard origin/master && git push origin feature/wl03 --force  # 废弃本地的内容与远程的master分支同步（三步）
 
@@ -91,8 +90,3 @@ git checkout -b develop origin/develop  # 克隆后切换分支 然后同步git 
 
 git rebase --abort && git fetch origin && git reset --hard origin/master && git push origin feature/wlfenzhi --force
 
-
-----------------------------------------------------------------------------------------------
-软件网站： https://www.ddooo.com  
-
-油猴脚本： https://www.userscript.zone/  
