@@ -1,3 +1,5 @@
+
+
 sudo netstat -tuln | grep 5000 # 监听指定端口的流量信息，可以用 ss -tuln | grep :5000替代
 
 top -o mem  # 内存占用排序
