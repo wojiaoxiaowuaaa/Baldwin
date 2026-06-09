@@ -35,7 +35,7 @@ sudo launchctl list | grep com.company.test.service  # MAC查看服务
 sudo find / -xdev -type f -size +1G -print 2>/dev/null  # 从根目录开始找大于 1G 的文件
 
 susudo dscacheutil -flushcache
-sudo killall -HUP mDNSResponder  # 清空缓存红重启DNS
+sudo killall -HUP mDNSResponder  # 清空缓存重启DNS
 
 
 ----------------------------------------------------------------------------------------------
