@@ -34,6 +34,9 @@ sudo launchctl list | grep com.company.test.service  # MAC查看服务
 
 sudo find / -xdev -type f -size +1G -print 2>/dev/null  # 从根目录开始找大于 1G 的文件
 
+susudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder  # 清空缓存红重启DNS
+
 
 ----------------------------------------------------------------------------------------------
 sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
