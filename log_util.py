@@ -171,4 +171,6 @@ class GlobalLogger:
 # 默认导出接口
 logger = GlobalLogger
 
-# for i in dir(logger): logger.info(i)
+# 可选:程序入口处配置一次
+# from log_util import logger
+# logger.initialize(level=logging.INFO, log_file="run.log")
