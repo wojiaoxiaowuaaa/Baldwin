@@ -1,10 +1,3 @@
-"""
-sys.path 是一个列表,它指定了 Python 在导入模块时会搜索的目录.当你尝试导入一个模块时,Python 会按照 sys.path 中的目录顺序依次查找模块文件. sys.path.append(os.path.abspath('.'))  
-sys.path.append(path) 是将指定的路径 path 添加到 sys.path 列表中.这通常用于确保 Python 解释器能够找到项目中的模块,特别是当项目的某个模块需要被其他模块导入时.类似的能力site.addsitedir('')亦可实现
-sys.path.insert 添加的路径在程序运行期间有效,程序退出后失效. 如: sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-将当前文件所在路径,添加到Python路径的最前面:  if (BASE_PATH := os.path.abspath(".")) not in sys.path: sys.path.insert(0, BASE_PATH)
-"""
-
 import logging
 from logging.handlers import RotatingFileHandler
 from typing import Optional
@@ -54,9 +47,9 @@ class EnhancedColoredFormatter(logging.Formatter):
 
 class GlobalLogger:
     """全局日志管理器GlobalLogger是一个功能强大的全局日志管理器，支持单例模式、控制台和文件日志输出、日志轮转、带颜色的日志输出等功能。
-    它的设计简化了日志的使用，提供了统一的日志管理接口，非常适合在中大型项目中使用。"""
+    它的设计简化了日志的使用，提供了统一的日志管理接口，非常适合在中大型项目中使用"""
 
-    _instance = None
+    _instance = None  # print(GlobalLogger._instance.__dict__)  {'_initialized': True, 'logger': <Logger GlobalEnhancedLogger (DEBUG)>}
 
     DEFAULT_FORMAT = (
         "[%(asctime)s] "
@@ -75,6 +68,7 @@ class GlobalLogger:
 
     def __init__(
             self,
+            # 全是局部变量 不是实例属性。它们用完后通过 self.logger.addHandler(...) 挂到了 logger 对象内部,本身不会留在 _instance 上。
             level: int = logging.DEBUG,
             fmt: str = DEFAULT_FORMAT,
             datefmt: str = DEFAULT_DATEFMT,
@@ -87,7 +81,8 @@ class GlobalLogger:
             return
         self._initialized = True
 
-        # 创建主logger
+        # 创建主logger 实例属性 GlobalLogger._instance.logger
+        # 这里给实例动态绑定了一个名为 logger 的属性(就是标准库的 logging.Logger 对象)。Python 是动态语言,实例属性不需要在类里预先声明,赋值即创建
         self.logger = logging.getLogger("GlobalEnhancedLogger")
         self.logger.setLevel(level)
         self.logger.handlers.clear()
@@ -130,7 +125,7 @@ class GlobalLogger:
             log_file: Optional[str] = None,
             **kwargs,
     ):
-        """初始化配置(程序启动时调用)"""
+        """初始化配置(程序启动时调用)cls(...) 等价于 GlobalLogger(...)即实例化一次"""
         cls(
             level=level,
             fmt=fmt,
@@ -144,7 +139,7 @@ class GlobalLogger:
     def get_logger() -> logging.Logger:
         """获取日志实例"""
         if not GlobalLogger._instance:
-            GlobalLogger.initialize()  # 默认初始化
+            GlobalLogger.initialize()  # 触发 __new__ + __init__
         return GlobalLogger._instance.logger
 
     @staticmethod
@@ -171,6 +166,4 @@ class GlobalLogger:
 # 默认导出接口
 logger = GlobalLogger
 
-# 可选:程序入口处配置一次
-# from log_util import logger
-# logger.initialize(level=logging.INFO, log_file="run.log")
+# for i in dir(logger): logger.info(i)
