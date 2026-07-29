@@ -22,7 +22,7 @@ grep demo test.log  # 在文件中查找指定字符串
 
 find  .  -name  "*.py"  # 递归查找当前目录及其子目录下的指定后缀的文件
  
-find .  -size  +100M  # 递归查找当前目录及其子目录下大于10M的文件
+find .  -size  +100M  # 递归查找当前目录及其子目录下大于10M的文件 sudo find / -xdev -type f -size +1G -print 2>/dev/null  # 从根目录开始找大于 1G 的文件
  
 tar  -zcvf  demo.tar.gz  Desktop  # 打包指定的目录
  
@@ -37,8 +37,6 @@ curl ifconfig.me / curl ipinfo.io/ip  # 查看公网 IP（需联网）
 hostname -I  # 查看内网ip   
 
 sudo launchctl list | grep com.company.test.service  # MAC查看服务
-
-sudo find / -xdev -type f -size +1G -print 2>/dev/null  # 从根目录开始找大于 1G 的文件
 
 susudo dscacheutil -flushcache
 sudo killall -HUP mDNSResponder  # 清空缓存重启DNS
