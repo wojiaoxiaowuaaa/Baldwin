@@ -1,14 +1,18 @@
 def func_max_diff(arr):
-    """从左到右  查找数组中从左到右的最大差值  tips:较大的元素会出现在较小元素的后面"""
-    if not arr: return 0  # noqa: E701
+    """查找数组中从左到右的最大差值"""
+    if not arr:
+        return 0
 
-    max_diff = 0  # 初始化的最大差值为0
-    min_num = arr[0]  # 初始化的最小数为列表中的第一个元素
+    min_num = arr[0]
+    max_diff = 0
 
-    for i in range(len(arr)):
-        min_num = min(min_num, arr[i])
-        cur_diff = arr[i] - min_num
-        max_diff = max(cur_diff, max_diff)
+    for num in arr[1:]:
+        if num < min_num:
+            min_num = num
+        else:
+            diff = num - min_num
+            if diff > max_diff:
+                max_diff = diff
 
     return max_diff
 
