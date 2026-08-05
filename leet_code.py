@@ -61,21 +61,6 @@ def move_zero(arr):
 #
 #     return arr
 
-def find_max(s: str):
-    """找出字符串中的最大数字子串"""
-    cur_num = 0  # 存储当前正在处理的数字
-    max_num = 0  # 存储最大的数字
-
-    for char in s:
-        if char.isdigit():
-            cur_num = cur_num * 10 + int(char)
-            max_num = max(cur_num, max_num)
-        else:
-            cur_num = 0
-
-    return max_num
-
-
 def two_sum(arr, target):
     """两数只和下标"""
     hashmap = {}
