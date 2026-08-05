@@ -1,3 +1,18 @@
+def removeDuplicates(arr: list[int]):
+    """非严格递增排列 的数组 nums 返回数组里面唯一元素的个数 记作 k"""
+    if not arr: return 0
+
+    res = 0  # res 指向已经整理好的去重区最后一个位置
+    for i in range(1, len(arr)):
+        # 用 i 往后找新数字 用 res 维护去重后的区域 每发现一个新数字 就把它搬到前面去重区的下一个位置 最终数组前 res + 1 个元素就是去重结果
+        if arr[res] != arr[i]:
+            res += 1
+            arr[res] = arr[i]
+    return res + 1
+
+
+# print(removeDuplicates(nums))  nums = [1, 1, 2, 2, 3, 5]
+
 def func_max_diff(arr):
     """查找数组中从左到右的最大差值"""
     if not arr:
