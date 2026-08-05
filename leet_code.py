@@ -13,24 +13,36 @@ def removeDuplicates(arr: list[int]):
 
 # print(removeDuplicates(nums))  nums = [1, 1, 2, 2, 3, 5]
 
-def func_max_diff(arr):
-    """查找数组中从左到右的最大差值"""
+def func_max_diff(arr: list[int]) -> int:
+    """查找数组中后一个数减前一个数的最大差值"""
     if not arr:
         return 0
 
     min_num = arr[0]
     max_diff = 0
 
-    for num in arr[1:]:
+    for i in range(1, len(arr)):
+        num = arr[i]
+
         if num < min_num:
             min_num = num
         else:
-            diff = num - min_num
-            if diff > max_diff:
-                max_diff = diff
+            max_diff = max(max_diff, num - min_num)
 
     return max_diff
 
+# def func_max_diff(arr: list[int]) -> int:
+#     if not arr:
+#         return 0
+
+#     min_num = arr[0]
+#     max_diff = 0
+
+#     for num in arr[1:]:
+#         max_diff = max(max_diff, num - min_num)
+#         min_num = min(min_num, num)
+
+#     return max_diff
 
 def move_zero(arr):
     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序"""
