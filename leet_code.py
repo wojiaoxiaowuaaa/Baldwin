@@ -1,5 +1,5 @@
 def removeDuplicates(arr: list[int]):
-    """非严格递增排列 的数组 nums 返回数组里面唯一元素的个数 记作 k"""
+    """非严格递增排列 的数组 nums = [1, 1, 2, 2, 3, 5] 返回数组里面唯一元素的个数 记作 k """
     if not arr: return 0
 
     res = 0  # res 指向已经整理好的去重区最后一个位置
@@ -9,9 +9,6 @@ def removeDuplicates(arr: list[int]):
             res += 1
             arr[res] = arr[i]
     return res + 1
-
-
-# print(removeDuplicates(nums))  nums = [1, 1, 2, 2, 3, 5]
 
 def func_max_diff(arr: list[int]) -> int:
     """查找数组中后一个数减前一个数的最大差值"""
