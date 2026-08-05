@@ -1,3 +1,22 @@
+def max_number_substring(s: str) -> str:  # abc123def45gh00678x9  查询连续最大的数据子串
+    max_str = ""
+    cur = ""  # cur 用来临时收集当前正在扫描的连续数字
+
+    for ch in s:
+        if ch.isdigit():
+            cur += ch
+        else:  # 如果当前字符不是数字，说明一个连续数字子串结束了
+            if cur:
+                if not max_str or int(cur) > int(max_str):
+                    max_str = cur
+                cur = ""
+
+    if cur:
+        if not max_str or int(cur) > int(max_str):
+            max_str = cur
+
+    return max_str
+
 def removeDuplicates(arr: list[int]):
     """非严格递增排列 的数组 nums = [1, 1, 2, 2, 3, 5] 返回数组里面唯一元素的个数 记作 k """
     if not arr: return 0
