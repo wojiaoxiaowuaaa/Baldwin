@@ -46,7 +46,7 @@ def move_zero(arr):
     arr[:] = [i for i in arr if i] + [0] * arr.count(0)
 
 
-# def move_zero01(arr):
+# def move_zero0(arr):
 #     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序.双指针."""
 #     if not arr: return arr  # noqa: E701
 #
@@ -60,24 +60,6 @@ def move_zero(arr):
 #         arr[z] = 0
 #
 #     return arr
-
-
-# def move_zero02(arr):
-#     if not arr: return arr  # noqa: E701
-#
-#     j = 0  # 指向下一个非0元素应该放置的位置
-#
-#     for i in range(len(arr)):  # [1, 3, 0, 8, 0, 1]
-#         if arr[i]:
-#             # print(i)  0 1 3 5
-#             # print(j)  0 1 2 3
-#             # 1.计算右边的表达式:会生成一个元组 (arr[i], arr[j])
-#             # 2.解包元组：将元组中的值分别赋给左边的变量 arr[j] 和 arr[i] 交换两个元素的位置
-#             arr[j], arr[i] = arr[i], arr[j]
-#             j += 1
-#
-#     return arr  # [1, 3, 8, 1, 0, 0]
-
 
 def find_max(s: str):
     """找出字符串中的最大数字子串"""
