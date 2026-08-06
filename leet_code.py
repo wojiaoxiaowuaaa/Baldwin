@@ -1,3 +1,15 @@
+def quick_sort(arr):
+    """快排"""
+    if len(arr) <= 1: return arr
+
+    p = arr[len(arr) // 2]
+
+    left = [i for i in arr if i < p]
+    middle = [i for i in arr if i == p]
+    right = [i for i in arr if i > p]
+
+    return quick_sort(left) + middle + quick_sort(right)
+
 def max_number_substring(s: str) -> str:  # abc123def45gh00678x9  查询连续最大的数据子串
     max_str = ""
     cur = ""  # cur 用来临时收集当前正在扫描的连续数字
