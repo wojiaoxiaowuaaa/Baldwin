@@ -121,8 +121,6 @@ def find_all_indices(lst, element):
     return res if res else "Not found"
     # 👉这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用 return lst.index(element) if element in lst else "Not Found"
 
-
-
 def fib(n):
     # 生成器生成斐波那契数列  for i in fib(10): print(i, end=" ")
     a, b = 0, 1
