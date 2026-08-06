@@ -40,4 +40,8 @@ chunk_size = 3
 print([l[i:i + chunk_size] for i in range(0, len(l), chunk_size)])
 ```
 
+```python
+生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)
+l = random.sample(range(10), 10)
+```
 
