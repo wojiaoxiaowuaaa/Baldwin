@@ -163,10 +163,6 @@ def func_sum(x):
 #                 l[j], l[j + 1] = l[j + 1], l[j]
 #     return l
 
-# 生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)
-# l = random.sample(range(10), 10)
-# print(mao(l))
-
 def count_characters(file_path):
     """统计文本中字符的出现次数 排序后展示最高频的前十个. 初始化一个空字典hashmap来存储字符及其出现次数"""
     hashmap = {}
