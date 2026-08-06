@@ -102,13 +102,6 @@ def two_sum(arr, target):
 #             if j != index:
 #                 return j, index
 
-# def func(arr, target):
-#     """求两数之和的下标"""
-#     for i in arr:
-#         for j in arr:
-#             if i + j == target:
-#                 return arr.index(i), arr.index(j)
-
 
 # def find_all_indices(lst, element):
 #     """找列表中指定元素的下标"""
