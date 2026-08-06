@@ -103,12 +103,12 @@ def two_sum(arr, target):
 #                 return j, index
 
 
-# def find_all_indices(lst, element):
-#     """找列表中指定元素的下标"""
-#     res = [index for index, value in enumerate(lst) if value == element]
-#     return res if res else "Not found"
-#     # 下面这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用.
-#     return lst.index(element) if element in lst else "Not Found"
+def find_all_indices(lst, element):
+    """找列表中指定元素的下标"""
+    res = [index for index, value in enumerate(lst) if value == element]
+    return res if res else "Not found"
+    # 👉这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用 return lst.index(element) if element in lst else "Not Found"
+
 
 
 def fib(n):
