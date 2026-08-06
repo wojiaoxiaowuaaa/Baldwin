@@ -90,14 +90,6 @@ def two_sum(arr, target):
         hashmap[value] = index
     return None
 
-
-# def find_index(arr, target):
-#     for i in range(len(arr)):
-#         res = target - arr[i]
-#         if res in arr[i + 1:]:
-#             return i, arr[i + 1:].index(res) + i + 1
-
-
 # def func_index(arr, target):
 #     hashmap = {}
 #
@@ -110,20 +102,6 @@ def two_sum(arr, target):
 #             if j != index:
 #                 return j, index
 
-
-# def func(ll, tar):
-#     """给定一个整数数组和一个目标值,找出数组中和为目标值的两个数并返回下标"""
-#     hashmap = {}
-#     # enumerate() 是 Python 内置函数之一,它用于将一个可迭代对象(如列表、元组、字符串等)组合为一个枚举对象,可以同时获取索引和对应的元素值.
-#     for index, value in enumerate(ll):
-#         hashmap[value] = index
-#     for k, v in enumerate(ll):
-#         # 对于列表中的每个元素 v,查找是否存在另一个数 tar - v
-#         j = hashmap.get(tar - v)
-#         # 在字典 hashmap 中.如果存在&&下标不与当前元素的下标相同,说明找到了符合条件的两个数,即它们的和等于目标值 target.
-#         if j is not None and j != k:
-#             return k, j
-
 # def func(arr, target):
 #     """求两数之和的下标"""
 #     for i in arr:
@@ -133,30 +111,19 @@ def two_sum(arr, target):
 
 
 # def find_all_indices(lst, element):
-#     """找列表中指定元素的下标.遍历列表中的每个元素,检查它是否等于我们要查找的元素,如果是,则将该元素的下标添加到列表中"""
-#     # res = [index for index, value in enumerate(lst) if value == element]
-#     # return res if res else "Not found"
+#     """找列表中指定元素的下标"""
+#     res = [index for index, value in enumerate(lst) if value == element]
+#     return res if res else "Not found"
 #     # 下面这这种写法只会返回目标元素第一次出现时的下标,有多个符合条件的元素时不适用.
 #     return lst.index(element) if element in lst else "Not Found"
 
 
-# def find_index(lst, element):
-#     """可以使用 list.index() 方法来查找列表中指定元素的下标.如果元素不在列表中,它会引发 ValueError 异常."""
-#     try:
-#         return lst.index(element)
-#     except ValueError:
-#         return "Not found"
-
-
 def fib(n):
-    # 生成器生成斐波那契数列
+    # 生成器生成斐波那契数列  for i in fib(10): print(i, end=" ")
     a, b = 0, 1
     for _ in range(n):
         a, b = b, a + b
         yield a
-
-
-# for i in fib(10): print(i, end=" ")
 
 # def func_di(numbs):
 #     """
@@ -169,7 +136,6 @@ def fib(n):
 #         return numbs[0]
 #     return numbs[0] + func_di(numbs[1:])
 
-
 def func_sum(x):
     """递归的特性:
     1.必须有一个明确的结束条件;
@@ -181,15 +147,6 @@ def func_sum(x):
         return x + func_sum(x - 1)
     else:
         return 0
-
-
-# def recursive_function():
-#   return recursive_function()  # 无限递归
-# try:
-#     recursive_function()
-# except RecursionError as e:
-#     print("RecursionError:", e)  # RecursionError: maximum recursion depth exceeded
-
 
 # def quick_sort(arr):  # 快速排序
 #     if len(arr) <= 1:
