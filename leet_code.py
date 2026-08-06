@@ -129,33 +129,6 @@ def fib(n):
 #         return numbs[0]
 #     return numbs[0] + func_di(numbs[1:])
 
-def func_sum(x):
-    """递归的特性:
-    1.必须有一个明确的结束条件;
-    2.每次进入更深一层递归时,问题规模相比上次递归都应有所减少
-    3.相邻两次重复之间有紧密的联系,前一次要为后一次做准备(通常前一次的输出就作为后一次的输入).
-    4.递归效率不高,递归层次过多会导致栈溢出(在计算机中,函数调用是通过栈(stack)这种数据结构实现的,每当进入一个函数调用,栈就会加一层栈帧,每当函数返回,栈就会减一层栈帧.由于栈的大小不是无限的,所以,递归调用的次数过多,会导致栈溢出)
-    5.递归的终止条件一般定义在递归函数内部, 在递归调用前要做一个条件判断, 根据判断的结果选择是继续调用自身, 还是return, 返回终止递归;"""
-    if x > 0:
-        return x + func_sum(x - 1)
-    else:
-        return 0
-
-# def quick_sort(arr):  # 快速排序
-#     if len(arr) <= 1:
-#         return arr
-#     pivot = arr[len(arr) // 2]
-#     left = [x for x in arr if x < pivot]
-#     middle = [x for x in arr if x == pivot]
-#     right = [x for x in arr if x > pivot]
-#     return quick_sort(left) + middle + quick_sort(right)
-#
-# arr = [3, 6, 8, 10, 1, 2, 1]
-# print(quick_sort(arr))
-
-# arr = [3, 6, 8, 10, 1, 2, 1, 11, 5, 7, 7, 9, 0, 4, 4, 4, 4]
-# print(quick_sort(arr))
-
 # def mao(l):
 #     for i in range(len(l)):
 #         for j in range(len(l) - 1 - i):
