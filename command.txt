@@ -40,8 +40,7 @@ sudo launchctl list | grep com.company.test.service  # MAC查看服务
 
 sudo tcpdump -i any -nn 'host 1.1.1.1' # 抓与指定IP有关的包
 
-susudo dscacheutil -flushcache
-sudo killall -HUP mDNSResponder  # 清空缓存重启DNS
+susudo dscacheutil -flushcache  # sudo killall -HUP mDNSResponder 清空缓存重启DNS
 
 
 ----------------------------------------------------------------------------------------------
