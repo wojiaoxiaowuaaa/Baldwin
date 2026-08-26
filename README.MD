@@ -36,13 +36,11 @@ print({v: k for k, v in d.items()})  # 字典推导式对换一个字典的键�
 ```python
 # 将列表按照指定步长拆分
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-chunk_size = 3
-print([l[i:i + chunk_size] for i in range(0, len(l), chunk_size)])
+print([l[i:i + 3] for i in range(0, len(l), 3)])  # chunk_size = 3
 ```
 
 ```python
-生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)
-import random
+# 生成长度为k的随机列表(从指定序列中随机抽取k个不重复的元素并以列表形式返回这些元素)  import random
 l = random.sample(range(10), 10)
 ```
 
