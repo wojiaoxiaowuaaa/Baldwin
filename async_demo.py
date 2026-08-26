@@ -1,6 +1,7 @@
 import asyncio
 import aiohttp
 import time
+from loguru import logger
 from tqdm.asyncio import tqdm
 
 DOMAINS = [
@@ -18,12 +19,10 @@ DOMAINS = [
     'https://www.alibaba.com',
 ]
 
-# 可选：启用 HTTP/HTTPS 代理
 USE_PROXY = False
-PROXY_URL = 'http://127.0.0.1:7890'  
+PROXY_URL = 'http://127.0.0.1:7890'  # 可选：启用 HTTP/HTTPS 代理
 
 
-# 请求函数，带响应时间统计
 async def fetch(session, url):
     start_time = time.perf_counter()
     try:
@@ -40,25 +39,18 @@ async def fetch(session, url):
         return {'url': url, 'status': None, 'elapsed_ms': int(elapsed), 'error': str(e)}
 
 
-
 async def main():
     conn = aiohttp.TCPConnector(ssl=False)  # 有些站点 SSL 验证容易失败，可关掉
     async with aiohttp.ClientSession(connector=conn) as session:
         tasks = [fetch(session, url) for url in DOMAINS]
-        results1 = []
-        for coro in tqdm.as_completed(tasks, total=len(tasks), desc="访问网站中"):
-            # result是协程的返回值（字典类型的数据包含了请求的详细数据）
-            result = await coro
-            results1.append(result)
-        return results1
+        return [await coro for coro in tqdm.as_completed(tasks, total=len(tasks), desc="访问中......")]
 
 
 if __name__ == "__main__":
     results = asyncio.run(main())
-
-    print("\n📊 请求结果：")
+    logger.info("📊 请求结果")
     for r in results:
         if r['error']:
-            print(f"[❌ FAIL] {r['url']:<40} - {r['error']} ({r['elapsed_ms']} ms)")
+            logger.info(f"[❌ FAIL] {r['url']:<40} - {r['error']} ({r['elapsed_ms']} ms)")
         else:
-            print(f"[✅ OK  ] {r['url']:<40} - {r['status']} ({r['elapsed_ms']} ms)")
+            logger.info(f"[✅ OK  ] {r['url']:<40} - {r['status']} ({r['elapsed_ms']} ms)")
