@@ -7,3 +7,4 @@
 
 # wl_dir = Path(__file__).resolve().parents[2]
 
+# python -c 'import os; print(os.getenv("CONSUL_DEMO"))'
