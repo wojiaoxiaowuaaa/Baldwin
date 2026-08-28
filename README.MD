@@ -14,9 +14,7 @@ for i in my_iterator: print(i)
 ```
 
 ```python
-from datetime import datetime
-
-print(str(datetime.now())[:-7])  # 获取当前时间(可读格式),并将其转换为字符串形式.  # 当前时刻的时间戳 单位:秒  import time   print(int(time.time())) 
+print(str(datetime.now())[:-7])  # from datetime import datetime 获取当前时间(可读格式),并将其转换为字符串形式.  # 当前时刻的时间戳 单位:秒  import time   print(int(time.time())) 
 ```
 
 ```python
@@ -24,9 +22,8 @@ my_dict = {'a': 1, 'b': 2, 'c': 3} # 等于list(my_dict.keys())将字典的键�
 ```
 
 ```python
-# 将列表按照指定步长拆分
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print([l[i:i + 3] for i in range(0, len(l), 3)])  # chunk_size = 3
+print([l[i:i + 3] for i in range(0, len(l), 3)])  # chunk_size = 3  # 将列表按照指定步长拆分
 ```
 
 ```python
