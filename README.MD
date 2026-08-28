@@ -19,10 +19,8 @@ for i in my_iterator: print(i)
 
 ```python
 from datetime import datetime
-import time
 
-print(str(datetime.now())[:-7])  # 获取当前时间(可读格式),并将其转换为字符串形式.
-print(int(time.time()))  # 当前时刻的时间戳 单位:秒
+print(str(datetime.now())[:-7])  # 获取当前时间(可读格式),并将其转换为字符串形式.  # 当前时刻的时间戳 单位:秒  import time   print(int(time.time())) 
 ```
 
 ```python
