@@ -18,7 +18,7 @@ print(str(datetime.now())[:-7])  # from datetime import datetime 获取当前时
 ```
 
 ```python
-my_dict = {'a': 1, 'b': 2, 'c': 3} # 等于list(my_dict.keys())将字典的键转换为列表，然后获取第二个键. keys = list(my_dict)[1]  同理可以转换为列表后取value的值list(my_dict.values())  # print(sorted(d.items(), key=lambda x: x[1])) # items() 方法是 Python 字典对象的一个内置方法，它返回一个包含字典键值对的视图对象。这个视图对象是一个可迭代的对象，其中每个元素都是一个包含键值对的元组 (key, value)。  print({v: k for k, v in d.items()})  # 字典推导式对换一个字典的键跟值
+my_dict = {'a': 1, 'b': 2, 'c': 3} # 将字典的键转换为列表，然后获取第二个键. keys = list(my_dict)[1]  同理可以转换为列表后取value的值list(my_dict.values())  # print(sorted(d.items(), key=lambda x: x[1])) # items() 方法是 Python 字典对象的一个内置方法，它返回一个包含字典键值对的视图对象。这个视图对象是一个可迭代的对象，其中每个元素都是一个包含键值对的元组 (key, value)。  print({v: k for k, v in d.items()})  # 字典推导式对换一个字典的键跟值
 ```
 
 ```python
