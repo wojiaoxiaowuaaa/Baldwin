@@ -4,7 +4,7 @@ arr = [(i, j) for i in ['a', 'b', 'c'] for j in [1, 2, 3]]
 
 ```python
 demo_json = Path(__file__).read_text()  # 读取本地存储的文件内容 from pathlib import Path
-pwd = Path('.').resolve()  # 获取当前目录路径或者Path.cwd()
+pwd = Path('.').resolve()  # 获取当前目录路径或者Path.cwd()  # wl_dir = Path(__file__).resolve().parents[2]
 ```
 
 ```python
