@@ -1,3 +1,25 @@
+def two_sum(arr, target):
+    """两数只和下标"""
+    hashmap = {}
+
+    for index, value in enumerate(arr):
+        if target - value in hashmap:
+            return hashmap[target - value], index  # 可以在找到结果时立即返回 不需要继续循环
+        hashmap[value] = index
+    return None
+
+# def func_index(arr, target):
+#     hashmap = {}
+#
+#     for index, value in enumerate(arr):
+#         hashmap[value] = index
+#
+#         if target - value in hashmap:
+#             j = hashmap.get(target - value)
+#
+#             if j != index:
+#                 return j, index
+
 def quick_sort(arr):
     """快排"""
     if len(arr) <= 1: return arr
@@ -91,29 +113,6 @@ def move_zero(arr):
 #         arr[z] = 0
 #
 #     return arr
-
-def two_sum(arr, target):
-    """两数只和下标"""
-    hashmap = {}
-
-    for index, value in enumerate(arr):
-        if target - value in hashmap:
-            return hashmap[target - value], index  # 可以在找到结果时立即返回 不需要继续循环
-        hashmap[value] = index
-    return None
-
-# def func_index(arr, target):
-#     hashmap = {}
-#
-#     for index, value in enumerate(arr):
-#         hashmap[value] = index
-#
-#         if target - value in hashmap:
-#             j = hashmap.get(target - value)
-#
-#             if j != index:
-#                 return j, index
-
 
 def find_all_indices(lst, element):
     """找列表中指定元素的下标"""
