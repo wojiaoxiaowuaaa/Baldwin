@@ -1,10 +1,11 @@
-def two_sum(arr, target):
-    """两数只和下标"""
-    hashmap = {}
+from typing import Optional, Tuple
 
+def two_sum(arr: list[int], target: int) -> Optional[Tuple[int, int]]:
+    """两数之和"""
+    hashmap = {}
     for index, value in enumerate(arr):
         if target - value in hashmap:
-            return hashmap[target - value], index  # 可以在找到结果时立即返回 不需要继续循环
+            return hashmap[target - value], index
         hashmap[value] = index
     return None
 
