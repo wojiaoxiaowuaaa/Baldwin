@@ -9,18 +9,6 @@ def two_sum(arr: list[int], target: int) -> Optional[Tuple[int, int]]:
         hashmap[value] = index
     return None
 
-# def func_index(arr, target):
-#     hashmap = {}
-#
-#     for index, value in enumerate(arr):
-#         hashmap[value] = index
-#
-#         if target - value in hashmap:
-#             j = hashmap.get(target - value)
-#
-#             if j != index:
-#                 return j, index
-
 def quick_sort(arr):
     """快排"""
     if len(arr) <= 1: return arr
@@ -33,22 +21,17 @@ def quick_sort(arr):
 
     return quick_sort(left) + middle + quick_sort(right)
 
-def max_number_substring(s: str) -> str:  # abc123def45gh00678x9  查询连续最大的数据子串
+def max_number_substring(s: str) -> str:  # 寻找字符串中的最大连续数字子串
     max_str = ""
-    cur = ""  # cur 用来临时收集当前正在扫描的连续数字
+    cur = ""
 
-    for ch in s:
+    for ch in s + "\0":          # 末尾加一个非数字哨兵
         if ch.isdigit():
             cur += ch
-        else:  # 如果当前字符不是数字，说明一个连续数字子串结束了
-            if cur:
-                if not max_str or int(cur) > int(max_str):
-                    max_str = cur
-                cur = ""
-
-    if cur:
-        if not max_str or int(cur) > int(max_str):
-            max_str = cur
+        elif cur:                # 只有一段真正结束时才结算
+            if not max_str or int(cur) > int(max_str):
+                max_str = cur
+            cur = ""
 
     return max_str
 
