@@ -39,32 +39,26 @@ def removeDuplicates(nums):
     """一个非严格递增排列的数组 nums 请你原地删除重复出现的元素，使每个元素只出现一次，返回删除后数组的新长度。元素的相对顺序保持一致。示例：nums = [1, 1, 2, 2, 3, 5]
     去重后唯一元素：[1,2,3,5]返回 k=4"""
     if not nums: return 0
-
     k = 1  # 下一个不重复元素要存放的位置下标，同时也代表目前已经找到的不重复元素总个数
-
     for i in range(1, len(nums)):
         if nums[i] != nums[i - 1]:
             nums[k] = nums[i]
             k += 1
     return k
 
-
 def func_max_diff(arr: list[int]) -> int:
-    """查找数组中后一个数减前一个数的最大差值"""
+    """查找数组中后一个数减前一个数的最大差值。股票买卖问题"""
     if not arr:
         return 0
-
     min_num = arr[0]
     max_diff = 0
-
     for i in range(1, len(arr)):
+        # 一次遍历，边更新最小值，边计算"用当前值减去历史最小值"
         num = arr[i]
-
         if num < min_num:
             min_num = num
         else:
             max_diff = max(max_diff, num - min_num)
-
     return max_diff
 
 # def func_max_diff(arr: list[int]) -> int:
