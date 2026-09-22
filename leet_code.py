@@ -12,19 +12,15 @@ def two_sum(arr: list[int], target: int) -> Optional[Tuple[int, int]]:
 def quick_sort(arr):
     """快排"""
     if len(arr) <= 1: return arr
-
     p = arr[len(arr) // 2]
-
     left = [i for i in arr if i < p]
     middle = [i for i in arr if i == p]
     right = [i for i in arr if i > p]
-
     return quick_sort(left) + middle + quick_sort(right)
 
 def max_number_substring(s: str) -> str:  # 寻找字符串中的最大连续数字子串
     max_str = ""
     cur = ""
-
     for ch in s + "\0":          # 末尾加一个非数字哨兵
         if ch.isdigit():
             cur += ch
@@ -32,7 +28,6 @@ def max_number_substring(s: str) -> str:  # 寻找字符串中的最大连续数
             if not max_str or int(cur) > int(max_str):
                 max_str = cur
             cur = ""
-
     return max_str
 
 def removeDuplicates(nums):
@@ -71,13 +66,11 @@ def func_max_diff(arr: list[int]) -> int:
 #     for num in arr[1:]:
 #         max_diff = max(max_diff, num - min_num)
 #         min_num = min(min_num, num)
-
 #     return max_diff
 
 def move_zero(arr):
     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序"""
     arr[:] = [i for i in arr if i] + [0] * arr.count(0)
-
 
 # def move_zero0(arr):
 #     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序.双指针."""
