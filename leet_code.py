@@ -40,20 +40,15 @@ def removeDuplicates(nums):
             nums[k] = nums[i]
             k += 1
     return k
-
+    
 def func_max_diff(arr: list[int]) -> int:
     """查找数组中后一个数减前一个数的最大差值。股票买卖问题"""
-    if not arr:
-        return 0
+    if not arr: return 0
     min_num = arr[0]
     max_diff = 0
-    for i in range(1, len(arr)):
-        # 一次遍历，边更新最小值，边计算"用当前值减去历史最小值"
-        num = arr[i]
-        if num < min_num:
-            min_num = num
-        else:
-            max_diff = max(max_diff, num - min_num)
+    for num in arr[1:]:
+        min_num = min(min_num, num)
+        max_diff = max(max_diff, num - min_num)
     return max_diff
 
 # def func_max_diff(arr: list[int]) -> int:
