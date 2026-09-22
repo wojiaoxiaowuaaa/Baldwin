@@ -51,36 +51,9 @@ def func_max_diff(arr: list[int]) -> int:
         max_diff = max(max_diff, num - min_num)
     return max_diff
 
-# def func_max_diff(arr: list[int]) -> int:
-#     if not arr:
-#         return 0
-
-#     min_num = arr[0]
-#     max_diff = 0
-
-#     for num in arr[1:]:
-#         max_diff = max(max_diff, num - min_num)
-#         min_num = min(min_num, num)
-#     return max_diff
-
 def move_zero(arr):
     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序"""
     arr[:] = [i for i in arr if i] + [0] * arr.count(0)
-
-# def move_zero0(arr):
-#     """给定一个数组 nums,编写一个函数将所有 0 移动到数组的末尾,同时保持非零元素的相对顺序.双指针."""
-#     if not arr: return arr  # noqa: E701
-#
-#     j = 0  # 第一次遍历的时候,j指针记录非0的个数,只要是非0的统统都赋给nums[j]
-#     for i in range(len(arr)):
-#         if arr[i]:
-#             arr[j] = arr[i]
-#             j += 1
-#
-#     for z in range(j, len(arr)):  # 非0元素统计完了,剩下的都是0了所以第二次遍历把末尾的元素都赋为0即可
-#         arr[z] = 0
-#
-#     return arr
 
 def find_all_indices(lst, element):
     """找列表中指定元素的下标"""
