@@ -35,17 +35,19 @@ def max_number_substring(s: str) -> str:  # 寻找字符串中的最大连续数
 
     return max_str
 
-def removeDuplicates(arr: list[int]):
-    """非严格递增排列 的数组 nums = [1, 1, 2, 2, 3, 5] 返回数组里面唯一元素的个数 记作 k """
-    if not arr: return 0
+def removeDuplicates(nums):
+    """一个非严格递增排列的数组 nums 请你原地删除重复出现的元素，使每个元素只出现一次，返回删除后数组的新长度。元素的相对顺序保持一致。示例：nums = [1, 1, 2, 2, 3, 5]
+    去重后唯一元素：[1,2,3,5]返回 k=4"""
+    if not nums: return 0
 
-    res = 0  # res 指向已经整理好的去重区最后一个位置
-    for i in range(1, len(arr)):
-        # 用 i 往后找新数字 用 res 维护去重后的区域 每发现一个新数字 就把它搬到前面去重区的下一个位置 最终数组前 res + 1 个元素就是去重结果
-        if arr[res] != arr[i]:
-            res += 1
-            arr[res] = arr[i]
-    return res + 1
+    k = 1  # 下一个不重复元素要存放的位置下标，同时也代表目前已经找到的不重复元素总个数
+
+    for i in range(1, len(nums)):
+        if nums[i] != nums[i - 1]:
+            nums[k] = nums[i]
+            k += 1
+    return k
+
 
 def func_max_diff(arr: list[int]) -> int:
     """查找数组中后一个数减前一个数的最大差值"""
