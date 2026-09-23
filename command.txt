@@ -43,43 +43,18 @@ sudo tcpdump -i any -nn 'host 1.1.1.1' # 抓与指定IP有关的包
 sudo dscacheutil -flushcache  # sudo killall -HUP mDNSResponder 清空缓存重启DNS
 
 ----------------------------------------------------------------------------------------------
-sudo powermetrics --samplers smc | grep -i "CPU die temperature"  # Mac查看cpu温度(以下为work指令)
 
-dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)  # 生成测试压缩文件文件
 
-dd if=/dev/zero of=output_file bs=1M count=24  # 生大小24M  文件名output_file
+
+dd if=/dev/zero bs=1048576 count=1000 | gzip > boom.gz  (解压得到大文件1G:  gzip -d boom.gz)  # 生成测试压缩文件文件  dd if=/dev/zero of=output_file bs=1M count=24  # 生大小24M  文件名output_file
 
 find .  -name   "*.zip"  -exec unzip -o {} \;  # 解压当前目录下的所有zip文件,末尾的分号记得带上
 
-Open Default Shell in Tab  (Open Default Shell in Panel)  # sublime打开终端(底部打开or标签页打开)
-
 pip3 install httpstat (brew install httpstat)  # 安装HTTP工具(优化请求结果展示)：
-
-tspin demo.log  # 查看 日志
-
-tl  demo.log   (pip3 install toolong)  # 日志/json查看工具
-
-brew install android-platform-tools  # 安装adb工具(查看版本adb version)
-
-brew --prefix docker # 查看docker的安装位置
 
 python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
 
 python3 -m http.server --bind 0.0.0.0 8080
 
-python3 -m pip install demo # 如果pip安装包后提示找不到可以用改方法来安装
-
-pip3 install -r requirements.txt  # 从txt中安装-r是必须的
-
-pip3 install --no-cache-dir -r requirements.txt  # pip安装失败时可这个命令
-
 cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://指定的pip源 extra-index-url = https://添加多个源
-
-pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple pip config set global.extra-index-url https://pypi.org/simple
-
-/usr/local/bin/chromedriver
-
-pytest -sv # 运行打印输出详细的测试细节
-
-uv python list
 
