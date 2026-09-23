@@ -1,1 +1,12 @@
-requests
+# 过设置 PYTHONPATH 环境变量,你可以指定 Python 解释器在查找模块和包时应该搜索的目录.这使得你能够在自定义目录中组织和管理你的 Python 模块和包,而不需要将它们复制到标准库路径或当前脚本目录中.(写到.zshrc文件中可永久生效)
+# export PYTHONPATH="/Users/wl/Downloads/Baldwin:$PYTHONPATH" 
+
+# os.path.insert(0, "..") 添加当前脚本的上级目录到系统路径列表的开头
+
+# only_name = str(uuid.uuid4()).replace("-", "")
+
+# python -c 'import os; print(os.getenv("CONSUL_DEMO"))'
+
+# 使用 iter() 函数创建迭代器，使用 lambda 函数作为可调用对象. iter() 函数接受两个参数，分别是可调用对象和哨兵值。它会不断调用可调用对象，直到返回哨兵值为止。 哨兵值（sentinel value）是一个特殊的值，用于表示迭代的终止条件。当迭代器产生哨兵值时，for 循环会认为迭代结束，从而退出循环。
+# my_iterator = iter(lambda: input("Enter a number or 'stop' to end: "), 'stop')
+# for i in my_iterator: print(i)
