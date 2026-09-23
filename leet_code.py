@@ -94,31 +94,6 @@ def count_characters(file_path):
     res = hashmap[:10]
     return dict(res)
 
-
-# def count_file(pwd):
-#     """统计文件中小写字母的数量"""
-#     count = 0
-#
-#     with open(pwd) as f:
-#         data = f.read()
-#         for _ in data:
-#             if _.islower():  # 统计大写用 isupper
-#                 count += 1
-#     return count
-
-
-# def count_letters(s):
-#     """统计字符串中字母出现的次数"""
-#     letter_dict = {}
-#     for char in s:
-#         if char.isalpha():  # 判断字符是否为字母(中文+英文)
-#             if char in letter_dict:
-#                 letter_dict[char] += 1
-#             else:
-#                 letter_dict[char] = 1
-#     return letter_dict
-
-
 def reverse_int(x):
     """反转一个int类型 方法一&方法二"""
     return int("".join([i for i in str(x)][::-1]))
@@ -143,87 +118,40 @@ def reverse_int(x):
 # def is_hui(num):
 #     """判断一个整数是否是回文数 转换成str后使用反向切片判断"""
 #     return str(num) == str(num)[::-1]
-#     # print(filter_numbers([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 
-
-# def is_prime(n):
-#     """判断素数的函数"""
-#     if n > 1:
-#         from math import sqrt
-#         for factor in range(2, int(sqrt(n)) + 1):
-#             if n % factor == 0:
+# def is_valid(s: str) -> bool:
+#     """检查字符串是否表示一个有效的括号序列.有效括号序列是指由左括号("(", "{", "[")和相应的右括号(")", "}", "]")组成,且左括号和右括号成对出现,没有多余的括号"""
+#     stack = []  # 1. 初始化一个空栈`stack`,用于存储遇到的左括号.
+#     mapping = {")": "(", "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典,它将每个右括号映射到其对应的左括号.
+#     for char in s:  # 3. 遍历输入字符串`s`中的每个字符`char`:如果`char`是一个右括号(即在`mapping`字典的键中),检查栈顶元素(如果栈不为空则弹出,否则假设为'-') 如果栈顶元素不是与当前右括号匹配的左括号,返回`False`,因为这意味着括号不匹配.否则,`char`是一个左括号,将其压入栈中.
+#         if char in mapping:
+#             top_element = stack.pop() if stack else "-"
+#             if mapping[char] != top_element:
 #                 return False
-#         return True if n != 1 else False
-#     return False
+#         else:
+#             stack.append(char)
+#     return not stack  # 遍历结束后,如果栈为空,说明所有左括号都有对应的右括号,返回`True`;否则返回`False`,因为存在未闭合的左括号.
 
-
-# def file_write():
-#     """
-#     1. if 语句:用于判断一个条件是否为真.如果条件为真,则执行 if 代码块中的语句.
-#     2. elif 语句:是"else if"的缩写,用于在前面的 if 或 elif 条件不满足时,检查另一个条件.如果 elif 条件为真,则执行 elif 代码块中的语句.
-#     3. else 语句:用于在所有前面的 if 和 elif 条件都不满足时执行代码块"""
-#     filenames = (
-#         "../data/log/aaa.txt",
-#         "../data/log/aaab.txt",
-#         "../data/log/aaac.txt",
-#     )
-#     l = []
-#     try:
-#         for file in filenames:
-#             l.append(open(file, "w"))
-#         for num in range(1, 200):
-#             if is_prime(num):
-#                 if num <= 10:
-#                     l[0].write(str(num) + "\n")
-#                 elif num <= 100:
-#                     l[1].write(str(num) + "\n")
-#                 else:
-#                     l[2].write(str(num) + "\n")
-#     except IOError as e:
-#         print(e)
-#     finally:
-#         for f in l:
-#             f.close()
-
-
-def is_valid(s: str) -> bool:
-    """检查字符串是否表示一个有效的括号序列.有效括号序列是指由左括号("(", "{", "[")和相应的右括号(")", "}", "]")组成,且左括号和右括号成对出现,没有多余的括号"""
-
-    stack = []  # 1. 初始化一个空栈`stack`,用于存储遇到的左括号.
-
-    mapping = {")": "(", "}": "{", "]": "["}  # 2. (字典的key均为右括号)创建一个映射字典,它将每个右括号映射到其对应的左括号.
-
-    for char in s:  # 3. 遍历输入字符串`s`中的每个字符`char`:如果`char`是一个右括号(即在`mapping`字典的键中),检查栈顶元素(如果栈不为空则弹出,否则假设为'-') 如果栈顶元素不是与当前右括号匹配的左括号,返回`False`,因为这意味着括号不匹配.否则,`char`是一个左括号,将其压入栈中.
-        if char in mapping:
-            top_element = stack.pop() if stack else "-"
-            if mapping[char] != top_element:
-                return False
-        else:
-            stack.append(char)
-
-    return not stack  # 遍历结束后,如果栈为空,说明所有左括号都有对应的右括号,返回`True`;否则返回`False`,因为存在未闭合的左括号.
-
-
-def quick_sort(arr):
-    # 增加异常处理以确保传入的是列表并且列表中至少有一个元素
-    # if not isinstance(arr, list) or len(arr) == 0:
-    #     return []
-    # 递归基:数组长度小于等于1时,直接返回
-    if len(arr) <= 1:
-        return arr
-    # 选择基准元素:这里使用数组中间位置的元素
-    pivot = arr[len(arr) // 2]
-    # 三向切分:通过一次遍历,将数组分成小于、等于和大于基准元素的三个部分(不断地缩小问题规模)
-    less, equal, greater = [], [], []
-    for x in arr:
-        if x < pivot:
-            less.append(x)
-        elif x == pivot:
-            equal.append(x)
-        else:
-            greater.append(x)
-    # 递归地对小于和大于基准的部分进行排序,然后连接三个部分
-    return quick_sort(less) + equal + quick_sort(greater)
+# def quick_sort(arr):
+#     # 增加异常处理以确保传入的是列表并且列表中至少有一个元素
+#     # if not isinstance(arr, list) or len(arr) == 0:
+#     #     return []
+#     # 递归基:数组长度小于等于1时,直接返回
+#     if len(arr) <= 1:
+#         return arr
+#     # 选择基准元素:这里使用数组中间位置的元素
+#     pivot = arr[len(arr) // 2]
+#     # 三向切分:通过一次遍历,将数组分成小于、等于和大于基准元素的三个部分(不断地缩小问题规模)
+#     less, equal, greater = [], [], []
+#     for x in arr:
+#         if x < pivot:
+#             less.append(x)
+#         elif x == pivot:
+#             equal.append(x)
+#         else:
+#             greater.append(x)
+#     # 递归地对小于和大于基准的部分进行排序,然后连接三个部分
+#     return quick_sort(less) + equal + quick_sort(greater)
 
 
 # def func_di(numbs):
