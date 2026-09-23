@@ -52,9 +52,7 @@ find .  -name   "*.zip"  -exec unzip -o {} \;  # 解压当前目录下的所有z
 
 pip3 install httpstat (brew install httpstat)  # 安装HTTP工具(优化请求结果展示)：
 
-python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问
-
-python3 -m http.server --bind 0.0.0.0 8080
+python3 -m http.server  # 在指定目录下启动简易服务器 可通过浏览器访问  python3 -m http.server --bind 0.0.0.0 8080
 
 cd ~ && mkdir .pip && touch pip.conf  && vi pip.conf [global] index-url=https://指定的pip源 extra-index-url = https://添加多个源
 
