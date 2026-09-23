@@ -68,24 +68,6 @@ def fib(n):
         a, b = b, a + b
         yield a
 
-# def func_di(numbs):
-#     """
-#     递归三原则
-#     (1)递归算法必须有基本情况;(算法停止递归的条件)
-#     (2)递归算法必须改变其状态并向基本情况靠近;
-#     (3)递归算法必须递归地调用自己.
-#     """
-#     if len(numbs) == 1:
-#         return numbs[0]
-#     return numbs[0] + func_di(numbs[1:])
-
-# def mao(l):
-#     for i in range(len(l)):
-#         for j in range(len(l) - 1 - i):
-#             if l[j] > l[j + 1]:
-#                 l[j], l[j + 1] = l[j + 1], l[j]
-#     return l
-
 def count_characters(file_path):
     """统计文本中字符的出现次数 排序后展示最高频的前十个. 初始化一个空字典hashmap来存储字符及其出现次数"""
     hashmap = {}
@@ -242,3 +224,23 @@ def quick_sort(arr):
             greater.append(x)
     # 递归地对小于和大于基准的部分进行排序,然后连接三个部分
     return quick_sort(less) + equal + quick_sort(greater)
+
+
+# def func_di(numbs):
+#     """
+#     递归三原则
+#     (1)递归算法必须有基本情况;(算法停止递归的条件)
+#     (2)递归算法必须改变其状态并向基本情况靠近;
+#     (3)递归算法必须递归地调用自己.
+#     """
+#     if len(numbs) == 1:
+#         return numbs[0]
+#     return numbs[0] + func_di(numbs[1:])
+
+# def mao(l):
+#     for i in range(len(l)):
+#         for j in range(len(l) - 1 - i):
+#             if l[j] > l[j + 1]:
+#                 l[j], l[j + 1] = l[j + 1], l[j]
+#     return l
+
